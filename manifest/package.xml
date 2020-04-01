@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>*</members>
-        <name>ApexClass</name>
+        <members>Happening_Now</members>
+        <name>FlexiPage</name>
     </types>
     <types>
-        <members>*</members>
-        <name>ApexComponent</name>
+        <members>ISV_Console_UtilityBar</members>
+        <name>FlexiPage</name>
     </types>
     <types>
-        <members>*</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTestSuite</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTrigger</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>AuraDefinitionBundle</name>
+        <members>ISV_Console</members>
+        <name>CustomApplication</name>
     </types>
     <types>
         <members>*</members>
@@ -30,7 +18,31 @@
     </types>
     <types>
         <members>*</members>
-        <name>StaticResource</name>
+        <name>LightningMessageChannel</name>
     </types>
-    <version>55.0</version>
+    <types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>RecommendationStrategy</name>
+    </types>
+    <types>
+        <members>ISV_Console_Admin</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomTab</name>
+    </types>
+    <version>48.0</version>
 </Package>

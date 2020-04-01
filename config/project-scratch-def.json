@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "orgName": "rreboucas company",
+=======
+  "orgName": "root company",
+>>>>>>> bf21124 (first commit)
   "edition": "Developer",
   "features": []
 }

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Calls Apex invocable method to get all users with a given permission set</description>
+        <name>Get_Users_with_Permission</name>
+        <label>Get Users with Permission</label>
+        <locationX>176</locationX>
+        <locationY>194</locationY>
+        <actionName>UsersWithPermissionFlowHelper</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Get_System_Administrator_Profile</targetReference>
+        </connector>
+        <inputParameters>
+            <name>permissionSetNames</name>
+            <value>
+                <elementReference>PermissionSetName</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>Useremails</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email</name>
+        <label>Send Email</label>
+        <locationX>176</locationX>
+        <locationY>890</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>EmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>Useremails</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Notification of Org Expiry</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <description>Adds the email of this Sys admin to the list of users to be emailed</description>
+        <name>Add_email_to_list</name>
+        <label>Add email to list</label>
+        <locationX>264</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>Useremails</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Get_User_Emails.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_User_Emails</targetReference>
+        </connector>
+    </assignments>
+    <description>Sends a notification to given users on the scheduled dates. By default, scheduled dates are 1 week and 1 day before org expiration, but can be customised in the Org Expiration Timer component</description>
+    <interviewLabel>Org Expiration Notification {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Org Expiration Notification</label>
+    <loops>
+        <description>Loops through our list of users and adds their email to the email collection</description>
+        <name>Get_User_Emails</name>
+        <label>Get User Emails</label>
+        <locationX>176</locationX>
+        <locationY>554</locationY>
+        <collectionReference>Get_System_Administrators</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_email_to_list</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Send_Email</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the System Administrator profile</description>
+        <name>Get_System_Administrator_Profile</name>
+        <label>Get System Administrator Profile</label>
+        <locationX>176</locationX>
+        <locationY>314</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_System_Administrators</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>System Administrator</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Profile</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets users with the System Administrator Profile</description>
+        <name>Get_System_Administrators</name>
+        <label>Get System Administrators</label>
+        <locationX>176</locationX>
+        <locationY>434</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_User_Emails</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProfileId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_System_Administrator_Profile.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>User</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Email</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Users_with_Permission</targetReference>
+        </connector>
+        <object>isvconsole__Org_Expiry_Notification__e</object>
+        <triggerType>PlatformEvent</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>The body of the email to be sent to selected users</description>
+        <name>EmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;This is an automated notification informing you that your Salesforce org with ID {!$Organization.Id} is due to expire on {!$Record.Expiry_Date__c}, at which point, you will be unable to login to the org.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Once you have a signed partnership agreement with Salesforce, raise this case to activate the org and prevent future expiry:&lt;/p&gt;&lt;p&gt;https://partners.salesforce.com/newPartnerCase?subtopic=BenefitsAndTools&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you&apos;ve not yet signed a partnership agreement with Salesforce but would like to pursue this and extend your trial period, then please raise the below case to automatically extend the lifetime of your org. &lt;/p&gt;&lt;p&gt;https://partners.salesforce.com/newPartnerCase?subtopic=TrialExtension&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Once your org has been extended, it&apos;s wise to set this reminder of org expiry again in future using the Org Expiration Manager component within your org.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Kind regards,&lt;/p&gt;&lt;p&gt;The Salesforce Technical Evangelism Team&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <description>Holds a permission set name</description>
+        <name>PermissionSetName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>ISV_Console_Admin</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <description>The names of the permission sets we want to retrieve the users for</description>
+        <name>PermissionSetNames</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Emails of the users to be notified</description>
+        <name>Useremails</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

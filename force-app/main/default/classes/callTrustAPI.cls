@@ -1,5 +1,4 @@
 global class callTrustAPI {
-    
     @future(callout=true)
     public static void getMaintenances()
     { 

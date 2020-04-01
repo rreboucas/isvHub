@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This Lightning Message Channel is used to exchange information from the ISV Console App</description>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <description>message to be Sent</description>
+        <fieldName>messageToSend</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>UI Component that sent the message</description>
+        <fieldName>sourceComponent</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>Form Factor used by the user</description>
+        <fieldName>formFactor</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>Type of Action to Perform</description>
+        <fieldName>actionType</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>Email Address</description>
+        <fieldName>email</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>Type Of Email to Send</description>
+        <fieldName>emailType</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The title of the component</description>
+        <fieldName>title</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The Start Date of an event</description>
+        <fieldName>startdt</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The year format of an event</description>
+        <fieldName>yearFormat</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The month format of an event</description>
+        <fieldName>monthFormat</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The day format of an event</description>
+        <fieldName>dayFormat</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The weekday format of an event</description>
+        <fieldName>weekDayFormat</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The start time of an event</description>
+        <fieldName>starttime</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The end time of an event</description>
+        <fieldName>endtime</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The availability of an org</description>
+        <fieldName>availavility</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The instance name</description>
+        <fieldName>instancename</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The maintenance name</description>
+        <fieldName>maintenancename</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The org id</description>
+        <fieldName>orgid</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The org type</description>
+        <fieldName>orgtype</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The LMA license id</description>
+        <fieldName>licenseid</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The maintenance record id</description>
+        <fieldName>maintenanceid</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>The org type (Prod, Sandbox, etc)</description>
+        <fieldName>orgtype</fieldName>
+    </lightningMessageFields>
+    <masterLabel>ISVConsoleMessageChannel</masterLabel>
+</LightningMessageChannel>
