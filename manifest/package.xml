@@ -17,13 +17,19 @@
         <name>LightningComponentBundle</name>
     </types>
     <types>
+<<<<<<< HEAD
         <members>*</members>
         <name>LightningMessageChannel</name>
+=======
+        <members>itemActionCard</members>
+        <name>LightningComponentBundle</name>
+>>>>>>> 33dcdb1 (added)
     </types>
     <types>
         <members>*</members>
         <name>ApexClass</name>
     </types>
+<<<<<<< HEAD
     <types>
         <members>*</members>
         <name>AuraDefinitionBundle</name>
@@ -44,5 +50,7 @@
         <members>*</members>
         <name>CustomTab</name>
     </types>
+=======
+>>>>>>> 33dcdb1 (added)
     <version>48.0</version>
 </Package>

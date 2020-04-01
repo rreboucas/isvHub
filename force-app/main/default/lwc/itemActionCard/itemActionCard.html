@@ -7,17 +7,13 @@
 
 <template>
     
-<div class="rowText">
-    <article>
-        
-        <div class="slds-p-top_x-small slds-p-bottom_x-small slds-m-top_xx-small">
-            
-            <lightning-layout vertical-align="start" >
-                
-                <!-- Left Column - Row Icon - Start-->
-                <lightning-layout-item padding="around-small" size="1">
-                    <div class="header-column">
-                        <lightning-icon icon-name={rowIconName} size={computedHeaderIconSize} alternative-text="InstallDateTime" title="Install Date Time" ></lightning-icon> 
+
+    <article class={computedWrapperClassNames}>
+        <header class="slds-card__header slds-grid">
+            <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                <template if:true={hasIcon}>
+                    <div class="slds-media__figure">
+                        <c-icon icon-name={iconName} size="small"></c-icon>
                     </div>
                 </lightning-layout-item>
                 <!-- Left Column - Row Icon - End-->
@@ -63,67 +59,25 @@
                     </ul>
                 </lightning-layout-item>
                 </template>
-                
-                <template if:false={iscustomersimpacted}>
-                    <lightning-layout-item padding="horizontal-small" size="11">
-                        <ul class="rowText">
-                            <li>
-                                <lightning-layout vertical-align="stretch" multiple-rows=true>
-                                    <div class="iconsdiv">
-                                        <lightning-layout-item size="1">
-                                            <lightning-icon icon-name="utility:package" size={computedIconSize} alternative-text="PackageIcon" title="PackageIcon" ></lightning-icon> 
-                                        </lightning-layout-item>
-                                    </div>
-                                    <lightning-layout-item padding="horizontal-small" size="6">
-                                        <div class={computedPckgButtonPadding}>
-                                            <a onclick={packageHandlelick}>{title}</a>   
-                                        </div>
-                                    </lightning-layout-item>
-                                    <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                        <c-badge class={computedChildClassName} label={topBadgeLabel} recordid={licenseid} email={email} launchedviamodal={launchedviamodal} ></c-badge>
-                                    </lightning-layout-item>
-                                </lightning-layout>
-                            </li>
-                            <li>
-                                <lightning-layout vertical-align="stretch" multiple-rows=true>
-                                    <div class="iconsdiv">
-                                        <lightning-layout-item size="1">
-                                            <lightning-icon icon-name="utility:company" size={computedIconSize} alternative-text="CompanyIcon" title="CompanyIcon" ></lightning-icon> 
-                                        </lightning-layout-item>
-                                    </div>
-                                    <lightning-layout-item padding="horizontal-small" size="6">
-                                        <div class={computedAcctButtonPadding}>
-                                            <a onclick={companyHandlelick}>{company}</a> 
-                                        </div>
-                                    </lightning-layout-item>
-                                    <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                        <c-badge class={computedChildClassName} label={midleBadgeLabel} recordid={companyId} email={email} launchedviamodal={launchedviamodal} ></c-badge>
-                                    </lightning-layout-item>
-                                </lightning-layout>
-                            </li>
-                            <li>
-                                <lightning-layout vertical-align="stretch" multiple-rows=true>
-                                    <div class="iconsdiv">
-                                        <lightning-layout-item size="1">
-                                            <lightning-icon icon-name="utility:clock" size={computedIconSize} alternative-text="ClockIcon" title="ClockIcon" ></lightning-icon> 
-                                        </lightning-layout-item>
-                                    </div>
-                                    <lightning-layout-item padding="horizontal-small" size="6">
-                                        <div class={computedDateButtonPadding}> 
-                                            <lightning-formatted-date-time value={whichDate} year={computedYearFormat} month={computedMonthFormat} day={computedDayFormat} weekday={computedWeekDayFormat} hour="2-digit" minute="2-digit"></lightning-formatted-date-time>   
-                                        </div>
-                                    </lightning-layout-item>
-                                    <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                            <c-badge class={computedChildClassName} label={lowerBadgeLabel} recordid={companyId} email={email} launchedviamodal={launchedviamodal}></c-badge>
-                                    </lightning-layout-item>
-                                </lightning-layout>
-                            </li>
-                        </ul>
-                    </lightning-layout-item>
-                    </template>
-                <!-- Right Column - Badge Buttons - End-->
-            </lightning-layout>
-
+                <div class="slds-media__body slds-truncate">
+                    <h2>
+                        <span class="slds-text-heading_small">
+                            <template if:true={hasStringTitle}>
+                                {title}
+                            </template>
+                            <template if:false={hasStringTitle}>
+                                <slot name="title"></slot>
+                            </template>
+                        </span>
+                    </h2>
+                </div>
+            </div>
+            <div class="slds-no-flex">
+                <slot name="actions"></slot>
+            </div>
+        </header>
+        <div class="slds-card__body">
+            <slot></slot>
         </div>
         <template if:true={showFooter}>
             <div class="slds-card__footer">

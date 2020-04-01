@@ -15,8 +15,12 @@ import { NavigationMixin } from 'lightning/navigation';
 
 export default class ItemActionCard extends NavigationMixin(LightningElement) {
     @api title;
+<<<<<<< HEAD
     @api installdate;
     @api expiredate;
+=======
+    @api date;
+>>>>>>> 33dcdb1 (added)
     @api iconName;
     @api company;
     @api licenseid;
