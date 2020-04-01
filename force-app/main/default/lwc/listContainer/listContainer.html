@@ -1,0 +1,18 @@
+<template>
+    <template if:true={hasLMAInstalls}>
+        <lightning-card  variant="Narrow"  title={title} icon-name="standard:account">
+            <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+            <ul class="slds-m-around_medium">
+                <template for:each={latestInstalls} for:item="install">
+                    <li key={install.Id}>
+                        <c-item-action-card title={install.sfLma__Package_Version__r.sfLma__Package__r.Name}></c-item-action-card>
+                    </li>
+                </template>
+            </ul>
+            <p slot="footer">Card Footer</p>
+        </lightning-card>
+    </template>
+    <template if:false={hasLMAInstalls}>
+        No License Data - Please install and configure LMA first
+    </template>
+</template>

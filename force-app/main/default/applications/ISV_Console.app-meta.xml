@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>A Lightning Console App to enhance the ISV Partner Experience managing Customers Package Installtions and Trials</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>ISV Console</label>
+    <navType>Standard</navType>
+    <tabs>Happening_Now</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>ISV_Console_UtilityBar</utilityBar>
+</CustomApplication>
