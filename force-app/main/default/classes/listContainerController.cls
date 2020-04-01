@@ -2,7 +2,7 @@ public with sharing class listContainerController {
     @AuraEnabled(cacheable=true)
     public static List<sfLma__License__c> getLastestPackageInstalls() {
         return [
-            SELECT sfLma__Package_Version__r.sfLma__Package__r.Name , 
+            SELECT createddate, sfLma__Package_Version__r.sfLma__Package__r.Name , 
             sfLma__Install_Date__c,sfLma__Package_Version__c, sfLma__Package_License_ID__c,
             sfLma__Lead__r.Company, sfLma__Lead__r.State, sfLma__Lead__r.City, sfLma__Lead__r.FirstName,
             sfLma__Lead__r.LastName, sfLma__Lead__r.Email, sfLma__Lead__r.Country, sfLma__Account__r.Name,

@@ -12,7 +12,7 @@ import { isNarrow, isBase } from './utils';
 
 export default class ItemActionCard extends LightningElement {
     @api title;
-
+    @api date;
     @api iconName;
 
     @track privateVariant = 'base';

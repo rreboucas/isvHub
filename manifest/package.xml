@@ -4,5 +4,13 @@
         <members>listContainer</members>
         <name>LightningComponentBundle</name>
     </types>
+    <types>
+        <members>itemActionCard</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
     <version>48.0</version>
 </Package>

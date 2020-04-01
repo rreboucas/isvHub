@@ -5,7 +5,7 @@
             <ul class="slds-m-around_medium">
                 <template for:each={latestInstalls} for:item="install">
                     <li key={install.Id}>
-                        <c-item-action-card title={install.sfLma__Package_Version__r.sfLma__Package__r.Name}></c-item-action-card>
+                        <c-item-action-card title={install.sfLma__Package_Version__r.sfLma__Package__r.Name} date={install.CreatedDate}></c-item-action-card>
                     </li>
                 </template>
             </ul>
