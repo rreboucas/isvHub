@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -7,6 +8,9 @@
  */
 =======
 >>>>>>> f88ac2d (added NBA)
+=======
+/* eslint-disable no-unused-expressions */
+>>>>>>> 3ef6593 (Added Msg Channel)
 ({
 	doInit : function(cmp) {
         $A.createComponent(
@@ -37,6 +41,9 @@
             }
         );
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3ef6593 (Added Msg Channel)
     },
 
     handleChanged: function(cmp, message, helper) { 
@@ -50,7 +57,10 @@
        console.log('handleChanged - v.recordId = '+ component.get("v.recordId"));
      }
 
+<<<<<<< HEAD
 =======
     }
 >>>>>>> f88ac2d (added NBA)
+=======
+>>>>>>> 3ef6593 (Added Msg Channel)
 })

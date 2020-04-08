@@ -54,6 +54,7 @@
             <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
             <ul class="slds-m-around_medium">
                 <template for:each={latestInstalls} for:item="install">
+<<<<<<< HEAD
                     <li key={install.Id}>
 <<<<<<< HEAD
                         <c-item-action-card title={install.sfLma__Package_Version__r.sfLma__Package__r.Name} date={install.CreatedDate}></c-item-action-card>
@@ -61,6 +62,10 @@
 =======
                         <c-item-action-card title={install.packageName} date={install.installDateTime} company={install.companyName}></c-item-action-card>
 >>>>>>> f88ac2d (added NBA)
+=======
+                    <li key={install.licenseID}>
+                        <c-item-action-card title={install.packageName} date={install.installDateTime} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick}></c-item-action-card>
+>>>>>>> 3ef6593 (Added Msg Channel)
                     </li>
                 </template>
                 <template if:false={hasData}>

@@ -24,6 +24,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     @api iconName;
     @api company;
 <<<<<<< HEAD
+<<<<<<< HEAD
     @api licenseid;
     @api parenttitle;
     @api packageversionid;
@@ -77,6 +78,9 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     notifymaintenance;
 =======
 >>>>>>> f88ac2d (added NBA)
+=======
+    @api licenseid;
+>>>>>>> 3ef6593 (Added Msg Channel)
 
     @track privateVariant = 'base';
 

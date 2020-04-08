@@ -14,7 +14,12 @@ import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
 =======
 //import getLastestPackageInstalls from '@salesforce/apex/listContainerController.getLastestPackageInstalls';
 import getLicenseData from '@salesforce/apex/listContainerController.getLicenseData';
+<<<<<<< HEAD
 >>>>>>> f88ac2d (added NBA)
+=======
+import { publish, MessageContext } from 'lightning/messageService';
+import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
+>>>>>>> 3ef6593 (Added Msg Channel)
 
 export default class ListContainer extends LightningElement {
     hasLMAInstalls = true;
@@ -60,6 +65,10 @@ export default class ListContainer extends LightningElement {
     hasData;
 
     
+
+    @wire(MessageContext)
+    messageContext;
+
 
     connectedCallback() {
 
@@ -152,6 +161,24 @@ export default class ListContainer extends LightningElement {
             this.latestInstalls = undefined;
         }
     }
+
+    handleOptionClick(event) {
+        event.preventDefault();
+
+        const clickedRowValue = event.target.licenseid;
+        
+        const message = {
+            messageToSend: clickedRowValue,
+            sourceComponent: 'LWC'
+        };
+        publish(this.messageContext, ISVCONSOLEMC, message);
+        
+        
+        //this._selectTabAndFireSelectEvent(clickedRowValue, { hasFocus: true });
+    }
+
+
+
 
     /*
     @wire(getLastestPackageInstalls)
