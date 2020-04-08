@@ -15,6 +15,7 @@
     </types>
     <types>
         <members>*</members>
+<<<<<<< HEAD
         <name>LightningComponentBundle</name>
     </types>
     <types>
@@ -62,6 +63,10 @@
 >>>>>>> 33dcdb1 (added)
 =======
 >>>>>>> f88ac2d (added NBA)
+=======
+        <name>AuraDefinitionBundle</name>
+    </types>
+>>>>>>> 1e54fcd (added einstein header to aura nba cmp)
     <version>48.0</version>
 </Package>
 <!-- Grab Recommendation data and file for packaging -->
