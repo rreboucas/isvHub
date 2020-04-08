@@ -2,10 +2,29 @@
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     
+    <lightning:card>
+        <aura:set attribute="title">
+            <div class="slds-card__header slds-grid slds-border_bottom slds-einstein-header">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-link slds-truncate titleHeader" title="Next Best Action">
+                            <span class="slds-text-heading_small test-widgetTitle" title="Next Best Action">Next Best Action</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="slds-einstein-header__figure slds-size_1-of-4 slds-medium-size_1-of-3"></div>
+                </header>
+            </div>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            {!v.body}
+        </p>
+    </lightning:card>
     
 			    <!--<lightning:nextBestActions strategyName ="License_Expiring_Soon" showEinstein="true">
 			    </lightning:nextBestActions> -->
     
-    {!v.body}
+    
 
 </aura:component>
