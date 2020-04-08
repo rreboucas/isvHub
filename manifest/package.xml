@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+<<<<<<< HEAD
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
@@ -22,6 +23,9 @@
         <name>LightningMessageChannel</name>
 =======
         <members>itemActionCard</members>
+=======
+        <members>*</members>
+>>>>>>> f88ac2d (added NBA)
         <name>LightningComponentBundle</name>
 >>>>>>> 33dcdb1 (added)
     </types>
@@ -30,6 +34,9 @@
         <name>ApexClass</name>
     </types>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f88ac2d (added NBA)
     <types>
         <members>*</members>
         <name>AuraDefinitionBundle</name>
@@ -46,11 +53,16 @@
         <members>*</members>
         <name>Flow</name>
     </types>
+<<<<<<< HEAD
     <types>
         <members>*</members>
         <name>CustomTab</name>
     </types>
 =======
 >>>>>>> 33dcdb1 (added)
+=======
+>>>>>>> f88ac2d (added NBA)
     <version>48.0</version>
 </Package>
+<!-- Grab Recommendation data and file for packaging -->
+

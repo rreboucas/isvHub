@@ -55,8 +55,12 @@
             <ul class="slds-m-around_medium">
                 <template for:each={latestInstalls} for:item="install">
                     <li key={install.Id}>
+<<<<<<< HEAD
                         <c-item-action-card title={install.sfLma__Package_Version__r.sfLma__Package__r.Name} date={install.CreatedDate}></c-item-action-card>
 >>>>>>> 33dcdb1 (added)
+=======
+                        <c-item-action-card title={install.packageName} date={install.installDateTime} company={install.companyName}></c-item-action-card>
+>>>>>>> f88ac2d (added NBA)
                     </li>
                 </template>
                 <template if:false={hasData}>

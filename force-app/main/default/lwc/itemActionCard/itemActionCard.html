@@ -77,7 +77,26 @@
             </div>
         </header>
         <div class="slds-card__body">
+<<<<<<< HEAD
             <slot></slot>
+=======
+            
+            <lightning-layout>
+                <lightning-layout-item padding="around-small">
+                    <div class="header-column">
+                        <lightning-icon icon-name="action:defer" size="small" alternative-text="InstallDateTime" title="Install Date Time" ></lightning-icon>
+                        <lightning-formatted-date-time value={date} year="2-digit" month="short" day="2-digit" weekday="long" hour="2-digit" minute="2-digit"></lightning-formatted-date-time>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small">
+                    <div class="header-column">
+                        <lightning-icon icon-name="action:new_person_account" size="small" alternative-text="Avatar" title="Avatar Logo" ></lightning-icon>
+                        <lightning-formatted-text value={company} ></lightning-formatted-text>
+                    </div>
+                </lightning-layout-item> 
+            </lightning-layout>
+
+>>>>>>> f88ac2d (added NBA)
         </div>
         <template if:true={showFooter}>
             <div class="slds-card__footer">

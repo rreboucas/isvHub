@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
+=======
+>>>>>>> f88ac2d (added NBA)
 ({
 	doInit : function(cmp) {
         $A.createComponent(
@@ -33,6 +36,7 @@
                 }
             }
         );
+<<<<<<< HEAD
     },
 
     handleChanged: function(cmp, message, helper) { 
@@ -46,4 +50,7 @@
        console.log('handleChanged - v.recordId = '+ component.get("v.recordId"));
      }
 
+=======
+    }
+>>>>>>> f88ac2d (added NBA)
 })

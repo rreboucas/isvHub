@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--
   Copyright (c) 2018, salesforce.com, inc.
   All rights reserved.
@@ -43,5 +44,16 @@
                 <lightning:messageChannel type="isvconsole__ISVConsole__c"
                 onMessage="{!c.handleChanged}" scope="APPLICATION"/>
     
+=======
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    
+			    <!--<lightning:nextBestActions strategyName ="License_Expiring_Soon" showEinstein="true">
+			    </lightning:nextBestActions> -->
+    
+    {!v.body}
+>>>>>>> f88ac2d (added NBA)
 
 </aura:component>

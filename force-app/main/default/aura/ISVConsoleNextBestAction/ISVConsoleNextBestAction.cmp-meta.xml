@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>48.0</apiVersion>
+<<<<<<< HEAD
     <description>DESCRIPTION</description>
+=======
+    <description>A Lightning Component Bundle</description>
+>>>>>>> f88ac2d (added NBA)
 </AuraDefinitionBundle>

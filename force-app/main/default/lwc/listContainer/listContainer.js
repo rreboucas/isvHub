@@ -6,10 +6,15 @@
  */
 
 import { LightningElement, api, wire } from 'lwc';
+<<<<<<< HEAD
 import FORM_FACTOR from '@salesforce/client/formFactor';
 import getLicenseData from '@salesforce/apex/listContainerController.getLicenseData';
 import { publish, MessageContext } from 'lightning/messageService';
 import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
+=======
+//import getLastestPackageInstalls from '@salesforce/apex/listContainerController.getLastestPackageInstalls';
+import getLicenseData from '@salesforce/apex/listContainerController.getLicenseData';
+>>>>>>> f88ac2d (added NBA)
 
 export default class ListContainer extends LightningElement {
     hasLMAInstalls = true;
@@ -134,7 +139,23 @@ export default class ListContainer extends LightningElement {
         this.ulCssClass = '';
     }
 
+<<<<<<< HEAD
     @wire(getLicenseData, { rowsLimit: '$maxRecords', dataFilter: '$filter', maintenanceId: '$maintenanceid' })
+=======
+    @wire(getLicenseData, { rowsLimit: '3', dataFilter: '$title' })
+    wiredLatestInstalls({ error, data }) {
+        if (data) {
+            this.latestInstalls = data;
+            this.error = undefined;
+        } else if (error) {
+            this.error = error;
+            this.latestInstalls = undefined;
+        }
+    }
+
+    /*
+    @wire(getLastestPackageInstalls)
+>>>>>>> f88ac2d (added NBA)
     wiredLatestInstalls({ error, data }) {
       console.log('listContainer.js wire adapter ' + this.filter);
         this.isLoading = true;
@@ -156,6 +177,7 @@ export default class ListContainer extends LightningElement {
         }
 
     }
+<<<<<<< HEAD
 
     handleOptionClick(event) {
 
@@ -174,4 +196,7 @@ export default class ListContainer extends LightningElement {
 
 
 
+=======
+    */
+>>>>>>> f88ac2d (added NBA)
 }

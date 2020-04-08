@@ -23,6 +23,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 >>>>>>> 33dcdb1 (added)
     @api iconName;
     @api company;
+<<<<<<< HEAD
     @api licenseid;
     @api parenttitle;
     @api packageversionid;
@@ -74,6 +75,8 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     computedAcctButtonPadding;
 
     notifymaintenance;
+=======
+>>>>>>> f88ac2d (added NBA)
 
     @track privateVariant = 'base';
 
