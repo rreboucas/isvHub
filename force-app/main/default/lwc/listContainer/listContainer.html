@@ -4,8 +4,8 @@
             <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
             <ul class="slds-m-around_medium">
                 <template for:each={latestInstalls} for:item="install">
-                    <li key={install.Id}>
-                        <c-item-action-card title={install.packageName} date={install.installDateTime} company={install.companyName}></c-item-action-card>
+                    <li key={install.licenseID}>
+                        <c-item-action-card title={install.packageName} date={install.installDateTime} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick}></c-item-action-card>
                     </li>
                 </template>
             </ul>

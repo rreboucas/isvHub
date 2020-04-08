@@ -14,6 +14,7 @@ export default class ItemActionCard extends LightningElement {
     @api date;
     @api iconName;
     @api company;
+    @api licenseid;
 
     @track privateVariant = 'base';
 

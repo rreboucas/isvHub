@@ -1,5 +1,5 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
-    
+    <aura:attribute name="receivedRecordId" type="String" access="global"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     
     <lightning:card>
@@ -19,12 +19,23 @@
         </aura:set>
         <p class="slds-p-horizontal_small">
             {!v.body}
+            {!v.receivedRecordId}
+
+            <aura:if isTrue="{!not(empty(v.recordId))}">
+                {!v.body}
+                <p><lightning:formattedText value="{!v.recordId}" /></p>
+                <aura:set attribute="else">
+                    Select an item on the other Components on this page to see recommendations <br/>
+                </aura:set>
+            </aura:if>
+            
         </p>
     </lightning:card>
     
 			    <!--<lightning:nextBestActions strategyName ="License_Expiring_Soon" showEinstein="true">
 			    </lightning:nextBestActions> -->
-    
+                <lightning:messageChannel type="ISVConsole__c"
+                onMessage="{!c.handleChanged}" scope="APPLICATION"/>
     
 
 </aura:component>

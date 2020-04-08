@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+   <masterLabel>ISVConsoleMessageChannel</masterLabel>
+   <isExposed>true</isExposed>
+   <description>This Lightning Message Channel is used to exchange information from the ISV Console App</description>
+
+   <lightningMessageFields>
+       <fieldName>messageToSend</fieldName>
+       <description>message to be Sent</description>
+   </lightningMessageFields>
+
+   <lightningMessageFields>
+       <fieldName>sourceComponent</fieldName>
+       <description>UI Component that sent the message</description>
+   </lightningMessageFields>
+
+</LightningMessageChannel>
