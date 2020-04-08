@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>Extend License Expiration {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Extend License Expiration</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordUpdates>
+        <name>Update_License_Expiration</name>
+        <label>Update License Expiration</label>
+        <locationX>519</locationX>
+        <locationY>88</locationY>
+        <connector>
+            <targetReference>Expiration_Date_Updated</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentRecord</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>sfLma__Expiration__c</field>
+            <value>
+                <elementReference>New_License_Expiration_Date</elementReference>
+            </value>
+        </inputAssignments>
+        <object>sfLma__License__c</object>
+    </recordUpdates>
+    <screens>
+        <name>Enter_the_new_License_Expiration_Date</name>
+        <label>Enter the new License Expiration Date</label>
+        <locationX>276</locationX>
+        <locationY>73</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_License_Expiration</targetReference>
+        </connector>
+        <fields>
+            <name>New_License_Expiration_Date</name>
+            <dataType>Date</dataType>
+            <fieldText>New License Expiration Date</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;p&gt;Select the new Expiration date for the customer Package installation license&lt;/p&gt;</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Expiration_Date_Updated</name>
+        <label>Expiration Date Updated</label>
+        <locationX>803</locationX>
+        <locationY>102</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>License_Updated_Message</name>
+            <fieldText>&lt;p&gt;Expiration Date was extended&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Enter_the_new_License_Expiration_Date</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecommendationStrategy xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contextRecordType>sfLma__License__c</contextRecordType>
+    <label>License Expiring Soon</label>
+    <recommendationLoad>
+        <label>License Expiration Load</label>
+        <name>License_Expiration_Load</name>
+        <condition>
+            <field>Name</field>
+            <operator>EQUALS</operator>
+            <value>
+                <type>TEXT</type>
+                <value>Extend License Expiration</value>
+            </value>
+        </condition>
+        <conditionLogic>and</conditionLogic>
+        <object>Recommendation</object>
+    </recommendationLoad>
+    <union>
+        <childNode>License_Expiration_Load</childNode>
+        <label>Output</label>
+        <name>Output_2236fb4181f841e795106920b9004636</name>
+    </union>
+</RecommendationStrategy>

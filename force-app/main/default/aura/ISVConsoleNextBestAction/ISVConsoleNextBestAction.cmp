@@ -1,0 +1,11 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    
+			    <!--<lightning:nextBestActions strategyName ="License_Expiring_Soon" showEinstein="true">
+			    </lightning:nextBestActions> -->
+    
+    {!v.body}
+
+</aura:component>

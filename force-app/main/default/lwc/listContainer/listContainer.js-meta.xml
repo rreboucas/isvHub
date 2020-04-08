@@ -11,7 +11,7 @@
   </targets>
   <targetConfigs>
       <targetConfig targets="lightning__AppPage, lightning__HomePage, lightning__RecordPage">
-          <property name="title" label="Enter the List Header Text" type="String" default="Latest Installs per App"  />
+          <property name="title" label="Select the Type of Data for users to fetch" type="String" datasource="Latest Installs per App,Licenses Expiring Soon" default="Latest Installs per App"  />
       </targetConfig>
   </targetConfigs>
 </LightningComponentBundle>

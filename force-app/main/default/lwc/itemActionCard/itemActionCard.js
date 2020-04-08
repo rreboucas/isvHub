@@ -1,4 +1,3 @@
-  
 /*
  * Copyright (c) 2019, salesforce.com, inc.
  * All rights reserved.
@@ -14,6 +13,7 @@ export default class ItemActionCard extends LightningElement {
     @api title;
     @api date;
     @api iconName;
+    @api company;
 
     @track privateVariant = 'base';
 
