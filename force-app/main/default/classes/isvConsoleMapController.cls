@@ -20,13 +20,19 @@ public with sharing class isvConsoleMapController {
     public String title { get;set; }
     @AuraEnabled
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d71a0f (markers working)
     public Object location { get;set; }
     
     /*@AuraEnabled
     public location location { get;set; } */
+<<<<<<< HEAD
 =======
     public location location { get;set; }
 >>>>>>> 033b27d (added map controller apex)
+=======
+>>>>>>> 6d71a0f (markers working)
 
 
     @AuraEnabled(cacheable=true)
@@ -198,12 +204,16 @@ public with sharing class isvConsoleMapController {
 
         // Add Common Filter Where clause
 <<<<<<< HEAD
+<<<<<<< HEAD
         soql += ' WHERE sfLma__Status__c' + ' = \'' + 'Active' +'\'' + 'and IsDeleted = false and (sfLma__Lead__r.State <> NULL OR sfLma__Lead__r.Country <> NULL OR sfLma__Lead__r.City <> NULL OR sfLma__Lead__r.Company <> NULL OR sfLma__Lead__r.Latitude <> NULL OR sfLma__Lead__r.Longitude <> NULL OR sfLma__Lead__r.PostalCode <> NULL OR sfLma__Lead__r.Street <> NULL OR sfLma__Account__r.ShippingStreet <> NULL OR sfLma__Account__r.ShippingState <> NULL OR sfLma__Account__r.ShippingPostalCode <> NULL OR sfLma__Account__r.ShippingLongitude <> NULL OR sfLma__Account__r.ShippingLatitude <> NULL OR sfLma__Account__r.ShippingCountry <> NULL OR sfLma__Account__r.ShippingCity <> NULL OR sfLma__Account__r.BillingStreet <> NULL OR sfLma__Account__r.BillingState <> NULL OR sfLma__Account__r.BillingPostalCode <> NULL OR sfLma__Account__r.BillingLongitude <> NULL OR sfLma__Account__r.BillingLatitude <> NULL OR sfLma__Account__r.BillingCountry <> NULL OR sfLma__Account__r.BillingCity <> NULL OR sfLma__Account__r.Name <> NULL )';
 
         ISVConsoleHelper.AddFieldToObjectsMap('sfLma__Status__c', 'sfLma__License__c', mapObjectsFields);
         ISVConsoleHelper.AddFieldToObjectsMap('IsDeleted', 'sfLma__License__c', mapObjectsFields);
 =======
         soql += ' WHERE sfLma__Status__c' + ' = \'' + 'Active' +'\'' + 'and IsDeleted = false and (sfLma__Lead__r.State <> NULL OR sfLma__Lead__r.Country <> NULL OR sfLma__Lead__r.City <> NULL OR sfLma__Lead__r.Company <> NULL OR sfLma__Lead__r.Latitude <> NULL OR sfLma__Lead__r.Longitude <> NULL OR sfLma__Lead__r.PostalCode <> NULL OR sfLma__Lead__r.Street <> NULL OR sfLma__Account__r.ShippingStreet <> NULL OR sfLma__Account__r.ShippingState <> NULL OR sfLma__Account__r.ShippingPostalCode <> NULL OR sfLma__Account__r.ShippingLongitude <> NULL OR sfLma__Account__r.ShippingLatitude <> NULL OR sfLma__Account__r.ShippingCountry <> NULL OR sfLma__Account__r.ShippingCity <> NULL OR sfLma__Account__r.BillingStreet <> NULL OR sfLma__Account__r.BillingState <> NULL OR sfLma__Account__r.BillingPostalCode <> NULL OR sfLma__Account__r.BillingLongitude <> NULL OR sfLma__Account__r.BillingLatitude <> NULL OR sfLma__Account__r.BillingCountry <> NULL OR sfLma__Account__r.BillingCity <> NULL OR sfLma__Account__r.Name <> NULL ) limit 20 ';
+=======
+        soql += ' WHERE sfLma__Status__c' + ' = \'' + 'Active' +'\'' + 'and IsDeleted = false and (sfLma__Lead__r.State <> NULL OR sfLma__Lead__r.Country <> NULL OR sfLma__Lead__r.City <> NULL OR sfLma__Lead__r.Company <> NULL OR sfLma__Lead__r.Latitude <> NULL OR sfLma__Lead__r.Longitude <> NULL OR sfLma__Lead__r.PostalCode <> NULL OR sfLma__Lead__r.Street <> NULL OR sfLma__Account__r.ShippingStreet <> NULL OR sfLma__Account__r.ShippingState <> NULL OR sfLma__Account__r.ShippingPostalCode <> NULL OR sfLma__Account__r.ShippingLongitude <> NULL OR sfLma__Account__r.ShippingLatitude <> NULL OR sfLma__Account__r.ShippingCountry <> NULL OR sfLma__Account__r.ShippingCity <> NULL OR sfLma__Account__r.BillingStreet <> NULL OR sfLma__Account__r.BillingState <> NULL OR sfLma__Account__r.BillingPostalCode <> NULL OR sfLma__Account__r.BillingLongitude <> NULL OR sfLma__Account__r.BillingLatitude <> NULL OR sfLma__Account__r.BillingCountry <> NULL OR sfLma__Account__r.BillingCity <> NULL OR sfLma__Account__r.Name <> NULL )';
+>>>>>>> 6d71a0f (markers working)
 
         ISVConsole_Helper.AddFieldToObjectsMap('sfLma__Status__c', 'sfLma__License__c', mapObjectsFields);
         ISVConsole_Helper.AddFieldToObjectsMap('IsDeleted', 'sfLma__License__c', mapObjectsFields);
@@ -246,9 +256,13 @@ public with sharing class isvConsoleMapController {
                
                 location locObj = new location();
 <<<<<<< HEAD
+<<<<<<< HEAD
                 Map<String, String> obj = new Map<String, String>();
 =======
 >>>>>>> 033b27d (added map controller apex)
+=======
+                Map<String, String> obj = new Map<String, String>();
+>>>>>>> 6d71a0f (markers working)
                 
                 if (fieldsSet.contains('sfLma__Lead__c'))
                 {
@@ -345,9 +359,24 @@ public with sharing class isvConsoleMapController {
 
 =======
                 }
-                i.location = locObj;
+                // i.location = locObj;
 
-                System.debug('######## i.location: ' + i.location);
+                // Only add to the Json Map - location attribute the attributes that have values
+
+                if (String.isNotEmpty(locObj.City))
+                    obj.put('City', locObj.City);
+                if (String.isNotEmpty(locObj.Country))
+                    obj.put('Country', locObj.Country);
+                if (String.isNotEmpty(locObj.State))
+                    obj.put('State', locObj.State);
+
+                System.debug('######## Map obj: ' + obj);
+                //String serlzObj = JSON.Serialize(obj);
+                //System.debug('######## serlzObj: ' + serlzObj);
+                i.location =  obj;
+                if (String.isNotEmpty(i.title) && obj.containsKey('Country'))
+                    lstReturnRecords.add(i);
+                /*System.debug('######## i.location: ' + i.location);
                 System.debug('######## i.location.Country: ' + i.location.Country);
                 if (String.isNotEmpty(i.title) && String.isNotEmpty(i.location.Country))
                     {
@@ -357,7 +386,11 @@ public with sharing class isvConsoleMapController {
                         System.debug('######## entered check for i.Value: ' + i.value);
                         lstReturnRecords.add(i);
                     }
+<<<<<<< HEAD
 >>>>>>> 033b27d (added map controller apex)
+=======
+                */
+>>>>>>> 6d71a0f (markers working)
                 System.debug('######## i: ' + i);               
 
                 // ---- For Loop Ends ----
