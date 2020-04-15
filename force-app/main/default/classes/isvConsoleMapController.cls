@@ -9,7 +9,10 @@ public with sharing class isvConsoleMapController {
     @AuraEnabled
     public String title { get;set; }
     @AuraEnabled
-    public location location { get;set; }
+    public Object location { get;set; }
+    
+    /*@AuraEnabled
+    public location location { get;set; } */
 
 
     @AuraEnabled(cacheable=true)
@@ -101,7 +104,7 @@ public with sharing class isvConsoleMapController {
         soql += ' FROM sfLma__License__c' ;
 
         // Add Common Filter Where clause
-        soql += ' WHERE sfLma__Status__c' + ' = \'' + 'Active' +'\'' + 'and IsDeleted = false and (sfLma__Lead__r.State <> NULL OR sfLma__Lead__r.Country <> NULL OR sfLma__Lead__r.City <> NULL OR sfLma__Lead__r.Company <> NULL OR sfLma__Lead__r.Latitude <> NULL OR sfLma__Lead__r.Longitude <> NULL OR sfLma__Lead__r.PostalCode <> NULL OR sfLma__Lead__r.Street <> NULL OR sfLma__Account__r.ShippingStreet <> NULL OR sfLma__Account__r.ShippingState <> NULL OR sfLma__Account__r.ShippingPostalCode <> NULL OR sfLma__Account__r.ShippingLongitude <> NULL OR sfLma__Account__r.ShippingLatitude <> NULL OR sfLma__Account__r.ShippingCountry <> NULL OR sfLma__Account__r.ShippingCity <> NULL OR sfLma__Account__r.BillingStreet <> NULL OR sfLma__Account__r.BillingState <> NULL OR sfLma__Account__r.BillingPostalCode <> NULL OR sfLma__Account__r.BillingLongitude <> NULL OR sfLma__Account__r.BillingLatitude <> NULL OR sfLma__Account__r.BillingCountry <> NULL OR sfLma__Account__r.BillingCity <> NULL OR sfLma__Account__r.Name <> NULL ) limit 20 ';
+        soql += ' WHERE sfLma__Status__c' + ' = \'' + 'Active' +'\'' + 'and IsDeleted = false and (sfLma__Lead__r.State <> NULL OR sfLma__Lead__r.Country <> NULL OR sfLma__Lead__r.City <> NULL OR sfLma__Lead__r.Company <> NULL OR sfLma__Lead__r.Latitude <> NULL OR sfLma__Lead__r.Longitude <> NULL OR sfLma__Lead__r.PostalCode <> NULL OR sfLma__Lead__r.Street <> NULL OR sfLma__Account__r.ShippingStreet <> NULL OR sfLma__Account__r.ShippingState <> NULL OR sfLma__Account__r.ShippingPostalCode <> NULL OR sfLma__Account__r.ShippingLongitude <> NULL OR sfLma__Account__r.ShippingLatitude <> NULL OR sfLma__Account__r.ShippingCountry <> NULL OR sfLma__Account__r.ShippingCity <> NULL OR sfLma__Account__r.BillingStreet <> NULL OR sfLma__Account__r.BillingState <> NULL OR sfLma__Account__r.BillingPostalCode <> NULL OR sfLma__Account__r.BillingLongitude <> NULL OR sfLma__Account__r.BillingLatitude <> NULL OR sfLma__Account__r.BillingCountry <> NULL OR sfLma__Account__r.BillingCity <> NULL OR sfLma__Account__r.Name <> NULL )';
 
         ISVConsole_Helper.AddFieldToObjectsMap('sfLma__Status__c', 'sfLma__License__c', mapObjectsFields);
         ISVConsole_Helper.AddFieldToObjectsMap('IsDeleted', 'sfLma__License__c', mapObjectsFields);
@@ -132,6 +135,7 @@ public with sharing class isvConsoleMapController {
                 i.icon = 'custom:custom26';
                
                 location locObj = new location();
+                Map<String, String> obj = new Map<String, String>();
                 
                 if (fieldsSet.contains('sfLma__Lead__c'))
                 {
@@ -187,9 +191,24 @@ public with sharing class isvConsoleMapController {
                     else if (locObj.Longitude == null)
                         locObj.Longitude = e.sfLma__Account__r.ShippingLongitude;
                 }
-                i.location = locObj;
+                // i.location = locObj;
 
-                System.debug('######## i.location: ' + i.location);
+                // Only add to the Json Map - location attribute the attributes that have values
+
+                if (String.isNotEmpty(locObj.City))
+                    obj.put('City', locObj.City);
+                if (String.isNotEmpty(locObj.Country))
+                    obj.put('Country', locObj.Country);
+                if (String.isNotEmpty(locObj.State))
+                    obj.put('State', locObj.State);
+
+                System.debug('######## Map obj: ' + obj);
+                //String serlzObj = JSON.Serialize(obj);
+                //System.debug('######## serlzObj: ' + serlzObj);
+                i.location =  obj;
+                if (String.isNotEmpty(i.title) && obj.containsKey('Country'))
+                    lstReturnRecords.add(i);
+                /*System.debug('######## i.location: ' + i.location);
                 System.debug('######## i.location.Country: ' + i.location.Country);
                 if (String.isNotEmpty(i.title) && String.isNotEmpty(i.location.Country))
                     {
@@ -199,6 +218,7 @@ public with sharing class isvConsoleMapController {
                         System.debug('######## entered check for i.Value: ' + i.value);
                         lstReturnRecords.add(i);
                     }
+                */
                 System.debug('######## i: ' + i);               
 
                 // ---- For Loop Ends ----
