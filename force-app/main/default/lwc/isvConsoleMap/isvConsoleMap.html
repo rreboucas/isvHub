@@ -1,0 +1,14 @@
+<template>
+    <lightning-card  variant="Narrow"  title={title} icon-name="standard:account">
+        
+        <lightning-map
+        map-markers={mapMarkers}
+        markers-title={markersTitle}
+        onmarkerselect={handleMarkerSelect}
+        selected-marker-value={selectedMarkerValue} >
+        </lightning-map>
+
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+    
+</template>

@@ -28,6 +28,8 @@ public with sharing class listContainerController {
     public String accountID { get;set; }
     @AuraEnabled
     public String leadID { get;set; }
+    @AuraEnabled
+    public location location { get;set; }
 
     @AuraEnabled(cacheable=true)
     public static List<listContainerController> getLicenseData(String rowsLimit, String dataFilter) {
@@ -84,8 +86,62 @@ public with sharing class listContainerController {
         soql += ', sfLma__Lead__r.Country';
         ISVConsole_Helper.AddFieldToObjectsMap('Country', 'Lead', mapObjectsFields);
 
+        soql += ', sfLma__Lead__r.Latitude';
+        ISVConsole_Helper.AddFieldToObjectsMap('Latitude', 'Lead', mapObjectsFields);
+
+        soql += ', sfLma__Lead__r.Longitude';
+        ISVConsole_Helper.AddFieldToObjectsMap('Longitude', 'Lead', mapObjectsFields);
+
+        soql += ', sfLma__Lead__r.PostalCode';
+        ISVConsole_Helper.AddFieldToObjectsMap('PostalCode', 'Lead', mapObjectsFields);
+
+        soql += ', sfLma__Lead__r.Street';
+        ISVConsole_Helper.AddFieldToObjectsMap('Street', 'Lead', mapObjectsFields);
+
         soql += ', sfLma__Account__r.Name';
         ISVConsole_Helper.AddFieldToObjectsMap('Name', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.BillingCity';
+        ISVConsole_Helper.AddFieldToObjectsMap('BillingCity', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.BillingCountry';
+        ISVConsole_Helper.AddFieldToObjectsMap('BillingCountry', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.BillingLatitude';
+        ISVConsole_Helper.AddFieldToObjectsMap('BillingLatitude', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.BillingLongitude';
+        ISVConsole_Helper.AddFieldToObjectsMap('BillingLongitude', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.BillingPostalCode';
+        ISVConsole_Helper.AddFieldToObjectsMap('BillingPostalCode', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.BillingState';
+        ISVConsole_Helper.AddFieldToObjectsMap('BillingState', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.BillingStreet';
+        ISVConsole_Helper.AddFieldToObjectsMap('BillingStreet', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.ShippingCity';
+        ISVConsole_Helper.AddFieldToObjectsMap('ShippingCity', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.ShippingCountry';
+        ISVConsole_Helper.AddFieldToObjectsMap('ShippingCountry', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.ShippingLatitude';
+        ISVConsole_Helper.AddFieldToObjectsMap('ShippingLatitude', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.ShippingLongitude';
+        ISVConsole_Helper.AddFieldToObjectsMap('ShippingLongitude', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.ShippingPostalCode';
+        ISVConsole_Helper.AddFieldToObjectsMap('ShippingPostalCode', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.ShippingState';
+        ISVConsole_Helper.AddFieldToObjectsMap('ShippingState', 'Account', mapObjectsFields);
+
+        soql += ', sfLma__Account__r.ShippingStreet ';
+        ISVConsole_Helper.AddFieldToObjectsMap('ShippingStreet', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Contact__r.FirstName';
         ISVConsole_Helper.AddFieldToObjectsMap('FirstName', 'Contact', mapObjectsFields);
@@ -204,20 +260,5 @@ public with sharing class listContainerController {
     }
 
 
-    @AuraEnabled(cacheable=true)
-    public static List<sfLma__License__c> getLastestPackageInstalls() {
-        return [
-            SELECT createddate, sfLma__Package_Version__r.sfLma__Package__r.Name , 
-            sfLma__Install_Date__c,sfLma__Package_Version__c, sfLma__Package_License_ID__c,
-            sfLma__Lead__r.Company, sfLma__Lead__r.State, sfLma__Lead__r.City, sfLma__Lead__r.FirstName,
-            sfLma__Lead__r.LastName, sfLma__Lead__r.Email, sfLma__Lead__r.Country, sfLma__Account__r.Name,
-            sfLma__Contact__r.FirstName, sfLma__Contact__r.LastName, sfLma__Contact__r.Email,Id,LastModifiedById,
-            LastModifiedDate,Name,sfLma__Account__c,sfLma__Contact__c,sfLma__Expiration_Date__c,sfLma__Expiration__c,
-            sfLma__Lead__c,sfLma__Licensed_Seats__c,sfLma__License_Status__c,sfLma__License_Type__c,sfLma__Proxy_User__c,
-            sfLma__Seats__c,sfLma__Status__c,sfLma__Subscriber_Org_ID__c,sfLma__Used_Licenses__c 
-            FROM sfLma__License__c 
-            WHERE sfLma__Status__c  = 'Active' and IsDeleted = false order by sfLma__Install_Date__c desc    
-            LIMIT 10
-            ];
-    }
+    
 }
