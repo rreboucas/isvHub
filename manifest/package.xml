@@ -2,6 +2,7 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
@@ -45,6 +46,10 @@
     <types>
         <members>*</members>
         <name>AuraDefinitionBundle</name>
+=======
+        <members>isvConsoleMapController</members>
+        <name>ApexClass</name>
+>>>>>>> 033b27d (added map controller apex)
     </types>
     <types>
         <members>*</members>
