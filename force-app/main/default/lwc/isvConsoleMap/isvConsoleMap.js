@@ -38,6 +38,7 @@ export default class IsvConsoleMap extends NavigationMixin(LightningElement) {
 =======
 import { LightningElement, track, api, wire } from 'lwc';
 import getLocationData from '@salesforce/apex/isvConsoleMapController.getLocationData';
+import FORM_FACTOR from '@salesforce/client/formFactor';
 
 export default class IsvConsoleMap extends LightningElement {
 >>>>>>> 033b27d (added map controller apex)
@@ -45,6 +46,7 @@ export default class IsvConsoleMap extends LightningElement {
     @api title;
     mapMarkers = [];
     error;
+<<<<<<< HEAD
 <<<<<<< HEAD
     numberOfMarkers;
     isMobile = false;
@@ -86,12 +88,21 @@ export default class IsvConsoleMap extends LightningElement {
     
     @wire(MessageContext)
     messageContext;
+=======
+    numberOfMarkers;
+    isMobile = false;
+    selctedOnMobile = false;
+    isTablet = false;
+    isDesktop = false;
+    
+>>>>>>> ed6f09d (added badge)
     
     connectedCallback() {
         // Check formfactor being used to access this LWC
         switch(FORM_FACTOR) {
             case 'Large':
                 this.isDesktop = true;
+<<<<<<< HEAD
                 this.formfactorName = 'Desktop';
               break;
             case 'Medium':
@@ -112,6 +123,20 @@ export default class IsvConsoleMap extends LightningElement {
 =======
     
 >>>>>>> 033b27d (added map controller apex)
+=======
+              break;
+            case 'Medium':
+                this.isTablet = true;
+              break;
+            case 'Small':
+                this.isMobile = true;
+            break;
+            default:
+              // code block
+          }
+    }
+
+>>>>>>> ed6f09d (added badge)
     @wire(getLocationData)
     wiredLocations({ error, data }) {
         if (data) {
@@ -123,6 +148,7 @@ export default class IsvConsoleMap extends LightningElement {
         else if (error) {
 =======
             this.error = undefined;
+            this.numberOfMarkers = data.length;
         } else if (error) {
 >>>>>>> 033b27d (added map controller apex)
             this.error = error;
@@ -130,6 +156,7 @@ export default class IsvConsoleMap extends LightningElement {
         }
     }
     
+<<<<<<< HEAD
 <<<<<<< HEAD
     
     @track markersTitle = "My Customers";
@@ -363,12 +390,17 @@ export default class IsvConsoleMap extends LightningElement {
             title: 'Sainte-Maxime',
         },
     ]; */
+=======
+    
+>>>>>>> ed6f09d (added badge)
     @track markersTitle = "My Customers";
 
     @track selectedMarkerValue = 'France1';
 
     handleMarkerSelect(event) {
         this.selectedMarkerValue = event.detail.selectedMarkerValue;
+        if (this.isMobile)
+            this.selctedOnMobile = true;
     }
 >>>>>>> 033b27d (added map controller apex)
 }

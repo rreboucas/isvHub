@@ -234,12 +234,18 @@ public with sharing class isvConsoleMapController {
             List<sfLma__License__c> lstQueriedRecords = Database.query(soql); 
             
 <<<<<<< HEAD
+<<<<<<< HEAD
             System.debug('######## lstQueriedRecords: ' + lstQueriedRecords);
             
             Map<String, isvConsoleMapController> mapUniqueRecs = new Map<String, isvConsoleMapController> ();
 =======
             System.debug('######## lstQueriedRecords: ' + lstQueriedRecords);  
 >>>>>>> 033b27d (added map controller apex)
+=======
+            System.debug('######## lstQueriedRecords: ' + lstQueriedRecords);
+            
+            Map<String, isvConsoleMapController> mapUniqueRecs = new Map<String, isvConsoleMapController> ();
+>>>>>>> ed6f09d (added badge)
             
             for (sfLma__License__c e: lstQueriedRecords)
             {
@@ -276,12 +282,18 @@ public with sharing class isvConsoleMapController {
                     locObj.PostalCode = e.sfLma__Lead__r.PostalCode;
                     locObj.Latitude = e.sfLma__Lead__r.Latitude;
 <<<<<<< HEAD
+<<<<<<< HEAD
                     System.debug('######## e.sfLma__Lead__r.Latitude: ' + locObj.Latitude);
                     locObj.Longitude = e.sfLma__Lead__r.Longitude;
                     System.debug('######## e.sfLma__Lead__r.Longitude: ' + locObj.Longitude);
 =======
                     locObj.Longitude = e.sfLma__Lead__r.Longitude;
 >>>>>>> 033b27d (added map controller apex)
+=======
+                    System.debug('######## e.sfLma__Lead__r.Latitude: ' + locObj.Latitude);
+                    locObj.Longitude = e.sfLma__Lead__r.Longitude;
+                    System.debug('######## e.sfLma__Lead__r.Longitude: ' + locObj.Longitude);
+>>>>>>> ed6f09d (added badge)
 
                 }
                 if (fieldsSet.contains('sfLma__Account__c'))
@@ -362,18 +374,30 @@ public with sharing class isvConsoleMapController {
                 // i.location = locObj;
 
                 // Only add to the Json Map - location attribute the attributes that have values
+                
+                if (locObj.Latitude != null && locObj.Longitude != null)
+                {
+                    System.debug('######## Has Latitude and Long: ' + locObj.Latitude.toPlainString());
+                    obj.put('Latitude', locObj.Latitude.toPlainString());
+                    obj.put('Longitude', locObj.Longitude.toPlainString());
 
-                if (String.isNotEmpty(locObj.City))
+                }
+                /*
+                else 
+                {
+                    if (String.isNotEmpty(locObj.City))
                     obj.put('City', locObj.City);
-                if (String.isNotEmpty(locObj.Country))
-                    obj.put('Country', locObj.Country);
-                if (String.isNotEmpty(locObj.State))
-                    obj.put('State', locObj.State);
-
+                    if (String.isNotEmpty(locObj.Country))
+                        obj.put('Country', locObj.Country);
+                    if (String.isNotEmpty(locObj.State))
+                        obj.put('State', locObj.State);
+                }
+                */
                 System.debug('######## Map obj: ' + obj);
                 //String serlzObj = JSON.Serialize(obj);
                 //System.debug('######## serlzObj: ' + serlzObj);
                 i.location =  obj;
+<<<<<<< HEAD
                 if (String.isNotEmpty(i.title) && obj.containsKey('Country'))
                     lstReturnRecords.add(i);
                 /*System.debug('######## i.location: ' + i.location);
@@ -391,15 +415,25 @@ public with sharing class isvConsoleMapController {
 =======
                 */
 >>>>>>> 6d71a0f (markers working)
+=======
+                if (String.isNotEmpty(i.title) && (obj.containsKey('Latitude') || obj.containsKey('Longitude')))
+                    mapUniqueRecs.put(i.title, i);
+
+>>>>>>> ed6f09d (added badge)
                 System.debug('######## i: ' + i);               
 
                 // ---- For Loop Ends ----
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
                 lstReturnRecords = mapUniqueRecs.values();
 =======
 >>>>>>> 033b27d (added map controller apex)
+=======
+
+                lstReturnRecords = mapUniqueRecs.values();
+>>>>>>> ed6f09d (added badge)
             
         }
         
