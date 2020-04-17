@@ -119,7 +119,9 @@ public with sharing class isvConsoleMapController {
 
             List<sfLma__License__c> lstQueriedRecords = Database.query(soql); 
             
-            System.debug('######## lstQueriedRecords: ' + lstQueriedRecords);  
+            System.debug('######## lstQueriedRecords: ' + lstQueriedRecords);
+            
+            Map<String, isvConsoleMapController> mapUniqueRecs = new Map<String, isvConsoleMapController> ();
             
             for (sfLma__License__c e: lstQueriedRecords)
             {
@@ -148,7 +150,9 @@ public with sharing class isvConsoleMapController {
                     locObj.Country = e.sfLma__Lead__r.Country;
                     locObj.PostalCode = e.sfLma__Lead__r.PostalCode;
                     locObj.Latitude = e.sfLma__Lead__r.Latitude;
+                    System.debug('######## e.sfLma__Lead__r.Latitude: ' + locObj.Latitude);
                     locObj.Longitude = e.sfLma__Lead__r.Longitude;
+                    System.debug('######## e.sfLma__Lead__r.Longitude: ' + locObj.Longitude);
 
                 }
                 if (fieldsSet.contains('sfLma__Account__c'))
@@ -194,35 +198,38 @@ public with sharing class isvConsoleMapController {
                 // i.location = locObj;
 
                 // Only add to the Json Map - location attribute the attributes that have values
+                
+                if (locObj.Latitude != null && locObj.Longitude != null)
+                {
+                    System.debug('######## Has Latitude and Long: ' + locObj.Latitude.toPlainString());
+                    obj.put('Latitude', locObj.Latitude.toPlainString());
+                    obj.put('Longitude', locObj.Longitude.toPlainString());
 
-                if (String.isNotEmpty(locObj.City))
+                }
+                /*
+                else 
+                {
+                    if (String.isNotEmpty(locObj.City))
                     obj.put('City', locObj.City);
-                if (String.isNotEmpty(locObj.Country))
-                    obj.put('Country', locObj.Country);
-                if (String.isNotEmpty(locObj.State))
-                    obj.put('State', locObj.State);
-
+                    if (String.isNotEmpty(locObj.Country))
+                        obj.put('Country', locObj.Country);
+                    if (String.isNotEmpty(locObj.State))
+                        obj.put('State', locObj.State);
+                }
+                */
                 System.debug('######## Map obj: ' + obj);
                 //String serlzObj = JSON.Serialize(obj);
                 //System.debug('######## serlzObj: ' + serlzObj);
                 i.location =  obj;
-                if (String.isNotEmpty(i.title) && obj.containsKey('Country'))
-                    lstReturnRecords.add(i);
-                /*System.debug('######## i.location: ' + i.location);
-                System.debug('######## i.location.Country: ' + i.location.Country);
-                if (String.isNotEmpty(i.title) && String.isNotEmpty(i.location.Country))
-                    {
-                        System.debug('######## entered check for i.location.Country: ' + i.location.Country);
-                        System.debug('######## entered check for i.location.State: ' + i.location.State);
-                        System.debug('######## entered check for i.Title: ' + i.title);
-                        System.debug('######## entered check for i.Value: ' + i.value);
-                        lstReturnRecords.add(i);
-                    }
-                */
+                if (String.isNotEmpty(i.title) && (obj.containsKey('Latitude') || obj.containsKey('Longitude')))
+                    mapUniqueRecs.put(i.title, i);
+
                 System.debug('######## i: ' + i);               
 
                 // ---- For Loop Ends ----
             }
+
+                lstReturnRecords = mapUniqueRecs.values();
             
         }
         

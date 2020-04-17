@@ -4,6 +4,10 @@
         <members>isvConsoleMapController</members>
         <name>ApexClass</name>
     </types>
+     <types>
+        <members>*</members>
+        <name>LightningComponentBundle</name>
+    </types>
     <version>48.0</version>
 </Package>
 <!-- Grab Recommendation data and file for packaging -->
