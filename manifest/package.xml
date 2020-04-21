@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
@@ -60,6 +61,10 @@
     <types>
         <members>ISV_Console_Admin</members>
         <name>PermissionSet</name>
+=======
+        <members>isvConsoleMap</members>
+        <name>LightningComponentBundle</name>
+>>>>>>> 3aa0de7 (fix1)
     </types>
     <types>
         <members>*</members>
