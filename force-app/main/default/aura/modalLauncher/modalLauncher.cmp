@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--
   Copyright (c) 2018, salesforce.com, inc.
   All rights reserved.
@@ -12,3 +13,12 @@
     <lightning:messageChannel type="isvconsole__ISVConsole__c"
                 onMessage="{!c.handleMessage}" scope="APPLICATION"/>
 </aura:component>
+=======
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global">
+
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <lightning:messageChannel type="ISVConsole__c"
+                onMessage="{!c.handleMessage}" scope="APPLICATION"/>
+</aura:component>	
+>>>>>>> 00546ad (first commit)

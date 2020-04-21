@@ -3,6 +3,7 @@
     <types>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
@@ -81,6 +82,10 @@
      <types>
         <members>*</members>
         <name>LightningComponentBundle</name>
+=======
+        <members>ISV_Console_Admin</members>
+        <name>PermissionSet</name>
+>>>>>>> 00546ad (first commit)
     </types>
 >>>>>>> ed6f09d (added badge)
     <version>48.0</version>

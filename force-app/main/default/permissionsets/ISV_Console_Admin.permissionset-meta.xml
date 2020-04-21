@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 00546ad (first commit)
     <applicationVisibilities>
         <application>ISV_Console</application>
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+<<<<<<< HEAD
         <apexClass>CountdownTimerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -27,6 +31,9 @@
     </classAccesses>
     <classAccesses>
         <apexClass>emailServerController</apexClass>
+=======
+        <apexClass>ISVConsole_Helper</apexClass>
+>>>>>>> 00546ad (first commit)
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -37,6 +44,7 @@
         <apexClass>listContainerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+<<<<<<< HEAD
     <classAccesses>
         <apexClass>schedFetchMaintenance</apexClass>
         <enabled>true</enabled>
@@ -442,6 +450,8 @@
         <field>sfLma__Package__c.sfLma__Release_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+=======
+>>>>>>> 00546ad (first commit)
     <hasActivationRequired>false</hasActivationRequired>
     <label>ISV Console_Admin</label>
     <license>Salesforce</license>
@@ -578,6 +588,10 @@
     <label>ISV Console_Admin</label>
     <license>Salesforce</license>
 >>>>>>> f88ac2d (added NBA)
+    <tabSettings>
+        <tab>Happening_Now</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
     <tabSettings>
         <tab>standard-Recommendation</tab>
         <visibility>Visible</visibility>
