@@ -41,11 +41,27 @@ export default class IsvConsoleMap extends LightningElement {
     wiredLocations({ error, data }) {
         if (data) {
             this.mapMarkers = data;
-            this.error = undefined;
+            this.error = 'No Data found';
             this.numberOfMarkers = data.length;
-        } else if (error) {
-            this.error = error;
-            this.mapMarkers = undefined;
+        } 
+        else  {
+            this.error = 'No Data returned from Salesforce Org';
+            this.numberOfMarkers = 0;
+            
+            this.mapMarkers = [
+                {
+                    value: 'France1',
+                    location: {
+                        City: "Cap-d'Ail",
+                        Country: 'France',
+                    },
+        
+                    icon: 'custom:custom26',
+                    title: "Cap-d'Ail",
+                },
+            ];
+
+
         }
     }
     

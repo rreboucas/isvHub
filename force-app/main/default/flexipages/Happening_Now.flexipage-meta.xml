@@ -1,16 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
     <flexiPageRegions>
-        <name>column1</name>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Where are my Customers Located</value>
+            </componentInstanceProperties>
+            <componentName>isvConsoleMap</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>modalLauncher</componentName>
+        </componentInstances>
+        <name>region1</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <name>column2</name>
+        <componentInstances>
+            <componentName>ISVConsoleNextBestAction</componentName>
+            <visibilityRule>
+                <booleanFilter>1 OR 2</booleanFilter>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Large</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Medium</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <name>region2</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Licenses Expiring Soon</value>
+            </componentInstanceProperties>
+            <componentName>listContainer</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Latest Installs per App</value>
+            </componentInstanceProperties>
+            <componentName>listContainer</componentName>
+        </componentInstances>
+        <name>region3</name>
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Happening Now</masterLabel>
     <template>
-        <name>flexipage:appHomeTemplateTwoColumns</name>
+        <name>flexipage:appHomeTemplateThreeColumns</name>
     </template>
     <type>AppPage</type>
 </FlexiPage>

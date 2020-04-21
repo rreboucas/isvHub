@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>ISV_Console_Admin</members>
-        <name>PermissionSet</name>
+        <members>isvConsoleMap</members>
+        <name>LightningComponentBundle</name>
     </types>
     <version>48.0</version>
 </Package>
