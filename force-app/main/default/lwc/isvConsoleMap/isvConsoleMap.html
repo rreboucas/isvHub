@@ -11,7 +11,7 @@
 
         <p slot="footer">{numberOfMarkers}
             <template if:true={selctedOnMobile}>
-                <c-badge label="View Recommendations"></c-badge>
+                <c-badge label="View Recommendations" recordid={selectedMarkerValue} onselected={badgeSelected}></c-badge>
             </template>
         </p>
     </lightning-card>

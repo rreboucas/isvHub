@@ -1,0 +1,16 @@
+:host(.active) {
+    background-color: #95CBFC;
+    padding: 0.25rem 0.5rem;
+    border-radius: 15rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: normal;
+    color: #080707;
+    white-space: nowrap;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}

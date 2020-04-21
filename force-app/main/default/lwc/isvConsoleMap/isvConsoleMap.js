@@ -1,6 +1,8 @@
 import { LightningElement, track, api, wire } from 'lwc';
 import getLocationData from '@salesforce/apex/isvConsoleMapController.getLocationData';
 import FORM_FACTOR from '@salesforce/client/formFactor';
+import { publish, MessageContext } from 'lightning/messageService';
+import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
 
 export default class IsvConsoleMap extends LightningElement {
     
@@ -12,11 +14,14 @@ export default class IsvConsoleMap extends LightningElement {
     selctedOnMobile = false;
     isTablet = false;
     isDesktop = false;
+    selectedMarkerValue ;
     
+    @wire(MessageContext)
+    messageContext;
     
     connectedCallback() {
         // Check formfactor being used to access this LWC
-        switch(FORM_FACTOR) {
+      switch(FORM_FACTOR) {
             case 'Large':
                 this.isDesktop = true;
               break;
@@ -27,7 +32,8 @@ export default class IsvConsoleMap extends LightningElement {
                 this.isMobile = true;
             break;
             default:
-              // code block
+              
+              
           }
     }
 
@@ -46,11 +52,44 @@ export default class IsvConsoleMap extends LightningElement {
     
     @track markersTitle = "My Customers";
 
-    @track selectedMarkerValue = 'France1';
 
     handleMarkerSelect(event) {
         this.selectedMarkerValue = event.detail.selectedMarkerValue;
         if (this.isMobile)
             this.selctedOnMobile = true;
     }
+
+    badgeSelected(event) {
+        console.log('isvConsoleMap.js badgeSelected' + event);
+        const recId = event.detail.recId;
+        const action = event.detail.action;
+
+        switch(action) {
+            case 'nba':
+                {
+                    // Send Message to Modal Launcher Component to Open NBA on a Mobile Modal
+                    const message = {
+                        messageToSend: recId,
+                        sourceComponent: 'ISVConsoleMap'
+                    };
+                    console.log('isvConsoleMap.js message' + message);
+                    publish(this.messageContext, ISVCONSOLEMC, message);
+                    break;
+                }
+            case 'NavToRecord':
+                //
+              break;
+            case 'ConvertLead':
+                //
+            break;
+            case 'NotifySales':
+                //
+            break;
+            default:
+              // code block
+          }
+
+    }
+
+
 }
