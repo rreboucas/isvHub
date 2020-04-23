@@ -14,4 +14,9 @@
        <description>UI Component that sent the message</description>
    </lightningMessageFields>
 
+   <lightningMessageFields>
+       <fieldName>formFactor</fieldName>
+       <description>Form Factor used by the user</description>
+   </lightningMessageFields>
+
 </LightningMessageChannel>

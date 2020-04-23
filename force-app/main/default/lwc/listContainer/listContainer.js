@@ -1,5 +1,5 @@
 import { LightningElement, api, wire } from 'lwc';
-//import getLastestPackageInstalls from '@salesforce/apex/listContainerController.getLastestPackageInstalls';
+import FORM_FACTOR from '@salesforce/client/formFactor';
 import getLicenseData from '@salesforce/apex/listContainerController.getLicenseData';
 import { publish, MessageContext } from 'lightning/messageService';
 import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
@@ -9,6 +9,11 @@ export default class ListContainer extends LightningElement {
     @api title;
     latestInstalls;
     error;
+    isMobile = false;
+    selctedOnMobile = false;
+    isTablet = false;
+    isDesktop = false;
+    formfactorName;
 
     @wire(MessageContext)
     messageContext;
@@ -16,6 +21,24 @@ export default class ListContainer extends LightningElement {
 
     connectedCallback() {
         // Check if LMA is installed and update hasLMAInstalls variable
+
+        // Check formfactor being used to access this LWC
+      switch(FORM_FACTOR) {
+        case 'Large':
+            this.isDesktop = true;
+            this.formfactorName = 'Desktop';
+          break;
+        case 'Medium':
+            this.isTablet = true;
+            this.formfactorName = 'Tablet';
+          break;
+        case 'Small':
+            this.isMobile = true;
+            this.formfactorName = 'Phone';
+        break;
+        default:
+
+      }
     }
 
     @wire(getLicenseData, { rowsLimit: '3', dataFilter: '$title' })
@@ -36,7 +59,8 @@ export default class ListContainer extends LightningElement {
         
         const message = {
             messageToSend: clickedRowValue,
-            sourceComponent: 'LWC'
+            sourceComponent: this.title,
+            formFactor: this.formfactorName
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
         
