@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
@@ -45,10 +46,19 @@
     <types>
         <members>*</members>
         <name>LightningComponentBundle</name>
+=======
+        <members>*</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>LightningMessageChannel</name>
+>>>>>>> 4e20c86 (added formfactor to message)
     </types>
     <types>
         <members>*</members>
         <name>AuraDefinitionBundle</name>
+<<<<<<< HEAD
 =======
         <members>isvConsoleMapController</members>
         <name>ApexClass</name>
@@ -93,6 +103,9 @@
 >>>>>>> 00546ad (first commit)
     </types>
 >>>>>>> ed6f09d (added badge)
+=======
+    </types>
+>>>>>>> 4e20c86 (added formfactor to message)
     <version>48.0</version>
 </Package>
 <!-- Grab Recommendation data and file for packaging -->

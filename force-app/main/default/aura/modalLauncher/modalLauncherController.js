@@ -330,6 +330,7 @@
 })
 =======
         //cmp.set("v.receivedRecordId", message.getParam("messageToSend")); 
+    if (message.getParam("formFactor") == 'Phone') {
        if (message != null && message.getParam("messageToSend") != null) {
             
         var modalBody;
@@ -354,6 +355,7 @@
 
 
        }
+    }
        
      }
 })

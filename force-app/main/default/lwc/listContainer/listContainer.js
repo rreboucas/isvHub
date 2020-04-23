@@ -7,6 +7,9 @@
 
 import { LightningElement, api, wire } from 'lwc';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4e20c86 (added formfactor to message)
 import FORM_FACTOR from '@salesforce/client/formFactor';
 import getLicenseData from '@salesforce/apex/listContainerController.getLicenseData';
 import { publish, MessageContext } from 'lightning/messageService';
@@ -49,6 +52,7 @@ export default class ListContainer extends LightningElement {
     isTablet = false;
     isDesktop = false;
     formfactorName;
+<<<<<<< HEAD
     headerIconName;
     @wire(MessageContext)
     messageContext;
@@ -65,6 +69,8 @@ export default class ListContainer extends LightningElement {
     hasData;
 
     
+=======
+>>>>>>> 4e20c86 (added formfactor to message)
 
     @wire(MessageContext)
     messageContext;
@@ -121,22 +127,29 @@ export default class ListContainer extends LightningElement {
         case 'Large':
             this.isDesktop = true;
             this.formfactorName = 'Desktop';
+<<<<<<< HEAD
             this.computedChildClassName = 'desktop';
             this.computedIconSize = 'x-small';
 
             if (this.screenWidth <= 1440){
               this.computedChildClassName = 'desktopSmall';
             }
+=======
+>>>>>>> 4e20c86 (added formfactor to message)
           break;
         case 'Medium':
             this.isTablet = true;
             this.formfactorName = 'Tablet';
+<<<<<<< HEAD
             this.computedChildClassName = 'desktop';
             this.computedIconSize = 'xx-small';
+=======
+>>>>>>> 4e20c86 (added formfactor to message)
           break;
         case 'Small':
             this.isMobile = true;
             this.formfactorName = 'Phone';
+<<<<<<< HEAD
             this.computedChildClassName = 'mobile';
             this.computedIconSize = 'xx-small';
         break;
@@ -146,6 +159,12 @@ export default class ListContainer extends LightningElement {
       // Remove CSS Margins from ul element if launched via Modal
       if (this.launchedViaModal)
         this.ulCssClass = '';
+=======
+        break;
+        default:
+
+      }
+>>>>>>> 4e20c86 (added formfactor to message)
     }
 
 <<<<<<< HEAD
@@ -169,7 +188,8 @@ export default class ListContainer extends LightningElement {
         
         const message = {
             messageToSend: clickedRowValue,
-            sourceComponent: 'LWC'
+            sourceComponent: this.title,
+            formFactor: this.formfactorName
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
         

@@ -108,5 +108,14 @@
        <description>UI Component that sent the message</description>
    </lightningMessageFields>
 
+<<<<<<< HEAD
 </LightningMessageChannel>
 >>>>>>> 3ef6593 (Added Msg Channel)
+=======
+   <lightningMessageFields>
+       <fieldName>formFactor</fieldName>
+       <description>Form Factor used by the user</description>
+   </lightningMessageFields>
+
+</LightningMessageChannel>
+>>>>>>> 4e20c86 (added formfactor to message)

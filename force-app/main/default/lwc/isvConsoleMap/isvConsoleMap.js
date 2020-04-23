@@ -96,6 +96,7 @@ export default class IsvConsoleMap extends LightningElement {
     selctedOnMobile = false;
     isTablet = false;
     isDesktop = false;
+    formfactorName;
     selectedMarkerValue ;
     
 <<<<<<< HEAD
@@ -107,9 +108,10 @@ export default class IsvConsoleMap extends LightningElement {
     
     connectedCallback() {
         // Check formfactor being used to access this LWC
-      switch(FORM_FACTOR) {
+        switch(FORM_FACTOR) {
             case 'Large':
                 this.isDesktop = true;
+<<<<<<< HEAD
 <<<<<<< HEAD
                 this.formfactorName = 'Desktop';
               break;
@@ -132,16 +134,20 @@ export default class IsvConsoleMap extends LightningElement {
     
 >>>>>>> 033b27d (added map controller apex)
 =======
+=======
+                this.formfactorName = 'Desktop';
+>>>>>>> 4e20c86 (added formfactor to message)
               break;
             case 'Medium':
                 this.isTablet = true;
+                this.formfactorName = 'Tablet';
               break;
             case 'Small':
                 this.isMobile = true;
+                this.formfactorName = 'Phone';
             break;
             default:
-              
-              
+    
           }
     }
 
@@ -166,6 +172,7 @@ export default class IsvConsoleMap extends LightningElement {
 =======
             this.error = 'No Data found';
             this.numberOfMarkers = data.length;
+<<<<<<< HEAD
         } 
         else  {
             this.error = 'No Data returned from Salesforce Org';
@@ -186,6 +193,12 @@ export default class IsvConsoleMap extends LightningElement {
 
 
 >>>>>>> 3aa0de7 (fix1)
+=======
+        }
+        else if (error) {
+            this.error = error;
+            this.mapMarkers = undefined;
+>>>>>>> 4e20c86 (added formfactor to message)
         }
     }
     
@@ -453,7 +466,8 @@ export default class IsvConsoleMap extends LightningElement {
                     // Send Message to Modal Launcher Component to Open NBA on a Mobile Modal
                     const message = {
                         messageToSend: recId,
-                        sourceComponent: 'ISVConsoleMap'
+                        sourceComponent: 'ISVConsoleMap',
+                        formFactor: this.formfactorName
                     };
                     console.log('isvConsoleMap.js message' + message);
                     publish(this.messageContext, ISVCONSOLEMC, message);
