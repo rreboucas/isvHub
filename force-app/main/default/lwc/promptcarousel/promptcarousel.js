@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -6,6 +7,8 @@
  */
 
 
+=======
+>>>>>>> c2aec72 (dynamic header icons)
 import { LightningElement } from 'lwc';
 
 export default class Promptcarousel extends LightningElement {}

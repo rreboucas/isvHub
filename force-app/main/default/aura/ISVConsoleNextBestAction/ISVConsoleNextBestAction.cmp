@@ -64,21 +64,22 @@
                 </header>
             </div>
         </aura:set>
-        <p class="slds-p-horizontal_small">
-            {!v.body}
-            {!v.receivedRecordId}
 
+
+            
+        <div class="slds-align_absolute-center">
             <aura:if isTrue="{!not(empty(v.recordId))}">
                 {!v.body}
                 <p><lightning:formattedText value="{!v.recordId}" /></p>
                 <aura:set attribute="else">
-                    Select an item on the other Components on this page to see recommendations <br/>
+                    <isvconsole:promptcarousel /> <br/>
                 </aura:set>
             </aura:if>
-            
-        </p>
+        </div>
+
     </lightning:card>
     
+<<<<<<< HEAD
 			    <!--<lightning:nextBestActions strategyName ="License_Expiring_Soon" showEinstein="true">
 			    </lightning:nextBestActions> -->
 <<<<<<< HEAD
@@ -88,6 +89,9 @@
 >>>>>>> f88ac2d (added NBA)
 =======
 =======
+=======
+
+>>>>>>> c2aec72 (dynamic header icons)
                 <lightning:messageChannel type="ISVConsole__c"
                 onMessage="{!c.handleChanged}" scope="APPLICATION"/>
 >>>>>>> 3ef6593 (Added Msg Channel)

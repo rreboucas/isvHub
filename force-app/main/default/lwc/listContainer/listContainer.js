@@ -53,6 +53,7 @@ export default class ListContainer extends LightningElement {
     isDesktop = false;
     formfactorName;
 <<<<<<< HEAD
+<<<<<<< HEAD
     headerIconName;
     @wire(MessageContext)
     messageContext;
@@ -72,11 +73,15 @@ export default class ListContainer extends LightningElement {
 =======
 >>>>>>> 4e20c86 (added formfactor to message)
 
+=======
+    headerIconName;
+>>>>>>> c2aec72 (dynamic header icons)
     @wire(MessageContext)
     messageContext;
 
 
     connectedCallback() {
+<<<<<<< HEAD
 
       this.screenWidth = window.screen.width;
       console.log('listContainer.js orgtype: ' + this.orgtype);
@@ -101,10 +106,14 @@ export default class ListContainer extends LightningElement {
           this.computedAvailabilityIcon = 'utility:ban'
       }
       
+=======
+        
+>>>>>>> c2aec72 (dynamic header icons)
         // Check which header icon to use based on selected App Builder Title
         switch(this.title) {
             case 'Latest Installs per App':
                 this.headerIconName = 'utility:refresh';
+<<<<<<< HEAD
                 this.actionType = 'latestInstalls';
                 this.filter = this.title;
                 this.isCustomersImpacted = false;
@@ -118,6 +127,13 @@ export default class ListContainer extends LightningElement {
             default:
               this.headerIconName = 'utility:salesforce1';
               this.isCustomersImpacted = true;
+=======
+              break;
+            case 'Licenses Expiring Soon':
+                this.headerIconName = 'utility:alert';
+            break;
+            default:
+>>>>>>> c2aec72 (dynamic header icons)
           }
         
         // Check if LMA is installed and update hasLMAInstalls variable
@@ -162,7 +178,6 @@ export default class ListContainer extends LightningElement {
 =======
         break;
         default:
-
       }
 >>>>>>> 4e20c86 (added formfactor to message)
     }
