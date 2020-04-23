@@ -14,12 +14,24 @@ export default class ListContainer extends LightningElement {
     isTablet = false;
     isDesktop = false;
     formfactorName;
-
+    headerIconName;
     @wire(MessageContext)
     messageContext;
 
 
     connectedCallback() {
+        
+        // Check which header icon to use based on selected App Builder Title
+        switch(this.title) {
+            case 'Latest Installs per App':
+                this.headerIconName = 'utility:refresh';
+              break;
+            case 'Licenses Expiring Soon':
+                this.headerIconName = 'utility:alert';
+            break;
+            default:
+          }
+        
         // Check if LMA is installed and update hasLMAInstalls variable
 
         // Check formfactor being used to access this LWC
@@ -37,7 +49,6 @@ export default class ListContainer extends LightningElement {
             this.formfactorName = 'Phone';
         break;
         default:
-
       }
     }
 

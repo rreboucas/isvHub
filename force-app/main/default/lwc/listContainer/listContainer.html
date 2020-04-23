@@ -1,6 +1,6 @@
 <template>
     <template if:true={hasLMAInstalls}>
-        <lightning-card  variant="Narrow"  title={title} icon-name="standard:account">
+        <lightning-card  variant="Narrow"  title={title} icon-name={headerIconName}>
             <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
             <ul class="slds-m-around_medium">
                 <template for:each={latestInstalls} for:item="install">
