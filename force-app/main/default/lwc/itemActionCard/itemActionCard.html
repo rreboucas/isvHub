@@ -9,48 +9,66 @@
 
 <template>
     
-<div class="slds-box">
-    <article class={computedWrapperClassNames}>
-        <header class="slds-card__header slds-grid">
-            <div class="slds-media slds-media_center slds-has-flexi-truncate">
-                <template if:true={hasIcon}>
-                    <div class="slds-media__figure">
-                        <c-icon icon-name={iconName} size="small"></c-icon>
-                    </div>
-                </template>
-                <div class="slds-media__body slds-truncate">
-                    <h2>
-                        <span class="slds-text-heading_small">
-                            <template if:true={hasStringTitle}>
-                                {title}
-                            </template>
-                            <template if:false={hasStringTitle}>
-                                <slot name="title"></slot>
-                            </template>
-                        </span>
-                    </h2>
-                </div>
-            </div>
-            <div class="slds-no-flex">
-                <slot name="actions"></slot>
-            </div>
-        </header>
-        <div class="slds-card__body">
+<div class="rowText">
+    <article>
+        
+        <div class="slds-card__body rowText">
             
-            <lightning-layout>
-                <lightning-layout-item padding="around-small">
+            <lightning-layout vertical-align="start" >
+                
+                <!-- Left Column - Row Icon - Start-->
+                <lightning-layout-item padding="horizontal-small" size="1">
                     <div class="header-column">
-                        <lightning-icon icon-name="action:defer" size="small" alternative-text="InstallDateTime" title="Install Date Time" ></lightning-icon>
-                        <lightning-formatted-date-time value={date} year="2-digit" month="short" day="2-digit" weekday="long" hour="2-digit" minute="2-digit"></lightning-formatted-date-time>
+                        <lightning-icon icon-name={rowIconName} size="small" alternative-text="InstallDateTime" title="Install Date Time" ></lightning-icon> 
                     </div>
                 </lightning-layout-item>
-                <lightning-layout-item padding="around-small">
-                    <div class="header-column">
-                        <lightning-icon icon-name="action:new_person_account" size="small" alternative-text="Avatar" title="Avatar Logo" ></lightning-icon>
-                        <lightning-formatted-text value={company} ></lightning-formatted-text>
-                        <lightning-formatted-text value={licenseid} ></lightning-formatted-text>
-                    </div>
-                </lightning-layout-item> 
+                <!-- Left Column - Row Icon - End-->
+
+                <!-- Right Column - Badge Buttons - Start-->
+                <lightning-layout-item padding="horizontal-small" size="11">
+                    <ul class="rowText">
+                        <li>
+                            <lightning-layout vertical-align="start" multiple-rows=true>
+                                <lightning-layout-item size="1">
+                                        <lightning-icon icon-name="utility:package" size={computedIconSize} alternative-text="PackageIcon" title="PackageIcon" ></lightning-icon> 
+                                </lightning-layout-item>
+                                <lightning-layout-item size="6">
+                                        <lightning-formatted-text value={title} ></lightning-formatted-text>
+                                </lightning-layout-item>
+                                <lightning-layout-item flexibility="auto, no-grow" size="5">
+                                        <c-badge label="View Recommendations" recordid={licenseid} onselected={badgeSelected}></c-badge>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </li>
+                        <li>
+                            <lightning-layout vertical-align="start" multiple-rows=true>
+                                <lightning-layout-item size="1">
+                                        <lightning-icon icon-name="utility:company" size={computedIconSize} alternative-text="CompanyIcon" title="CompanyIcon" ></lightning-icon> 
+                                </lightning-layout-item>
+                                <lightning-layout-item size="6">
+                                        <lightning-formatted-text value={company} ></lightning-formatted-text>
+                                </lightning-layout-item>
+                                <lightning-layout-item flexibility="auto, no-grow" size="5">
+                                        <c-badge label="View Recommendations" recordid={licenseid} onselected={badgeSelected}></c-badge>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </li>
+                        <li>
+                            <lightning-layout vertical-align="start" multiple-rows=true>
+                                <lightning-layout-item size="1">
+                                        <lightning-icon icon-name="utility:clock" size={computedIconSize} alternative-text="ClockIcon" title="ClockIcon" ></lightning-icon> 
+                                </lightning-layout-item>
+                                <lightning-layout-item size="6">
+                                    <lightning-formatted-date-time value={date} year={computedYearFormat} month={computedMonthFormat} day={computedDayFormat} weekday={computedWeekDayFormat} hour="2-digit" minute="2-digit"></lightning-formatted-date-time>
+                                </lightning-layout-item>
+                                <lightning-layout-item flexibility="auto, no-grow" size="5">
+                                        <c-badge label="View Recommendations" recordid={licenseid} onselected={badgeSelected}></c-badge>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </li>
+                    </ul>
+                </lightning-layout-item>                
+                <!-- Right Column - Badge Buttons - End-->
             </lightning-layout>
 
         </div>

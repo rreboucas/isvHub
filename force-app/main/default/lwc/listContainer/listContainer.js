@@ -17,6 +17,7 @@ export default class ListContainer extends LightningElement {
     headerIconName;
     @wire(MessageContext)
     messageContext;
+    computedChildClassName;
 
 
     connectedCallback() {
@@ -39,14 +40,17 @@ export default class ListContainer extends LightningElement {
         case 'Large':
             this.isDesktop = true;
             this.formfactorName = 'Desktop';
+            this.computedChildClassName = 'desktop';
           break;
         case 'Medium':
             this.isTablet = true;
             this.formfactorName = 'Tablet';
+            this.computedChildClassName = 'desktop';
           break;
         case 'Small':
             this.isMobile = true;
             this.formfactorName = 'Phone';
+            this.computedChildClassName = 'mobile';
         break;
         default:
       }
