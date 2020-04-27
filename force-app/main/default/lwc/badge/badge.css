@@ -18,7 +18,7 @@
     background-color: #95CBFC;
     padding: 0.25rem 0.5rem;
     border-radius: 15rem;
-    font-size: 0.75rem;
+    font-size: 0.55rem;
     font-weight: 700;
     line-height: normal;
     color: #080707;
@@ -87,5 +87,15 @@ b {
     min-width: 1.5rem;
 =======
     align-items: center;
+<<<<<<< HEAD
 >>>>>>> 00546ad (first commit)
 }
+=======
+}
+:host(.mobile) {
+    font-size: 0.35rem;
+} 
+:host(.desktop) {
+    font-size: 0.55rem;
+} 
+>>>>>>> bc9f56d (test)

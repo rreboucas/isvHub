@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
@@ -109,6 +110,9 @@
 >>>>>>> 4e20c86 (added formfactor to message)
 =======
         <members>listContainer</members>
+=======
+        <members>itemActionCard</members>
+>>>>>>> bc9f56d (test)
         <name>LightningComponentBundle</name>
     </types>
 >>>>>>> c2aec72 (dynamic header icons)

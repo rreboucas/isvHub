@@ -9,9 +9,12 @@ import { LightningElement, api, wire, track } from 'lwc';
 import { classSet } from 'c/utils';
 import { isNarrow, isBase } from './utils';
 import FORM_FACTOR from '@salesforce/client/formFactor';
+<<<<<<< HEAD
 import { publish, MessageContext } from 'lightning/messageService';
 import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
 import { NavigationMixin } from 'lightning/navigation';
+=======
+>>>>>>> bc9f56d (test)
 
 export default class ItemActionCard extends NavigationMixin(LightningElement) {
     @api title;
@@ -27,6 +30,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 <<<<<<< HEAD
     @api licenseid;
     @api parenttitle;
+<<<<<<< HEAD
     @api packageversionid;
     @api leadid;
     @api accountid;
@@ -50,18 +54,24 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     fullCompany;
     whichDate;
     companyId;
+=======
+>>>>>>> bc9f56d (test)
     isMobile = false;
     isTablet = false;
     isDesktop = false;
     formfactorName;
     rowIconName;
     computedChildClassName;
+<<<<<<< HEAD
     computedHeaderIconSize;
+=======
+>>>>>>> bc9f56d (test)
     computedIconSize;
     computedYearFormat;
     computedMonthFormat;
     computedDayFormat;
     computedWeekDayFormat;
+<<<<<<< HEAD
     packgVersionURL;
     topBadgeLabel;
     midleBadgeLabel;
@@ -125,10 +135,17 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 
         console.log('ItemActionCard.js - this.companyId - after: ' + this.companyId);
 
+=======
+
+    @track privateVariant = 'base';
+
+    connectedCallback() {
+>>>>>>> bc9f56d (test)
         // Check which Row icon to use based on Parent Container's Title
         switch(this.parenttitle) {
             case 'Latest Installs per App':
                 this.rowIconName = 'standard:person_account';
+<<<<<<< HEAD
                 this.lowerBadgeLabel = 'Send E-mail';
                 this.topBadgeLabel = 'View License';
                 if (this.hasAccount)
@@ -165,18 +182,32 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         console.log('ItemActionCard.js - flexipageRegionWidth: ' + this.flexipageRegionWidth);
         
 
+=======
+              break;
+            case 'Licenses Expiring Soon':
+                this.rowIconName = 'standard:today';
+            break;
+            default:
+          }
+
+>>>>>>> bc9f56d (test)
         // Check formfactor being used to access this LWC
       switch(FORM_FACTOR) {
         case 'Large':
             this.isDesktop = true;
             this.formfactorName = 'Desktop';
+<<<<<<< HEAD
             this.computedChildClassName = 'desktopLarge';
             this.computedHeaderIconSize = 'small';
+=======
+            this.computedChildClassName = 'desktop';
+>>>>>>> bc9f56d (test)
             this.computedIconSize = 'x-small';
             this.computedYearFormat = '2-digit';
             this.computedMonthFormat = 'short';
             this.computedDayFormat = '2-digit';
             this.computedWeekDayFormat = 'long';
+<<<<<<< HEAD
             
             if (this.screenWidth <= 1440){
                 this.computedChildClassName = 'desktopSmall';
@@ -190,12 +221,17 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
                 if (this.title.length > 24)
                 this.title = this.title.substring(0, 22) + '...';
             }
+=======
+>>>>>>> bc9f56d (test)
           break;
         case 'Medium':
             this.isTablet = true;
             this.formfactorName = 'Tablet';
             this.computedChildClassName = 'desktop';
+<<<<<<< HEAD
             this.computedHeaderIconSize = 'small';
+=======
+>>>>>>> bc9f56d (test)
             this.computedIconSize = 'xx-small';
             this.computedYearFormat = '2-digit';
             this.computedMonthFormat = 'short';
@@ -206,6 +242,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             this.isMobile = true;
             this.formfactorName = 'Phone';
             this.computedChildClassName = 'mobile';
+<<<<<<< HEAD
             this.computedHeaderIconSize = 'x-small';
             this.computedPckgIconPadding = 'slds-p-top_small';
             this.computedAcctIconPadding = 'slds-p-top_medium';
@@ -214,6 +251,8 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             this.computedAcctButtonPadding = 'slds-p-top_x-small';
             this.computedPckgButtonPadding = 'slds-p-top_x-small' ;
             this.computedDateButtonPadding = 'slds-p-top_x-small' ;
+=======
+>>>>>>> bc9f56d (test)
             this.computedIconSize = 'xx-small';
             this.computedYearFormat = 'numeric';
             this.computedMonthFormat = 'numeric';
@@ -230,6 +269,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
       }
     }
 
+<<<<<<< HEAD
     packageHandlelick(event) {
         // Navigate to the Package Version record page
         // Prevents the anchor element from navigating to a URL.
@@ -281,6 +321,8 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         publish(this.messageContext, ISVCONSOLEMC, message);
     }
 
+=======
+>>>>>>> bc9f56d (test)
     set variant(value) {
         if (isNarrow(value) || isBase(value)) {
             this.privateVariant = value;
@@ -318,5 +360,13 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         return !!this.title;
     }
 
+<<<<<<< HEAD
 
+=======
+    badgeSelected(event) {
+        console.log('itemActionCard.js badgeSelected' + event);
+        
+
+    }
+>>>>>>> bc9f56d (test)
 }

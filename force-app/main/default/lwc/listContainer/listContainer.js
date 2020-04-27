@@ -58,6 +58,7 @@ export default class ListContainer extends LightningElement {
     @wire(MessageContext)
     messageContext;
     computedChildClassName;
+<<<<<<< HEAD
     actionType;
     isLoading = false;
     hasSubHeader = false;
@@ -78,6 +79,8 @@ export default class ListContainer extends LightningElement {
 >>>>>>> c2aec72 (dynamic header icons)
     @wire(MessageContext)
     messageContext;
+=======
+>>>>>>> bc9f56d (test)
 
 
     connectedCallback() {
@@ -144,6 +147,7 @@ export default class ListContainer extends LightningElement {
             this.isDesktop = true;
             this.formfactorName = 'Desktop';
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.computedChildClassName = 'desktop';
             this.computedIconSize = 'x-small';
 
@@ -152,22 +156,33 @@ export default class ListContainer extends LightningElement {
             }
 =======
 >>>>>>> 4e20c86 (added formfactor to message)
+=======
+            this.computedChildClassName = 'desktop';
+>>>>>>> bc9f56d (test)
           break;
         case 'Medium':
             this.isTablet = true;
             this.formfactorName = 'Tablet';
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.computedChildClassName = 'desktop';
             this.computedIconSize = 'xx-small';
 =======
 >>>>>>> 4e20c86 (added formfactor to message)
+=======
+            this.computedChildClassName = 'desktop';
+>>>>>>> bc9f56d (test)
           break;
         case 'Small':
             this.isMobile = true;
             this.formfactorName = 'Phone';
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.computedChildClassName = 'mobile';
             this.computedIconSize = 'xx-small';
+=======
+            this.computedChildClassName = 'mobile';
+>>>>>>> bc9f56d (test)
         break;
         default:
       }
