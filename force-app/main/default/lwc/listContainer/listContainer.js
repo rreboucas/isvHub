@@ -74,28 +74,16 @@ export default class ListContainer extends LightningElement {
         
         const message = {
             messageToSend: clickedRowValue,
+            actionType: 'displayNba',
             sourceComponent: this.title,
             formFactor: this.formfactorName
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
         
-        
-        //this._selectTabAndFireSelectEvent(clickedRowValue, { hasFocus: true });
+
     }
 
 
 
 
-    /*
-    @wire(getLastestPackageInstalls)
-    wiredLatestInstalls({ error, data }) {
-        if (data) {
-            this.latestInstalls = data;
-            this.error = undefined;
-        } else if (error) {
-            this.error = error;
-            this.latestInstalls = undefined;
-        }
-    }
-    */
 }

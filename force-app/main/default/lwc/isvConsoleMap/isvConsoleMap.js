@@ -74,6 +74,7 @@ export default class IsvConsoleMap extends LightningElement {
                     // Send Message to Modal Launcher Component to Open NBA on a Mobile Modal
                     const message = {
                         messageToSend: recId,
+                        actionType: 'displayNba',
                         sourceComponent: 'ISVConsoleMap',
                         formFactor: this.formfactorName
                     };

@@ -1,9 +1,8 @@
-:host(.active) {
+:host {
     background-color: #95CBFC;
     padding: 0.25rem 0.5rem;
-    border-radius: 15rem;
-    font-size: 0.55rem;
     font-weight: 700;
+    border-radius: 15rem;
     line-height: normal;
     color: #080707;
     white-space: nowrap;
@@ -16,7 +15,9 @@
 }
 :host(.mobile) {
     font-size: 0.35rem;
+    border-radius: 10rem;
 } 
 :host(.desktop) {
     font-size: 0.55rem;
+    border-radius: 15rem;
 } 

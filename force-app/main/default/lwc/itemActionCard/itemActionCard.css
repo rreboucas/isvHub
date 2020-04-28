@@ -1,7 +1,7 @@
 article {
     padding: 0%;
     border-radius: var(--lwc-borderRadiusMedium,0.25rem);
-    border: var(--lwc-borderWidthThin,1px) solid var(--lwc-colorBorder,rgb(221, 219, 218));
+    border: var(--lwc-borderWidthThin,0.5px) solid var(--lwc-colorBorder,rgb(221, 219, 218));
 }
 :host(.mobile) {
     font-size: 0.6125rem;

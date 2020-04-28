@@ -10,6 +10,11 @@
    </lightningMessageFields>
 
    <lightningMessageFields>
+       <fieldName>actionType</fieldName>
+       <description>Type of Action to Perform</description>
+   </lightningMessageFields>
+
+   <lightningMessageFields>
        <fieldName>sourceComponent</fieldName>
        <description>UI Component that sent the message</description>
    </lightningMessageFields>
