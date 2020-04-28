@@ -10,6 +10,7 @@ import { classSet } from 'c/utils';
 import { isNarrow, isBase } from './utils';
 import FORM_FACTOR from '@salesforce/client/formFactor';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { publish, MessageContext } from 'lightning/messageService';
 import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
 import { NavigationMixin } from 'lightning/navigation';
@@ -24,12 +25,21 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 =======
     @api date;
 >>>>>>> 33dcdb1 (added)
+=======
+import { NavigationMixin } from 'lightning/navigation';
+
+export default class ItemActionCard extends NavigationMixin(LightningElement) {
+    @api title;
+    @api installdate;
+    @api expiredate;
+>>>>>>> 01969aa (modalmodifylicense)
     @api iconName;
     @api company;
 <<<<<<< HEAD
 <<<<<<< HEAD
     @api licenseid;
     @api parenttitle;
+<<<<<<< HEAD
 <<<<<<< HEAD
     @api packageversionid;
     @api leadid;
@@ -56,6 +66,14 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     companyId;
 =======
 >>>>>>> bc9f56d (test)
+=======
+    @api packageversionid;
+    @api leadid;
+    @api accountid;
+
+    whichDate;
+    companyId;
+>>>>>>> 01969aa (modalmodifylicense)
     isMobile = false;
     isTablet = false;
     isDesktop = false;
@@ -72,10 +90,14 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     computedDayFormat;
     computedWeekDayFormat;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 01969aa (modalmodifylicense)
     packgVersionURL;
     topBadgeLabel;
     midleBadgeLabel;
     lowerBadgeLabel;
+<<<<<<< HEAD
     hasAccount = true;
     screenWidth;
 
@@ -136,15 +158,30 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         console.log('ItemActionCard.js - this.companyId - after: ' + this.companyId);
 
 =======
+=======
+>>>>>>> 01969aa (modalmodifylicense)
 
     @track privateVariant = 'base';
 
     connectedCallback() {
+<<<<<<< HEAD
 >>>>>>> bc9f56d (test)
+=======
+
+        // Set the CompanyID variable value based on if the lead is converted into an account or not
+        this.companyId = this.leadid;
+        console.log('ItemActionCard.js - this.companyId - before: ' + this.companyId);
+        if(this.accountid === null || this.accountid === '')
+          this.companyId = this.accountid;  
+
+        console.log('ItemActionCard.js - this.companyId - after: ' + this.companyId);
+
+>>>>>>> 01969aa (modalmodifylicense)
         // Check which Row icon to use based on Parent Container's Title
         switch(this.parenttitle) {
             case 'Latest Installs per App':
                 this.rowIconName = 'standard:person_account';
+<<<<<<< HEAD
 <<<<<<< HEAD
                 this.lowerBadgeLabel = 'Send E-mail';
                 this.topBadgeLabel = 'View License';
@@ -183,14 +220,25 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         
 
 =======
+=======
+                this.topBadgeLabel = 'View License';
+                this.whichDate = this.installdate;
+>>>>>>> 01969aa (modalmodifylicense)
               break;
             case 'Licenses Expiring Soon':
                 this.rowIconName = 'standard:today';
+                this.topBadgeLabel = 'Extend Expiration';
+                this.whichDate = this.expiredate;
             break;
             default:
           }
 
+<<<<<<< HEAD
 >>>>>>> bc9f56d (test)
+=======
+        
+
+>>>>>>> 01969aa (modalmodifylicense)
         // Check formfactor being used to access this LWC
       switch(FORM_FACTOR) {
         case 'Large':
@@ -270,11 +318,16 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     packageHandlelick(event) {
         // Navigate to the Package Version record page
         // Prevents the anchor element from navigating to a URL.
         event.preventDefault();
 
+=======
+    packageHandlelick() {
+        // Navigate to the Package Version record page
+>>>>>>> 01969aa (modalmodifylicense)
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {
@@ -284,11 +337,16 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         });
     }
 
+<<<<<<< HEAD
     companyHandlelick(event) {
         // Navigate to the Account or Lead record page
         // Prevents the anchor element from navigating to a URL.
         event.preventDefault();
         console.log('ItemActionCard.js - companyHandlelick - this.companyId : ' + this.companyId);
+=======
+    companyHandlelick() {
+        // Navigate to the Account or Lead record page
+>>>>>>> 01969aa (modalmodifylicense)
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {
@@ -298,6 +356,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         });
     }
 
+<<<<<<< HEAD
     sendNotifyEmailHandler() {
         
         console.log('ItemActionCard.js - sendNotifyEmailHandler ');
@@ -323,6 +382,8 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 
 =======
 >>>>>>> bc9f56d (test)
+=======
+>>>>>>> 01969aa (modalmodifylicense)
     set variant(value) {
         if (isNarrow(value) || isBase(value)) {
             this.privateVariant = value;

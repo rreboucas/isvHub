@@ -43,7 +43,26 @@
 
 <template>
   <a href="#" onclick={selectHandler}>
-    {label}
+  <lightning-layout vertical-align="start">
+    <!-- Left Column - Badge Icon - Start-->
+    <lightning-layout-item padding="horizontal-small" size="1">
+      <div class="header-column">
+          <lightning-icon icon-name={badgeIconName} size="xx-small" alternative-text="BadgeIcon" title="BadgeIcon" ></lightning-icon> 
+      </div>
+  </lightning-layout-item>
+  <!-- Left Column - Row Icon - End-->
+
+   <!-- Right Column - Badge Icon - Start-->
+  <lightning-layout-item padding="horizontal-small" size="11">
+      <div class="header-column">
+          <b>{label}</b>
+      </div>
+  </lightning-layout-item>
+  <!-- Right Column - Row Icon - End-->
+
+  </lightning-layout>
+ 
+    
   </a>
 </template>
 >>>>>>> ed6f09d (added badge)

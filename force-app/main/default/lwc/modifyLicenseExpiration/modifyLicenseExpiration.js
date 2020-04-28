@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -6,11 +7,14 @@
  */
 
 
+=======
+>>>>>>> 01969aa (modalmodifylicense)
 import { LightningElement, api } from 'lwc';
 
 
 export default class ModifyLicenseExpiration extends LightningElement {
     @api recordid;
+<<<<<<< HEAD
     showModifyForm = false;
     showResults = false;
 
@@ -23,4 +27,6 @@ export default class ModifyLicenseExpiration extends LightningElement {
         this.showModifyForm = false;
         this.showResults = true;
     }
+=======
+>>>>>>> 01969aa (modalmodifylicense)
 }

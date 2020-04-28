@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -15,11 +16,13 @@
     line-height: normal;
 =======
 :host(.active) {
+=======
+:host {
+>>>>>>> 01969aa (modalmodifylicense)
     background-color: #95CBFC;
     padding: 0.25rem 0.5rem;
-    border-radius: 15rem;
-    font-size: 0.55rem;
     font-weight: 700;
+    border-radius: 15rem;
     line-height: normal;
     color: #080707;
 >>>>>>> 00546ad (first commit)
@@ -94,8 +97,14 @@ b {
 }
 :host(.mobile) {
     font-size: 0.35rem;
+    border-radius: 10rem;
 } 
 :host(.desktop) {
     font-size: 0.55rem;
+<<<<<<< HEAD
 } 
 >>>>>>> bc9f56d (test)
+=======
+    border-radius: 15rem;
+} 
+>>>>>>> 01969aa (modalmodifylicense)

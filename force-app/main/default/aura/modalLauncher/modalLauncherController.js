@@ -330,7 +330,7 @@
 })
 =======
         //cmp.set("v.receivedRecordId", message.getParam("messageToSend")); 
-    if (message.getParam("formFactor") == 'Phone') {
+    if (message.getParam("formFactor") == 'Phone' && message.getParam("actionType") == 'displayNba') {
        if (message != null && message.getParam("messageToSend") != null) {
             
         var modalBody;
@@ -356,6 +356,36 @@
 
        }
     }
+
+    if (message.getParam("actionType") == 'licenseExpirationUpdate') {
+        if (message != null && message.getParam("messageToSend") != null) {
+             
+         var modalBody;
+         $A.createComponent("c:modifyLicenseExpiration",
+         {
+            recordid : message.getParam("messageToSend")
+         },
+            function(content, status) {
+                if (status === "SUCCESS") {
+                    modalBody = content;
+                    cmp.find('overlayLib').showCustomModal({
+                        header: "Application Confirmation",
+                        body: modalBody,
+                        showCloseButton: true,
+                        cssClass: "mymodal",
+                        closeCallback: function() {
+                            //alert('You closed the alert!');
+                        }
+                    })
+                }
+            });
+ 
+ 
+        }
+     }
+
+
+
        
      }
 })

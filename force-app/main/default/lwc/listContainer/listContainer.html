@@ -73,11 +73,15 @@
 =======
                     <li key={install.licenseID}>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <c-item-action-card title={install.packageName} date={install.installDateTime} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick}></c-item-action-card>
 >>>>>>> 3ef6593 (Added Msg Channel)
 =======
                         <c-item-action-card class={computedChildClassName} parenttitle={title} title={install.packageName} date={install.installDateTime} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick}></c-item-action-card>
 >>>>>>> bc9f56d (test)
+=======
+                        <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID}></c-item-action-card>
+>>>>>>> 01969aa (modalmodifylicense)
                     </li>
                 </template>
                 <template if:false={hasData}>

@@ -218,18 +218,19 @@ export default class ListContainer extends LightningElement {
         
         const message = {
             messageToSend: clickedRowValue,
+            actionType: 'displayNba',
             sourceComponent: this.title,
             formFactor: this.formfactorName
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
         
-        
-        //this._selectTabAndFireSelectEvent(clickedRowValue, { hasFocus: true });
+
     }
 
 
 
 
+<<<<<<< HEAD
     /*
     @wire(getLastestPackageInstalls)
 >>>>>>> f88ac2d (added NBA)
@@ -276,4 +277,6 @@ export default class ListContainer extends LightningElement {
 =======
     */
 >>>>>>> f88ac2d (added NBA)
+=======
+>>>>>>> 01969aa (modalmodifylicense)
 }

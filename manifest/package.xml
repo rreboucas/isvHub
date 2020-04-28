@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
@@ -22,6 +23,9 @@
     <types>
         <members>*</members>
 <<<<<<< HEAD
+=======
+        <members>*</members>
+>>>>>>> 01969aa (modalmodifylicense)
         <name>LightningComponentBundle</name>
     </types>
     <types>
