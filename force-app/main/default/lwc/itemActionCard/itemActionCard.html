@@ -12,14 +12,14 @@
 <div class="rowText">
     <article>
         
-        <div class="slds-card__body rowText">
+        <div class="slds-p-top_x-small slds-p-bottom_x-small slds-m-top_xx-small">
             
             <lightning-layout vertical-align="start" >
                 
                 <!-- Left Column - Row Icon - Start-->
-                <lightning-layout-item padding="horizontal-small" size="1">
+                <lightning-layout-item padding="around-small" size="1">
                     <div class="header-column">
-                        <lightning-icon icon-name={rowIconName} size="small" alternative-text="InstallDateTime" title="Install Date Time" ></lightning-icon> 
+                        <lightning-icon icon-name={rowIconName} size={computedHeaderIconSize} alternative-text="InstallDateTime" title="Install Date Time" ></lightning-icon> 
                     </div>
                 </lightning-layout-item>
                 <!-- Left Column - Row Icon - End-->
@@ -28,41 +28,49 @@
                 <lightning-layout-item padding="horizontal-small" size="11">
                     <ul class="rowText">
                         <li>
-                            <lightning-layout vertical-align="start" multiple-rows=true>
+                            <lightning-layout vertical-align="stretch" multiple-rows=true>
                                 <lightning-layout-item size="1">
+                                    <div class={computedPckgIconPadding}>
                                         <lightning-icon icon-name="utility:package" size={computedIconSize} alternative-text="PackageIcon" title="PackageIcon" ></lightning-icon> 
+                                    </div>
                                 </lightning-layout-item>
                                 <lightning-layout-item size="6">
-                                        <lightning-button variant="base" label={title} value={packageversionid} title="Package Version" onclick={packageHandlelick} class="slds-m-left_x-small"></lightning-button>
+                                        <lightning-button variant="base" label={title} value={packageversionid} title={fullTitle} onclick={packageHandlelick}></lightning-button>
                                 </lightning-layout-item>
                                 <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                        <c-badge label={topBadgeLabel} recordid={licenseid} onselected={badgeSelected}></c-badge>
+                                        <c-badge label={topBadgeLabel} recordid={licenseid}></c-badge>
                                 </lightning-layout-item>
                             </lightning-layout>
                         </li>
                         <li>
-                            <lightning-layout vertical-align="start" multiple-rows=true>
+                            <lightning-layout vertical-align="stretch" multiple-rows=true>
                                 <lightning-layout-item size="1">
+                                    <div class={computedAcctIconPadding}>
                                         <lightning-icon icon-name="utility:company" size={computedIconSize} alternative-text="CompanyIcon" title="CompanyIcon" ></lightning-icon> 
+                                    </div>
                                 </lightning-layout-item>
                                 <lightning-layout-item size="6">
-                                        <lightning-button variant="base" label={company} value={companyId} title="Company ID" onclick={companyHandlelick} class="slds-m-left_x-small"></lightning-button>    
+                                        <lightning-button variant="base" label={company} value={companyId} title={fullCompany} onclick={companyHandlelick}></lightning-button>    
                                 </lightning-layout-item>
                                 <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                        <c-badge label="View Recommendations" recordid={licenseid} onselected={badgeSelected}></c-badge>
+                                        <c-badge label={midleBadgeLabel} recordid={companyId}></c-badge>
                                 </lightning-layout-item>
                             </lightning-layout>
                         </li>
                         <li>
-                            <lightning-layout vertical-align="start" multiple-rows=true>
+                            <lightning-layout vertical-align="stretch" multiple-rows=true>
                                 <lightning-layout-item size="1">
+                                    <div class={computedClockIconPadding}>
                                         <lightning-icon icon-name="utility:clock" size={computedIconSize} alternative-text="ClockIcon" title="ClockIcon" ></lightning-icon> 
+                                    </div>
                                 </lightning-layout-item>
                                 <lightning-layout-item size="6">
-                                    <lightning-formatted-date-time value={whichDate} year={computedYearFormat} month={computedMonthFormat} day={computedDayFormat} weekday={computedWeekDayFormat} hour="2-digit" minute="2-digit"></lightning-formatted-date-time>
+                                    <div class="slds-p-top_xx-small">
+                                        <lightning-formatted-date-time value={whichDate} year={computedYearFormat} month={computedMonthFormat} day={computedDayFormat} weekday={computedWeekDayFormat} hour="2-digit" minute="2-digit"></lightning-formatted-date-time>
+                                    </div>
                                 </lightning-layout-item>
                                 <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                        <c-badge label="View Recommendations" recordid={licenseid} onselected={badgeSelected}></c-badge>
+                                    <c-badge label={lowerBadgeLabel} recordid={companyId} email={email}></c-badge>
                                 </lightning-layout-item>
                             </lightning-layout>
                         </li>

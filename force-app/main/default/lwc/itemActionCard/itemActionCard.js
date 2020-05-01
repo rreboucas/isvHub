@@ -22,7 +22,10 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     @api packageversionid;
     @api leadid;
     @api accountid;
+    @api email;
 
+    fullTitle;
+    fullCompany;
     whichDate;
     companyId;
     isMobile = false;
@@ -31,6 +34,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     formfactorName;
     rowIconName;
     computedChildClassName;
+    computedHeaderIconSize;
     computedIconSize;
     computedYearFormat;
     computedMonthFormat;
@@ -40,16 +44,33 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     topBadgeLabel;
     midleBadgeLabel;
     lowerBadgeLabel;
+    hasAccount = true;
+    screenWidth;
+
+    computedPckgIconPadding;
+    computedAcctIconPadding;
+    computedClockIconPadding;
 
     @track privateVariant = 'base';
 
     connectedCallback() {
 
+        this.screenWidth = window.screen.width;
+        console.log('ItemActionCard.js - screenWidth: ' + this.screenWidth);
+        this.fullTitle = this.title;
+        this.fullCompany = this.company;
         // Set the CompanyID variable value based on if the lead is converted into an account or not
-        this.companyId = this.leadid;
+        this.companyId = this.accountid;
         console.log('ItemActionCard.js - this.companyId - before: ' + this.companyId);
         if(this.accountid === null || this.accountid === '')
-          this.companyId = this.accountid;  
+            {
+                this.companyId = this.leadid;
+                this.hasAccount = false;  
+            }
+
+        this.computedPckgIconPadding = 'slds-p-top_xx-small';
+        this.computedAcctIconPadding = 'slds-p-top_xx-small';
+        this.computedClockIconPadding = 'slds-p-top_xx-small';
 
         console.log('ItemActionCard.js - this.companyId - after: ' + this.companyId);
 
@@ -57,17 +78,28 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         switch(this.parenttitle) {
             case 'Latest Installs per App':
                 this.rowIconName = 'standard:person_account';
+                this.lowerBadgeLabel = 'Send E-mail';
                 this.topBadgeLabel = 'View License';
+                if (this.hasAccount)
+                    this.midleBadgeLabel = 'View Account';
+                else
+                    this.midleBadgeLabel = 'View Lead' ;
                 this.whichDate = this.installdate;
               break;
             case 'Licenses Expiring Soon':
                 this.rowIconName = 'standard:today';
                 this.topBadgeLabel = 'Extend Expiration';
+                this.midleBadgeLabel = 'Create Opportunity';
+                if (this.screenWidth <= 1440)
+                this.midleBadgeLabel = 'Opportunity';
+                this.lowerBadgeLabel = 'Notify Customer';
                 this.whichDate = this.expiredate;
             break;
             default:
           }
 
+        console.log('ItemActionCard.js - FORM_FACTOR: ' + FORM_FACTOR);
+        console.log('ItemActionCard.js - flexipageRegionWidth: ' + this.flexipageRegionWidth);
         
 
         // Check formfactor being used to access this LWC
@@ -76,16 +108,29 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             this.isDesktop = true;
             this.formfactorName = 'Desktop';
             this.computedChildClassName = 'desktop';
+            this.computedHeaderIconSize = 'small';
             this.computedIconSize = 'x-small';
             this.computedYearFormat = '2-digit';
             this.computedMonthFormat = 'short';
             this.computedDayFormat = '2-digit';
             this.computedWeekDayFormat = 'long';
+            
+            if (this.screenWidth <= 1440){
+                this.computedYearFormat = 'numeric';
+                this.computedMonthFormat = 'numeric';
+                this.computedDayFormat = 'numeric';
+                this.computedWeekDayFormat = 'narrow';
+                if (this.company.length > 24)
+                    this.company = this.company.substring(0, 22) + '...';
+                if (this.title.length > 24)
+                this.title = this.title.substring(0, 22) + '...';
+            }
           break;
         case 'Medium':
             this.isTablet = true;
             this.formfactorName = 'Tablet';
             this.computedChildClassName = 'desktop';
+            this.computedHeaderIconSize = 'small';
             this.computedIconSize = 'xx-small';
             this.computedYearFormat = '2-digit';
             this.computedMonthFormat = 'short';
@@ -96,6 +141,10 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             this.isMobile = true;
             this.formfactorName = 'Phone';
             this.computedChildClassName = 'mobile';
+            this.computedHeaderIconSize = 'x-small';
+            this.computedPckgIconPadding = 'slds-p-top_small';
+            this.computedAcctIconPadding = 'slds-p-top_small';
+            this.computedClockIconPadding = 'slds-p-top_xx-small';
             this.computedIconSize = 'xx-small';
             this.computedYearFormat = 'numeric';
             this.computedMonthFormat = 'numeric';
@@ -171,9 +220,5 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         return !!this.title;
     }
 
-    badgeSelected(event) {
-        console.log('itemActionCard.js badgeSelected' + event);
-        
 
-    }
 }

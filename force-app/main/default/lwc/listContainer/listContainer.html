@@ -5,11 +5,10 @@
             <ul class="slds-m-around_medium">
                 <template for:each={latestInstalls} for:item="install">
                     <li key={install.licenseID}>
-                        <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID}></c-item-action-card>
+                        <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID} email={install.email}></c-item-action-card>
                     </li>
                 </template>
             </ul>
-            <p slot="footer">Card Footer</p>
         </lightning-card>
     </template>
     <template if:false={hasLMAInstalls}>

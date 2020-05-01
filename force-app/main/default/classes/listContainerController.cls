@@ -30,6 +30,8 @@ public with sharing class listContainerController {
     public String leadID { get;set; }
     @AuraEnabled
     public location location { get;set; }
+    @AuraEnabled
+    public String email { get;set; }
 
     @AuraEnabled(cacheable=true)
     public static List<listContainerController> getLicenseData(String rowsLimit, String dataFilter) {
@@ -224,11 +226,16 @@ public with sharing class listContainerController {
                     i.state = e.sfLma__Lead__r.State;
                     i.country = e.sfLma__Lead__r.Country;
                     i.leadID = e.sfLma__Lead__c;
+                    i.email = e.sfLma__Lead__r.Email;
                 }
                 if (fieldsSet.contains('sfLma__Account__c'))
                 {
                     i.accountID = e.sfLma__Account__c;
                     i.companyName = e.sfLma__Account__r.Name;
+                }
+                if (fieldsSet.contains('sfLma__Contact__r'))
+                {
+                    i.email = e.sfLma__Contact__r.Email;
                 }
                 if (String.isEmpty(i.companyName))
                     i.companyName = ' ';
@@ -242,6 +249,8 @@ public with sharing class listContainerController {
                     i.leadID = ' ';
                 if (String.isEmpty(i.accountID))
                     i.accountID = ' ';
+                if (String.isEmpty(i.email))
+                    i.email = ' ';
                 
                 i.orgID = e.sfLma__Subscriber_Org_ID__c;
                 
