@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -6,10 +7,16 @@
  */
 
 
+=======
+>>>>>>> af5f42a (fixedalignment)
 li {
     padding-top:1em;
 }
 div {
     margin: auto;
     width: 50%;
+<<<<<<< HEAD
 }
+=======
+}  
+>>>>>>> af5f42a (fixedalignment)

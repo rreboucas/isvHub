@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -5,6 +6,8 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+=======
+>>>>>>> af5f42a (fixedalignment)
 import { LightningElement, api} from 'lwc';
 import apexSendEmail from '@salesforce/apex/emailServerController.sendEmail';
 
@@ -14,6 +17,7 @@ export default class EmailSender extends LightningElement {
     @api expirationdate;
     @api emailType;
 
+<<<<<<< HEAD
     @api orgid;
     @api instancename;
     @api maintenancename;
@@ -30,6 +34,8 @@ export default class EmailSender extends LightningElement {
     @api isaccount;
 
     activityType;
+=======
+>>>>>>> af5f42a (fixedalignment)
     showEmailForm = false;
     showResults = false;
     sendResult;
@@ -41,6 +47,7 @@ export default class EmailSender extends LightningElement {
         'image', 'clean', 'table', 'header', 'color'];
 
     connectedCallback() {
+<<<<<<< HEAD
 
         console.log('emailSender.js attachtoentityid - connectedCallback: ' + this.attachtoentityid);
         console.log('emailSender.js - connectedCallback - startdt: ' + this.startdt);
@@ -58,23 +65,32 @@ export default class EmailSender extends LightningElement {
         console.log('emailSender.js connectedCallback - enddatetime.getDate: ' + enddatetime.getDate());
         console.log('emailSender.js connectedCallback - enddatetime.getTime: ' + enddatetime.getTime());
 
+=======
+        console.log('emailSender.js attachtoentityid - connectedCallback: ' + this.attachtoentityid);
+>>>>>>> af5f42a (fixedalignment)
         this.showEmailForm = true;
         // Check which Badge icon to use based on Badge's Label
         switch(this.emailType) {
             case 'New Install':
                 this.myVal = 'Thank you for installing our app! I would like to setup a brief call to walk your team through how to best configure and use the app. Please let me know when it is a good date and time for us to meet!';
                 this.defaultSubject = 'Thank you for installing!';
+<<<<<<< HEAD
                 this.activityType = 'Welcome';
+=======
+>>>>>>> af5f42a (fixedalignment)
               break;
             case 'License Expiration':
                 this.myVal = 'I am reaching out to let you know that your License for our app is expiring soon. I would like to connect to setup a call for us to review your license renewal options.  Please let me know when it is a good date and time for us to meet!';
                 this.defaultSubject = 'License Expiration';
+<<<<<<< HEAD
                 this.activityType = 'Expiration';
             break;
             case 'Upcoming Maintenance':
                 this.myVal = 'I am reaching out to let you know that there is an upcoming Platform Maintenance ' + this.maintenancename + ' scheduled for your ' + this.orgtype + ' Salesforce org id ' + this.orgid + ' on ' + enUSFormatter.format(startdatetime) + ' and your org is scheduled to be ' + this.availability + ' from ' + startdatetime.toTimeString() + ' to ' + enddatetime.toTimeString() + '.  You can look at more details about this maintenance through the following link as well: ' + 'https://status.salesforce.com/maintenances/' +  this.maintenanceid + ' . Please let us know if you have any questions.';
                 this.defaultSubject = 'Planned ' + this.orgtype + ' Maintenance Alert';
                 this.activityType = 'Maintenance';
+=======
+>>>>>>> af5f42a (fixedalignment)
             break;
             default:
           }
@@ -102,11 +118,15 @@ export default class EmailSender extends LightningElement {
                 apexSendEmail({ body: bodyVal, 
                     subject: subjectVal,
                     email: emailVal,
+<<<<<<< HEAD
                     recordId: this.attachtoentityid,
                     activityType: this.activityType,
                     licenseId: this.licenseid,
                     maintenanceId: this.maintenanceid,
                     isAccount: this.isaccount
+=======
+                    recordId: this.attachtoentityid
+>>>>>>> af5f42a (fixedalignment)
                  })
                  .then(result => {
                     //this.sendResult = result;

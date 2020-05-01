@@ -104,6 +104,16 @@
    </lightningMessageFields>
 
    <lightningMessageFields>
+       <fieldName>email</fieldName>
+       <description>Email Address</description>
+   </lightningMessageFields>
+
+   <lightningMessageFields>
+       <fieldName>emailType</fieldName>
+       <description>Type Of Email to Send</description>
+   </lightningMessageFields>
+
+   <lightningMessageFields>
        <fieldName>actionType</fieldName>
        <description>Type of Action to Perform</description>
    </lightningMessageFields>

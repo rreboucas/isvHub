@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -5,6 +6,8 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+=======
+>>>>>>> af5f42a (fixedalignment)
 public with sharing class emailServerController {
     
     @AuraEnabled
@@ -15,7 +18,11 @@ public with sharing class emailServerController {
     public String TaskId { get;set; }
     
     @AuraEnabled
+<<<<<<< HEAD
     public static emailServerController sendEmail(String body, String subject, String email, String recordId, String activityType, String licenseId, String maintenanceId, Boolean isAccount) {
+=======
+    public static emailServerController sendEmail(String body, String subject, String email, String recordId) {
+>>>>>>> af5f42a (fixedalignment)
 
         System.debug('######## recordId: ' + recordId);
         emailServerController result = new emailServerController();
@@ -80,16 +87,21 @@ public with sharing class emailServerController {
                 t.Subject = subject;
                 t.Status = 'Closed';
                 t.Priority = 'Normal';
+<<<<<<< HEAD
                 if (isAccount)
                     t.WhatId = recordId;
                 else {
                     t.WhoId = recordId;
                 }
                 // add who id if it is a lead
+=======
+                t.WhatId = recordId;
+>>>>>>> af5f42a (fixedalignment)
                 t.TaskSubtype = 'Email';
                 t.Description = body;
                 t.ActivityDate = Date.today();
                 insert t;
+<<<<<<< HEAD
 
                 // Add Tracked Email record:
                 /*Tracked_Email__c tr = new Tracked_Email__c();
@@ -99,6 +111,9 @@ public with sharing class emailServerController {
                 tr.LMA_License__c = licenseId;
                 tr.Maintenance__c = maintenanceId;
                 tr.Sent_by_User__c = t.CreatedById; */
+=======
+                
+>>>>>>> af5f42a (fixedalignment)
                 
             }
             else
@@ -112,4 +127,8 @@ public with sharing class emailServerController {
         return result;
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> af5f42a (fixedalignment)

@@ -215,26 +215,61 @@ import { LightningElement, api, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import { publish, MessageContext } from 'lightning/messageService';
 import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
+import { encodeDefaultFieldValues } from 'lightning/pageReferenceUtils';
 
 export default class cBadge extends NavigationMixin(LightningElement) {
     @api label;
     @api recordid;
+    @api email;
+
     badgeIconName;
     payload;
+    sendEmail = false;
+    emailType;
 
     @wire(MessageContext)
     messageContext;
 
     connectedCallback() {
-        //this.classList.add('active');
+        //this.classList.add('icon');
+        //this.classList.add('label');
 
         // Check which Badge icon to use based on Badge's Label
         switch(this.label) {
             case 'View License':
-                this.badgeIconName = 'action:preview';
+                this.badgeIconName = 'utility:dynamic_record_choice';
+                this.classList.add('viewlicense');
               break;
+            case 'View Account':
+                this.badgeIconName = 'utility:company';
+                this.classList.add('viewaccount');
+            break;
+            case 'View Lead':
+                this.badgeIconName = 'utility:advertising';
+                this.classList.add('viewlead');
+            break;
+            case 'Create Opportunity':
+            case 'Opportunity':
+                this.badgeIconName = 'utility:new';
+                this.classList.add('createoppty');
+            break;
             case 'Extend Expiration':
-                this.badgeIconName = 'action:preview';
+                this.badgeIconName = 'utility:edit';
+                this.classList.add('expiration');
+            break;
+            case 'Send E-mail':
+                this.badgeIconName = 'utility:email';
+                this.sendEmail = true;
+                this.emailType = 'New Install';
+                this.classList.add('email');
+            break;
+            case 'Notify Customer':
+                this.badgeIconName = 'utility:email';
+                this.sendEmail = true;
+                this.emailType = 'License Expiration';
+                console.log('badge.js ConnectedCallBack - sendEmail: ' + this.sendEmail);
+                console.log('badge.js ConnectedCallBack - email: ' + this.email);
+                this.classList.add('notification');
             break;
             default:
           }
@@ -248,6 +283,20 @@ export default class cBadge extends NavigationMixin(LightningElement) {
         // check what's the badge label to create appropriate payload
 
         switch(this.label) {
+            case 'Create Opportunity':
+                {
+
+                    
+            
+                    this[NavigationMixin.Navigate]({
+                        type: 'standard__objectPage',
+                        attributes: {
+                            objectApiName: 'Opportunity',
+                            actionName: 'new'
+                        }
+                    });
+                }
+            break;
             case 'View Recommendations':
                 {
                     // Send Message to Parent LWC to handle
@@ -261,6 +310,8 @@ export default class cBadge extends NavigationMixin(LightningElement) {
 
                     break;
                 }
+            case 'View Account':
+            case 'View Lead':
             case 'View License':
                 {
                     // Navigate to the Package Version record page
@@ -280,6 +331,22 @@ export default class cBadge extends NavigationMixin(LightningElement) {
                     const message = {
                         messageToSend: this.recordid,
                         actionType: 'licenseExpirationUpdate',
+                        sourceComponent: 'badge.js - ' + this.label,
+                        formFactor: this.formfactorName
+                    };
+                    publish(this.messageContext, ISVCONSOLEMC, message);
+                }
+            break;
+            case 'Send E-mail':
+            case 'Notify Customer':
+                {
+                    
+                    // Send Message to modalLauncher Aura LC to oen modifyLicenseExpiration LWC
+                    const message = {
+                        messageToSend: this.recordid,
+                        email: this.email,
+                        emailType: this.emailType,
+                        actionType: 'sendEmail',
                         sourceComponent: 'badge.js - ' + this.label,
                         formFactor: this.formfactorName
                     };

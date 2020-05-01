@@ -70,7 +70,10 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     @api packageversionid;
     @api leadid;
     @api accountid;
+    @api email;
 
+    fullTitle;
+    fullCompany;
     whichDate;
     companyId;
 >>>>>>> 01969aa (modalmodifylicense)
@@ -81,9 +84,13 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     rowIconName;
     computedChildClassName;
 <<<<<<< HEAD
+<<<<<<< HEAD
     computedHeaderIconSize;
 =======
 >>>>>>> bc9f56d (test)
+=======
+    computedHeaderIconSize;
+>>>>>>> af5f42a (fixedalignment)
     computedIconSize;
     computedYearFormat;
     computedMonthFormat;
@@ -98,12 +105,16 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     midleBadgeLabel;
     lowerBadgeLabel;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> af5f42a (fixedalignment)
     hasAccount = true;
     screenWidth;
 
     computedPckgIconPadding;
     computedAcctIconPadding;
     computedClockIconPadding;
+<<<<<<< HEAD
     computedBadgePadding;
     computedAcctButtonPadding;
 
@@ -160,6 +171,8 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 =======
 =======
 >>>>>>> 01969aa (modalmodifylicense)
+=======
+>>>>>>> af5f42a (fixedalignment)
 
     @track privateVariant = 'base';
 
@@ -168,11 +181,22 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 >>>>>>> bc9f56d (test)
 =======
 
+        this.screenWidth = window.screen.width;
+        console.log('ItemActionCard.js - screenWidth: ' + this.screenWidth);
+        this.fullTitle = this.title;
+        this.fullCompany = this.company;
         // Set the CompanyID variable value based on if the lead is converted into an account or not
-        this.companyId = this.leadid;
+        this.companyId = this.accountid;
         console.log('ItemActionCard.js - this.companyId - before: ' + this.companyId);
         if(this.accountid === null || this.accountid === '')
-          this.companyId = this.accountid;  
+            {
+                this.companyId = this.leadid;
+                this.hasAccount = false;  
+            }
+
+        this.computedPckgIconPadding = 'slds-p-top_xx-small';
+        this.computedAcctIconPadding = 'slds-p-top_xx-small';
+        this.computedClockIconPadding = 'slds-p-top_xx-small';
 
         console.log('ItemActionCard.js - this.companyId - after: ' + this.companyId);
 
@@ -181,6 +205,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         switch(this.parenttitle) {
             case 'Latest Installs per App':
                 this.rowIconName = 'standard:person_account';
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                 this.lowerBadgeLabel = 'Send E-mail';
@@ -221,21 +246,37 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 
 =======
 =======
+=======
+                this.lowerBadgeLabel = 'Send E-mail';
+>>>>>>> af5f42a (fixedalignment)
                 this.topBadgeLabel = 'View License';
+                if (this.hasAccount)
+                    this.midleBadgeLabel = 'View Account';
+                else
+                    this.midleBadgeLabel = 'View Lead' ;
                 this.whichDate = this.installdate;
 >>>>>>> 01969aa (modalmodifylicense)
               break;
             case 'Licenses Expiring Soon':
                 this.rowIconName = 'standard:today';
                 this.topBadgeLabel = 'Extend Expiration';
+                this.midleBadgeLabel = 'Create Opportunity';
+                if (this.screenWidth <= 1440)
+                this.midleBadgeLabel = 'Opportunity';
+                this.lowerBadgeLabel = 'Notify Customer';
                 this.whichDate = this.expiredate;
             break;
             default:
           }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> bc9f56d (test)
 =======
+=======
+        console.log('ItemActionCard.js - FORM_FACTOR: ' + FORM_FACTOR);
+        console.log('ItemActionCard.js - flexipageRegionWidth: ' + this.flexipageRegionWidth);
+>>>>>>> af5f42a (fixedalignment)
         
 
 >>>>>>> 01969aa (modalmodifylicense)
@@ -249,17 +290,26 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             this.computedHeaderIconSize = 'small';
 =======
             this.computedChildClassName = 'desktop';
+<<<<<<< HEAD
 >>>>>>> bc9f56d (test)
+=======
+            this.computedHeaderIconSize = 'small';
+>>>>>>> af5f42a (fixedalignment)
             this.computedIconSize = 'x-small';
             this.computedYearFormat = '2-digit';
             this.computedMonthFormat = 'short';
             this.computedDayFormat = '2-digit';
             this.computedWeekDayFormat = 'long';
 <<<<<<< HEAD
+<<<<<<< HEAD
             
             if (this.screenWidth <= 1440){
                 this.computedChildClassName = 'desktopSmall';
                 this.computedDateButtonPadding = 'slds-p-top_none'
+=======
+            
+            if (this.screenWidth <= 1440){
+>>>>>>> af5f42a (fixedalignment)
                 this.computedYearFormat = 'numeric';
                 this.computedMonthFormat = 'numeric';
                 this.computedDayFormat = 'numeric';
@@ -269,17 +319,24 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
                 if (this.title.length > 24)
                 this.title = this.title.substring(0, 22) + '...';
             }
+<<<<<<< HEAD
 =======
 >>>>>>> bc9f56d (test)
+=======
+>>>>>>> af5f42a (fixedalignment)
           break;
         case 'Medium':
             this.isTablet = true;
             this.formfactorName = 'Tablet';
             this.computedChildClassName = 'desktop';
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.computedHeaderIconSize = 'small';
 =======
 >>>>>>> bc9f56d (test)
+=======
+            this.computedHeaderIconSize = 'small';
+>>>>>>> af5f42a (fixedalignment)
             this.computedIconSize = 'xx-small';
             this.computedYearFormat = '2-digit';
             this.computedMonthFormat = 'short';
@@ -291,6 +348,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             this.formfactorName = 'Phone';
             this.computedChildClassName = 'mobile';
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.computedHeaderIconSize = 'x-small';
             this.computedPckgIconPadding = 'slds-p-top_small';
             this.computedAcctIconPadding = 'slds-p-top_medium';
@@ -301,6 +359,12 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             this.computedDateButtonPadding = 'slds-p-top_x-small' ;
 =======
 >>>>>>> bc9f56d (test)
+=======
+            this.computedHeaderIconSize = 'x-small';
+            this.computedPckgIconPadding = 'slds-p-top_small';
+            this.computedAcctIconPadding = 'slds-p-top_small';
+            this.computedClockIconPadding = 'slds-p-top_xx-small';
+>>>>>>> af5f42a (fixedalignment)
             this.computedIconSize = 'xx-small';
             this.computedYearFormat = 'numeric';
             this.computedMonthFormat = 'numeric';
@@ -422,6 +486,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     badgeSelected(event) {
@@ -430,4 +495,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 
     }
 >>>>>>> bc9f56d (test)
+=======
+
+>>>>>>> af5f42a (fixedalignment)
 }

@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
@@ -54,6 +55,9 @@
         <name>LightningComponentBundle</name>
 =======
         <members>*</members>
+=======
+        <members>listContainer</members>
+>>>>>>> af5f42a (fixedalignment)
         <name>LightningComponentBundle</name>
     </types>
     <types>

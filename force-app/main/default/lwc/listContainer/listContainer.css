@@ -45,6 +45,11 @@ li {
  }
 =======
 li {
+<<<<<<< HEAD
     padding-top: 0.20rem;
 }
 >>>>>>> 01969aa (modalmodifylicense)
+=======
+    padding-top: 0.01rem;
+}
+>>>>>>> af5f42a (fixedalignment)

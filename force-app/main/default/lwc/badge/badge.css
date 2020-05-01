@@ -11,6 +11,7 @@
 :host {
     background-color: #FFFFFF;
     padding: 0.10rem 0.85rem;
+<<<<<<< HEAD
     font-weight: 400;
     border-radius: 15rem;    
     line-height: normal;
@@ -26,6 +27,11 @@
     line-height: normal;
     color: #080707;
 >>>>>>> 00546ad (first commit)
+=======
+    font-weight: 700;
+    border-radius: 15rem;
+    line-height: normal;
+>>>>>>> af5f42a (fixedalignment)
     white-space: nowrap;
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
@@ -91,15 +97,29 @@ b {
 =======
     align-items: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 00546ad (first commit)
 }
 =======
+=======
+    border: var(--lwc-borderWidthThin,0.5px) solid var(--lwc-colorBorder,rgb(221, 219, 218));
+    
+}
+a {
+    text-decoration: none !important;
+    color: black;
+>>>>>>> af5f42a (fixedalignment)
 }
 :host(.mobile) {
     font-size: 0.35rem;
     border-radius: 10rem;
-} 
+}
+:host(.mobile),
+b {
+    padding-left: 0.2rem;
+}
 :host(.desktop) {
+<<<<<<< HEAD
     font-size: 0.55rem;
 <<<<<<< HEAD
 } 
@@ -108,3 +128,30 @@ b {
     border-radius: 15rem;
 } 
 >>>>>>> 01969aa (modalmodifylicense)
+=======
+    font-size: 0.45rem;
+    border-radius: 15rem;
+}
+:host(.viewlicense) {
+    background-color: #f9f0fc;
+}
+:host(.viewaccount) {
+    background-color: #edfcf0;
+} 
+:host(.viewlead) {
+    background-color: #fcf3ed;
+} 
+:host(.createoppty) {
+    background-color: #f5f5e4;
+} 
+:host(.expiration) {
+    background-color: #f7e9e9;
+} 
+:host(.email) {
+    background-color: #f0efed;
+    color: white !important;
+} 
+:host(.notification) {
+    background-color: #fcf7e8;
+}
+>>>>>>> af5f42a (fixedalignment)

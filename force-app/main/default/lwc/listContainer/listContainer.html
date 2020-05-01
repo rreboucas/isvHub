@@ -74,6 +74,7 @@
                     <li key={install.licenseID}>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <c-item-action-card title={install.packageName} date={install.installDateTime} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick}></c-item-action-card>
 >>>>>>> 3ef6593 (Added Msg Channel)
 =======
@@ -82,6 +83,9 @@
 =======
                         <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID}></c-item-action-card>
 >>>>>>> 01969aa (modalmodifylicense)
+=======
+                        <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID} email={install.email}></c-item-action-card>
+>>>>>>> af5f42a (fixedalignment)
                     </li>
                 </template>
                 <template if:false={hasData}>
@@ -91,11 +95,14 @@
                     
                 </template>
             </ul>
+<<<<<<< HEAD
                 <template if:true={showMoreLinkVisible}>
                     <div slot="footer">
                             <lightning-button variant="base" label="View More" title="View More" onclick={viewMoreClick} class="slds-m-left_x-small"></lightning-button>
                     </div>
                 </template>
+=======
+>>>>>>> af5f42a (fixedalignment)
         </lightning-card>
     </template>
     

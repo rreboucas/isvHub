@@ -41,28 +41,29 @@
   For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  -->
 
-<template>
-  <a href="#" onclick={selectHandler}>
-  <lightning-layout vertical-align="start">
-    <!-- Left Column - Badge Icon - Start-->
-    <lightning-layout-item padding="horizontal-small" size="1">
-      <div class="header-column">
-          <lightning-icon icon-name={badgeIconName} size="xx-small" alternative-text="BadgeIcon" title="BadgeIcon" ></lightning-icon> 
-      </div>
-  </lightning-layout-item>
-  <!-- Left Column - Row Icon - End-->
+<template >
 
-   <!-- Right Column - Badge Icon - Start-->
-  <lightning-layout-item padding="horizontal-small" size="11">
-      <div class="header-column">
-          <b>{label}</b>
-      </div>
-  </lightning-layout-item>
-  <!-- Right Column - Row Icon - End-->
+        <a href="#" onclick={selectHandler}>
+        <lightning-layout vertical-align="start" horizontal-align="space">
+          <!-- Left Column - Badge Icon - Start-->
+          <lightning-layout-item size="2">
+            <div>
+                <lightning-icon icon-name={badgeIconName} size="xx-small" alternative-text="BadgeIcon" title="BadgeIcon" alignment-bump="left" ></lightning-icon> 
+            </div>
+        </lightning-layout-item>
+        <!-- Left Column - Row Icon - End-->
 
-  </lightning-layout>
- 
-    
-  </a>
+        <!-- Right Column - Badge Icon - Start-->
+        <lightning-layout-item size="10">
+            
+                <b>{label}</b>
+        </lightning-layout-item>
+        <!-- Right Column - Row Icon - End-->
+
+        </lightning-layout> 
+        </a>
+
+
+
 </template>
 >>>>>>> ed6f09d (added badge)
