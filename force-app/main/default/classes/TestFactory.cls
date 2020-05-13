@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -8,6 +9,10 @@
 
 @isTest
 public without sharing class TestFactory {
+=======
+@isTest
+public class TestFactory {
+>>>>>>> 6894227 (custom metadata)
     // define default constants that can be accessible to assert against.
 
     public static final String DEFAULT_ACCOUNT_NAME = 'ACME Inc.';
@@ -54,6 +59,7 @@ public without sharing class TestFactory {
            );
 
     }
+<<<<<<< HEAD
 
     public static String getUUID()
 {
@@ -63,6 +69,8 @@ public without sharing class TestFactory {
         system.debug(guid);
         return guid;
     }
+=======
+>>>>>>> 6894227 (custom metadata)
     
 
     public static Contact createContact(String accountID){
@@ -142,7 +150,12 @@ public without sharing class TestFactory {
                 sfLma__License_Type__c = 'Editable',
                 sfLma__Org_Type__c = 'Developer Edition',
                 sfLma__Status__c = 'Active',
+<<<<<<< HEAD
                 sfLma__Subscriber_Org_ID__c = DEFAULT_ORG_ID
+=======
+                sfLma__Subscriber_Org_ID__c = DEFAULT_ORG_ID,
+                sfLma__Version_Number__c = 'isvconsoletestrunning'
+>>>>>>> 6894227 (custom metadata)
            );
     }
 
@@ -161,7 +174,11 @@ public without sharing class TestFactory {
                 sfLma__Org_Type__c = 'Developer Edition',
                 sfLma__Status__c = 'Active',
                 sfLma__Subscriber_Org_ID__c = '00DB0000000He80',
+<<<<<<< HEAD
                 sfLma__Org_Instance__c = 'CS122'
+=======
+                sfLma__Version_Number__c = 'isvconsoletestrunning'
+>>>>>>> 6894227 (custom metadata)
            );
     }
     

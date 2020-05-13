@@ -284,6 +284,7 @@ export default class cBadge extends NavigationMixin(LightningElement) {
 
         switch(this.label) {
             case 'Create Opportunity':
+            case 'Opportunity':
                 {
 
                     
