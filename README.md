@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Salesforce DX Project: Next Steps
 
 Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
@@ -77,3 +78,7 @@ Don’t deploy your code to production directly from Visual Studio Code. The dep
 
 Deploy your changes to production using [packaging](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_dev2gp.htm) or by [converting your source](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_source.htm#cli_reference_convert) into metadata format and using the [metadata deploy command](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_mdapi.htm#cli_reference_deploy).
 >>>>>>> bf21124 (first commit)
+=======
+# ISVConsole
+ISV Console helps your ISV team make sense of customer apps installations, expiring licenses, and customer locations with actionable items to help your team save time with common processes and convert more sales leads on the go!
+>>>>>>> 15cbb14 (Initial commit)
