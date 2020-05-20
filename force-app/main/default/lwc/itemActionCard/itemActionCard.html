@@ -116,7 +116,7 @@
                                         <lightning-button variant="base" label={title} value={packageversionid} title={fullTitle} onclick={packageHandlelick}></lightning-button>
                                 </lightning-layout-item>
                                 <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                        <c-badge label={topBadgeLabel} recordid={licenseid}></c-badge>
+                                        <c-badge label={topBadgeLabel} recordid={licenseid} launchedviamodal={launchedviamodal}></c-badge>
                                 </lightning-layout-item>
                             </lightning-layout>
                         </li>
@@ -131,7 +131,7 @@
                                         <lightning-button variant="base" label={company} value={companyId} title={fullCompany} onclick={companyHandlelick}></lightning-button>    
                                 </lightning-layout-item>
                                 <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                        <c-badge label={midleBadgeLabel} recordid={companyId}></c-badge>
+                                        <c-badge label={midleBadgeLabel} recordid={companyId} launchedviamodal={launchedviamodal}></c-badge>
                                 </lightning-layout-item>
                             </lightning-layout>
                         </li>
@@ -148,7 +148,7 @@
                                     </div>
                                 </lightning-layout-item>
                                 <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                    <c-badge label={lowerBadgeLabel} recordid={companyId} email={email}></c-badge>
+                                    <c-badge label={lowerBadgeLabel} recordid={companyId} email={email} launchedviamodal={launchedviamodal}></c-badge>
                                 </lightning-layout-item>
                             </lightning-layout>
                         </li>

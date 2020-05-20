@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -7,8 +10,11 @@
  */
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> c2aec72 (dynamic header icons)
+=======
+>>>>>>> a94e476 (first committo labs)
 import { LightningElement } from 'lwc';
 
 export default class Promptcarousel extends LightningElement {}

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -6,6 +9,7 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+<<<<<<< HEAD
 import { LightningElement, track, api, wire } from 'lwc';
 import getLocationData from '@salesforce/apex/isvConsoleMapController.getLocationData';
 import getOrgURL from '@salesforce/apex/isvConsoleMapController.getOrgURL';
@@ -36,6 +40,8 @@ const ACCT_FIELDS = [
 
 export default class IsvConsoleMap extends NavigationMixin(LightningElement) {
 =======
+=======
+>>>>>>> a94e476 (first committo labs)
 import { LightningElement, track, api, wire } from 'lwc';
 import getLocationData from '@salesforce/apex/isvConsoleMapController.getLocationData';
 import FORM_FACTOR from '@salesforce/client/formFactor';

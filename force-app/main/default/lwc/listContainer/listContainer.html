@@ -12,6 +12,7 @@
 <<<<<<< HEAD
         <lightning-card  variant="Narrow"  title={title} icon-name={headerIconName}>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <template if:true={isLoading}>
                 <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
             </template>
@@ -61,6 +62,10 @@
             
 >>>>>>> bc9f56d (test)
             <ul class="slds-m-around_medium">
+=======
+ 
+            <ul class={ulCssClass}>
+>>>>>>> a94e476 (first committo labs)
                 <template for:each={latestInstalls} for:item="install">
 <<<<<<< HEAD
                     <li key={install.Id}>
@@ -75,6 +80,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <c-item-action-card title={install.packageName} date={install.installDateTime} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick}></c-item-action-card>
 >>>>>>> 3ef6593 (Added Msg Channel)
 =======
@@ -86,6 +92,9 @@
 =======
                         <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID} email={install.email}></c-item-action-card>
 >>>>>>> af5f42a (fixedalignment)
+=======
+                        <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID} email={install.email} launchedviamodal={launchedViaModal}></c-item-action-card>
+>>>>>>> a94e476 (first committo labs)
                     </li>
                 </template>
                 <template if:false={hasData}>
@@ -96,6 +105,7 @@
                 </template>
             </ul>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <template if:true={showMoreLinkVisible}>
                     <div slot="footer">
                             <lightning-button variant="base" label="View More" title="View More" onclick={viewMoreClick} class="slds-m-left_x-small"></lightning-button>
@@ -103,6 +113,13 @@
                 </template>
 =======
 >>>>>>> af5f42a (fixedalignment)
+=======
+            <template if:true={showMoreLinkVisible}>
+                <div slot="footer">
+                        <lightning-button variant="base" label="View More" title="View More" onclick={viewMoreClick} class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </template>
+>>>>>>> a94e476 (first committo labs)
         </lightning-card>
     </template>
     

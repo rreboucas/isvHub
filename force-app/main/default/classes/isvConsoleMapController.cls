@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -6,8 +9,11 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+<<<<<<< HEAD
 =======
 >>>>>>> 033b27d (added map controller apex)
+=======
+>>>>>>> a94e476 (first committo labs)
 public with sharing class isvConsoleMapController {
     
     private static Map<String, Set<String>> mapObjectsFields = null;

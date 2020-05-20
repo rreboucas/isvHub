@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -7,6 +10,7 @@
  */
 
 
+<<<<<<< HEAD
 @isTest
 private class testListContainerController {
     
@@ -18,6 +22,8 @@ private class testListContainerController {
         }
         insert testAccts;  
 =======
+=======
+>>>>>>> a94e476 (first committo labs)
 @isTest
 private class testListContainerController {
     

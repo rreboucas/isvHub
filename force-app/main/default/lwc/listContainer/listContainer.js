@@ -30,6 +30,7 @@ export default class ListContainer extends LightningElement {
     @api maxRecords;
     @api showMoreLinkVisible;
     @api launchedViaModal;
+<<<<<<< HEAD
     @api licenseIds;
     @api filter;
     @api startdt;
@@ -44,6 +45,8 @@ export default class ListContainer extends LightningElement {
     @api maintenancelink;
     @api orgtype;
 
+=======
+>>>>>>> a94e476 (first committo labs)
     ulCssClass = 'slds-m-around_medium';
     latestInstalls;
     error;
@@ -58,6 +61,7 @@ export default class ListContainer extends LightningElement {
     @wire(MessageContext)
     messageContext;
     computedChildClassName;
+<<<<<<< HEAD
 <<<<<<< HEAD
     actionType;
     isLoading = false;
@@ -82,6 +86,9 @@ export default class ListContainer extends LightningElement {
 =======
 >>>>>>> bc9f56d (test)
 
+=======
+    actionType;
+>>>>>>> a94e476 (first committo labs)
 
     connectedCallback() {
 <<<<<<< HEAD
@@ -117,6 +124,7 @@ export default class ListContainer extends LightningElement {
             case 'Latest Installs per App':
                 this.headerIconName = 'utility:refresh';
 <<<<<<< HEAD
+<<<<<<< HEAD
                 this.actionType = 'latestInstalls';
                 this.filter = this.title;
                 this.isCustomersImpacted = false;
@@ -131,9 +139,13 @@ export default class ListContainer extends LightningElement {
               this.headerIconName = 'utility:salesforce1';
               this.isCustomersImpacted = true;
 =======
+=======
+                this.actionType = 'latestInstalls';
+>>>>>>> a94e476 (first committo labs)
               break;
             case 'Licenses Expiring Soon':
                 this.headerIconName = 'utility:alert';
+                this.actionType = 'licensesExpiring';
             break;
             default:
 >>>>>>> c2aec72 (dynamic header icons)
@@ -190,6 +202,7 @@ export default class ListContainer extends LightningElement {
       // Remove CSS Margins from ul element if launched via Modal
       if (this.launchedViaModal)
         this.ulCssClass = '';
+<<<<<<< HEAD
 =======
         break;
         default:
@@ -201,6 +214,11 @@ export default class ListContainer extends LightningElement {
     @wire(getLicenseData, { rowsLimit: '$maxRecords', dataFilter: '$filter', maintenanceId: '$maintenanceid' })
 =======
     @wire(getLicenseData, { rowsLimit: '3', dataFilter: '$title' })
+=======
+    }
+
+    @wire(getLicenseData, { rowsLimit: '$maxRecords', dataFilter: '$title' })
+>>>>>>> a94e476 (first committo labs)
     wiredLatestInstalls({ error, data }) {
         if (data) {
             this.latestInstalls = data;
@@ -226,6 +244,16 @@ export default class ListContainer extends LightningElement {
         
 
     }
+
+    viewMoreClick() {        
+        const message = {
+            messageToSend: this.title,
+            actionType: this.actionType,
+            sourceComponent: this.title,
+            formFactor: this.formfactorName
+        };
+        publish(this.messageContext, ISVCONSOLEMC, message);
+  }
 
 
 

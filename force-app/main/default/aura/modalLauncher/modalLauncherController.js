@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -6,12 +9,12 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+<<<<<<< HEAD
 =======
 >>>>>>> 00546ad (first commit)
+=======
+>>>>>>> a94e476 (first committo labs)
 ({
-    // Implement switch instead of if
-
-
     handleMessage: function(cmp, message, helper) { 
         // Read the message argument to get the values in the message payload
         console.log('modalLauncher - Received Message = '+ message);
@@ -449,6 +452,70 @@
                  
                         }
                      } */
+                }
+            break;
+            case 'latestInstalls':
+                {
+                    if (message != null && message.getParam("messageToSend") != null) {
+             
+                        var modalBody;
+                        $A.createComponent("c:listContainer",
+                        {
+                            title : 'Latest Installs per App',
+                            maxRecords : '300',
+                            showMoreLinkVisible: false,
+                            launchedViaModal: true
+                        },
+                           function(content, status) {
+                               if (status === "SUCCESS") {
+                                   modalBody = content;
+                                   cmp.find('overlayLib').showCustomModal({
+                                        header: "View More - Latest Installs",   
+                                        body: modalBody,
+                                       showCloseButton: true,
+                                       cssClass: "mymodal",
+                                       closeCallback: function() {
+                                           //alert('You closed the alert!');
+                                       }
+                                   })
+                               }
+                           });
+                
+                
+                       }
+
+                }
+            break;
+            case 'licensesExpiring':
+                {
+                    if (message != null && message.getParam("messageToSend") != null) {
+             
+                        var modalBody;
+                        $A.createComponent("c:listContainer",
+                        {
+                            title : 'Licenses Expiring Soon',
+                            maxRecords : '300',
+                            showMoreLinkVisible: false,
+                            launchedViaModal: true
+                        },
+                           function(content, status) {
+                               if (status === "SUCCESS") {
+                                   modalBody = content;
+                                   cmp.find('overlayLib').showCustomModal({
+                                    header: "View More - Expiring Licenses", 
+                                    body: modalBody,
+                                       showCloseButton: true,
+                                       cssClass: "mymodal",
+                                       closeCallback: function() {
+                                           //alert('You closed the alert!');
+                                       }
+                                   })
+                               }
+                           });
+                
+                
+                       }
+
                 }
             break;
             default:

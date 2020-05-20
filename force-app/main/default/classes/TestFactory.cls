@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -7,9 +10,12 @@
  */
 
 
+<<<<<<< HEAD
 @isTest
 public without sharing class TestFactory {
 =======
+=======
+>>>>>>> a94e476 (first committo labs)
 @isTest
 public class TestFactory {
 >>>>>>> 6894227 (custom metadata)

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -7,8 +10,11 @@
  */
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> 01969aa (modalmodifylicense)
+=======
+>>>>>>> a94e476 (first committo labs)
 import { LightningElement, api } from 'lwc';
 
 

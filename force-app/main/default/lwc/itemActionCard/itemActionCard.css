@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -6,6 +9,7 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+<<<<<<< HEAD
  li {
      margin-top: 0.2rem;
  }
@@ -31,6 +35,9 @@ span {
     max-width: 4rem;
 }
 =======
+=======
+
+>>>>>>> a94e476 (first committo labs)
 article {
     padding: 0%;
     border-radius: var(--lwc-borderRadiusMedium,0.25rem);
