@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2018, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
+
 import { LightningElement, api, wire } from 'lwc';
 import FORM_FACTOR from '@salesforce/client/formFactor';
 import getLicenseData from '@salesforce/apex/listContainerController.getLicenseData';
@@ -7,6 +14,10 @@ import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
 export default class ListContainer extends LightningElement {
     hasLMAInstalls = true;
     @api title;
+    @api maxRecords;
+    @api showMoreLinkVisible;
+    @api launchedViaModal;
+    ulCssClass = 'slds-m-around_medium';
     latestInstalls;
     error;
     isMobile = false;
@@ -18,7 +29,7 @@ export default class ListContainer extends LightningElement {
     @wire(MessageContext)
     messageContext;
     computedChildClassName;
-
+    actionType;
 
     connectedCallback() {
         
@@ -26,9 +37,11 @@ export default class ListContainer extends LightningElement {
         switch(this.title) {
             case 'Latest Installs per App':
                 this.headerIconName = 'utility:refresh';
+                this.actionType = 'latestInstalls';
               break;
             case 'Licenses Expiring Soon':
                 this.headerIconName = 'utility:alert';
+                this.actionType = 'licensesExpiring';
             break;
             default:
           }
@@ -54,9 +67,13 @@ export default class ListContainer extends LightningElement {
         break;
         default:
       }
+
+      // Remove CSS Margins from ul element if launched via Modal
+      if (this.launchedViaModal)
+        this.ulCssClass = '';
     }
 
-    @wire(getLicenseData, { rowsLimit: '3', dataFilter: '$title' })
+    @wire(getLicenseData, { rowsLimit: '$maxRecords', dataFilter: '$title' })
     wiredLatestInstalls({ error, data }) {
         if (data) {
             this.latestInstalls = data;
@@ -82,6 +99,16 @@ export default class ListContainer extends LightningElement {
         
 
     }
+
+    viewMoreClick() {        
+        const message = {
+            messageToSend: this.title,
+            actionType: this.actionType,
+            sourceComponent: this.title,
+            formFactor: this.formfactorName
+        };
+        publish(this.messageContext, ISVCONSOLEMC, message);
+  }
 
 
 

@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2018, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
+
 import { LightningElement, track, api, wire } from 'lwc';
 import getLocationData from '@salesforce/apex/isvConsoleMapController.getLocationData';
 import FORM_FACTOR from '@salesforce/client/formFactor';

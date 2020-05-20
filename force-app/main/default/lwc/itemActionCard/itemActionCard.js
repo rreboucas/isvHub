@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2019, salesforce.com, inc.
+ * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
- * SPDX-License-Identifier: MIT
- * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
 import { LightningElement, api, track } from 'lwc';
@@ -23,6 +23,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     @api leadid;
     @api accountid;
     @api email;
+    @api launchedviamodal;
 
     fullTitle;
     fullCompany;
@@ -89,10 +90,14 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             case 'Licenses Expiring Soon':
                 this.rowIconName = 'standard:today';
                 this.topBadgeLabel = 'Extend Expiration';
+                if (this.launchedviamodal && FORM_FACTOR == 'Small')
+                    this.topBadgeLabel = 'Expiration';
                 this.midleBadgeLabel = 'Create Opportunity';
                 if (this.screenWidth <= 1440)
                 this.midleBadgeLabel = 'Opportunity';
                 this.lowerBadgeLabel = 'Notify Customer';
+                if (this.launchedviamodal && FORM_FACTOR == 'Small')
+                    this.lowerBadgeLabel = 'Customer';
                 this.whichDate = this.expiredate;
             break;
             default:

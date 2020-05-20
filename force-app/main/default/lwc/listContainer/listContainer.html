@@ -1,14 +1,26 @@
+<!--
+  Copyright (c) 2018, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ -->
+
 <template>
     <template if:true={hasLMAInstalls}>
         <lightning-card  variant="Narrow"  title={title} icon-name={headerIconName}>
-            
-            <ul class="slds-m-around_medium">
+ 
+            <ul class={ulCssClass}>
                 <template for:each={latestInstalls} for:item="install">
                     <li key={install.licenseID}>
-                        <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID} email={install.email}></c-item-action-card>
+                        <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID} email={install.email} launchedviamodal={launchedViaModal}></c-item-action-card>
                     </li>
                 </template>
             </ul>
+            <template if:true={showMoreLinkVisible}>
+                <div slot="footer">
+                        <lightning-button variant="base" label="View More" title="View More" onclick={viewMoreClick} class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </template>
         </lightning-card>
     </template>
     <template if:false={hasLMAInstalls}>

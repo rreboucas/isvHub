@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2019, salesforce.com, inc.
+ * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
- * SPDX-License-Identifier: MIT
- * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
 import { LightningElement, api, wire } from 'lwc';
@@ -10,16 +10,19 @@ import { NavigationMixin } from 'lightning/navigation';
 import { publish, MessageContext } from 'lightning/messageService';
 import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
 import { encodeDefaultFieldValues } from 'lightning/pageReferenceUtils';
+import FORM_FACTOR from '@salesforce/client/formFactor';
 
 export default class cBadge extends NavigationMixin(LightningElement) {
     @api label;
     @api recordid;
     @api email;
+    @api launchedviamodal;
 
     badgeIconName;
     payload;
     sendEmail = false;
     emailType;
+    iconCSSClass;
 
     @wire(MessageContext)
     messageContext;
@@ -48,6 +51,7 @@ export default class cBadge extends NavigationMixin(LightningElement) {
                 this.classList.add('createoppty');
             break;
             case 'Extend Expiration':
+            case 'Expiration':
                 this.badgeIconName = 'utility:edit';
                 this.classList.add('expiration');
             break;
@@ -58,6 +62,7 @@ export default class cBadge extends NavigationMixin(LightningElement) {
                 this.classList.add('email');
             break;
             case 'Notify Customer':
+            case 'Customer':
                 this.badgeIconName = 'utility:email';
                 this.sendEmail = true;
                 this.emailType = 'License Expiration';
@@ -67,6 +72,13 @@ export default class cBadge extends NavigationMixin(LightningElement) {
             break;
             default:
           }
+
+          // If Parent Container was launched on a mobile Modal, add CSS class to add padding to icon:
+          if (this.launchedviamodal && FORM_FACTOR == 'Small')
+            this.iconCSSClass = 'slds-p-right_medium';
+
+
+          
     }
 
     selectHandler(event) {
