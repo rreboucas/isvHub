@@ -116,6 +116,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     computedAcctIconPadding;
     computedClockIconPadding;
 <<<<<<< HEAD
+<<<<<<< HEAD
     computedBadgePadding;
     computedAcctButtonPadding;
 
@@ -174,6 +175,10 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 >>>>>>> 01969aa (modalmodifylicense)
 =======
 >>>>>>> af5f42a (fixedalignment)
+=======
+    computedBadgePadding;
+    computedAcctButtonPadding;
+>>>>>>> 84b8eb1 (added account viewer to map)
 
     @track privateVariant = 'base';
 
@@ -197,7 +202,11 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 
         this.computedPckgIconPadding = 'slds-p-top_xx-small';
         this.computedAcctIconPadding = 'slds-p-top_xx-small';
-        this.computedClockIconPadding = 'slds-p-top_xx-small';
+        this.computedClockIconPadding = 'slds-p-top_xxx-small';
+        this.computedBadgePadding = 'slds-p-top_xx-small';
+        this.computedAcctButtonPadding = 'slds-p-top_xxx-small' ;
+        this.computedPckgButtonPadding = 'slds-p-top_xxx-small' ;
+        this.computedDateButtonPadding = 'slds-p-top_none' ;
 
         console.log('ItemActionCard.js - this.companyId - after: ' + this.companyId);
 
@@ -261,13 +270,13 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             case 'Licenses Expiring Soon':
                 this.rowIconName = 'standard:today';
                 this.topBadgeLabel = 'Extend Expiration';
-                if (this.launchedviamodal && FORM_FACTOR == 'Small')
+                if (this.launchedviamodal || FORM_FACTOR == 'Small')
                     this.topBadgeLabel = 'Expiration';
                 this.midleBadgeLabel = 'Create Opportunity';
                 if (this.screenWidth <= 1440)
                 this.midleBadgeLabel = 'Opportunity';
                 this.lowerBadgeLabel = 'Notify Customer';
-                if (this.launchedviamodal && FORM_FACTOR == 'Small')
+                if (this.launchedviamodal || FORM_FACTOR == 'Small')
                     this.lowerBadgeLabel = 'Customer';
                 this.whichDate = this.expiredate;
             break;
@@ -291,6 +300,9 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             this.isDesktop = true;
             this.formfactorName = 'Desktop';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 84b8eb1 (added account viewer to map)
             this.computedChildClassName = 'desktopLarge';
             this.computedHeaderIconSize = 'small';
 =======
@@ -310,11 +322,14 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             
             if (this.screenWidth <= 1440){
                 this.computedChildClassName = 'desktopSmall';
+<<<<<<< HEAD
                 this.computedDateButtonPadding = 'slds-p-top_none'
 =======
             
             if (this.screenWidth <= 1440){
 >>>>>>> af5f42a (fixedalignment)
+=======
+>>>>>>> 84b8eb1 (added account viewer to map)
                 this.computedYearFormat = 'numeric';
                 this.computedMonthFormat = 'numeric';
                 this.computedDayFormat = 'numeric';
@@ -367,9 +382,16 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 =======
             this.computedHeaderIconSize = 'x-small';
             this.computedPckgIconPadding = 'slds-p-top_small';
-            this.computedAcctIconPadding = 'slds-p-top_small';
+            this.computedAcctIconPadding = 'slds-p-top_medium';
+            this.computedBadgePadding = 'slds-p-top_small';
             this.computedClockIconPadding = 'slds-p-top_xx-small';
+<<<<<<< HEAD
 >>>>>>> af5f42a (fixedalignment)
+=======
+            this.computedAcctButtonPadding = 'slds-p-top_x-small';
+            this.computedPckgButtonPadding = 'slds-p-top_x-small' ;
+            this.computedDateButtonPadding = 'slds-p-top_x-small' ;
+>>>>>>> 84b8eb1 (added account viewer to map)
             this.computedIconSize = 'xx-small';
             this.computedYearFormat = 'numeric';
             this.computedMonthFormat = 'numeric';
@@ -388,6 +410,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     packageHandlelick(event) {
         // Navigate to the Package Version record page
         // Prevents the anchor element from navigating to a URL.
@@ -397,6 +420,13 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     packageHandlelick() {
         // Navigate to the Package Version record page
 >>>>>>> 01969aa (modalmodifylicense)
+=======
+    packageHandlelick(event) {
+        // Navigate to the Package Version record page
+        // Prevents the anchor element from navigating to a URL.
+        event.preventDefault();
+
+>>>>>>> 84b8eb1 (added account viewer to map)
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {
@@ -407,6 +437,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     companyHandlelick(event) {
         // Navigate to the Account or Lead record page
         // Prevents the anchor element from navigating to a URL.
@@ -416,6 +447,13 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     companyHandlelick() {
         // Navigate to the Account or Lead record page
 >>>>>>> 01969aa (modalmodifylicense)
+=======
+    companyHandlelick(event) {
+        // Navigate to the Account or Lead record page
+        // Prevents the anchor element from navigating to a URL.
+        event.preventDefault();
+
+>>>>>>> 84b8eb1 (added account viewer to map)
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {

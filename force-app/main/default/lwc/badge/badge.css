@@ -15,6 +15,7 @@
     background-color: #FFFFFF;
     padding: 0.10rem 0.85rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
     font-weight: 400;
     border-radius: 15rem;    
     line-height: normal;
@@ -27,6 +28,10 @@
     padding: 0.25rem 0.5rem;
     font-weight: 700;
     border-radius: 15rem;
+=======
+    font-weight: 400;
+    border-radius: 15rem;    
+>>>>>>> 84b8eb1 (added account viewer to map)
     line-height: normal;
     color: #080707;
 >>>>>>> 00546ad (first commit)
@@ -42,6 +47,9 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 84b8eb1 (added account viewer to map)
     align-items: left;
     border-style: solid;
     border-width: 0.5px;
@@ -49,6 +57,7 @@
     /*border: var(--lwc-borderWidthThin,0.5px) solid var(--lwc-colorBorder,rgb(4, 181, 245));*/
     color: rgb(4, 181, 245);
     text-align: left;
+<<<<<<< HEAD
 }
 a {
     text-decoration: none !important;
@@ -112,15 +121,25 @@ a {
     text-decoration: none !important;
     color: black;
 >>>>>>> af5f42a (fixedalignment)
+=======
+}
+a {
+    text-decoration: none !important;
+    /*color: rgb(4, 181, 245); */
+>>>>>>> 84b8eb1 (added account viewer to map)
 }
 :host(.mobile) {
-    font-size: 0.35rem;
-    border-radius: 10rem;
+    min-width: 7rem;
+    max-width: 7rem;
 }
-:host(.mobile),
+/*:host(.mobile),
 b {
     padding-left: 0.2rem;
+}*/
+:host(.desktopSmall) {
+    min-width: 10rem;
 }
+<<<<<<< HEAD
 :host(.desktop) {
 <<<<<<< HEAD
     font-size: 0.55rem;
@@ -134,6 +153,10 @@ b {
 =======
     font-size: 0.45rem;
     border-radius: 15rem;
+=======
+:host(.desktopLarge) {
+    min-width: 11rem;
+>>>>>>> 84b8eb1 (added account viewer to map)
 }
 :host(.viewlicense) {
     background-color: #f9f0fc;

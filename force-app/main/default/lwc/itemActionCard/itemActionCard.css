@@ -10,6 +10,7 @@
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
  li {
      margin-top: 0.2rem;
  }
@@ -38,18 +39,28 @@ span {
 =======
 
 >>>>>>> a94e476 (first committo labs)
+=======
+ li {
+     margin-top: 0.2rem;
+ }
+>>>>>>> 84b8eb1 (added account viewer to map)
 article {
     padding: 0%;
     border-radius: var(--lwc-borderRadiusMedium,0.25rem);
-    background-color: #f5f5f5;
+    background-color: #F7F7F7;
 }
 span {
     padding-top: 0.2rem;
 }
 :host(.mobile) {
     font-size: 0.6125rem;
+    line-height: 0;
 }
 :host(.desktop) {
     font-size: 0.8125rem;
 } 
+<<<<<<< HEAD
 >>>>>>> bc9f56d (test)
+=======
+
+>>>>>>> 84b8eb1 (added account viewer to map)

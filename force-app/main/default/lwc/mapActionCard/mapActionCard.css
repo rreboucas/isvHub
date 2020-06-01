@@ -33,8 +33,12 @@ span {
 .badgePadding {
     padding-top: 0.2rem;
     padding-left: 0.8rem;
+<<<<<<< HEAD
     float: left;
 }
 .actions {
     max-width: 4rem;
 }
+=======
+} 
+>>>>>>> 84b8eb1 (added account viewer to map)

@@ -11,6 +11,7 @@
 
         <a href="#" onclick={selectHandler}>
         <lightning-layout vertical-align="start" >
+<<<<<<< HEAD
           <!-- Left Column - Badge Icon - Start-->
                 <div class="badgeicon">
                         <lightning-layout-item size="2">
@@ -49,6 +50,8 @@
 
         <a href="#" onclick={selectHandler}>
         <lightning-layout vertical-align="start" horizontal-align="space">
+=======
+>>>>>>> 84b8eb1 (added account viewer to map)
           <!-- Left Column - Badge Icon - Start-->
           <lightning-layout-item size="2">
             <div class={iconCSSClass}>
@@ -59,8 +62,9 @@
 
         <!-- Right Column - Badge Icon - Start-->
         <lightning-layout-item size="10">
-            
-                <b>{label}</b>
+                <div class={computedBadgeLabelPadding}>
+                        {label}
+                </div>
         </lightning-layout-item>
         <!-- Right Column - Row Icon - End-->
 

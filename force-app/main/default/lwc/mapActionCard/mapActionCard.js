@@ -28,6 +28,7 @@ const ACCT_FIELDS = [
     'Account.ShippingCountry',
 ];
 
+<<<<<<< HEAD
 const LEAD_FIELDS = [
     'Lead.Company',
     'Lead.Street',
@@ -38,6 +39,8 @@ const LEAD_FIELDS = [
     'Lead.Longitude',
 ];
 
+=======
+>>>>>>> 84b8eb1 (added account viewer to map)
 export default class MapActionCard extends NavigationMixin(LightningElement) {
 
 
@@ -67,7 +70,10 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
     computedCountryPadding;
 
     account;
+<<<<<<< HEAD
     lead;
+=======
+>>>>>>> 84b8eb1 (added account viewer to map)
     street;
     city;
     state;
@@ -80,6 +86,7 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
 
     @track privateVariant = 'base';
 
+<<<<<<< HEAD
     connectedCallback() {
         console.log('mapActionCard.js - connectedCallback ');
     }
@@ -124,6 +131,26 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
         } else if (data) {
             this.account = data;
             this.objectname = 'Account';
+=======
+    @wire(getRecord, { recordId: '$recordid', fields: ACCT_FIELDS })
+    wiredRecord({ error, data }) {
+        if (error) {
+            let message = 'Unknown error';
+            if (Array.isArray(error.body)) {
+                message = error.body.map(e => e.message).join(', ');
+            } else if (typeof error.body.message === 'string') {
+                message = error.body.message;
+            }
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Error loading account',
+                    message,
+                    variant: 'error',
+                }),
+            );
+        } else if (data) {
+            this.account = data;
+>>>>>>> 84b8eb1 (added account viewer to map)
             this.company = this.account.fields.Name.value;
             this.street = this.account.fields.BillingStreet.value;
             if (this.street == null)
@@ -138,6 +165,7 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
             if (this.country == null)
                 this.country = this.account.fields.ShippingCountry.value;
             this.latitude = this.account.fields.BillingLatitude.value;
+<<<<<<< HEAD
             console.log('mapActionCard.js latitude - billing: ' + this.latitude.toString());
             if (this.latitude == null)
             {
@@ -154,14 +182,24 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
             
             console.log('mapActionCard.js latitude - final' + this.latitude.toString());
             console.log('mapActionCard.js longitude - final' + this.longitude.toString());
+=======
+            if (this.latitude == null)
+                this.latitude = this.account.fields.ShippingLatitude.value;
+            this.longitude = this.account.fields.BillingLongitude.value;
+            if (this.longitude == null)
+                this.longitude = this.account.fields.ShippingLongitude.value;
+>>>>>>> 84b8eb1 (added account viewer to map)
 
             this.initializeComponent();
             this.hasData = true;
         }
+<<<<<<< HEAD
         else if (data == null)
         {
             console.log('mapActionCard.js  account data is null ');
         }
+=======
+>>>>>>> 84b8eb1 (added account viewer to map)
     }
 
     initializeComponent() {
@@ -266,7 +304,15 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
     }
 
     @track showFooter = true;
+<<<<<<< HEAD
     
+=======
+    renderedCallback() {
+        if (this.footerSlot) {
+            this.showFooter = this.footerSlot.assignedElements().length !== 0;
+        }
+    }
+>>>>>>> 84b8eb1 (added account viewer to map)
 
     get footerSlot() {
         return this.template.querySelector('slot[name=footer]');

@@ -35,6 +35,7 @@
     </types>
     <types>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <members>*</members>
         <name>LightningMessageChannel</name>
 =======
@@ -128,6 +129,15 @@
         <name>LightningComponentBundle</name>
     </types>
 >>>>>>> c2aec72 (dynamic header icons)
+=======
+        <members>mapActionCard</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>isvConsoleMap</members>
+        <name>LightningComponentBundle</name>
+    </types>
+>>>>>>> 84b8eb1 (added account viewer to map)
     <version>48.0</version>
 </Package>
 <!-- Grab Recommendation data and file for packaging -->
