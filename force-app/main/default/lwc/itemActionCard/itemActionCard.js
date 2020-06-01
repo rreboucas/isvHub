@@ -51,6 +51,8 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     computedPckgIconPadding;
     computedAcctIconPadding;
     computedClockIconPadding;
+    computedBadgePadding;
+    computedAcctButtonPadding;
 
     @track privateVariant = 'base';
 
@@ -71,7 +73,11 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 
         this.computedPckgIconPadding = 'slds-p-top_xx-small';
         this.computedAcctIconPadding = 'slds-p-top_xx-small';
-        this.computedClockIconPadding = 'slds-p-top_xx-small';
+        this.computedClockIconPadding = 'slds-p-top_xxx-small';
+        this.computedBadgePadding = 'slds-p-top_xx-small';
+        this.computedAcctButtonPadding = 'slds-p-top_xxx-small' ;
+        this.computedPckgButtonPadding = 'slds-p-top_xxx-small' ;
+        this.computedDateButtonPadding = 'slds-p-top_none' ;
 
         console.log('ItemActionCard.js - this.companyId - after: ' + this.companyId);
 
@@ -90,13 +96,13 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             case 'Licenses Expiring Soon':
                 this.rowIconName = 'standard:today';
                 this.topBadgeLabel = 'Extend Expiration';
-                if (this.launchedviamodal && FORM_FACTOR == 'Small')
+                if (this.launchedviamodal || FORM_FACTOR == 'Small')
                     this.topBadgeLabel = 'Expiration';
                 this.midleBadgeLabel = 'Create Opportunity';
                 if (this.screenWidth <= 1440)
                 this.midleBadgeLabel = 'Opportunity';
                 this.lowerBadgeLabel = 'Notify Customer';
-                if (this.launchedviamodal && FORM_FACTOR == 'Small')
+                if (this.launchedviamodal || FORM_FACTOR == 'Small')
                     this.lowerBadgeLabel = 'Customer';
                 this.whichDate = this.expiredate;
             break;
@@ -112,7 +118,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         case 'Large':
             this.isDesktop = true;
             this.formfactorName = 'Desktop';
-            this.computedChildClassName = 'desktop';
+            this.computedChildClassName = 'desktopLarge';
             this.computedHeaderIconSize = 'small';
             this.computedIconSize = 'x-small';
             this.computedYearFormat = '2-digit';
@@ -121,6 +127,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             this.computedWeekDayFormat = 'long';
             
             if (this.screenWidth <= 1440){
+                this.computedChildClassName = 'desktopSmall';
                 this.computedYearFormat = 'numeric';
                 this.computedMonthFormat = 'numeric';
                 this.computedDayFormat = 'numeric';
@@ -148,8 +155,12 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             this.computedChildClassName = 'mobile';
             this.computedHeaderIconSize = 'x-small';
             this.computedPckgIconPadding = 'slds-p-top_small';
-            this.computedAcctIconPadding = 'slds-p-top_small';
+            this.computedAcctIconPadding = 'slds-p-top_medium';
+            this.computedBadgePadding = 'slds-p-top_small';
             this.computedClockIconPadding = 'slds-p-top_xx-small';
+            this.computedAcctButtonPadding = 'slds-p-top_x-small';
+            this.computedPckgButtonPadding = 'slds-p-top_x-small' ;
+            this.computedDateButtonPadding = 'slds-p-top_x-small' ;
             this.computedIconSize = 'xx-small';
             this.computedYearFormat = 'numeric';
             this.computedMonthFormat = 'numeric';
@@ -166,8 +177,11 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
       }
     }
 
-    packageHandlelick() {
+    packageHandlelick(event) {
         // Navigate to the Package Version record page
+        // Prevents the anchor element from navigating to a URL.
+        event.preventDefault();
+
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {
@@ -177,8 +191,11 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         });
     }
 
-    companyHandlelick() {
+    companyHandlelick(event) {
         // Navigate to the Account or Lead record page
+        // Prevents the anchor element from navigating to a URL.
+        event.preventDefault();
+
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {

@@ -22,5 +22,15 @@ span {
 }
 :host(.desktop) {
     font-size: 0.8125rem;
+}
+:host(.acctHeader) {
+    text-align: left;
+}  
+.companyPadding {
+    padding-top: 0.2rem;
+    padding-left: 3rem;
 } 
-
+.badgePadding {
+    padding-top: 0.2rem;
+    padding-left: 0.8rem;
+} 

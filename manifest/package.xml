@@ -4,6 +4,14 @@
         <members>badge</members>
         <name>LightningComponentBundle</name>
     </types>
+    <types>
+        <members>mapActionCard</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>isvConsoleMap</members>
+        <name>LightningComponentBundle</name>
+    </types>
     <version>48.0</version>
 </Package>
 <!-- Grab Recommendation data and file for packaging -->

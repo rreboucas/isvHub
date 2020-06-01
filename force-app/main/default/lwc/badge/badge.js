@@ -17,49 +17,58 @@ export default class cBadge extends NavigationMixin(LightningElement) {
     @api recordid;
     @api email;
     @api launchedviamodal;
+    @api urlparams;
 
     badgeIconName;
     payload;
     sendEmail = false;
     emailType;
     iconCSSClass;
+    computedBadgeLabelPadding;
 
     @wire(MessageContext)
     messageContext;
 
     connectedCallback() {
-        //this.classList.add('icon');
-        //this.classList.add('label');
+        this.computedBadgeLabelPadding = 'slds-p-left_xx-small';
 
         // Check which Badge icon to use based on Badge's Label
         switch(this.label) {
             case 'View License':
                 this.badgeIconName = 'utility:dynamic_record_choice';
-                this.classList.add('viewlicense');
+                //this.classList.add('viewlicense');
               break;
             case 'View Account':
+            case 'Account':
                 this.badgeIconName = 'utility:company';
-                this.classList.add('viewaccount');
+                //this.classList.add('viewaccount');
             break;
             case 'View Lead':
+            case 'Lead':
                 this.badgeIconName = 'utility:advertising';
-                this.classList.add('viewlead');
+                //this.classList.add('viewlead');
             break;
             case 'Create Opportunity':
+                this.badgeIconName = 'utility:new';
+                //this.classList.add('createoppty');
+            break;
             case 'Opportunity':
                 this.badgeIconName = 'utility:new';
-                this.classList.add('createoppty');
+                //this.classList.add('createoppty');
+                this.computedBadgeLabelPadding = 'slds-p-left_x-small';
+                /*if (FORM_FACTOR == 'Small')
+                    this.computedBadgeLabelPadding = 'slds-p-left_xx-small'; */
             break;
             case 'Extend Expiration':
             case 'Expiration':
                 this.badgeIconName = 'utility:edit';
-                this.classList.add('expiration');
+                //this.classList.add('expiration');
             break;
             case 'Send E-mail':
                 this.badgeIconName = 'utility:email';
                 this.sendEmail = true;
                 this.emailType = 'New Install';
-                this.classList.add('email');
+                //this.classList.add('email');
             break;
             case 'Notify Customer':
             case 'Customer':
@@ -68,14 +77,22 @@ export default class cBadge extends NavigationMixin(LightningElement) {
                 this.emailType = 'License Expiration';
                 console.log('badge.js ConnectedCallBack - sendEmail: ' + this.sendEmail);
                 console.log('badge.js ConnectedCallBack - email: ' + this.email);
-                this.classList.add('notification');
+                //this.classList.add('notification');
+            break;
+            case 'Directions':
+                this.badgeIconName = 'utility:trail';
             break;
             default:
           }
 
           // If Parent Container was launched on a mobile Modal, add CSS class to add padding to icon:
-          if (this.launchedviamodal && FORM_FACTOR == 'Small')
-            this.iconCSSClass = 'slds-p-right_medium';
+          if (FORM_FACTOR == 'Small')
+          {
+            if (this.label != 'Opportunity')
+                this.computedBadgeLabelPadding = 'slds-p-left_x-small';
+            if (this.launchedviamodal)
+                this.iconCSSClass = 'slds-p-right_medium slds-align_absolute-center';
+          }
 
 
           
@@ -118,7 +135,9 @@ export default class cBadge extends NavigationMixin(LightningElement) {
                     break;
                 }
             case 'View Account':
+            case 'Account':
             case 'View Lead':
+            case 'Lead':
             case 'View License':
                 {
                     // Navigate to the Package Version record page
@@ -131,7 +150,20 @@ export default class cBadge extends NavigationMixin(LightningElement) {
                         });
                 }
             break;
+            case 'Directions':
+                {
+                    // Navigate to the Package Version record page
+                    // example: &destination=43.12345,-76.12345
+                    this[NavigationMixin.Navigate]({
+                        type: 'standard__webPage',
+                        attributes: {
+                            url: this.urlparams
+                        }
+                        });
+                }
+            break;
             case 'Extend Expiration':
+            case 'Expiration':
                 {
                     
                     // Send Message to modalLauncher Aura LC to oen modifyLicenseExpiration LWC
@@ -146,6 +178,7 @@ export default class cBadge extends NavigationMixin(LightningElement) {
             break;
             case 'Send E-mail':
             case 'Notify Customer':
+            case 'Customer':
                 {
                     
                     // Send Message to modalLauncher Aura LC to oen modifyLicenseExpiration LWC

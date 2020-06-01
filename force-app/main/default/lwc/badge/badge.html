@@ -8,7 +8,7 @@
 <template >
 
         <a href="#" onclick={selectHandler}>
-        <lightning-layout vertical-align="start" horizontal-align="space">
+        <lightning-layout vertical-align="start" >
           <!-- Left Column - Badge Icon - Start-->
           <lightning-layout-item size="2">
             <div class={iconCSSClass}>
@@ -19,8 +19,9 @@
 
         <!-- Right Column - Badge Icon - Start-->
         <lightning-layout-item size="10">
-            
-                <b>{label}</b>
+                <div class={computedBadgeLabelPadding}>
+                        {label}
+                </div>
         </lightning-layout-item>
         <!-- Right Column - Row Icon - End-->
 

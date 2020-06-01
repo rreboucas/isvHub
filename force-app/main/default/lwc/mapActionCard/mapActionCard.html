@@ -1,0 +1,75 @@
+<!--
+  Copyright (c) 2018, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ -->
+
+<template>
+
+    <template if:true={hasData}>
+<div class="rowText">
+    <article>
+        
+        <div class="slds-p-top_x-small slds-p-bottom_x-small slds-m-top_xx-small">
+            
+            <lightning-layout vertical-align="start" >
+                
+                <!-- Left Column - Row Icon - Start-->
+                <lightning-layout-item size="1">
+                    <div class={computedAcctButtonPadding}>
+                        <lightning-icon icon-name={rowIconName} size={computedHeaderIconSize} alternative-text="InstallDateTime" title="Install Date Time" ></lightning-icon> 
+                    </div>
+                </lightning-layout-item>
+                <!-- Left Column - Row Icon - End-->
+
+                <!-- Right Column - Badge Buttons - Start-->
+                <lightning-layout-item padding="horizontal-small" size="11">
+                    <ul class="rowText">
+                        <li>
+                            <lightning-layout vertical-align="stretch" horizontal-align="spread" multiple-rows=true>
+                                <lightning-layout-item size="6">
+                                    <b>{company}</b> 
+                                    <!-- <div class="companyPadding">
+                                    </div> -->
+                                    <!--<lightning-button variant="base" label={title} value={packageversionid} title={fullTitle} onclick={packageHandlelick}></lightning-button>-->
+                                </lightning-layout-item>
+                                <lightning-layout-item flexibility="auto, no-grow" size="6">
+                                    <div class="badgePadding">                                        
+                                        <c-badge class={computedChildClassName} label={topBadgeLabel} recordid={recordid} launchedviamodal={launchedviamodal}></c-badge>
+                                    </div>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </li>
+                        <li>
+                            <lightning-layout vertical-align="stretch" horizontal-align="spread" multiple-rows=true>
+                                <lightning-layout-item size="6">
+                                    <p>{street}</p>
+                                    <p>{city}, {state}</p>
+                                    <p>{country}</p>
+                                    <!--
+                                        <lightning-button variant="base" label={company} value={companyId} title={fullCompany} onclick={companyHandlelick}></lightning-button>    
+                                     -->
+                                </lightning-layout-item>
+                                <lightning-layout-item flexibility="auto, no-grow" size="6">
+                                    <div class="badgePadding">
+                                        <c-badge class={computedChildClassName} label={midleBadgeLabel} recordid={recordid} launchedviamodal={launchedviamodal} urlparams={coordinates}></c-badge>
+                                    </div>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </li>
+                    </ul>
+                </lightning-layout-item>                
+                <!-- Right Column - Badge Buttons - End-->
+            </lightning-layout>
+
+        </div>
+        <template if:true={showFooter}>
+            <div class="slds-card__footer">
+                <slot name="footer"></slot>
+            </div>
+        </template>
+    </article>
+</div>
+</template>
+</template>

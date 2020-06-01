@@ -28,47 +28,59 @@
                         <li>
                             <lightning-layout vertical-align="stretch" multiple-rows=true>
                                 <lightning-layout-item size="1">
-                                    <div class={computedPckgIconPadding}>
-                                        <lightning-icon icon-name="utility:package" size={computedIconSize} alternative-text="PackageIcon" title="PackageIcon" ></lightning-icon> 
-                                    </div>
+                                    <lightning-icon icon-name="utility:package" size={computedIconSize} alternative-text="PackageIcon" title="PackageIcon" ></lightning-icon> 
+                                    <!--<div class={computedPckgIconPadding}>    
+                                    </div> -->
                                 </lightning-layout-item>
                                 <lightning-layout-item size="6">
-                                        <lightning-button variant="base" label={title} value={packageversionid} title={fullTitle} onclick={packageHandlelick}></lightning-button>
+                                    <div class={computedPckgButtonPadding}>
+                                        <a onclick={packageHandlelick}>{title}</a>   
+                                    </div>
+                                    <!--<lightning-button variant="base" label={title} value={packageversionid} title={fullTitle} onclick={packageHandlelick}></lightning-button>-->
                                 </lightning-layout-item>
                                 <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                        <c-badge label={topBadgeLabel} recordid={licenseid} launchedviamodal={launchedviamodal}></c-badge>
+                                    <c-badge class={computedChildClassName} label={topBadgeLabel} recordid={licenseid} launchedviamodal={launchedviamodal}></c-badge>
+                                    <!--<div class={computedBadgePadding}>                                        
+                                    </div>-->
                                 </lightning-layout-item>
                             </lightning-layout>
                         </li>
                         <li>
                             <lightning-layout vertical-align="stretch" multiple-rows=true>
                                 <lightning-layout-item size="1">
-                                    <div class={computedAcctIconPadding}>
-                                        <lightning-icon icon-name="utility:company" size={computedIconSize} alternative-text="CompanyIcon" title="CompanyIcon" ></lightning-icon> 
-                                    </div>
+                                    <lightning-icon icon-name="utility:company" size={computedIconSize} alternative-text="CompanyIcon" title="CompanyIcon" ></lightning-icon> 
+                                    <!--<div class={computedAcctIconPadding}>                                        
+                                    </div>-->
                                 </lightning-layout-item>
                                 <lightning-layout-item size="6">
+                                    <div class={computedAcctButtonPadding}>
+                                        <a onclick={companyHandlelick}>{company}</a> 
+                                    </div>
+                                    <!--
                                         <lightning-button variant="base" label={company} value={companyId} title={fullCompany} onclick={companyHandlelick}></lightning-button>    
+                                     -->
                                 </lightning-layout-item>
                                 <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                        <c-badge label={midleBadgeLabel} recordid={companyId} launchedviamodal={launchedviamodal}></c-badge>
+                                    <c-badge class={computedChildClassName} label={midleBadgeLabel} recordid={companyId} launchedviamodal={launchedviamodal}></c-badge>
+                                    <!--<div class={computedBadgePadding}>
+                                    </div>-->
                                 </lightning-layout-item>
                             </lightning-layout>
                         </li>
                         <li>
                             <lightning-layout vertical-align="stretch" multiple-rows=true>
                                 <lightning-layout-item size="1">
-                                    <div class={computedClockIconPadding}>
-                                        <lightning-icon icon-name="utility:clock" size={computedIconSize} alternative-text="ClockIcon" title="ClockIcon" ></lightning-icon> 
-                                    </div>
+                                    <lightning-icon icon-name="utility:clock" size={computedIconSize} alternative-text="ClockIcon" title="ClockIcon" ></lightning-icon> 
+                                    <!--<div class={computedClockIconPadding}>  
+                                    </div>-->
                                 </lightning-layout-item>
                                 <lightning-layout-item size="6">
-                                    <div class="slds-p-top_xx-small">
-                                        <lightning-formatted-date-time value={whichDate} year={computedYearFormat} month={computedMonthFormat} day={computedDayFormat} weekday={computedWeekDayFormat} hour="2-digit" minute="2-digit"></lightning-formatted-date-time>
+                                    <div class={computedDateButtonPadding}> 
+                                        <lightning-formatted-date-time value={whichDate} year={computedYearFormat} month={computedMonthFormat} day={computedDayFormat} weekday={computedWeekDayFormat} hour="2-digit" minute="2-digit"></lightning-formatted-date-time>   
                                     </div>
                                 </lightning-layout-item>
                                 <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                    <c-badge label={lowerBadgeLabel} recordid={companyId} email={email} launchedviamodal={launchedviamodal}></c-badge>
+                                        <c-badge class={computedChildClassName} label={lowerBadgeLabel} recordid={companyId} email={email} launchedviamodal={launchedviamodal}></c-badge>
                                 </lightning-layout-item>
                             </lightning-layout>
                         </li>

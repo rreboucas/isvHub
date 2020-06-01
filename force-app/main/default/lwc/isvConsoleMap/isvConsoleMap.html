@@ -16,13 +16,19 @@
         list-view="hidden"
         selected-marker-value={selectedMarkerValue} >
         </lightning-map>
-        <!--
-        <p slot="footer">{numberOfMarkers}
-            <template if:true={selctedOnMobile}>
-                <c-badge label="View Recommendations" recordid={selectedMarkerValue} onselected={badgeSelected}></c-badge>
+        <p slot="footer">
+            <template if:true={showFooter}>
+                <c-map-action-card class={computedChildClassName} recordid={selectedMarkerValue}  launchedviamodal={launchedViaModal}></c-map-action-card>
+            <!--    
+                <lightning-card  variant="Narrow"  title={name} icon-name="standard:account">
+                        <div class="slds-m-around_medium">
+                            <p>{street}, {city} {country}</p>
+                        </div>
+                </lightning-card>
+            -->
             </template>
         </p>
-        -->
+        
     </lightning-card>
     
 </template>
