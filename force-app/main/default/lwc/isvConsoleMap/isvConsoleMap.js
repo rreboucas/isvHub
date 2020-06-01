@@ -47,6 +47,23 @@ import getLocationData from '@salesforce/apex/isvConsoleMapController.getLocatio
 import FORM_FACTOR from '@salesforce/client/formFactor';
 import { publish, MessageContext } from 'lightning/messageService';
 import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
+import { getRecord } from 'lightning/uiRecordApi';
+
+const ACCT_FIELDS = [
+    'Account.Name',
+    'Account.BillingLatitude',
+    'Account.BillingLongitude',
+    'Account.BillingStreet',
+    'Account.BillingState',
+    'Account.BillingCity',
+    'Account.BillingCountry',
+    'Account.ShippingLatitude',
+    'Account.ShippingLongitude',
+    'Account.ShippingStreet',
+    'Account.ShippingState',
+    'Account.ShippingCity',
+    'Account.ShippingCountry',
+];
 
 export default class IsvConsoleMap extends LightningElement {
 >>>>>>> 033b27d (added map controller apex)
@@ -99,15 +116,21 @@ export default class IsvConsoleMap extends LightningElement {
 =======
     numberOfMarkers;
     isMobile = false;
-    selctedOnMobile = false;
+    showFooter = false;
     isTablet = false;
     isDesktop = false;
     formfactorName;
     selectedMarkerValue ;
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> ed6f09d (added badge)
 =======
+=======
+
+    
+    
+>>>>>>> 4b2234e (added account viewer to map)
     @wire(MessageContext)
     messageContext;
 >>>>>>> 00546ad (first commit)
@@ -292,6 +315,7 @@ export default class IsvConsoleMap extends LightningElement {
 
     handleMarkerSelect(event) {
         this.selectedMarkerValue = event.detail.selectedMarkerValue;
+<<<<<<< HEAD
         console.log('isvConsoleMap.js selectedMarkerValue: ' + this.selectedMarkerValue);
         this.showSetup = false;
         this.showFooter = true;
@@ -303,6 +327,9 @@ export default class IsvConsoleMap extends LightningElement {
             actionType: 'runLeadsMatchJob'
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
+=======
+        this.showFooter = true;
+>>>>>>> 4b2234e (added account viewer to map)
     }
 
     badgeSelected(event) {
