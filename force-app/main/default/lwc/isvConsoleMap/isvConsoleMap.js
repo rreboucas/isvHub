@@ -10,6 +10,23 @@ import getLocationData from '@salesforce/apex/isvConsoleMapController.getLocatio
 import FORM_FACTOR from '@salesforce/client/formFactor';
 import { publish, MessageContext } from 'lightning/messageService';
 import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
+import { getRecord } from 'lightning/uiRecordApi';
+
+const ACCT_FIELDS = [
+    'Account.Name',
+    'Account.BillingLatitude',
+    'Account.BillingLongitude',
+    'Account.BillingStreet',
+    'Account.BillingState',
+    'Account.BillingCity',
+    'Account.BillingCountry',
+    'Account.ShippingLatitude',
+    'Account.ShippingLongitude',
+    'Account.ShippingStreet',
+    'Account.ShippingState',
+    'Account.ShippingCity',
+    'Account.ShippingCountry',
+];
 
 export default class IsvConsoleMap extends LightningElement {
     
@@ -18,11 +35,14 @@ export default class IsvConsoleMap extends LightningElement {
     error;
     numberOfMarkers;
     isMobile = false;
-    selctedOnMobile = false;
+    showFooter = false;
     isTablet = false;
     isDesktop = false;
     formfactorName;
     selectedMarkerValue ;
+    
+
+    
     
     @wire(MessageContext)
     messageContext;
@@ -66,8 +86,7 @@ export default class IsvConsoleMap extends LightningElement {
 
     handleMarkerSelect(event) {
         this.selectedMarkerValue = event.detail.selectedMarkerValue;
-        if (this.isMobile)
-            this.selctedOnMobile = true;
+        this.showFooter = true;
     }
 
     badgeSelected(event) {
