@@ -316,8 +316,12 @@ export default class IsvConsoleMap extends LightningElement {
     handleMarkerSelect(event) {
         this.selectedMarkerValue = event.detail.selectedMarkerValue;
 <<<<<<< HEAD
+<<<<<<< HEAD
         console.log('isvConsoleMap.js selectedMarkerValue: ' + this.selectedMarkerValue);
         this.showSetup = false;
+=======
+        console.log('isvConsoleMap.js selectedMarkerValue: ' + this.selectedMarkerValue);
+>>>>>>> 0def482 (map)
         this.showFooter = true;
     }
 
