@@ -72,19 +72,7 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
     @wire(getRecord, { recordId: '$recordid', fields: ACCT_FIELDS })
     wiredRecord({ error, data }) {
         if (error) {
-            let message = 'Unknown error';
-            if (Array.isArray(error.body)) {
-                message = error.body.map(e => e.message).join(', ');
-            } else if (typeof error.body.message === 'string') {
-                message = error.body.message;
-            }
-            this.dispatchEvent(
-                new ShowToastEvent({
-                    title: 'Error loading account',
-                    message,
-                    variant: 'error',
-                }),
-            );
+            console.log('mapActionCard.js error fetching account data ');
         } else if (data) {
             this.account = data;
             this.company = this.account.fields.Name.value;
@@ -101,14 +89,29 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
             if (this.country == null)
                 this.country = this.account.fields.ShippingCountry.value;
             this.latitude = this.account.fields.BillingLatitude.value;
+            console.log('mapActionCard.js latitude - billing: ' + this.latitude.toString());
             if (this.latitude == null)
+            {
                 this.latitude = this.account.fields.ShippingLatitude.value;
+                console.log('mapActionCard.js latitude - shipping: ' + this.latitude.toString());
+            }
             this.longitude = this.account.fields.BillingLongitude.value;
+            console.log('mapActionCard.js longitude - billing: ' + this.longitude.toString());
             if (this.longitude == null)
+            {
                 this.longitude = this.account.fields.ShippingLongitude.value;
+                console.log('mapActionCard.js longitude - shipping: ' + this.longitude.toString());
+            }
+            
+            console.log('mapActionCard.js latitude - final' + this.latitude.toString());
+            console.log('mapActionCard.js longitude - final' + this.longitude.toString());
 
             this.initializeComponent();
             this.hasData = true;
+        }
+        else if (data == null)
+        {
+            console.log('mapActionCard.js  account data is null ');
         }
     }
 

@@ -86,6 +86,7 @@ export default class IsvConsoleMap extends LightningElement {
 
     handleMarkerSelect(event) {
         this.selectedMarkerValue = event.detail.selectedMarkerValue;
+        console.log('isvConsoleMap.js selectedMarkerValue: ' + this.selectedMarkerValue);
         this.showFooter = true;
     }
 
