@@ -28,6 +28,16 @@ const ACCT_FIELDS = [
     'Account.ShippingCountry',
 ];
 
+const LEAD_FIELDS = [
+    'Lead.Company',
+    'Lead.Street',
+    'Lead.City',
+    'Lead.State',
+    'Lead.Country',
+    'Lead.Latitude',
+    'Lead.Longitude',
+];
+
 export default class MapActionCard extends NavigationMixin(LightningElement) {
 
 
@@ -57,6 +67,7 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
     computedCountryPadding;
 
     account;
+    lead;
     street;
     city;
     state;
@@ -69,12 +80,50 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
 
     @track privateVariant = 'base';
 
+    connectedCallback() {
+        console.log('mapActionCard.js - connectedCallback ');
+    }
+
+    renderedCallback() {
+        console.log('mapActionCard.js  - RenderdCallback ');
+        if (this.footerSlot) {
+            this.showFooter = this.footerSlot.assignedElements().length !== 0;
+        }
+    }
+
+    @wire(getRecord, { recordId: '$recordid', fields: LEAD_FIELDS })
+    wiredLead({ error, data }) {
+        if (error) {
+            console.log('mapActionCard.js error fetching Lead data ');
+        } else if (data) {
+            this.lead = data;
+            this.objectname = 'Lead';
+            this.company = this.lead.fields.Company.value;
+            this.street = this.lead.fields.Street.value;
+            this.city = this.lead.fields.City.value;
+            this.state = this.lead.fields.State.value;
+            this.country = this.lead.fields.Country.value;
+            this.latitude = this.lead.fields.Latitude.value;
+            console.log('mapActionCard.js lead latitude: ' + this.latitude.toString());
+            this.longitude = this.lead.fields.Longitude.value;
+            console.log('mapActionCard.js lead longitude: ' + this.longitude.toString());
+
+            this.initializeComponent();
+            this.hasData = true;
+        }
+        else if (data == null)
+        {
+            console.log('mapActionCard.js  Lead data is null ');
+        }
+    } 
+
     @wire(getRecord, { recordId: '$recordid', fields: ACCT_FIELDS })
     wiredRecord({ error, data }) {
         if (error) {
             console.log('mapActionCard.js error fetching account data ');
         } else if (data) {
             this.account = data;
+            this.objectname = 'Account';
             this.company = this.account.fields.Name.value;
             this.street = this.account.fields.BillingStreet.value;
             if (this.street == null)
@@ -217,11 +266,7 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
     }
 
     @track showFooter = true;
-    renderedCallback() {
-        if (this.footerSlot) {
-            this.showFooter = this.footerSlot.assignedElements().length !== 0;
-        }
-    }
+    
 
     get footerSlot() {
         return this.template.querySelector('slot[name=footer]');

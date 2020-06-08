@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>badge</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    <types>
         <members>mapActionCard</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    <types>
-        <members>isvConsoleMap</members>
         <name>LightningComponentBundle</name>
     </types>
     <version>48.0</version>
