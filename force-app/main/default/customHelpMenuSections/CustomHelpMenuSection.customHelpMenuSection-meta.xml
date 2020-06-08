@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomHelpMenuSection xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customHelpMenuItems>
+        <linkUrl>https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000FZGWpUAP&amp;preview=%222020-05-01T19%3A14%3A27.000Z%22</linkUrl>
+        <masterLabel>AppExchange Listing</masterLabel>
+        <sortOrder>1</sortOrder>
+    </customHelpMenuItems>
+    <masterLabel>ISV Hub - Happening Now Help</masterLabel>
+</CustomHelpMenuSection>

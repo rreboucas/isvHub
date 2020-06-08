@@ -11,6 +11,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
@@ -138,6 +139,11 @@
         <name>LightningComponentBundle</name>
     </types>
 >>>>>>> 84b8eb1 (added account viewer to map)
+=======
+        <members>mapActionCard</members>
+        <name>LightningComponentBundle</name>
+    </types>
+>>>>>>> f192ce0 (fixed lead vs account on map)
     <version>48.0</version>
 </Package>
 <!-- Grab Recommendation data and file for packaging -->

@@ -29,6 +29,9 @@ const ACCT_FIELDS = [
 ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f192ce0 (fixed lead vs account on map)
 const LEAD_FIELDS = [
     'Lead.Company',
     'Lead.Street',
@@ -39,8 +42,11 @@ const LEAD_FIELDS = [
     'Lead.Longitude',
 ];
 
+<<<<<<< HEAD
 =======
 >>>>>>> 84b8eb1 (added account viewer to map)
+=======
+>>>>>>> f192ce0 (fixed lead vs account on map)
 export default class MapActionCard extends NavigationMixin(LightningElement) {
 
 
@@ -71,9 +77,13 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
 
     account;
 <<<<<<< HEAD
+<<<<<<< HEAD
     lead;
 =======
 >>>>>>> 84b8eb1 (added account viewer to map)
+=======
+    lead;
+>>>>>>> f192ce0 (fixed lead vs account on map)
     street;
     city;
     state;
@@ -87,6 +97,9 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
     @track privateVariant = 'base';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f192ce0 (fixed lead vs account on map)
     connectedCallback() {
         console.log('mapActionCard.js - connectedCallback ');
     }
@@ -131,6 +144,7 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
         } else if (data) {
             this.account = data;
             this.objectname = 'Account';
+<<<<<<< HEAD
 =======
     @wire(getRecord, { recordId: '$recordid', fields: ACCT_FIELDS })
     wiredRecord({ error, data }) {
@@ -139,6 +153,8 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
         } else if (data) {
             this.account = data;
 >>>>>>> 84b8eb1 (added account viewer to map)
+=======
+>>>>>>> f192ce0 (fixed lead vs account on map)
             this.company = this.account.fields.Name.value;
             this.street = this.account.fields.BillingStreet.value;
             if (this.street == null)
@@ -316,6 +332,7 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
 
     @track showFooter = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
     renderedCallback() {
@@ -324,6 +341,9 @@ export default class MapActionCard extends NavigationMixin(LightningElement) {
         }
     }
 >>>>>>> 84b8eb1 (added account viewer to map)
+=======
+    
+>>>>>>> f192ce0 (fixed lead vs account on map)
 
     get footerSlot() {
         return this.template.querySelector('slot[name=footer]');
