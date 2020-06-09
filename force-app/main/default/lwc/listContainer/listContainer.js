@@ -30,6 +30,7 @@ export default class ListContainer extends LightningElement {
     messageContext;
     computedChildClassName;
     actionType;
+    isLoading = false;
 
     connectedCallback() {
         
@@ -75,9 +76,11 @@ export default class ListContainer extends LightningElement {
 
     @wire(getLicenseData, { rowsLimit: '$maxRecords', dataFilter: '$title' })
     wiredLatestInstalls({ error, data }) {
+        this.isLoading = true;
         if (data) {
             this.latestInstalls = data;
             this.error = undefined;
+            this.isLoading = false;
         } else if (error) {
             this.error = error;
             this.latestInstalls = undefined;

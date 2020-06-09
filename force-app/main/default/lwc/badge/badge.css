@@ -66,3 +66,9 @@ b {
 :host(.notification) {
     background-color: #fcf7e8;
 }
+.badgediv {
+    min-width: 4rem;
+} 
+.badgeicon {
+    min-width: 1.5rem;
+} 

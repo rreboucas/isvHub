@@ -22,5 +22,8 @@ span {
 }
 :host(.desktop) {
     font-size: 0.8125rem;
-} 
+}
+.iconsdiv {
+    max-width: 4rem;
+}   
 

@@ -8,7 +8,9 @@
 <template>
     <template if:true={hasLMAInstalls}>
         <lightning-card  variant="Narrow"  title={title} icon-name={headerIconName}>
- 
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </template>
             <ul class={ulCssClass}>
                 <template for:each={latestInstalls} for:item="install">
                     <li key={install.licenseID}>

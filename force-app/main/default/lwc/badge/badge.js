@@ -36,39 +36,31 @@ export default class cBadge extends NavigationMixin(LightningElement) {
         switch(this.label) {
             case 'View License':
                 this.badgeIconName = 'utility:dynamic_record_choice';
-                //this.classList.add('viewlicense');
               break;
             case 'View Account':
             case 'Account':
                 this.badgeIconName = 'utility:company';
-                //this.classList.add('viewaccount');
             break;
             case 'View Lead':
             case 'Lead':
                 this.badgeIconName = 'utility:advertising';
-                //this.classList.add('viewlead');
+                this.computedBadgeLabelPadding = 'slds-p-left_x-small';
             break;
             case 'Create Opportunity':
                 this.badgeIconName = 'utility:new';
-                //this.classList.add('createoppty');
             break;
             case 'Opportunity':
                 this.badgeIconName = 'utility:new';
-                //this.classList.add('createoppty');
                 this.computedBadgeLabelPadding = 'slds-p-left_x-small';
-                /*if (FORM_FACTOR == 'Small')
-                    this.computedBadgeLabelPadding = 'slds-p-left_xx-small'; */
             break;
             case 'Extend Expiration':
             case 'Expiration':
                 this.badgeIconName = 'utility:edit';
-                //this.classList.add('expiration');
             break;
             case 'Send E-mail':
                 this.badgeIconName = 'utility:email';
                 this.sendEmail = true;
                 this.emailType = 'New Install';
-                //this.classList.add('email');
             break;
             case 'Notify Customer':
             case 'Customer':
@@ -77,7 +69,6 @@ export default class cBadge extends NavigationMixin(LightningElement) {
                 this.emailType = 'License Expiration';
                 console.log('badge.js ConnectedCallBack - sendEmail: ' + this.sendEmail);
                 console.log('badge.js ConnectedCallBack - email: ' + this.email);
-                //this.classList.add('notification');
             break;
             case 'Directions':
                 this.badgeIconName = 'utility:trail';
@@ -91,7 +82,7 @@ export default class cBadge extends NavigationMixin(LightningElement) {
             if (this.label != 'Opportunity')
                 this.computedBadgeLabelPadding = 'slds-p-left_x-small';
             if (this.launchedviamodal)
-                this.iconCSSClass = 'slds-p-right_medium slds-align_absolute-center';
+                this.iconCSSClass = '';
           }
 
 
