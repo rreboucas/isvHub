@@ -12,6 +12,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
@@ -132,6 +133,9 @@
 >>>>>>> c2aec72 (dynamic header icons)
 =======
         <members>mapActionCard</members>
+=======
+        <members>badge</members>
+>>>>>>> a7a817b (fixed styles)
         <name>LightningComponentBundle</name>
     </types>
     <types>

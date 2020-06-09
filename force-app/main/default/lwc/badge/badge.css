@@ -106,6 +106,7 @@ b {
 } 
 .badgeicon {
     min-width: 1.5rem;
+<<<<<<< HEAD
 =======
     align-items: center;
 <<<<<<< HEAD
@@ -181,3 +182,6 @@ b {
     background-color: #fcf7e8;
 }
 >>>>>>> af5f42a (fixedalignment)
+=======
+} 
+>>>>>>> a7a817b (fixed styles)

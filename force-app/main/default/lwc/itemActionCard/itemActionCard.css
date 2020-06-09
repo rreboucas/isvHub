@@ -29,6 +29,7 @@ span {
 :host(.desktop) {
     font-size: 0.8125rem;
 }
+<<<<<<< HEAD
 :host(.desktopSmall) {
     font-size: 0.7125rem;
 }
@@ -37,6 +38,11 @@ span {
 }
 =======
 =======
+=======
+.iconsdiv {
+    max-width: 4rem;
+}   
+>>>>>>> a7a817b (fixed styles)
 
 >>>>>>> a94e476 (first committo labs)
 =======

@@ -65,6 +65,7 @@ export default class ListContainer extends LightningElement {
 <<<<<<< HEAD
     actionType;
     isLoading = false;
+<<<<<<< HEAD
     hasSubHeader = false;
     isCustomersImpacted;
     
@@ -89,6 +90,8 @@ export default class ListContainer extends LightningElement {
 =======
     actionType;
 >>>>>>> a94e476 (first committo labs)
+=======
+>>>>>>> a7a817b (fixed styles)
 
     connectedCallback() {
 <<<<<<< HEAD
@@ -220,9 +223,11 @@ export default class ListContainer extends LightningElement {
     @wire(getLicenseData, { rowsLimit: '$maxRecords', dataFilter: '$title' })
 >>>>>>> a94e476 (first committo labs)
     wiredLatestInstalls({ error, data }) {
+        this.isLoading = true;
         if (data) {
             this.latestInstalls = data;
             this.error = undefined;
+            this.isLoading = false;
         } else if (error) {
             this.error = error;
             this.latestInstalls = undefined;

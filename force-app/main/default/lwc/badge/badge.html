@@ -53,19 +53,21 @@
 =======
 >>>>>>> 84b8eb1 (added account viewer to map)
           <!-- Left Column - Badge Icon - Start-->
-          <lightning-layout-item size="2">
-            <div class={iconCSSClass}>
-                <lightning-icon icon-name={badgeIconName} size="xx-small" alternative-text="BadgeIcon" title="BadgeIcon" alignment-bump="left" ></lightning-icon> 
-            </div>
-        </lightning-layout-item>
+                <div class="badgeicon">
+                        <lightning-layout-item size="2">
+                        <div >
+                                <lightning-icon icon-name={badgeIconName} size="xx-small" alternative-text="BadgeIcon" title="BadgeIcon" alignment-bump="left" ></lightning-icon> 
+                        </div>
+                        </lightning-layout-item>
+                </div>
         <!-- Left Column - Row Icon - End-->
 
         <!-- Right Column - Badge Icon - Start-->
-        <lightning-layout-item size="10">
-                <div class={computedBadgeLabelPadding}>
+        <div class="badgediv">
+                <lightning-layout-item size="10">  
                         {label}
-                </div>
-        </lightning-layout-item>
+                </lightning-layout-item>
+        </div>
         <!-- Right Column - Row Icon - End-->
 
         </lightning-layout> 
