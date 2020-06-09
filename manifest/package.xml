@@ -13,6 +13,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
@@ -33,6 +34,9 @@
 =======
         <members>badge</members>
 >>>>>>> 6894227 (custom metadata)
+=======
+        <members>modifyLicenseExpiration</members>
+>>>>>>> a3999be (removed comments from meta xml)
         <name>LightningComponentBundle</name>
     </types>
     <types>

@@ -192,13 +192,17 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         this.fullTitle = this.title;
         this.fullCompany = this.company;
         // Set the CompanyID variable value based on if the lead is converted into an account or not
-        this.companyId = this.accountid;
-        console.log('ItemActionCard.js - this.companyId - before: ' + this.companyId);
-        if(this.accountid === null || this.accountid === '')
-            {
-                this.companyId = this.leadid;
-                this.hasAccount = false;  
-            }
+        console.log('ItemActionCard.js - this.leadid - before: ' + this.leadid);
+        console.log('ItemActionCard.js - this.accountid - before: ' + this.accountid);
+        if(this.accountid.length > 1){
+            console.log('ItemActionCard.js - Account ID length is > 1: ' + this.accountid.length);
+            this.companyId = this.accountid;
+        }
+        else {
+            console.log('ItemActionCard.js - Account ID is null or empty ');
+            this.companyId = this.leadid;
+            this.hasAccount = false;  
+        }
 
         this.computedPckgIconPadding = 'slds-p-top_xx-small';
         this.computedAcctIconPadding = 'slds-p-top_xx-small';
@@ -452,8 +456,12 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         // Navigate to the Account or Lead record page
         // Prevents the anchor element from navigating to a URL.
         event.preventDefault();
+<<<<<<< HEAD
 
 >>>>>>> 84b8eb1 (added account viewer to map)
+=======
+        console.log('ItemActionCard.js - companyHandlelick - this.companyId : ' + this.companyId);
+>>>>>>> a3999be (removed comments from meta xml)
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {
