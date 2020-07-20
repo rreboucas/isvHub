@@ -24,6 +24,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     @api accountid;
     @api email;
     @api launchedviamodal;
+    @api iscustomersimpacted;
 
     fullTitle;
     fullCompany;
@@ -111,6 +112,14 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
                 this.whichDate = this.expiredate;
             break;
             default:
+                this.rowIconName = 'standard:person_account';
+                this.lowerBadgeLabel = 'Send E-mail';
+                this.topBadgeLabel = 'Notify Customer';
+                if (this.hasAccount)
+                    this.midleBadgeLabel = 'View Account';
+                else
+                    this.midleBadgeLabel = 'View Lead' ;
+                this.whichDate = this.installdate;
           }
 
         console.log('ItemActionCard.js - FORM_FACTOR: ' + FORM_FACTOR);

@@ -33,4 +33,8 @@ span {
 .badgePadding {
     padding-top: 0.2rem;
     padding-left: 0.8rem;
-} 
+    float: left;
+}
+.actions {
+    max-width: 4rem;
+}  

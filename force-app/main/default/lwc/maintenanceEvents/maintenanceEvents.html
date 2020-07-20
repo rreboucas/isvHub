@@ -1,0 +1,28 @@
+<template>
+    <div class="parent">
+    <template if:true={hasLMAInstalls}>
+        <lightning-card  variant="Narrow"  title={titleLabel} icon-name={headerIconName}>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </template>
+            <div class="wrapper">
+                <ul class={ulCssClass}>
+                    <template for:each={eventsData} for:item="event">
+                        <li key={event.eventName}>
+                            <c-event-summary-card class={computedChildClassName}  title={event.eventName} id={event.maintenanceId} startdt={event.startDateTime} enddt={event.endDateTime} numimpacted={event.numImpactedCustomers} impactedlicenseids={event.impactedLicenseIds} starttime={event.strStartTime} endtime={event.strEndTime} instancename={event.instanceName} availability={event.availability} ></c-event-summary-card>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+            <div slot="footer">
+                <i>
+                    <lightning-formatted-text value='* Dates and Times are subject to change - Source: trust.salesforce.com' linkify></lightning-formatted-text>
+                </i>
+            </div>
+        </lightning-card>
+    </template>
+    <template if:false={hasLMAInstalls}>
+        No License Data - Please install and configure LMA first
+    </template>
+    </div>
+</template>

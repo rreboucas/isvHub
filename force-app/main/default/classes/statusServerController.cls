@@ -5,28 +5,57 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-public with sharing class statusServerController {
-    
+public with sharing class statusServerController implements Comparable {
+	
+	@AuraEnabled
+	public String maintenanceId { get;set; }
     @AuraEnabled
-    public String eventName { get;set; }
+	public String eventName { get;set; }
+	@AuraEnabled
+	public String availability { get;set; }
     @AuraEnabled
     public Datetime startDateTime { get;set; }
     @AuraEnabled
-    public Datetime endDateTime { get;set; }
+	public Datetime endDateTime { get;set; }
+	@AuraEnabled
+    public String strStartTime { get;set; }
+	@AuraEnabled
+    public String strEndTime { get;set; }
     @AuraEnabled
     public String numImpactedCustomers { get;set; }
     @AuraEnabled
-    public List<String> impactedLicenseIds { get;set; }
+	public List<String> impactedLicenseIds { get;set; }
+	@AuraEnabled
+	public String instanceName { get;set; }
+
+	// Implement the compareTo() method
+    public Integer compareTo(Object compareTo) {
+        statusServerController compareToEmp = (statusServerController)compareTo;
+        if (startDateTime == compareToEmp.startDateTime) return 0;
+        if (startDateTime > compareToEmp.startDateTime) return 1;
+        return -1;        
+    }
 
     @AuraEnabled(cacheable=true)
-    public static List<statusServerController> getUpcomingMaintenances(String rowsLimit, String instanceName, String releaseName) {
+    public static List<statusServerController> getEvents(String rowsLimit, String dataFilter, String orgType) {
 
         System.debug('######## rowsLimit: ' + rowsLimit);
 
         List<statusServerController> lstReturnRecords = new List<statusServerController>();
-
+		List<sfLma__License__c> lstLicenses;
         // 1. Fetch the customers instance names from active and Trial License records and the number of customers per instance:
-        List<sfLma__License__c> lstLicenses = [SELECT id, sfLma__Instance__c FROM sfLma__License__c where sfLma__Status__c IN ('Active', 'Trial') WITH SECURITY_ENFORCED order by sfLma__Instance__c asc];
+		switch on orgType{
+			when 'Production' {
+				lstLicenses = [SELECT id, sfLma__Instance__c FROM sfLma__License__c where sfLma__Status__c IN ('Active', 'Trial') and sfLma__Is_Sandbox__c = false WITH SECURITY_ENFORCED order by sfLma__Instance__c asc];
+			}
+			when 'Sandbox' {
+				lstLicenses = [SELECT id, sfLma__Instance__c FROM sfLma__License__c where sfLma__Status__c IN ('Active', 'Trial') and sfLma__Is_Sandbox__c = true WITH SECURITY_ENFORCED order by sfLma__Instance__c asc];
+			}
+			when 'PreRelease' {
+				lstLicenses = [SELECT id, sfLma__Instance__c FROM sfLma__License__c where sfLma__Status__c IN ('Active', 'Trial') and sfLma__Instance__c = 'GS0' WITH SECURITY_ENFORCED order by sfLma__Instance__c asc];
+			}
+		}
+		
         system.debug('####### lstLicenses: ' + lstLicenses);
 
         Map<String, List<String>> intcMap = new Map<String, List<String>>();
@@ -38,13 +67,19 @@ public with sharing class statusServerController {
             else
                 intcMap.put(e.sfLma__Instance__c, new List<String> {e.id});
         }
-        system.debug('####### intcMap: ' + intcMap);
+		system.debug('####### intcMap: ' + intcMap);
+		//List<String> lstUM5 = intcMap.get('UM5');
+		//system.debug('####### lstUM5: ' + lstUM5);
 
-        // 2. Call the Status API maintenance endpoint and fetch upcoming major release maintenances
-        String releaseNameEncoded = EncodingUtil.urlEncode(releaseName, 'UTF-8');
-
+		String releaseNameEncoded;
+		
+		// 2. Call the Status API maintenance endpoint and fetch upcoming major release maintenances
+		if (dataFilter.equalsIgnoreCase('Upcoming Releases'))
+		{
+			releaseNameEncoded = EncodingUtil.urlEncode('Major Release', 'UTF-8');
+		}
         HttpRequest req = new HttpRequest();
-        req.setEndpoint('https://api.status.salesforce.com/v1/maintenances?order=plannedStartTime&name=' + releaseNameEncoded);
+        req.setEndpoint('https://api.status.salesforce.com/v1/maintenances?order=plannedStartTime&name=' + releaseNameEncoded + '&limit=' + rowsLimit) ;
         req.setMethod('GET');
 
         Http http = new Http();
@@ -56,29 +91,89 @@ public with sharing class statusServerController {
         List<Maintenance> lstMaintenances = parse(resBody);
         system.debug('####### lstMaintenances: ' + lstMaintenances);
 
+		datetime todaysDT = datetime.now();
+		//Map<String, statusServerController> eventsMap = new Map<String, statusServerController>();
         // 4. Loop through list of Maintenances, verify which ones affect customers and create list of statusServerController to return to LWC
         for (Maintenance m: lstMaintenances)
         {        
             // 4.1 Check to see if any of the ISV customers are affected
             if (m.instanceKeys != null && intcMap.containsKey(m.instanceKeys[0]))
             {
+				statusServerController i = new statusServerController();
+				Datetime startDT = convertISO8601(m.plannedStartTime);
+				
+				if (startDT > todaysDT)
+				{
+					i.maintenanceId = String.valueOf(m.id);
+					System.debug('######## i.maintenanceId: ' + i.maintenanceId);
+					if (i.maintenanceId.containsIgnoreCase('-'))
+						i.maintenanceId = i.maintenanceId.substringBefore('-');
+					i.eventName = m.name;
+					System.debug('######## i.eventName: ' + i.eventName);
+					i.numImpactedCustomers = String.valueOf(intcMap.get(m.instanceKeys[0]).size());
+					System.debug('######## i.numImpactedCustomers: ' + i.numImpactedCustomers);
+					i.impactedLicenseIds = intcMap.get(m.instanceKeys[0]);
+					System.debug('######## i.impactedLicenseIds: ' + i.impactedLicenseIds);
+					i.startDateTime = startDT;
+					System.debug('######## i.startDateTime: ' + i.startDateTime);
+					i.endDateTime = convertISO8601(m.plannedEndTime);
+					System.debug('######## i.endDateTime: ' + i.endDateTime);
+					i.instanceName = m.instanceKeys[0];
+					System.debug('######## i.instanceName: ' + i.instanceName);
+					i.availability = m.message.availability;
+					System.debug('######## i.availability: ' + i.availability);
 
-                statusServerController i = new statusServerController();
-                i.eventName = m.name;
-                System.debug('######## i.eventName: ' + i.eventName);
-                i.numImpactedCustomers = String.valueOf(intcMap.get(m.instanceKeys[0]).size());
-                System.debug('######## i.numImpactedCustomers: ' + i.numImpactedCustomers);
-                i.impactedLicenseIds = intcMap.get(m.instanceKeys[0]);
-                System.debug('######## i.impactedLicenseIds: ' + i.impactedLicenseIds);
-                i.startDateTime = convertISO8601(m.plannedStartTime);
-                System.debug('######## i.startDateTime: ' + i.startDateTime);
-                i.endDateTime = convertISO8601(m.plannedEndTime);
-                System.debug('######## i.endDateTime: ' + i.endDateTime);
+					Integer startH = i.startDateTime.hourGmt();
+					String strStartH = String.valueOf(startH);
+					if (strStartH.length() == 1)
+						strStartH = '0' + strStartH;
+					Integer startM = i.startDateTime.minuteGmt();
+					String strStartM = String.valueOf(startM);
+					if (strStartM.length() == 1)
+						strStartM = '0' + strStartM;
+					i.strStartTime = strStartH + ':' + strStartM;
 
-                lstReturnRecords.add(i);
+					Integer endH = i.endDateTime.hourGmt();
+					String strEndH = String.valueOf(endH);
+					if (strEndH.length() == 1)
+						strEndH = '0' + strEndH;
+					Integer endM = i.endDateTime.minuteGmt();
+					String strEndM = String.valueOf(endM);
+					if (strEndM.length() == 1)
+						strEndM = '0' + strEndM;
+					i.strEndTime = strEndH + ':' + strEndM;
+
+					// add to a map with events with same name and start date time
+					//String strUniqueKey = i.eventName + ' # ' + String.valueOfGmt(i.startDateTime) + ' # ' + String.valueOfGmt(i.endDateTime);
+					
+					/*
+					if (eventsMap.containsKey(strUniqueKey))
+					{
+						Integer newImpacted = Integer.valueOf(i.numImpactedCustomers);
+						Integer oldImpacted = Integer.valueOf(eventsMap.get(strUniqueKey).numImpactedCustomers);
+						eventsMap.get(strUniqueKey).numImpactedCustomers = String.valueOf(oldImpacted + newImpacted);
+
+						List<String> oldImpactedIds = eventsMap.get(strUniqueKey).impactedLicenseIds;
+						List<String> mergedImpactedIds = new List<String>();
+						mergedImpactedIds.addAll(oldImpactedIds);
+						mergedImpactedIds.addAll(i.impactedLicenseIds);
+						eventsMap.get(strUniqueKey).impactedLicenseIds = mergedImpactedIds;
+					}
+					else
+						eventsMap.put(strUniqueKey, i);
+					
+					*/
+					lstReturnRecords.add(i);
+				}
             }
-        }
-        System.debug('######## lstReturnRecords: ' + lstReturnRecords);
+		}
+		//System.debug('######## eventsMap: ' + eventsMap);
+
+		//lstReturnRecords.addAll(eventsMap.values());
+		lstReturnRecords.sort();
+
+		System.debug('######## lstReturnRecords.size: ' + lstReturnRecords.size());
+		System.debug('######## lstReturnRecords: ' + lstReturnRecords);
         return lstReturnRecords;
     }
 

@@ -134,7 +134,7 @@ public class TestFactory {
                 sfLma__Org_Type__c = 'Developer Edition',
                 sfLma__Status__c = 'Active',
                 sfLma__Subscriber_Org_ID__c = DEFAULT_ORG_ID,
-                sfLma__Version_Number__c = 'isvconsoletestrunning'
+                isvconsole__isTestRunning__c = true
            );
     }
 
@@ -153,7 +153,8 @@ public class TestFactory {
                 sfLma__Org_Type__c = 'Developer Edition',
                 sfLma__Status__c = 'Active',
                 sfLma__Subscriber_Org_ID__c = '00DB0000000He80',
-                sfLma__Version_Number__c = 'isvconsoletestrunning'
+                sfLma__Org_Instance__c = 'CS122',
+                isvconsole__isTestRunning__c = true
            );
     }
     

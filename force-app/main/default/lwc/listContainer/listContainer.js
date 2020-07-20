@@ -17,6 +17,8 @@ export default class ListContainer extends LightningElement {
     @api maxRecords;
     @api showMoreLinkVisible;
     @api launchedViaModal;
+    @api licenseIds;
+    @api filter;
     ulCssClass = 'slds-m-around_medium';
     latestInstalls;
     error;
@@ -31,20 +33,41 @@ export default class ListContainer extends LightningElement {
     computedChildClassName;
     actionType;
     isLoading = false;
+    hasSubHeader = false;
+    isCustomersImpacted;
+    @api startdt;
+    @api yearFormat;
+    @api monthFormat;
+    @api dayFormat;
+    @api weekDayFormat;
+    @api starttime;
+    @api endtime;
+
 
     connectedCallback() {
+
+      if (!this.licenseIds)
+        this.licenseIds = '';
+      else
+        this.hasSubHeader = true;
         
         // Check which header icon to use based on selected App Builder Title
         switch(this.title) {
             case 'Latest Installs per App':
                 this.headerIconName = 'utility:refresh';
                 this.actionType = 'latestInstalls';
+                this.filter = this.title;
+                this.isCustomersImpacted = false;
               break;
             case 'Licenses Expiring Soon':
                 this.headerIconName = 'utility:alert';
                 this.actionType = 'licensesExpiring';
+                this.filter = this.title;
+                this.isCustomersImpacted = false;
             break;
             default:
+              this.headerIconName = 'utility:salesforce1';
+              this.isCustomersImpacted = true;
           }
         
         // Check if LMA is installed and update hasLMAInstalls variable
@@ -74,7 +97,7 @@ export default class ListContainer extends LightningElement {
         this.ulCssClass = '';
     }
 
-    @wire(getLicenseData, { rowsLimit: '$maxRecords', dataFilter: '$title' })
+    @wire(getLicenseData, { rowsLimit: '$maxRecords', dataFilter: '$filter', licenseIds: '$licenseIds' })
     wiredLatestInstalls({ error, data }) {
         this.isLoading = true;
         if (data) {

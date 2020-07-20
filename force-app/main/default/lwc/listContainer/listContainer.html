@@ -6,15 +6,19 @@
  -->
 
 <template>
+    <div class="parent">
     <template if:true={hasLMAInstalls}>
         <lightning-card  variant="Narrow"  title={title} icon-name={headerIconName}>
             <template if:true={isLoading}>
                 <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
             </template>
+            <template if:true={hasSubHeader}>
+                <lightning-formatted-date-time value={startdt} year={yearFormat} month={monthFormat} day={dayFormat} weekday={weekDayFormat} time-zone="GMT"></lightning-formatted-date-time> - {starttime} - {endtime} - GMT 
+            </template>
             <ul class={ulCssClass}>
                 <template for:each={latestInstalls} for:item="install">
                     <li key={install.licenseID}>
-                        <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID} email={install.email} launchedviamodal={launchedViaModal}></c-item-action-card>
+                        <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID} email={install.email} launchedviamodal={launchedViaModal} iscustomersimpacted={isCustomersImpacted}></c-item-action-card>
                     </li>
                 </template>
             </ul>
@@ -28,4 +32,5 @@
     <template if:false={hasLMAInstalls}>
         No License Data - Please install and configure LMA first
     </template>
+</div>
 </template>

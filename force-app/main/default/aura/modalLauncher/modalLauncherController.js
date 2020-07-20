@@ -167,6 +167,47 @@
 
                 }
             break;
+            case 'viewImpactedCustomers':
+                {
+                    if (message != null && message.getParam("messageToSend") != null) {
+             
+                        var modalBody;
+                        $A.createComponent("c:listContainer",
+                        {
+                            title : message.getParam("title"),
+                            maxRecords : '300',
+                            filter: 'Customers Impacted',
+                            showMoreLinkVisible: false,
+                            launchedViaModal: true,
+                            licenseIds: message.getParam("messageToSend"),
+                            startdt: message.getParam("startdt"),
+                            yearFormat: message.getParam("yearFormat"),
+                            monthFormat: message.getParam("monthFormat"),
+                            dayFormat: message.getParam("dayFormat"),
+                            weekDayFormat: message.getParam("weekDayFormat"),
+                            starttime: message.getParam("starttime"),
+                            endtime: message.getParam("endtime")
+                        },
+                           function(content, status) {
+                               if (status === "SUCCESS") {
+                                   modalBody = content;
+                                   cmp.find('overlayLib').showCustomModal({
+                                    header: "Customers Impacted", 
+                                    body: modalBody,
+                                       showCloseButton: true,
+                                       cssClass: "mymodal",
+                                       closeCallback: function() {
+                                           //alert('You closed the alert!');
+                                       }
+                                   })
+                               }
+                           });
+                
+                
+                       }
+
+                }
+            break;
             default:
           }
 
