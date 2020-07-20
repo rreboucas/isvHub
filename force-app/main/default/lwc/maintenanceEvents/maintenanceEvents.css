@@ -10,6 +10,7 @@
     min-height: 30rem;
     overflow: hidden;
 } 
+<<<<<<< HEAD
 .footerwrapper {
     text-align: center;
     
@@ -22,6 +23,12 @@
 .wrapper {
     height: 400px;
     max-height: 300px;
+=======
+.wrapper {
+    height: 400px;
+    max-height: 300px;
+    overflow-y: scroll;
+>>>>>>> 6aab12d (comit july 2020)
     margin-top: 2rem;
 } 
  li {

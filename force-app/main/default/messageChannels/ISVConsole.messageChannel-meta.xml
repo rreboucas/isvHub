@@ -132,5 +132,49 @@
        <description>Form Factor used by the user</description>
    </lightningMessageFields>
 
+<<<<<<< HEAD
 </LightningMessageChannel>
 >>>>>>> 4e20c86 (added formfactor to message)
+=======
+    <lightningMessageFields>
+       <fieldName>title</fieldName>
+       <description>The title of the component</description>
+   </lightningMessageFields>
+
+   <lightningMessageFields>
+       <fieldName>startdt</fieldName>
+       <description>The Start Date of an event</description>
+   </lightningMessageFields>
+
+   <lightningMessageFields>
+       <fieldName>yearFormat</fieldName>
+       <description>The year format of an event</description>
+   </lightningMessageFields>
+
+   <lightningMessageFields>
+       <fieldName>monthFormat</fieldName>
+       <description>The month format of an event</description>
+   </lightningMessageFields>
+
+   <lightningMessageFields>
+       <fieldName>dayFormat</fieldName>
+       <description>The day format of an event</description>
+   </lightningMessageFields>
+
+   <lightningMessageFields>
+       <fieldName>weekDayFormat</fieldName>
+       <description>The weekday format of an event</description>
+   </lightningMessageFields>
+
+   <lightningMessageFields>
+       <fieldName>starttime</fieldName>
+       <description>The start time of an event</description>
+   </lightningMessageFields>
+
+   <lightningMessageFields>
+       <fieldName>endtime</fieldName>
+       <description>The end time of an event</description>
+   </lightningMessageFields>
+
+</LightningMessageChannel>
+>>>>>>> 6aab12d (comit july 2020)

@@ -21,6 +21,7 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
     @api enddt;
     @api starttime;
     @api endtime;
+<<<<<<< HEAD
     @api 
     get numimpacted() {
         return this._numimpacted;
@@ -34,15 +35,23 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
         else
             this.badgeLabel = this._numimpacted + ' Customers';
     }
+=======
+    @api numimpacted;
+>>>>>>> 6aab12d (comit july 2020)
     @api impactedlicenseids;
     @api iconName;
     @api instancename;
     @api availability;
+<<<<<<< HEAD
     @api orgtype;
 
     @api maintenanceid;
     
     maintenancelink;   
+=======
+
+    
+>>>>>>> 6aab12d (comit july 2020)
 
     isMobile = false;
     isTablet = false;
@@ -58,14 +67,18 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
     badgeLabel;
     computedAvailabilityIcon;
     availabilityText;
+<<<<<<< HEAD
     computedPckgButtonPadding;
     computedAvailabilityPadding;
+=======
+>>>>>>> 6aab12d (comit july 2020)
 
     @track privateVariant = 'base';
 
     @wire(MessageContext)
     messageContext;
 
+<<<<<<< HEAD
     renderedCallback() {
         console.log('EventSummaryCard.js renderedCallback: ' );
     }
@@ -74,6 +87,10 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
         this.screenWidth = window.screen.width;
         this.computedPckgButtonPadding = 'slds-p-left_small';
         this.computedAvailabilityPadding = 'slds-p-left_xxx-small';
+=======
+    connectedCallback() {
+        this.screenWidth = window.screen.width;
+>>>>>>> 6aab12d (comit july 2020)
 
         if (this.availability == 'fullyAvailable')
         {
@@ -85,7 +102,11 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
             this.availabilityText = 'Unavailable';
             this.computedAvailabilityIcon = 'utility:ban'
         }
+<<<<<<< HEAD
         console.log('EventSummaryCard.js orgtype: ' + this.orgtype);
+=======
+
+>>>>>>> 6aab12d (comit july 2020)
         console.log('EventSummaryCard.js - id: ' + this.id);
         console.log('EventSummaryCard.js - numimpacted: ' + this.numimpacted);
         console.log('EventSummaryCard.js - impactedlicenseids: ' + this.impactedlicenseids);
@@ -109,7 +130,11 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
             this.computedWeekDayFormat = 'long';
             
             if (this.screenWidth <= 1440){
+<<<<<<< HEAD
                 this.computedChildClassName = 'desktopSmall_events';
+=======
+                this.computedChildClassName = 'desktopSmall';
+>>>>>>> 6aab12d (comit july 2020)
                 this.computedYearFormat = 'numeric';
                 this.computedMonthFormat = 'numeric';
                 this.computedDayFormat = 'numeric';
@@ -181,7 +206,10 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
 
     navigateToWebPage(event) {
         event.preventDefault();
+<<<<<<< HEAD
         this.maintenancelink = this.id.split("-")[0];
+=======
+>>>>>>> 6aab12d (comit july 2020)
         // Navigate to a URL
         this[NavigationMixin.Navigate]({
             type: 'standard__webPage',
@@ -195,11 +223,16 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
 
     seeimpactedcustomersHandler() {
         // Send Message to modalLauncher Aura LC to open modifyLicenseExpiration LWC
+<<<<<<< HEAD
         console.log('EventSummaryCard.js - this.impactedlicenseids: ' + this.impactedlicenseids);
         var licenseIdsArray = this.impactedlicenseids.split(',');
         console.log('EventSummaryCard.js - licenseIdsArray: ' + licenseIdsArray);
         const message = {
             messageToSend: licenseIdsArray,
+=======
+        const message = {
+            messageToSend: this.impactedlicenseids,
+>>>>>>> 6aab12d (comit july 2020)
             actionType: 'viewImpactedCustomers',
             sourceComponent: 'eventSummaryCard.js - ' + this.label,
             formFactor: this.formfactorName,
@@ -209,10 +242,15 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
             monthFormat: this.computedMonthFormat,
             dayFormat: this.computedDayFormat,
             weekDayFormat: this.computedWeekDayFormat,
+<<<<<<< HEAD
             availability: this.availability,
             endtime: this.endtime,
             orgtype: this.orgtype,
             maintenanceid: this.id.split("-")[0]
+=======
+            starttime: this.starttime,
+            endtime: this.endtime
+>>>>>>> 6aab12d (comit july 2020)
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
     }

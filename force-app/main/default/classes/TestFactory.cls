@@ -160,8 +160,12 @@ public class TestFactory {
                 sfLma__Subscriber_Org_ID__c = DEFAULT_ORG_ID
 =======
                 sfLma__Subscriber_Org_ID__c = DEFAULT_ORG_ID,
+<<<<<<< HEAD
                 sfLma__Version_Number__c = 'isvconsoletestrunning'
 >>>>>>> 6894227 (custom metadata)
+=======
+                isvconsole__isTestRunning__c = true
+>>>>>>> 6aab12d (comit july 2020)
            );
     }
 
@@ -181,10 +185,15 @@ public class TestFactory {
                 sfLma__Status__c = 'Active',
                 sfLma__Subscriber_Org_ID__c = '00DB0000000He80',
 <<<<<<< HEAD
+<<<<<<< HEAD
                 sfLma__Org_Instance__c = 'CS122'
 =======
                 sfLma__Version_Number__c = 'isvconsoletestrunning'
 >>>>>>> 6894227 (custom metadata)
+=======
+                sfLma__Org_Instance__c = 'CS122',
+                isvconsole__isTestRunning__c = true
+>>>>>>> 6aab12d (comit july 2020)
            );
     }
     

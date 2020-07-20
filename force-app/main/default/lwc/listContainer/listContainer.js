@@ -31,6 +31,7 @@ export default class ListContainer extends LightningElement {
     @api showMoreLinkVisible;
     @api launchedViaModal;
 <<<<<<< HEAD
+<<<<<<< HEAD
     @api licenseIds;
     @api filter;
     @api startdt;
@@ -47,6 +48,10 @@ export default class ListContainer extends LightningElement {
 
 =======
 >>>>>>> a94e476 (first committo labs)
+=======
+    @api licenseIds;
+    @api filter;
+>>>>>>> 6aab12d (comit july 2020)
     ulCssClass = 'slds-m-around_medium';
     latestInstalls;
     error;
@@ -65,6 +70,7 @@ export default class ListContainer extends LightningElement {
 <<<<<<< HEAD
     actionType;
     isLoading = false;
+<<<<<<< HEAD
 <<<<<<< HEAD
     hasSubHeader = false;
     isCustomersImpacted;
@@ -120,6 +126,25 @@ export default class ListContainer extends LightningElement {
       }
       
 =======
+=======
+    hasSubHeader = false;
+    isCustomersImpacted;
+    @api startdt;
+    @api yearFormat;
+    @api monthFormat;
+    @api dayFormat;
+    @api weekDayFormat;
+    @api starttime;
+    @api endtime;
+
+
+    connectedCallback() {
+
+      if (!this.licenseIds)
+        this.licenseIds = '';
+      else
+        this.hasSubHeader = true;
+>>>>>>> 6aab12d (comit july 2020)
         
 >>>>>>> c2aec72 (dynamic header icons)
         // Check which header icon to use based on selected App Builder Title
@@ -131,6 +156,7 @@ export default class ListContainer extends LightningElement {
                 this.actionType = 'latestInstalls';
                 this.filter = this.title;
                 this.isCustomersImpacted = false;
+<<<<<<< HEAD
               break;
             case 'Upcoming License Expirations':
                 this.headerIconName = 'utility:alert';
@@ -145,13 +171,22 @@ export default class ListContainer extends LightningElement {
 =======
                 this.actionType = 'latestInstalls';
 >>>>>>> a94e476 (first committo labs)
+=======
+>>>>>>> 6aab12d (comit july 2020)
               break;
             case 'Licenses Expiring Soon':
                 this.headerIconName = 'utility:alert';
                 this.actionType = 'licensesExpiring';
+                this.filter = this.title;
+                this.isCustomersImpacted = false;
             break;
             default:
+<<<<<<< HEAD
 >>>>>>> c2aec72 (dynamic header icons)
+=======
+              this.headerIconName = 'utility:salesforce1';
+              this.isCustomersImpacted = true;
+>>>>>>> 6aab12d (comit july 2020)
           }
         
         // Check if LMA is installed and update hasLMAInstalls variable
@@ -220,8 +255,12 @@ export default class ListContainer extends LightningElement {
 =======
     }
 
+<<<<<<< HEAD
     @wire(getLicenseData, { rowsLimit: '$maxRecords', dataFilter: '$title' })
 >>>>>>> a94e476 (first committo labs)
+=======
+    @wire(getLicenseData, { rowsLimit: '$maxRecords', dataFilter: '$filter', licenseIds: '$licenseIds' })
+>>>>>>> 6aab12d (comit july 2020)
     wiredLatestInstalls({ error, data }) {
         this.isLoading = true;
         if (data) {

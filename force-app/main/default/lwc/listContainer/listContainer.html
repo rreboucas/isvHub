@@ -18,6 +18,7 @@
                 <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
             </template>
             <template if:true={hasSubHeader}>
+<<<<<<< HEAD
                 <div class="slds-p-left_large">
                     <lightning-layout vertical-align="stretch" multiple-rows=true>
                         <lightning-layout-item size="6">
@@ -48,10 +49,14 @@
                     </lightning-layout-item>        
                     </lightning-layout>
                 </div>  
+=======
+                <lightning-formatted-date-time value={startdt} year={yearFormat} month={monthFormat} day={dayFormat} weekday={weekDayFormat} time-zone="GMT"></lightning-formatted-date-time> - {starttime} - {endtime} - GMT 
+>>>>>>> 6aab12d (comit july 2020)
             </template>
             <ul class={ulCssClass}>
                 <template if:true={hasData} for:each={latestInstalls} for:item="install">
                     <li key={install.licenseID}>
+<<<<<<< HEAD
                         <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID} email={install.email} launchedviamodal={launchedViaModal} iscustomersimpacted={isCustomersImpacted} orgid={install.orgID} maintenancename={title} startdt={startdt} endtime={endtime} availability={availabilityText} licenseids={licenseIds} orgtype={orgtype} maintenanceid={maintenanceid}></c-item-action-card>
 =======
         <lightning-card  variant="Narrow"  title={title} icon-name="standard:account">
@@ -101,6 +106,9 @@
 =======
                         <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID} email={install.email} launchedviamodal={launchedViaModal}></c-item-action-card>
 >>>>>>> a94e476 (first committo labs)
+=======
+                        <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID} email={install.email} launchedviamodal={launchedViaModal} iscustomersimpacted={isCustomersImpacted}></c-item-action-card>
+>>>>>>> 6aab12d (comit july 2020)
                     </li>
                 </template>
                 <template if:false={hasData}>

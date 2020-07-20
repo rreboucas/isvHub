@@ -8,20 +8,29 @@
 
 import { LightningElement, api, wire } from 'lwc';
 import FORM_FACTOR from '@salesforce/client/formFactor';
+<<<<<<< HEAD
 import { refreshApex } from '@salesforce/apex';
+=======
+>>>>>>> 6aab12d (comit july 2020)
 import getTrustEvents from '@salesforce/apex/statusServerController.getEvents';
 import { publish, MessageContext } from 'lightning/messageService';
 import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
 
 export default class MaintenanceEvents extends LightningElement {
     hasLMAInstalls = true;
+<<<<<<< HEAD
     hasBackRecords = false;
     hasNextRecords;
+=======
+>>>>>>> 6aab12d (comit july 2020)
     @api title;
     @api orgtype;
     @api maxRecords;
     titleLabel;
+<<<<<<< HEAD
     eventsdatabackup;
+=======
+>>>>>>> 6aab12d (comit july 2020)
     eventsData;
     error;
     isMobile = false;
@@ -33,6 +42,7 @@ export default class MaintenanceEvents extends LightningElement {
     headerIconName;
     ulCssClass = 'slds-m-around_medium';
     computedChildClassName;
+<<<<<<< HEAD
     offSet;
     leftIndexLabel;
     leftIndex;
@@ -74,15 +84,21 @@ export default class MaintenanceEvents extends LightningElement {
     handler() {
       refreshApex(this.eventsData);
     }
+=======
+>>>>>>> 6aab12d (comit july 2020)
 
     @wire(MessageContext)
     messageContext;
 
     connectedCallback() {
+<<<<<<< HEAD
       console.log('maintenanceEvents.js orgtype: ' + this.orgtype);
         this.leftIndex = 0;
         this.leftIndexLabel = 1;
         this.offSet = '1';
+=======
+        
+>>>>>>> 6aab12d (comit july 2020)
         // Check which header icon to use based on selected App Builder Title
         switch(this.title) {
             case 'Upcoming Releases':
@@ -121,6 +137,7 @@ export default class MaintenanceEvents extends LightningElement {
 
     }
 
+<<<<<<< HEAD
 
     pressRight(event) {
       this.leftIndex = this.rightIndex;
@@ -174,4 +191,18 @@ export default class MaintenanceEvents extends LightningElement {
       }
 
     
+=======
+    @wire(getTrustEvents, { rowsLimit: '$maxRecords', dataFilter: '$title', orgType: '$orgtype' })
+    wiredLatestInstalls({ error, data }) {
+        this.isLoading = true;
+        if (data) {
+            this.eventsData = data;
+            this.error = undefined;
+            this.isLoading = false;
+        } else if (error) {
+            this.error = error;
+            this.eventsData = undefined;
+        }
+    }
+>>>>>>> 6aab12d (comit july 2020)
 }

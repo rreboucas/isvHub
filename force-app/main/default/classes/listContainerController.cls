@@ -52,9 +52,11 @@ public with sharing class listContainerController {
 >>>>>>> af5f42a (fixedalignment)
 
     @AuraEnabled(cacheable=true)
-    public static List<listContainerController> getLicenseData(String rowsLimit, String dataFilter) {
+    public static List<listContainerController> getLicenseData(String rowsLimit, String dataFilter, List<String> licenseIds) {
 
         System.debug('######## rowsLimit: ' + rowsLimit);
+        System.debug('######## licenseIds: ' + licenseIds);
+        System.debug('######## dataFilter: ' + dataFilter);
 
         // CRUD / FLS Check - Create a map with the object names and fields for CRUD\FLS check
         mapObjectsFields = new Map<String, Set<String>>(); 
@@ -65,118 +67,118 @@ public with sharing class listContainerController {
         System.debug('######## rLimit: ' + rLimit);
 
         String soql = 'Select createddate';
-        ISVConsole_Helper.AddFieldToObjectsMap('createddate', 'sfLma__License__c', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('createddate', 'sfLma__License__c', mapObjectsFields);
 
         soql += ', id';
-        ISVConsole_Helper.AddFieldToObjectsMap('id', 'sfLma__License__c', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('id', 'sfLma__License__c', mapObjectsFields);
 
         soql += ', sfLma__Lead__c';
-        ISVConsole_Helper.AddFieldToObjectsMap('sfLma__Lead__c', 'sfLma__License__c', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('sfLma__Lead__c', 'sfLma__License__c', mapObjectsFields);
 
         soql += ', sfLma__Account__c';
-        ISVConsole_Helper.AddFieldToObjectsMap('sfLma__Account__c', 'sfLma__License__c', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('sfLma__Account__c', 'sfLma__License__c', mapObjectsFields);
 
         soql += ', sfLma__Contact__c';
-        ISVConsole_Helper.AddFieldToObjectsMap('sfLma__Contact__c', 'sfLma__License__c', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('sfLma__Contact__c', 'sfLma__License__c', mapObjectsFields);
 
         soql += ', sfLma__Package_Version__c';
-        ISVConsole_Helper.AddFieldToObjectsMap('sfLma__Package_Version__c', 'sfLma__License__c', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('sfLma__Package_Version__c', 'sfLma__License__c', mapObjectsFields);
 
         soql += ', sfLma__Package_Version__r.sfLma__Package__r.Name';
-        ISVConsole_Helper.AddFieldToObjectsMap('Name', 'sfLma__Package__c', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('Name', 'sfLma__Package__c', mapObjectsFields);
 
         soql += ', sfLma__Lead__r.Company';
-        ISVConsole_Helper.AddFieldToObjectsMap('Company', 'Lead', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('Company', 'Lead', mapObjectsFields);
 
         soql += ', sfLma__Lead__r.State';
-        ISVConsole_Helper.AddFieldToObjectsMap('State', 'Lead', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('State', 'Lead', mapObjectsFields);
 
         soql += ', sfLma__Lead__r.City';
-        ISVConsole_Helper.AddFieldToObjectsMap('City', 'Lead', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('City', 'Lead', mapObjectsFields);
 
         soql += ', sfLma__Lead__r.FirstName';
-        ISVConsole_Helper.AddFieldToObjectsMap('FirstName', 'Lead', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('FirstName', 'Lead', mapObjectsFields);
 
         soql += ', sfLma__Lead__r.LastName';
-        ISVConsole_Helper.AddFieldToObjectsMap('LastName', 'Lead', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('LastName', 'Lead', mapObjectsFields);
 
         soql += ', sfLma__Lead__r.Email';
-        ISVConsole_Helper.AddFieldToObjectsMap('Email', 'Lead', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('Email', 'Lead', mapObjectsFields);
 
         soql += ', sfLma__Lead__r.Country';
-        ISVConsole_Helper.AddFieldToObjectsMap('Country', 'Lead', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('Country', 'Lead', mapObjectsFields);
 
         soql += ', sfLma__Lead__r.Latitude';
-        ISVConsole_Helper.AddFieldToObjectsMap('Latitude', 'Lead', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('Latitude', 'Lead', mapObjectsFields);
 
         soql += ', sfLma__Lead__r.Longitude';
-        ISVConsole_Helper.AddFieldToObjectsMap('Longitude', 'Lead', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('Longitude', 'Lead', mapObjectsFields);
 
         soql += ', sfLma__Lead__r.PostalCode';
-        ISVConsole_Helper.AddFieldToObjectsMap('PostalCode', 'Lead', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('PostalCode', 'Lead', mapObjectsFields);
 
         soql += ', sfLma__Lead__r.Street';
-        ISVConsole_Helper.AddFieldToObjectsMap('Street', 'Lead', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('Street', 'Lead', mapObjectsFields);
 
         soql += ', sfLma__Account__r.Name';
-        ISVConsole_Helper.AddFieldToObjectsMap('Name', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('Name', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.BillingCity';
-        ISVConsole_Helper.AddFieldToObjectsMap('BillingCity', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('BillingCity', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.BillingCountry';
-        ISVConsole_Helper.AddFieldToObjectsMap('BillingCountry', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('BillingCountry', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.BillingLatitude';
-        ISVConsole_Helper.AddFieldToObjectsMap('BillingLatitude', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('BillingLatitude', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.BillingLongitude';
-        ISVConsole_Helper.AddFieldToObjectsMap('BillingLongitude', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('BillingLongitude', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.BillingPostalCode';
-        ISVConsole_Helper.AddFieldToObjectsMap('BillingPostalCode', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('BillingPostalCode', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.BillingState';
-        ISVConsole_Helper.AddFieldToObjectsMap('BillingState', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('BillingState', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.BillingStreet';
-        ISVConsole_Helper.AddFieldToObjectsMap('BillingStreet', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('BillingStreet', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.ShippingCity';
-        ISVConsole_Helper.AddFieldToObjectsMap('ShippingCity', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('ShippingCity', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.ShippingCountry';
-        ISVConsole_Helper.AddFieldToObjectsMap('ShippingCountry', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('ShippingCountry', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.ShippingLatitude';
-        ISVConsole_Helper.AddFieldToObjectsMap('ShippingLatitude', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('ShippingLatitude', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.ShippingLongitude';
-        ISVConsole_Helper.AddFieldToObjectsMap('ShippingLongitude', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('ShippingLongitude', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.ShippingPostalCode';
-        ISVConsole_Helper.AddFieldToObjectsMap('ShippingPostalCode', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('ShippingPostalCode', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.ShippingState';
-        ISVConsole_Helper.AddFieldToObjectsMap('ShippingState', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('ShippingState', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Account__r.ShippingStreet ';
-        ISVConsole_Helper.AddFieldToObjectsMap('ShippingStreet', 'Account', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('ShippingStreet', 'Account', mapObjectsFields);
 
         soql += ', sfLma__Contact__r.FirstName';
-        ISVConsole_Helper.AddFieldToObjectsMap('FirstName', 'Contact', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('FirstName', 'Contact', mapObjectsFields);
 
         soql += ', sfLma__Contact__r.LastName';
-        ISVConsole_Helper.AddFieldToObjectsMap('LastName', 'Contact', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('LastName', 'Contact', mapObjectsFields);
 
         soql += ', sfLma__Contact__r.Email';
-        ISVConsole_Helper.AddFieldToObjectsMap('Email', 'Contact', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('Email', 'Contact', mapObjectsFields);
 
         soql += ', sfLma__Expiration__c';
-        ISVConsole_Helper.AddFieldToObjectsMap('sfLma__Expiration__c', 'sfLma__License__c', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('sfLma__Expiration__c', 'sfLma__License__c', mapObjectsFields);
 
         soql += ', sfLma__Subscriber_Org_ID__c';
-        ISVConsole_Helper.AddFieldToObjectsMap('sfLma__Subscriber_Org_ID__c', 'sfLma__License__c', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('sfLma__Subscriber_Org_ID__c', 'sfLma__License__c', mapObjectsFields);
 
         // Add object name to query string:        
         soql += ' FROM sfLma__License__c' ;
@@ -198,10 +200,36 @@ public with sharing class listContainerController {
                  // Add Order By clause
                  soql += ' order by sfLma__Expiration__c asc' ;
             }
+            when 'Customers Impacted' {
+                System.debug('Customers impacted switch entered');
+                if (licenseIds.size() > 0)
+                {
+                    String strConcatIds;
+                    Integer count = 1;
+                    for (String l : licenseIds)
+                    {
+                        if (count < licenseIds.size())
+                        {
+                            if (count == 1)
+                                strConcatIds =  '\'' + l + '\'' + ',' ;
+                            else
+                                strConcatIds = strConcatIds + '\'' + l + '\'' + ',' ;
+                        }
+                        else {
+                            strConcatIds = strConcatIds + '\'' + l + '\'' ;
+                        }
+                        count ++;
+                    }
+                    System.debug('strConcatIds : ' + strConcatIds);
+                    soql += ' and id in (' + strConcatIds +')' ;
+                    // TODO: Add single quotes to soql
+                }
+                
+            }
          }
 
-        ISVConsole_Helper.AddFieldToObjectsMap('sfLma__Status__c', 'sfLma__License__c', mapObjectsFields);
-        ISVConsole_Helper.AddFieldToObjectsMap('IsDeleted', 'sfLma__License__c', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('sfLma__Status__c', 'sfLma__License__c', mapObjectsFields);
+        ISVConsoleHelper.AddFieldToObjectsMap('IsDeleted', 'sfLma__License__c', mapObjectsFields);
 
        
 
@@ -213,11 +241,12 @@ public with sharing class listContainerController {
         // CRUD\FLS Check: Before running the SOQL query check if the user who is invoking
         // this method has access to the Object and to the fields requested
         
-        if (ISVConsole_Helper.UserHasAccessToObjectsAndFields(mapObjectsFields))
+        if (ISVConsoleHelper.UserHasAccessToObjectsAndFields(mapObjectsFields))
         {
 
             List<sfLma__License__c> lstQueriedRecords = Database.query(soql); 
             
+            System.debug('######## lstQueriedRecords.size(): ' + lstQueriedRecords.size()); 
             System.debug('######## lstQueriedRecords: ' + lstQueriedRecords);  
             
             for (sfLma__License__c e: lstQueriedRecords)
@@ -279,7 +308,7 @@ public with sharing class listContainerController {
             }
             
         }
-        
+        System.debug('######## lstReturnRecords.size(): ' + lstReturnRecords.size());
         System.debug('######## lstReturnRecords: ' + lstReturnRecords);
         
         return lstReturnRecords;
