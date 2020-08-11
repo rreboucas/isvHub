@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Salesforce DX Project: Next Steps
 
 Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
@@ -20,11 +21,14 @@ The `sfdx-project.json` file contains useful configuration information for your 
 - [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
 =======
 # Salesforce App
+=======
+>>>>>>> b6651ab (Update README.md)
 
-This guide helps Salesforce developers who are new to Visual Studio Code go from zero to a deployed app using Salesforce Extensions for VS Code and Salesforce CLI.
+# ISV Hub - Salesforce Labs App - AppExchange Listing:
 
-## Part 1: Choosing a Development Model
+https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000FZGWpUAP&preview=%222020-05-01T19%3A14%3A27.000Z%22
 
+<<<<<<< HEAD
 There are two types of developer processes or models supported in Salesforce Extensions for VS Code and Salesforce CLI. These models are explained below. Each model offers pros and cons and is fully supported.
 
 ### Package Development Model
@@ -82,3 +86,5 @@ Deploy your changes to production using [packaging](https://developer.salesforce
 # ISVConsole
 ISV Console helps your ISV team make sense of customer apps installations, expiring licenses, and customer locations with actionable items to help your team save time with common processes and convert more sales leads on the go!
 >>>>>>> 15cbb14 (Initial commit)
+=======
+>>>>>>> b6651ab (Update README.md)
