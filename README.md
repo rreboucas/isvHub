@@ -26,7 +26,7 @@ The `sfdx-project.json` file contains useful configuration information for your 
 
 # ISV Hub - Salesforce Labs App - AppExchange Listing:
 
-https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000FZGWpUAP&preview=%222020-05-01T19%3A14%3A27.000Z%22
+Coming soon - Stay Tuned
 
 <<<<<<< HEAD
 There are two types of developer processes or models supported in Salesforce Extensions for VS Code and Salesforce CLI. These models are explained below. Each model offers pros and cons and is fully supported.
