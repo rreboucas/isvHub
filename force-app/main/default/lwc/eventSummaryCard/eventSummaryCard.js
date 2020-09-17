@@ -224,12 +224,16 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
     seeimpactedcustomersHandler() {
         // Send Message to modalLauncher Aura LC to open modifyLicenseExpiration LWC
 <<<<<<< HEAD
+<<<<<<< HEAD
         console.log('EventSummaryCard.js - this.impactedlicenseids: ' + this.impactedlicenseids);
         var licenseIdsArray = this.impactedlicenseids.split(',');
         console.log('EventSummaryCard.js - licenseIdsArray: ' + licenseIdsArray);
         const message = {
             messageToSend: licenseIdsArray,
 =======
+=======
+        console.log('EventSummaryCard.js - this.impactedlicenseids: ' + this.impactedlicenseids);
+>>>>>>> 4e992a8 ( adding pagination)
         const message = {
             messageToSend: this.impactedlicenseids,
 >>>>>>> 6aab12d (comit july 2020)

@@ -274,7 +274,7 @@ export default class ListContainer extends LightningElement {
     }
 
     handleOptionClick(event) {
-        event.preventDefault();
+        /*event.preventDefault();
 
         const clickedRowValue = event.target.licenseid;
         
@@ -286,7 +286,7 @@ export default class ListContainer extends LightningElement {
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
         
-
+    */
     }
 
     viewMoreClick() {        

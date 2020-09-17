@@ -42,7 +42,15 @@
 =======
             <div slot="footer">
                 <i>
-                    <lightning-formatted-text value='* Dates and Times are subject to change - Source: trust.salesforce.com' linkify></lightning-formatted-text>
+                    <lightning-button-group>
+                        <template if:true={hasBackRecords}>
+                            <lightning-button label="Back" onclick={goBackClick}></lightning-button>
+                        </template>
+                        <template if:true={hasNextRecords}>
+                            <lightning-button label="Next" onclick={goNextClick}></lightning-button>
+                        </template>
+                    </lightning-button-group>
+                     {offSet}<!--<lightning-formatted-text value='* Dates and Times are subject to change - Source: trust.salesforce.com' linkify></lightning-formatted-text>-->
                 </i>
 >>>>>>> 6aab12d (comit july 2020)
             </div>

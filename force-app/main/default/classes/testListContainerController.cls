@@ -62,6 +62,7 @@ private class testListContainerController {
 
     @isTest static void test_listContainerController() {
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Implement test code
         //Add 0. Lead
         //Add 1. Account
@@ -158,6 +159,10 @@ private class testListContainerController {
 >>>>>>> 6aab12d (comit july 2020)
         List<listContainerController> lstRecs1 = listContainerController.getLicenseData('3', 'Latest Installs per App');
         List<listContainerController> lstRecs2 = listContainerController.getLicenseData('3', 'Licenses Expiring Soon');
+=======
+        List<listContainerController> lstRecs1 = listContainerController.getLicenseData('3', 'Latest Installs per App', null);
+        List<listContainerController> lstRecs2 = listContainerController.getLicenseData('3', 'Licenses Expiring Soon', null);
+>>>>>>> 4e992a8 ( adding pagination)
     }
 
     @isTest static void test_statusServerController() {
@@ -167,7 +172,7 @@ private class testListContainerController {
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, new WebServiceMockImpl());
         
-        List<statusServerController> lstRecs1 = statusServerController.getEvents('1', 'Upcoming Releases');
+        List<statusServerController> lstRecs1 = statusServerController.getEvents('1', 'Upcoming Releases', 'Production', '1');
         Test.stopTest();
     }
     

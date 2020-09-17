@@ -204,25 +204,35 @@ public with sharing class listContainerController {
                 System.debug('Customers impacted switch entered');
                 if (licenseIds.size() > 0)
                 {
-                    String strConcatIds;
-                    Integer count = 1;
-                    for (String l : licenseIds)
+                    String strIdsSoql;
+                    if (licenseIds.size() == 1)
                     {
-                        if (count < licenseIds.size())
-                        {
-                            if (count == 1)
-                                strConcatIds =  '\'' + l + '\'' + ',' ;
-                            else
-                                strConcatIds = strConcatIds + '\'' + l + '\'' + ',' ;
-                        }
-                        else {
-                            strConcatIds = strConcatIds + '\'' + l + '\'' ;
-                        }
-                        count ++;
+                        strIdsSoql = ' and id = \''  + licenseIds[0] + '\'' ;
+                        soql += strIdsSoql ;
                     }
-                    System.debug('strConcatIds : ' + strConcatIds);
-                    soql += ' and id in (' + strConcatIds +')' ;
-                    // TODO: Add single quotes to soql
+                    else 
+                    {
+                        String strConcatIds;
+                        Integer count = 1;
+                        for (String l : licenseIds)
+                        {
+                            if (count < licenseIds.size())
+                            {
+                                if (count == 1)
+                                    strConcatIds =  '\'' + l + '\'' + ',' ;
+                                else
+                                    strConcatIds = strConcatIds + '\'' + l + '\'' + ',' ;
+                            }
+                            else {
+                                strConcatIds = strConcatIds + '\'' + l + '\'' ;
+                            }
+                            count ++;
+                        }
+                        System.debug('strConcatIds : ' + strConcatIds);
+                        strIdsSoql = ' and id in (' + strConcatIds +')' ;
+                        soql += strIdsSoql;
+                    }
+                    System.debug('license Ids soql : ' + strIdsSoql);
                 }
                 
             }

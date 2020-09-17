@@ -9,9 +9,13 @@
 import { LightningElement, api, wire } from 'lwc';
 import FORM_FACTOR from '@salesforce/client/formFactor';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { refreshApex } from '@salesforce/apex';
 =======
 >>>>>>> 6aab12d (comit july 2020)
+=======
+import { refreshApex } from '@salesforce/apex';
+>>>>>>> 4e992a8 ( adding pagination)
 import getTrustEvents from '@salesforce/apex/statusServerController.getEvents';
 import { publish, MessageContext } from 'lightning/messageService';
 import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
@@ -19,10 +23,15 @@ import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
 export default class MaintenanceEvents extends LightningElement {
     hasLMAInstalls = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
     hasBackRecords = false;
     hasNextRecords;
 =======
 >>>>>>> 6aab12d (comit july 2020)
+=======
+    hasBackRecords = false;
+    hasNextRecords = true;
+>>>>>>> 4e992a8 ( adding pagination)
     @api title;
     @api orgtype;
     @api maxRecords;
@@ -42,6 +51,7 @@ export default class MaintenanceEvents extends LightningElement {
     headerIconName;
     ulCssClass = 'slds-m-around_medium';
     computedChildClassName;
+<<<<<<< HEAD
 <<<<<<< HEAD
     offSet;
     leftIndexLabel;
@@ -86,11 +96,15 @@ export default class MaintenanceEvents extends LightningElement {
     }
 =======
 >>>>>>> 6aab12d (comit july 2020)
+=======
+    offSet;
+>>>>>>> 4e992a8 ( adding pagination)
 
     @wire(MessageContext)
     messageContext;
 
     connectedCallback() {
+<<<<<<< HEAD
 <<<<<<< HEAD
       console.log('maintenanceEvents.js orgtype: ' + this.orgtype);
         this.leftIndex = 0;
@@ -99,6 +113,10 @@ export default class MaintenanceEvents extends LightningElement {
 =======
         
 >>>>>>> 6aab12d (comit july 2020)
+=======
+      
+        this.offSet = '1';
+>>>>>>> 4e992a8 ( adding pagination)
         // Check which header icon to use based on selected App Builder Title
         switch(this.title) {
             case 'Upcoming Releases':
@@ -135,8 +153,11 @@ export default class MaintenanceEvents extends LightningElement {
         default:
       }
 
+      //this.getNewData();
+
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     pressRight(event) {
@@ -193,6 +214,11 @@ export default class MaintenanceEvents extends LightningElement {
     
 =======
     @wire(getTrustEvents, { rowsLimit: '$maxRecords', dataFilter: '$title', orgType: '$orgtype' })
+=======
+    
+    
+    @wire(getTrustEvents, { rowsLimit: '$maxRecords', dataFilter: '$title', orgType: '$orgtype', offSet: '$offSet' })
+>>>>>>> 4e992a8 ( adding pagination)
     wiredLatestInstalls({ error, data }) {
         this.isLoading = true;
         if (data) {
@@ -204,5 +230,48 @@ export default class MaintenanceEvents extends LightningElement {
             this.eventsData = undefined;
         }
     }
+<<<<<<< HEAD
 >>>>>>> 6aab12d (comit july 2020)
+=======
+    handler() {
+      refreshApex(this.eventsData);
+    }
+    
+/*
+    getNewData() {
+      this.isLoading = true;
+      getTrustEvents({ rowsLimit: this.maxRecords, dataFilter: this.title, orgType: this.orgtype, offSet: this.offSet })
+      .then((result) => {
+          this.eventsData = result;
+          this.error = undefined;
+          this.isLoading = false;
+      })
+      .catch((error) => {
+          this.error = error;
+          this.eventsData = undefined;
+      });
+    }
+    */
+
+    goBackClick(event) {
+      var offSetnum = Number(this.offSet);
+      offSetnum = offSetnum - 1;
+      this.offSet = offSetnum.toString();
+      return refreshApex(this.eventsData);
+      //this.getNewData();
+      if (this.offSet == 1)
+        this.hasBackRecords = false;
+    }
+
+    goNextClick(event) {
+      //this.isLoading = true;
+      this.hasBackRecords = true;
+      var offSetnum = Number(this.offSet);
+      offSetnum = offSetnum + 1;
+      this.offSet = offSetnum.toString();
+      return refreshApex(this.eventsData);
+      //this.getNewData();
+      
+  }
+>>>>>>> 4e992a8 ( adding pagination)
 }
