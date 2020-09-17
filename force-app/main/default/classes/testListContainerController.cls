@@ -43,8 +43,8 @@ private class testListContainerController {
 
 
     @isTest static void test_listContainerController() {
-        List<listContainerController> lstRecs1 = listContainerController.getLicenseData('3', 'Latest Installs per App');
-        List<listContainerController> lstRecs2 = listContainerController.getLicenseData('3', 'Licenses Expiring Soon');
+        List<listContainerController> lstRecs1 = listContainerController.getLicenseData('3', 'Latest Installs per App', null);
+        List<listContainerController> lstRecs2 = listContainerController.getLicenseData('3', 'Licenses Expiring Soon', null);
     }
 
     @isTest static void test_statusServerController() {
@@ -54,7 +54,7 @@ private class testListContainerController {
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, new WebServiceMockImpl());
         
-        List<statusServerController> lstRecs1 = statusServerController.getEvents('1', 'Upcoming Releases');
+        List<statusServerController> lstRecs1 = statusServerController.getEvents('1', 'Upcoming Releases', 'Production', '1');
         Test.stopTest();
     }
     

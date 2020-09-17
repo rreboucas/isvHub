@@ -27,6 +27,8 @@ public with sharing class statusServerController implements Comparable {
 	public List<String> impactedLicenseIds { get;set; }
 	@AuraEnabled
 	public String instanceName { get;set; }
+	@AuraEnabled
+	public String totalNumRecs { get;set; }
 
 	// Implement the compareTo() method
     public Integer compareTo(Object compareTo) {
@@ -37,9 +39,12 @@ public with sharing class statusServerController implements Comparable {
     }
 
     @AuraEnabled(cacheable=true)
-    public static List<statusServerController> getEvents(String rowsLimit, String dataFilter, String orgType) {
+    public static List<statusServerController> getEvents(String rowsLimit, String dataFilter, String orgType, String offSet) {
 
-        System.debug('######## rowsLimit: ' + rowsLimit);
+		System.debug('######## rowsLimit: ' + rowsLimit);
+		System.debug('######## dataFilter: ' + dataFilter);
+		System.debug('######## orgType: ' + orgType);
+		System.debug('######## offSet: ' + offSet);
 
         List<statusServerController> lstReturnRecords = new List<statusServerController>();
 		List<sfLma__License__c> lstLicenses;
@@ -79,11 +84,27 @@ public with sharing class statusServerController implements Comparable {
 			releaseNameEncoded = EncodingUtil.urlEncode('Major Release', 'UTF-8');
 		}
         HttpRequest req = new HttpRequest();
-        req.setEndpoint('https://api.status.salesforce.com/v1/maintenances?order=plannedStartTime&name=' + releaseNameEncoded + '&limit=' + rowsLimit) ;
+		//req.setEndpoint('https://api.status.salesforce.com/v1/maintenances?order=plannedStartTime&name=' + releaseNameEncoded + '&limit=' + rowsLimit) ;
+		String strEndPoint = 'https://api.status.salesforce.com/v1/maintenances?limit=100&offset=' + offSet +'&order=plannedStartTime&name=' + releaseNameEncoded;
+		system.debug('######## strEndPoint: ' + strEndPoint );
+		req.setEndpoint(strEndPoint) ;
         req.setMethod('GET');
 
         Http http = new Http();
-        HTTPResponse res = http.send(req);
+		HTTPResponse res = http.send(req);
+		
+		//get the list of header names (keys)
+		string[] headerkeys = res.getHeaderKeys();
+
+		//create an object to store your header key-value pairs
+		Map<string, string> headers = new map<string, string>();
+
+		//iterate through they keys, and populate your map
+		for(string s : headerkeys){
+		headers.put(s,res.getHeader(s));
+		system.debug('header: ' + s + ' value: ' + res.getHeader(s));
+		}
+
         String resBody = res.getBody();
         system.debug('####### API Response: ' + resBody);
 
@@ -104,6 +125,8 @@ public with sharing class statusServerController implements Comparable {
 				
 				if (startDT > todaysDT)
 				{
+					i.totalNumRecs = headers.get('X-Total-Count') ;
+					System.debug('######## i.totalNumRecs: ' + i.totalNumRecs);
 					i.maintenanceId = String.valueOf(m.id);
 					System.debug('######## i.maintenanceId: ' + i.maintenanceId);
 					if (i.maintenanceId.containsIgnoreCase('-'))
