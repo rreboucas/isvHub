@@ -185,6 +185,7 @@
         <members>listContainerController</members>
         <name>ApexClass</name>
     </types>
+<<<<<<< HEAD
     <types>
         <members>listContainer</members>
         <name>LightningComponentBundle</name>
@@ -196,6 +197,9 @@
     
 
     <types>
+=======
+      <types>
+>>>>>>> c1e8093 (additional)
         <members>testListContainerController</members>
         <name>ApexClass</name>
     </types>
@@ -207,6 +211,13 @@
         <members>maintenanceEvents</members>
         <name>LightningComponentBundle</name>
     </types>
+    -->
+    <types>
+        <members>listContainer</members>
+        <name>LightningComponentBundle</name>
+    </types>
+
+  
     
     
     
