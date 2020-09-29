@@ -1,0 +1,21 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Contact",
+                "referenceId": "Contact__cRef1"
+            },
+            "FirstName": "James",
+            "LastName": "Bond",
+            "Email": "j@j.com",
+            "LeadSource": "Package Installation",
+            "MailingCountry": "US",
+            "MailingStreet": "10 Main Rd.",
+            "Phone": "(954) 123-4567",
+            "MailingState": "CA",
+            "MailingPostalCode": "80906",
+            "MailingCity": "San Francisco",
+            "AccountId": "@Account__cRef1"
+        }
+    ]
+}

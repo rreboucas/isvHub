@@ -1,0 +1,50 @@
+[
+    {
+        "sobject": "Account",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "account.json"
+        ]
+    },
+    {
+        "sobject": "Contact",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": [
+            "contact.json"
+        ]
+    },
+    {
+        "sobject": "Lead",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "lead.json"
+        ]
+    },
+    {
+        "sobject": "sfLma__Package__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "package.json"
+        ]
+    },
+    {
+        "sobject": "sfLma__Package_Version__c",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": [
+            "packageversion.json"
+        ]
+    },
+    {
+        "sobject": "sfLma__License__c",
+        "saveRefs": false,
+        "resolveRefs": true,
+        "files": [
+            "license.json"
+        ]
+    }
+]

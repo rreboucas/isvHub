@@ -1,0 +1,15 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "sfLma__Package_Version__c",
+                "referenceId": "PackageVersion__cRef1"
+            },
+            "Name": "1.0",
+            "sfLma__Release_Date__c": "2020-09-16",
+            "sfLma__Version__c": "1.0",
+            "sfLma__Version_ID__c": "04tB00000003wUuIAI",
+            "sfLma__Package__c": "@Package__cRef1"
+        }
+    ]
+}
