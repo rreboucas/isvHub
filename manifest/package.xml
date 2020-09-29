@@ -32,14 +32,7 @@
         <members>listContainerController</members>
         <name>ApexClass</name>
     </types>
-    <types>
-        <members>listContainer</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    -->
-    
-
-    <types>
+      <types>
         <members>testListContainerController</members>
         <name>ApexClass</name>
     </types>
@@ -51,6 +44,13 @@
         <members>maintenanceEvents</members>
         <name>LightningComponentBundle</name>
     </types>
+    -->
+    <types>
+        <members>listContainer</members>
+        <name>LightningComponentBundle</name>
+    </types>
+
+  
     
     
     

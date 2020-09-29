@@ -2,18 +2,18 @@
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>48.0</apiVersion>
     <isExposed>true</isExposed>
-  <masterLabel>ISV Console - List Container</masterLabel>
-  <description>Use this component to display a list of cards for installs, licenses, etc where actions can be taken.</description>
-  <targets>
-      <target>lightning__RecordPage</target>
-      <target>lightning__AppPage</target>
-      <target>lightning__HomePage</target>
-  </targets>
-  <targetConfigs>
-      <targetConfig targets="lightning__AppPage, lightning__HomePage, lightning__RecordPage">
-          <property name="title" label="Select the Type of Data for users to fetch" type="String" datasource="Latest Installs per App,Licenses Expiring Soon" default="Latest Installs per App"  />
-          <property name="maxRecords" label="Chose the maximum number of records to return" type="String" default="3"  />
-          <property name="showMoreLinkVisible" label="Show Link to View more Records" type="Boolean" default="true"  />
-      </targetConfig>
-  </targetConfigs>
+    <masterLabel>ISV Console - List Container</masterLabel>
+    <description>Use this component to display a list of cards for installs, licenses, etc where actions can be taken.</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage, lightning__HomePage, lightning__RecordPage">
+            <property name="title" label="Select the Type of Data for users to fetch" type="String" datasource="Latest Installs per App,Licenses Expiring Soon" default="Latest Installs per App"/>
+            <property name="maxRecords" label="Chose the maximum number of records to return" type="String" default="3"/>
+            <property name="showMoreLinkVisible" label="Show Link to View more Records" type="Boolean" default="true"/>
+        </targetConfig>
+    </targetConfigs>
 </LightningComponentBundle>
