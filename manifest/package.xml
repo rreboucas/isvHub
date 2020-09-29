@@ -186,6 +186,7 @@
         <name>ApexClass</name>
     </types>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <types>
         <members>listContainer</members>
         <name>LightningComponentBundle</name>
@@ -212,9 +213,21 @@
         <name>LightningComponentBundle</name>
     </types>
     -->
+=======
+
+>>>>>>> c258fe6 (fix dependencies for team dev)
     <types>
         <members>listContainer</members>
         <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>sfLma__License__c</members>
+        <name>CustomObject</name>
+    </types>
+    -->
+    <types>
+        <members>Happening_Now</members>
+        <name>FlexiPage</name>
     </types>
 
   

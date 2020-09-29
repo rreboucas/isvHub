@@ -10,6 +10,7 @@
     </applicationVisibilities>
     <classAccesses>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <apexClass>CountdownTimerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -34,6 +35,9 @@
 =======
         <apexClass>ISVConsole_Helper</apexClass>
 >>>>>>> 00546ad (first commit)
+=======
+        <apexClass>ISVConsoleHelper</apexClass>
+>>>>>>> c258fe6 (fix dependencies for team dev)
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

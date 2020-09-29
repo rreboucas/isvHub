@@ -157,6 +157,7 @@ public class TestFactory {
                 sfLma__Org_Type__c = 'Developer Edition',
                 sfLma__Status__c = 'Active',
 <<<<<<< HEAD
+<<<<<<< HEAD
                 sfLma__Subscriber_Org_ID__c = DEFAULT_ORG_ID
 =======
                 sfLma__Subscriber_Org_ID__c = DEFAULT_ORG_ID,
@@ -166,6 +167,9 @@ public class TestFactory {
 =======
                 isvconsole__isTestRunning__c = true
 >>>>>>> 6aab12d (comit july 2020)
+=======
+                sfLma__Subscriber_Org_ID__c = DEFAULT_ORG_ID
+>>>>>>> c258fe6 (fix dependencies for team dev)
            );
     }
 
@@ -186,6 +190,7 @@ public class TestFactory {
                 sfLma__Subscriber_Org_ID__c = '00DB0000000He80',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 sfLma__Org_Instance__c = 'CS122'
 =======
                 sfLma__Version_Number__c = 'isvconsoletestrunning'
@@ -194,6 +199,9 @@ public class TestFactory {
                 sfLma__Org_Instance__c = 'CS122',
                 isvconsole__isTestRunning__c = true
 >>>>>>> 6aab12d (comit july 2020)
+=======
+                sfLma__Org_Instance__c = 'CS122'
+>>>>>>> c258fe6 (fix dependencies for team dev)
            );
     }
     

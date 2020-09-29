@@ -41,6 +41,74 @@
 =======
         <componentInstances>
             <componentInstanceProperties>
+                <name>maxRecords</name>
+                <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showMoreLinkVisible</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Latest Installs per App</value>
+            </componentInstanceProperties>
+            <componentName>listContainer</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>maxRecords</name>
+                <value>100</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>orgtype</name>
+                <value>Production</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Upcoming Releases</value>
+            </componentInstanceProperties>
+            <componentName>maintenanceEvents</componentName>
+        </componentInstances>
+        <name>region1</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>maxRecords</name>
+                <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showMoreLinkVisible</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Licenses Expiring Soon</value>
+            </componentInstanceProperties>
+            <componentName>listContainer</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>maxRecords</name>
+                <value>100</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>orgtype</name>
+                <value>Sandbox</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Upcoming Releases</value>
+            </componentInstanceProperties>
+            <componentName>maintenanceEvents</componentName>
+        </componentInstances>
+        <name>region2</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
                 <name>title</name>
                 <value>Where are my Customers Located</value>
             </componentInstanceProperties>
@@ -49,6 +117,7 @@
         <componentInstances>
             <componentName>modalLauncher</componentName>
         </componentInstances>
+<<<<<<< HEAD
 >>>>>>> 3aa0de7 (fix1)
         <name>region1</name>
         <type>Region</type>
@@ -158,6 +227,8 @@
             <componentName>listContainer</componentName>
         </componentInstances>
 >>>>>>> 3aa0de7 (fix1)
+=======
+>>>>>>> c258fe6 (fix dependencies for team dev)
         <name>region3</name>
         <type>Region</type>
     </flexiPageRegions>
