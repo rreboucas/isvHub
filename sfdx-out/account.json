@@ -1,0 +1,26 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "Account__cRef1"
+            },
+            "Name": "ISV Customer",
+            "Type": "Customer",
+            "BillingStreet": "123 Main Street",
+            "BillingCountry": "USA",
+            "BillingLatitude": "37.774929",
+            "BillingLongitude": "-122.419418",
+            "BillingState": "CA",
+            "BillingPostalCode": "80906",
+            "BillingCity": "San Francisco",
+            "ShippingStreet": "123 Main Street",
+            "ShippingCountry": "USA",
+            "ShippingLatitude": "37.774929",
+            "ShippingLongitude": "-122.419418",
+            "ShippingState": "CA",
+            "ShippingPostalCode": "80906",
+            "ShippingCity": "San Francisco"
+        }
+    ]
+}

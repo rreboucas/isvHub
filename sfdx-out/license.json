@@ -1,0 +1,41 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "sfLma__License__c",
+                "referenceId": "License__cRef1"
+            },
+            "sfLma__Install_Date__c": "2020-09-16",
+            "sfLma__Package_License_ID__c": "05061000000K0UsAAK",
+            "sfLma__Expiration__c": "2021-09-15",
+            "sfLma__License_Type__c": "Editable",
+            "sfLma__Proxy_User__c": "033f4000000q7dlaak@00d61000000dccieai",
+            "sfLma__Seats__c": "150.0",
+            "sfLma__Status__c": "Active",
+            "sfLma__Subscriber_Org_ID__c": "00D61000000dcCi",
+            "sfLma__Used_Licenses__c": "5.0",
+            "sfLma__Lead__c": "@Lead__cRef1",
+            "sfLma__Package__c": "@Package__cRef1",
+            "sfLma__Package_Version__c": "@PackageVersion__cRef1"
+        },
+        {
+            "attributes": {
+                "type": "sfLma__License__c",
+                "referenceId": "License__cRef2"
+            },
+            "sfLma__Install_Date__c": "2020-09-16",
+            "sfLma__Package_License_ID__c": "05061000000K0UsAAK",
+            "sfLma__Expiration__c": "2022-05-18",
+            "sfLma__License_Type__c": "Editable",
+            "sfLma__Proxy_User__c": "033f4000000q7dlaak@00d61000000dccieai",
+            "sfLma__Seats__c": "10.0",
+            "sfLma__Status__c": "Active",
+            "sfLma__Subscriber_Org_ID__c": "00D61000000dcCi",
+            "sfLma__Used_Licenses__c": "5.0",
+            "sfLma__Account__c": "@Account__cRef1",
+            "sfLma__Contact__c": "@Contact__cRef1",
+            "sfLma__Package__c": "@Package__cRef1",
+            "sfLma__Package_Version__c": "@PackageVersion__cRef1"
+        }
+    ]
+}
