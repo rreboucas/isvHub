@@ -5,7 +5,7 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
-        <apexClass>ISVConsole_Helper</apexClass>
+        <apexClass>ISVConsoleHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

@@ -32,7 +32,7 @@
                 {!v.body}
                 <p><lightning:formattedText value="{!v.recordId}" /></p>
                 <aura:set attribute="else">
-                    <isvconsole:promptcarousel /> <br/>
+                    <c:promptcarousel /> <br/>
                 </aura:set>
             </aura:if>
         </div>

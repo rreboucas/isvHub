@@ -3,39 +3,47 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>title</name>
-                <value>Where are my Customers Located</value>
+                <name>maxRecords</name>
+                <value>3</value>
             </componentInstanceProperties>
-            <componentName>isvConsoleMap</componentName>
+            <componentInstanceProperties>
+                <name>showMoreLinkVisible</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Latest Installs per App</value>
+            </componentInstanceProperties>
+            <componentName>listContainer</componentName>
         </componentInstances>
         <componentInstances>
-            <componentName>modalLauncher</componentName>
+            <componentInstanceProperties>
+                <name>maxRecords</name>
+                <value>100</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>orgtype</name>
+                <value>Production</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Upcoming Releases</value>
+            </componentInstanceProperties>
+            <componentName>maintenanceEvents</componentName>
         </componentInstances>
         <name>region1</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentName>ISVConsoleNextBestAction</componentName>
-            <visibilityRule>
-                <booleanFilter>1 OR 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!$Client.formFactor}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>Large</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!$Client.formFactor}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>Medium</rightValue>
-                </criteria>
-            </visibilityRule>
-        </componentInstances>
-        <name>region2</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <componentInstances>
+            <componentInstanceProperties>
+                <name>maxRecords</name>
+                <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showMoreLinkVisible</name>
+                <value>true</value>
+            </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
                 <value>Licenses Expiring Soon</value>
@@ -44,10 +52,32 @@
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
-                <name>title</name>
-                <value>Latest Installs per App</value>
+                <name>maxRecords</name>
+                <value>100</value>
             </componentInstanceProperties>
-            <componentName>listContainer</componentName>
+            <componentInstanceProperties>
+                <name>orgtype</name>
+                <value>Sandbox</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Upcoming Releases</value>
+            </componentInstanceProperties>
+            <componentName>maintenanceEvents</componentName>
+        </componentInstances>
+        <name>region2</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Where are my Customers Located</value>
+            </componentInstanceProperties>
+            <componentName>isvConsoleMap</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>modalLauncher</componentName>
         </componentInstances>
         <name>region3</name>
         <type>Region</type>
