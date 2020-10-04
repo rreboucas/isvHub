@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -9,6 +13,7 @@
  * 
  */
 
+<<<<<<< HEAD
 global class CountdownTimerController { 
     public static final String JOBS_CANCELLED = 'Scheduled jobs cancelled, you will not receive an org expiry notification';
     public static final String JOBS_SCHEDULED = 'Successfully scheduled! Job Ids: ';
@@ -16,11 +21,15 @@ global class CountdownTimerController {
     {1 => 'Jan', 2 => 'Feb', 3 => 'Mar', 4 => 'Apr', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'Aug', 9 => 'Sep', 10 => 'Oct', 11 => 'Nov', 12 => 'Dec'};
 
 
+=======
+public with sharing class CountdownTimerController { 
+>>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
     @AuraEnabled
     public Static String getExpirationDate(){
         Organization org = [SELECT TrialExpirationDate FROM Organization];
         return string.valueOf(org.TrialExpirationDate);
     }
+<<<<<<< HEAD
 
     @AuraEnabled
     public static List<String> getScheduledNotifications(){
@@ -91,3 +100,6 @@ global class CountdownTimerController {
         }
     }
 }
+=======
+}
+>>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)

@@ -5,28 +5,38 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+<<<<<<< HEAD
 import { LightningElement, track } from 'lwc';
+=======
+import { LightningElement, wire } from 'lwc';
+>>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
 import getExpirationDate from '@salesforce/apex/CountdownTimerController.getExpirationDate';
 
 export default class CountdownTimer extends LightningElement {
     title = "Org Expiration"
     deadline;
     timeRemainingAsString;
+<<<<<<< HEAD
     expanded = false;
     orgActive = false;
 
     @track daysBeforeExpiry;
     @track buttonLabel = "Configure Expiry Notifications";
+=======
+>>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
     
     connectedCallback(){
         this.getOrgExpiration();
         setInterval(() => this.getTimeRemaining(), 100);
     }
 
+<<<<<<< HEAD
     get expiresToday(){
         return this.daysBeforeExpiry < 1;
     }
 
+=======
+>>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
     /*
         getOrgExpiration
         Retrieves the expiry date of the trial org.
@@ -37,6 +47,10 @@ export default class CountdownTimer extends LightningElement {
         getExpirationDate()
             .then((result) => {
                 this.deadline = result;
+<<<<<<< HEAD
+=======
+                console.log(this.deadline);
+>>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
             })
             .catch((error) => {
                 console.log(error);
@@ -44,6 +58,7 @@ export default class CountdownTimer extends LightningElement {
     }
 
     getTimeRemaining(){
+<<<<<<< HEAD
         const total = Date.parse(this.deadline) - Date.parse(new Date());
         if(total){
             this.orgActive = false;
@@ -69,5 +84,16 @@ export default class CountdownTimer extends LightningElement {
           }else{
             this.buttonLabel = "Configure Expiry Notifications";
           }
+=======
+        console.log('Getting time in function...');
+        const total = Date.parse(this.deadline) - Date.parse(new Date());
+        const seconds = Math.floor( (total/1000) % 60 );
+        const minutes = Math.floor( (total/1000/60) % 60 );
+        const hours = Math.floor( (total/(1000*60*60)) % 24 );
+        const days = Math.floor( total/(1000*60*60*24) );
+      
+        this.timeRemainingAsString = 'Days: ' + days + ' Hours: ' + hours + ' Minutes: ' + minutes + ' Seconds: ' + seconds;
+        console.log(this.timeRemainingAsString);
+>>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
       }
 }
