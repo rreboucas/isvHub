@@ -5,9 +5,9 @@
                 "type": "Lead",
                 "referenceId": "Lead__cRef1"
             },
-            "FirstName": "Mary",
+            "FirstName": "Austin",
             "LastName": "Appleseed",
-            "Email": "m@m.com",
+            "Email": "a@m.com",
             "Company": "Salesforce",
             "Country": "US",
             "Latitude": "37.774929",

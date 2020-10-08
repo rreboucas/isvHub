@@ -5,9 +5,9 @@
                 "type": "Account",
                 "referenceId": "Account__cRef1"
             },
-            "Name": "ISV Customer",
+            "Name": "ISV Customer 2",
             "Type": "Customer",
-            "BillingStreet": "123 Main Street",
+            "BillingStreet": "321 S Street",
             "BillingCountry": "USA",
             "BillingLatitude": "37.774929",
             "BillingLongitude": "-122.419418",

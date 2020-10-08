@@ -39,12 +39,10 @@ public with sharing class statusServerController implements Comparable {
     }
 
     @AuraEnabled(cacheable=true)
-    public static List<statusServerController> getEvents(String rowsLimit, String dataFilter, String orgType, String offSet) {
+    public static List<statusServerController> getEvents(String dataFilter, String orgType) {
 
-		System.debug('######## rowsLimit: ' + rowsLimit);
 		System.debug('######## dataFilter: ' + dataFilter);
 		System.debug('######## orgType: ' + orgType);
-		System.debug('######## offSet: ' + offSet);
 
         List<statusServerController> lstReturnRecords = new List<statusServerController>();
 		List<sfLma__License__c> lstLicenses;
@@ -84,8 +82,8 @@ public with sharing class statusServerController implements Comparable {
 			releaseNameEncoded = EncodingUtil.urlEncode('Major Release', 'UTF-8');
 		}
         HttpRequest req = new HttpRequest();
-		//req.setEndpoint('https://api.status.salesforce.com/v1/maintenances?order=plannedStartTime&name=' + releaseNameEncoded + '&limit=' + rowsLimit) ;
-		String strEndPoint = 'https://api.status.salesforce.com/v1/maintenances?limit=100&offset=' + offSet +'&order=plannedStartTime&name=' + releaseNameEncoded;
+		//req.setEndpoint('https://api.status.salesforce.com/v1/maintenances?order=plannedStartTime&name=' + releaseNameEncoded ) ;
+		String strEndPoint = 'https://api.status.salesforce.com/v1/maintenances?order=plannedStartTime&name=' + releaseNameEncoded ;
 		system.debug('######## strEndPoint: ' + strEndPoint );
 		req.setEndpoint(strEndPoint) ;
         req.setMethod('GET');

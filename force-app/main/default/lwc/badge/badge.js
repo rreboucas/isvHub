@@ -20,6 +20,7 @@ export default class cBadge extends NavigationMixin(LightningElement) {
     @api urlparams;
     @api licenseids;
     
+    
     badgeiconname;
 
     payload;

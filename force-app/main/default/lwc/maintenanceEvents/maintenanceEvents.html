@@ -16,15 +16,21 @@
             </div>
             <div slot="footer">
                 <i>
-                    <lightning-button-group>
+                <lightning-layout>
+                    <lightning-layout-item padding="around-small">
                         <template if:true={hasBackRecords}>
-                            <lightning-button label="Back" onclick={goBackClick}></lightning-button>
+                            <lightning-button-icon icon-name="utility:left"  size="xx-small" alternative-text="Previous" onclick={pressLeft}></lightning-button-icon>
                         </template>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small">
+                        {leftIndexLabel} - {rightIndex} of {numrecords}
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small">
                         <template if:true={hasNextRecords}>
-                            <lightning-button label="Next" onclick={goNextClick}></lightning-button>
+                            <lightning-button-icon icon-name="utility:right"  size="xx-small" alternative-text="Next" onclick={pressRight}></lightning-button-icon>
                         </template>
-                    </lightning-button-group>
-                     {offSet}<!--<lightning-formatted-text value='* Dates and Times are subject to change - Source: trust.salesforce.com' linkify></lightning-formatted-text>-->
+                    </lightning-layout-item>
+                </lightning-layout>
                 </i>
             </div>
         </lightning-card>

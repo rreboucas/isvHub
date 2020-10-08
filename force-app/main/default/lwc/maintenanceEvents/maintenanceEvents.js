@@ -16,11 +16,12 @@ import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
 export default class MaintenanceEvents extends LightningElement {
     hasLMAInstalls = true;
     hasBackRecords = false;
-    hasNextRecords = true;
+    hasNextRecords;
     @api title;
     @api orgtype;
     @api maxRecords;
     titleLabel;
+    eventsdatabackup;
     eventsData;
     error;
     isMobile = false;
@@ -33,12 +34,45 @@ export default class MaintenanceEvents extends LightningElement {
     ulCssClass = 'slds-m-around_medium';
     computedChildClassName;
     offSet;
+    leftIndexLabel;
+    leftIndex;
+    rightIndex;
+    numrecords;
+
+    @wire(getTrustEvents, { dataFilter: '$title', orgType: '$orgtype' })
+    wiredLatestInstalls({ error, data }) {
+        this.isLoading = true;
+        if (data) {
+            this.eventsdatabackup = data;
+            this.numrecords = data.length;            
+            
+            if (this.numrecords > this.maxRecords)
+            {
+              this.rightIndex = this.maxRecords;
+              this.hasNextRecords = true;
+            }
+            else
+            {
+              this.rightIndex = this.numrecords;
+            }
+            this.eventsData = data.slice(this.leftIndex, this.rightIndex);
+            this.error = undefined;
+            this.isLoading = false;
+        } else if (error) {
+            this.error = error;
+            this.eventsData = undefined;
+        }
+    }
+    handler() {
+      refreshApex(this.eventsData);
+    }
 
     @wire(MessageContext)
     messageContext;
 
     connectedCallback() {
-      
+        this.leftIndex = 0;
+        this.leftIndexLabel = 1;
         this.offSet = '1';
         // Check which header icon to use based on selected App Builder Title
         switch(this.title) {
@@ -76,62 +110,49 @@ export default class MaintenanceEvents extends LightningElement {
         default:
       }
 
-      //this.getNewData();
-
     }
 
-    
-    
-    @wire(getTrustEvents, { rowsLimit: '$maxRecords', dataFilter: '$title', orgType: '$orgtype', offSet: '$offSet' })
-    wiredLatestInstalls({ error, data }) {
-        this.isLoading = true;
-        if (data) {
-            this.eventsData = data;
-            this.error = undefined;
-            this.isLoading = false;
-        } else if (error) {
-            this.error = error;
-            this.eventsData = undefined;
-        }
-    }
-    handler() {
-      refreshApex(this.eventsData);
-    }
-    
-/*
-    getNewData() {
-      this.isLoading = true;
-      getTrustEvents({ rowsLimit: this.maxRecords, dataFilter: this.title, orgType: this.orgtype, offSet: this.offSet })
-      .then((result) => {
-          this.eventsData = result;
-          this.error = undefined;
-          this.isLoading = false;
-      })
-      .catch((error) => {
-          this.error = error;
-          this.eventsData = undefined;
-      });
-    }
-    */
 
-    goBackClick(event) {
-      var offSetnum = Number(this.offSet);
-      offSetnum = offSetnum - 1;
-      this.offSet = offSetnum.toString();
-      return refreshApex(this.eventsData);
-      //this.getNewData();
-      if (this.offSet == 1)
-        this.hasBackRecords = false;
-    }
-
-    goNextClick(event) {
-      //this.isLoading = true;
+    pressRight(event) {
+      this.leftIndex = parseInt(this.rightIndex) + 1;
+      this.leftIndexLabel = this.leftIndex;
+      this.rightIndex = parseInt(this.leftIndex) + parseInt(this.maxRecords);
+      if (this.numrecords <= this.rightIndex)
+      {
+        this.rightIndex = this.numrecords;
+        this.hasNextRecords = false;
+      }
       this.hasBackRecords = true;
-      var offSetnum = Number(this.offSet);
-      offSetnum = offSetnum + 1;
-      this.offSet = offSetnum.toString();
-      return refreshApex(this.eventsData);
-      //this.getNewData();
+      /*
+      getTrustEvents()
+            .then(result => {
+              this.eventsdatabackup = result;
+              this.eventsData = data.slice(this.leftIndex, this.rightIndex);
+            })
+            .catch(error => {
+                this.error = error;
+            });
+            */
+      
+      this.eventsData = this.eventsdatabackup.slice(this.leftIndex, this.rightIndex);
+      refreshApex(this.wiredLatestInstalls);
       
   }
+
+    pressLeft(event) {
+      this.leftIndex = parseInt(this.leftIndex) - parseInt(this.maxRecords);
+      if (this.leftIndex <= 1)
+      {
+        this.leftIndex = 1;
+        this.hasBackRecords = false;
+      }
+      this.leftIndexLabel = this.leftIndex;
+      this.rightIndex = parseInt(this.rightIndex) - parseInt(this.maxRecords);
+      if (this.numrecords > this.rightIndex)
+        this.hasNextRecords = true;
+      this.eventsData = this.eventsdatabackup.slice(this.leftIndex, this.rightIndex);
+      refreshApex(this.wiredLatestInstalls);
+      }
+
+    
 }
