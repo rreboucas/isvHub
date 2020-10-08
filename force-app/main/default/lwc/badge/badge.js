@@ -234,6 +234,7 @@ export default class cBadge extends NavigationMixin(LightningElement) {
 =======
     @api licenseids;
     
+    
     badgeiconname;
 >>>>>>> 6aab12d (comit july 2020)
 

@@ -30,16 +30,24 @@ export default class MaintenanceEvents extends LightningElement {
 >>>>>>> 6aab12d (comit july 2020)
 =======
     hasBackRecords = false;
+<<<<<<< HEAD
     hasNextRecords = true;
 >>>>>>> 4e992a8 ( adding pagination)
+=======
+    hasNextRecords;
+>>>>>>> 4ca298f (bf rm pagination)
     @api title;
     @api orgtype;
     @api maxRecords;
     titleLabel;
 <<<<<<< HEAD
+<<<<<<< HEAD
     eventsdatabackup;
 =======
 >>>>>>> 6aab12d (comit july 2020)
+=======
+    eventsdatabackup;
+>>>>>>> 4ca298f (bf rm pagination)
     eventsData;
     error;
     isMobile = false;
@@ -57,7 +65,10 @@ export default class MaintenanceEvents extends LightningElement {
     leftIndexLabel;
     leftIndex;
     rightIndex;
+<<<<<<< HEAD
     rightIndexLabel;
+=======
+>>>>>>> 4ca298f (bf rm pagination)
     numrecords;
 
     @wire(getTrustEvents, { dataFilter: '$title', orgType: '$orgtype' })
@@ -65,6 +76,7 @@ export default class MaintenanceEvents extends LightningElement {
         this.isLoading = true;
         if (data) {
             this.eventsdatabackup = data;
+<<<<<<< HEAD
             console.log('maintenanceEvents.js eventsdatabackup: ' + this.eventsdatabackup);
             this.numrecords = data.length;
          
@@ -74,16 +86,29 @@ export default class MaintenanceEvents extends LightningElement {
             {
               this.rightIndex = 2;
               this.rightIndexLabel = this.rightIndex + 1;
+=======
+            this.numrecords = data.length;            
+            
+            if (this.numrecords > this.maxRecords)
+            {
+              this.rightIndex = this.maxRecords;
+>>>>>>> 4ca298f (bf rm pagination)
               this.hasNextRecords = true;
             }
             else
             {
+<<<<<<< HEAD
               this.hasNextRecords = false;
             }
             this.eventsData = data.slice(0, 3);
             this.rightIndex = 3;
 
 
+=======
+              this.rightIndex = this.numrecords;
+            }
+            this.eventsData = data.slice(this.leftIndex, this.rightIndex);
+>>>>>>> 4ca298f (bf rm pagination)
             this.error = undefined;
             this.isLoading = false;
         } else if (error) {
@@ -94,16 +119,20 @@ export default class MaintenanceEvents extends LightningElement {
     handler() {
       refreshApex(this.eventsData);
     }
+<<<<<<< HEAD
 =======
 >>>>>>> 6aab12d (comit july 2020)
 =======
     offSet;
 >>>>>>> 4e992a8 ( adding pagination)
+=======
+>>>>>>> 4ca298f (bf rm pagination)
 
     @wire(MessageContext)
     messageContext;
 
     connectedCallback() {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       console.log('maintenanceEvents.js orgtype: ' + this.orgtype);
@@ -115,6 +144,10 @@ export default class MaintenanceEvents extends LightningElement {
 >>>>>>> 6aab12d (comit july 2020)
 =======
       
+=======
+        this.leftIndex = 0;
+        this.leftIndexLabel = 1;
+>>>>>>> 4ca298f (bf rm pagination)
         this.offSet = '1';
 >>>>>>> 4e992a8 ( adding pagination)
         // Check which header icon to use based on selected App Builder Title
@@ -153,10 +186,9 @@ export default class MaintenanceEvents extends LightningElement {
         default:
       }
 
-      //this.getNewData();
-
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -252,26 +284,53 @@ export default class MaintenanceEvents extends LightningElement {
       });
     }
     */
+=======
+>>>>>>> 4ca298f (bf rm pagination)
 
-    goBackClick(event) {
-      var offSetnum = Number(this.offSet);
-      offSetnum = offSetnum - 1;
-      this.offSet = offSetnum.toString();
-      return refreshApex(this.eventsData);
-      //this.getNewData();
-      if (this.offSet == 1)
-        this.hasBackRecords = false;
-    }
-
-    goNextClick(event) {
-      //this.isLoading = true;
+    pressRight(event) {
+      this.leftIndex = parseInt(this.rightIndex) + 1;
+      this.leftIndexLabel = this.leftIndex;
+      this.rightIndex = parseInt(this.leftIndex) + parseInt(this.maxRecords);
+      if (this.numrecords <= this.rightIndex)
+      {
+        this.rightIndex = this.numrecords;
+        this.hasNextRecords = false;
+      }
       this.hasBackRecords = true;
-      var offSetnum = Number(this.offSet);
-      offSetnum = offSetnum + 1;
-      this.offSet = offSetnum.toString();
-      return refreshApex(this.eventsData);
-      //this.getNewData();
+      /*
+      getTrustEvents()
+            .then(result => {
+              this.eventsdatabackup = result;
+              this.eventsData = data.slice(this.leftIndex, this.rightIndex);
+            })
+            .catch(error => {
+                this.error = error;
+            });
+            */
+      
+      this.eventsData = this.eventsdatabackup.slice(this.leftIndex, this.rightIndex);
+      refreshApex(this.wiredLatestInstalls);
       
   }
+<<<<<<< HEAD
 >>>>>>> 4e992a8 ( adding pagination)
+=======
+
+    pressLeft(event) {
+      this.leftIndex = parseInt(this.leftIndex) - parseInt(this.maxRecords);
+      if (this.leftIndex <= 1)
+      {
+        this.leftIndex = 1;
+        this.hasBackRecords = false;
+      }
+      this.leftIndexLabel = this.leftIndex;
+      this.rightIndex = parseInt(this.rightIndex) - parseInt(this.maxRecords);
+      if (this.numrecords > this.rightIndex)
+        this.hasNextRecords = true;
+      this.eventsData = this.eventsdatabackup.slice(this.leftIndex, this.rightIndex);
+      refreshApex(this.wiredLatestInstalls);
+      }
+
+    
+>>>>>>> 4ca298f (bf rm pagination)
 }

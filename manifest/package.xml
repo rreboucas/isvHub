@@ -163,12 +163,17 @@
         <members>*</members>
         <name>AuraDefinitionBundle</name>
     </types>
-     
-    
+
+    <types>
+        <members>eventSummaryCard</members>
+        <name>LightningComponentBundle</name>
+    </types>
     <types>
         <members>badge</members>
         <name>LightningComponentBundle</name>
     </types>
+    
+    
     <types>
         <members>itemActionCard</members>
         <name>LightningComponentBundle</name>
@@ -177,10 +182,7 @@
         <members>*</members>
         <name>LightningMessageChannel</name>
     </types>
-    <types>
-        <members>eventSummaryCard</members>
-        <name>LightningComponentBundle</name>
-    </types>
+    
     <types>
         <members>listContainerController</members>
         <name>ApexClass</name>
@@ -224,16 +226,33 @@
         <members>sfLma__License__c</members>
         <name>CustomObject</name>
     </types>
-    -->
     <types>
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
-
+     <types>
+        <members>maintenanceEvents</members>
+        <name>LightningComponentBundle</name>
+    </types>
   
-    
-    
-    
+     <types>
+        <members>statusServerController</members>
+        <name>ApexClass</name>
+    </types>
+    -->
+     <types>
+        <members>modalLauncher</members>
+        <name>AuraDefinitionBundle</name>
+    </types>  
+   
+      <types>
+        <members>eventSummaryCard</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>badge</members>
+        <name>LightningComponentBundle</name>
+    </types>
     
     
 >>>>>>> 4e992a8 ( adding pagination)
