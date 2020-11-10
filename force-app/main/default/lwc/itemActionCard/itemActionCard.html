@@ -39,7 +39,7 @@
                                     </div>
                                 </lightning-layout-item>
                                 <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                    <c-badge class={computedChildClassName} label={topBadgeLabel} recordid={companyId} launchedviamodal={launchedviamodal}></c-badge>
+                                    <c-badge class={computedChildClassName} label={topBadgeLabel} recordid={companyId} email={email}  launchedviamodal={launchedviamodal} onnotifyimpactedcustomers={sendNotifyEmailHandler} licenseids={licenseids}></c-badge>
                                 </lightning-layout-item>
                             </lightning-layout>
                         </li>
@@ -56,7 +56,7 @@
                                     </div>
                                 </lightning-layout-item>
                                 <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                    <c-badge class={computedChildClassName} label={midleBadgeLabel} recordid={companyId} launchedviamodal={launchedviamodal}></c-badge>
+                                    <c-badge class={computedChildClassName} label={midleBadgeLabel} recordid={companyId} email={email} launchedviamodal={launchedviamodal}></c-badge>
                                 </lightning-layout-item>
                             </lightning-layout>
                         </li>
@@ -80,7 +80,7 @@
                                         </div>
                                     </lightning-layout-item>
                                     <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                        <c-badge class={computedChildClassName} label={topBadgeLabel} recordid={licenseid} launchedviamodal={launchedviamodal}></c-badge>
+                                        <c-badge class={computedChildClassName} label={topBadgeLabel} recordid={licenseid} email={email} launchedviamodal={launchedviamodal} ></c-badge>
                                     </lightning-layout-item>
                                 </lightning-layout>
                             </li>
@@ -97,7 +97,7 @@
                                         </div>
                                     </lightning-layout-item>
                                     <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                        <c-badge class={computedChildClassName} label={midleBadgeLabel} recordid={companyId} launchedviamodal={launchedviamodal}></c-badge>
+                                        <c-badge class={computedChildClassName} label={midleBadgeLabel} recordid={companyId} email={email} launchedviamodal={launchedviamodal} ></c-badge>
                                     </lightning-layout-item>
                                 </lightning-layout>
                             </li>

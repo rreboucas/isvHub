@@ -13,7 +13,7 @@
       <targetConfig targets="lightning__AppPage, lightning__HomePage, lightning__RecordPage">
           <property name="title" label="Select the Type of Data for users to fetch" type="String" datasource="Upcoming Releases,Past Maintenances" default="Upcoming Releases"  />
           <property name="orgtype" label="Select the Type of Environment" type="String" datasource="Production,Sandbox,PreRelease" default="Production"  />
-          <property name="maxRecords" label="Chose the maximum number of records to return per page" type="String" default="50"  />
+          <property name="maxRecords" label="Chose the maximum number of records to return per page" type="String" default="3"  />
       </targetConfig>
   </targetConfigs>
 </LightningComponentBundle>

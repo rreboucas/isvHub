@@ -14,6 +14,17 @@ export default class EmailSender extends LightningElement {
     @api expirationdate;
     @api emailType;
 
+    @api orgid;
+    @api instancename;
+    @api maintenancename;
+    @api startdt;
+    @api endtime;
+    @api availability;
+
+    @api licenseid;
+    @api maintenanceid;
+
+    activityType;
     showEmailForm = false;
     showResults = false;
     sendResult;
@@ -32,10 +43,27 @@ export default class EmailSender extends LightningElement {
             case 'New Install':
                 this.myVal = 'Thank you for installing our app! I would like to setup a brief call to walk your team through how to best configure and use the app. Please let me know when it is a good date and time for us to meet!';
                 this.defaultSubject = 'Thank you for installing!';
+                this.activityType = 'Welcome';
               break;
             case 'License Expiration':
                 this.myVal = 'I am reaching out to let you know that your License for our app is expiring soon. I would like to connect to setup a call for us to review your license renewal options.  Please let me know when it is a good date and time for us to meet!';
                 this.defaultSubject = 'License Expiration';
+                this.activityType = 'Expiration';
+            break;
+            case 'Production Maintenance':
+                this.myVal = 'I am reaching out to let you know that there is an upcoming Platform Maintenance ' + this.maintenancename + ' scheduled for your Production Salesforce org id ' + this.orgid + ' on and your org is scheduled to be ' + this.availability + ' at this time ' + this.startdt +'.  You can look at more details about this maintenance through the link above as well. Please let us know if you have any questions.';
+                this.defaultSubject = 'Planned Production Maintenance Alert';
+                this.activityType = 'Maintenance';
+            break;
+            case 'Sandbox Maintenance':
+                this.myVal = 'I am reaching out to let you know that there is an upcoming Platform Maintenance scheduled for your Sandbox Salesforce org id on and your org is scheduled to be at this time .  You can look at more details about this maintenance through the link above as well. Please let us know if you have any questions.';
+                this.defaultSubject = 'Planned Sandbox Maintenance Alert';
+                this.activityType = 'Maintenance';
+            break;
+            case 'Pre-Release Maintenance':
+                this.myVal = 'I am reaching out to let you know that there is an upcoming Platform Maintenance scheduled for your Pre-Release Salesforce org id on and your org is scheduled to be at this time .  You can look at more details about this maintenance through the link above as well. Please let us know if you have any questions.';
+                this.defaultSubject = 'Planned Pre-Release Org Maintenance Alert';
+                this.activityType = 'Maintenance';
             break;
             default:
           }
@@ -63,7 +91,10 @@ export default class EmailSender extends LightningElement {
                 apexSendEmail({ body: bodyVal, 
                     subject: subjectVal,
                     email: emailVal,
-                    recordId: this.attachtoentityid
+                    recordId: this.attachtoentityid,
+                    activityType: this.activityType,
+                    licenseId: this.licenseid,
+                    maintenanceId: this.maintenanceid
                  })
                  .then(result => {
                     //this.sendResult = result;

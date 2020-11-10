@@ -15,7 +15,7 @@ public with sharing class emailServerController {
     public String TaskId { get;set; }
     
     @AuraEnabled
-    public static emailServerController sendEmail(String body, String subject, String email, String recordId) {
+    public static emailServerController sendEmail(String body, String subject, String email, String recordId, String activityType, String licenseId, String maintenanceId) {
 
         System.debug('######## recordId: ' + recordId);
         emailServerController result = new emailServerController();
@@ -85,6 +85,16 @@ public with sharing class emailServerController {
                 t.Description = body;
                 t.ActivityDate = Date.today();
                 insert t;
+
+                // Add Tracked Email record:
+                Tracked_Email__c tr = new Tracked_Email__c();
+                tr.Activity_Id__c = t.id;
+                tr.Activity_Type__c = activityType;
+                tr.Date_Time_Sent__c = t.CreatedDate;
+                tr.LMA_License__c = licenseId;
+                tr.Maintenance__c = maintenanceId;
+                tr.Sent_by_User__c = t.CreatedById;
+                tr.Sent_to_Email__c = 
                 
                 
             }

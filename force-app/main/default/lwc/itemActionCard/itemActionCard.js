@@ -5,10 +5,12 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { LightningElement, api, track } from 'lwc';
+import { LightningElement, api, wire, track } from 'lwc';
 import { classSet } from 'c/utils';
 import { isNarrow, isBase } from './utils';
 import FORM_FACTOR from '@salesforce/client/formFactor';
+import { publish, MessageContext } from 'lightning/messageService';
+import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
 import { NavigationMixin } from 'lightning/navigation';
 
 export default class ItemActionCard extends NavigationMixin(LightningElement) {
@@ -25,6 +27,16 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     @api email;
     @api launchedviamodal;
     @api iscustomersimpacted;
+    
+    @api orgid;
+    @api instancename;
+    @api maintenancename;
+    @api startdt;
+    @api endtime;
+    @api availability;
+    @api licenseids;
+
+    @api maintenanceid;
 
     fullTitle;
     fullCompany;
@@ -55,10 +67,24 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     computedBadgePadding;
     computedAcctButtonPadding;
 
+    notifymaintenance;
+
     @track privateVariant = 'base';
+
+    @wire(MessageContext)
+    messageContext;
 
     connectedCallback() {
 
+        this.notifymaintenance = false;
+        console.log('ItemActionCard.js licenseids: ' + this.licenseids);
+        if (this.licenseIds)
+        {
+            this.notifymaintenance = true;
+            console.log('ItemActionCard.js notifymaintenance after if: ' + this.notifymaintenance);
+        }
+        this.licenseidsforemail = this.licenseids;
+        console.log('ItemActionCard.js notifymaintenance: ' + this.notifymaintenance);
         this.screenWidth = window.screen.width;
         console.log('ItemActionCard.js - screenWidth: ' + this.screenWidth);
         this.fullTitle = this.title;
@@ -141,6 +167,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             
             if (this.screenWidth <= 1440){
                 this.computedChildClassName = 'desktopSmall';
+                this.computedDateButtonPadding = 'slds-p-top_none'
                 this.computedYearFormat = 'numeric';
                 this.computedMonthFormat = 'numeric';
                 this.computedDayFormat = 'numeric';
@@ -216,6 +243,28 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
                 actionName: 'view'
             }
         });
+    }
+
+    sendNotifyEmailHandler() {
+        
+        console.log('ItemActionCard.js - sendNotifyEmailHandler ');
+        // Send Message to modalLauncher Aura LC to send email to impacted customers
+        const message = {
+            messageToSend: this.licenseid,
+            email: this.email,
+            emailType: 'Production Maintenance',
+            actionType: 'sendEmail',
+            starttime: this.startdt,
+            endtime: this.endtime,
+            availavility: this.availability,
+            maintenancename: this.maintenancename,
+            orgid: this.orgid,
+            sourceComponent: 'badge.js - ' + this.label,
+            formFactor: this.formfactorName,
+            licenseid: this.licenseid,
+            maintenanceid: this.maintenanceid
+        };
+        publish(this.messageContext, ISVCONSOLEMC, message);
     }
 
     set variant(value) {

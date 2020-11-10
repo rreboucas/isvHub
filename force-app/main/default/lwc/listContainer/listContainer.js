@@ -42,15 +42,38 @@ export default class ListContainer extends LightningElement {
     @api weekDayFormat;
     @api starttime;
     @api endtime;
+    @api availability;
+    availabilityText;
+    computedAvailabilityIcon;
+    computedIconSize;
+    screenWidth;
 
+    @api maintenanceid;
 
     connectedCallback() {
 
+      this.screenWidth = window.screen.width;
+      console.log('listContainer.js - screenWidth: ' + this.screenWidth);
+      console.log('listContainer.js licenseids: ' + this.licenseids);
       if (!this.licenseIds)
+      {
         this.licenseIds = '';
+        console.log('listContainer.js licenseids after if: ' + this.licenseids);
+      }
       else
         this.hasSubHeader = true;
-        
+      
+      if (this.availability == 'fullyAvailable')
+      {
+          this.availabilityText = 'Available';
+          this.computedAvailabilityIcon = 'utility:success'
+      }
+      if (this.availability == 'unavailable')
+      {
+          this.availabilityText = 'Unavailable';
+          this.computedAvailabilityIcon = 'utility:ban'
+      }
+      
         // Check which header icon to use based on selected App Builder Title
         switch(this.title) {
             case 'Latest Installs per App':
@@ -78,16 +101,23 @@ export default class ListContainer extends LightningElement {
             this.isDesktop = true;
             this.formfactorName = 'Desktop';
             this.computedChildClassName = 'desktop';
+            this.computedIconSize = 'x-small';
+
+            if (this.screenWidth <= 1440){
+              this.computedChildClassName = 'desktopSmall';
+            }
           break;
         case 'Medium':
             this.isTablet = true;
             this.formfactorName = 'Tablet';
             this.computedChildClassName = 'desktop';
+            this.computedIconSize = 'xx-small';
           break;
         case 'Small':
             this.isMobile = true;
             this.formfactorName = 'Phone';
             this.computedChildClassName = 'mobile';
+            this.computedIconSize = 'xx-small';
         break;
         default:
       }

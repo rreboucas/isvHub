@@ -52,7 +52,15 @@
                         {
                             email : message.getParam("email"),
                             emailType : message.getParam("emailType"),
-                            attachtoentityid: message.getParam("messageToSend")
+                            attachtoentityid: message.getParam("messageToSend"),
+                            orgid: message.getParam("orgid"),
+                            maintenancename: message.getParam("maintenancename"),
+                            startdt: message.getParam("starttime"),
+                            endtime: message.getParam("endtime"),
+                            availability: message.getParam("availavility"),
+                            licenseid: message.getParam("licenseid"),
+                            maintenanceid: message.getParam("maintenanceid")
+
                         },
                            function(content, status) {
                                if (status === "SUCCESS") {
@@ -185,7 +193,7 @@
                             monthFormat: message.getParam("monthFormat"),
                             dayFormat: message.getParam("dayFormat"),
                             weekDayFormat: message.getParam("weekDayFormat"),
-                            starttime: message.getParam("starttime"),
+                            availability: message.getParam("availability"),
                             endtime: message.getParam("endtime")
                         },
                            function(content, status) {
