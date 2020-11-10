@@ -24,24 +24,36 @@ export default class EmailSender extends LightningElement {
     @api emailType;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d3c0005 (adding maintenance lwc changes)
     @api orgid;
     @api instancename;
     @api maintenancename;
     @api startdt;
+<<<<<<< HEAD
 
     @api endtime;
     @api availability;
     @api orgtype;
+=======
+    @api endtime;
+    @api availability;
+>>>>>>> d3c0005 (adding maintenance lwc changes)
 
     @api licenseid;
     @api maintenanceid;
 
+<<<<<<< HEAD
     @api maintenancelink;
     @api isaccount;
 
     activityType;
 =======
 >>>>>>> af5f42a (fixedalignment)
+=======
+    activityType;
+>>>>>>> d3c0005 (adding maintenance lwc changes)
     showEmailForm = false;
     showResults = false;
     sendResult;
@@ -81,13 +93,18 @@ export default class EmailSender extends LightningElement {
                 this.myVal = 'Thank you for installing our app! I would like to setup a brief call to walk your team through how to best configure and use the app. Please let me know when it is a good date and time for us to meet!';
                 this.defaultSubject = 'Thank you for installing!';
 <<<<<<< HEAD
+<<<<<<< HEAD
                 this.activityType = 'Welcome';
 =======
 >>>>>>> af5f42a (fixedalignment)
+=======
+                this.activityType = 'Welcome';
+>>>>>>> d3c0005 (adding maintenance lwc changes)
               break;
             case 'License Expiration':
                 this.myVal = 'I am reaching out to let you know that your License for our app is expiring soon. I would like to connect to setup a call for us to review your license renewal options.  Please let me know when it is a good date and time for us to meet!';
                 this.defaultSubject = 'License Expiration';
+<<<<<<< HEAD
 <<<<<<< HEAD
                 this.activityType = 'Expiration';
             break;
@@ -97,6 +114,24 @@ export default class EmailSender extends LightningElement {
                 this.activityType = 'Maintenance';
 =======
 >>>>>>> af5f42a (fixedalignment)
+=======
+                this.activityType = 'Expiration';
+            break;
+            case 'Production Maintenance':
+                this.myVal = 'I am reaching out to let you know that there is an upcoming Platform Maintenance ' + this.maintenancename + ' scheduled for your Production Salesforce org id ' + this.orgid + ' on and your org is scheduled to be ' + this.availability + ' at this time ' + this.startdt +'.  You can look at more details about this maintenance through the link above as well. Please let us know if you have any questions.';
+                this.defaultSubject = 'Planned Production Maintenance Alert';
+                this.activityType = 'Maintenance';
+            break;
+            case 'Sandbox Maintenance':
+                this.myVal = 'I am reaching out to let you know that there is an upcoming Platform Maintenance scheduled for your Sandbox Salesforce org id on and your org is scheduled to be at this time .  You can look at more details about this maintenance through the link above as well. Please let us know if you have any questions.';
+                this.defaultSubject = 'Planned Sandbox Maintenance Alert';
+                this.activityType = 'Maintenance';
+            break;
+            case 'Pre-Release Maintenance':
+                this.myVal = 'I am reaching out to let you know that there is an upcoming Platform Maintenance scheduled for your Pre-Release Salesforce org id on and your org is scheduled to be at this time .  You can look at more details about this maintenance through the link above as well. Please let us know if you have any questions.';
+                this.defaultSubject = 'Planned Pre-Release Org Maintenance Alert';
+                this.activityType = 'Maintenance';
+>>>>>>> d3c0005 (adding maintenance lwc changes)
             break;
             default:
           }
@@ -125,6 +160,7 @@ export default class EmailSender extends LightningElement {
                     subject: subjectVal,
                     email: emailVal,
 <<<<<<< HEAD
+<<<<<<< HEAD
                     recordId: this.attachtoentityid,
                     activityType: this.activityType,
                     licenseId: this.licenseid,
@@ -133,6 +169,12 @@ export default class EmailSender extends LightningElement {
 =======
                     recordId: this.attachtoentityid
 >>>>>>> af5f42a (fixedalignment)
+=======
+                    recordId: this.attachtoentityid,
+                    activityType: this.activityType,
+                    licenseId: this.licenseid,
+                    maintenanceId: this.maintenanceid
+>>>>>>> d3c0005 (adding maintenance lwc changes)
                  })
                  .then(result => {
                     //this.sendResult = result;

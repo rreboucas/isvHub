@@ -15,6 +15,7 @@
           <property name="orgtype" label="Select the Type of Environment" type="String" datasource="Production,Sandbox,PreRelease" default="Production"  />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           <property name="maxRecords" label="Chose the maximum number of records to return per page" type="String" default="3"  />
 =======
           <property name="maxRecords" label="Chose the maximum number of records to return" type="String" default="300"  />
@@ -22,6 +23,9 @@
 =======
           <property name="maxRecords" label="Chose the maximum number of records to return per page" type="String" default="50"  />
 >>>>>>> 4ca298f (bf rm pagination)
+=======
+          <property name="maxRecords" label="Chose the maximum number of records to return per page" type="String" default="3"  />
+>>>>>>> d3c0005 (adding maintenance lwc changes)
       </targetConfig>
   </targetConfigs>
 </LightningComponentBundle>

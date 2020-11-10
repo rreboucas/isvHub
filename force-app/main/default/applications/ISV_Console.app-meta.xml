@@ -9,7 +9,10 @@
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+<<<<<<< HEAD
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+=======
+>>>>>>> d3c0005 (adding maintenance lwc changes)
     <label>ISV Hub</label>
     <navType>Standard</navType>
     <tabs>Happening_Now</tabs>

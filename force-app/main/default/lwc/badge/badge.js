@@ -249,7 +249,7 @@ export default class cBadge extends NavigationMixin(LightningElement) {
 
     connectedCallback() {
         this.computedBadgeLabelPadding = 'slds-p-left_xx-small';
-
+        console.log('badge.js licenseids: ' + this.licenseids);
         // Check which Badge icon to use based on Badge's Label
         switch(this.label) {
             case 'View License':

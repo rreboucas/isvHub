@@ -30,6 +30,7 @@ span {
     font-size: 0.8125rem;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 :host(.desktopSmall) {
     font-size: 0.7125rem;
 }
@@ -43,6 +44,15 @@ span {
     max-width: 4rem;
 }   
 >>>>>>> a7a817b (fixed styles)
+=======
+:host(.desktopSmall) {
+    font-size: 0.7125rem;
+}
+.iconsdiv {
+    max-width: 4rem;
+}
+
+>>>>>>> d3c0005 (adding maintenance lwc changes)
 
 >>>>>>> a94e476 (first committo labs)
 =======

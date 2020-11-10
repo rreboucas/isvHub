@@ -25,10 +25,14 @@ public with sharing class emailServerController {
     
     @AuraEnabled
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static emailServerController sendEmail(String body, String subject, String email, String recordId, String activityType, String licenseId, String maintenanceId, Boolean isAccount) {
 =======
     public static emailServerController sendEmail(String body, String subject, String email, String recordId) {
 >>>>>>> af5f42a (fixedalignment)
+=======
+    public static emailServerController sendEmail(String body, String subject, String email, String recordId, String activityType, String licenseId, String maintenanceId) {
+>>>>>>> d3c0005 (adding maintenance lwc changes)
 
         System.debug('######## recordId: ' + recordId);
         emailServerController result = new emailServerController();
@@ -108,16 +112,27 @@ public with sharing class emailServerController {
                 t.ActivityDate = Date.today();
                 insert t;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
                 // Add Tracked Email record:
                 /*Tracked_Email__c tr = new Tracked_Email__c();
+=======
+
+                // Add Tracked Email record:
+                Tracked_Email__c tr = new Tracked_Email__c();
+>>>>>>> d3c0005 (adding maintenance lwc changes)
                 tr.Activity_Id__c = t.id;
                 tr.Activity_Type__c = activityType;
                 tr.Date_Time_Sent__c = t.CreatedDate;
                 tr.LMA_License__c = licenseId;
                 tr.Maintenance__c = maintenanceId;
+<<<<<<< HEAD
                 tr.Sent_by_User__c = t.CreatedById; */
 =======
+=======
+                tr.Sent_by_User__c = t.CreatedById;
+                tr.Sent_to_Email__c = 
+>>>>>>> d3c0005 (adding maintenance lwc changes)
                 
 >>>>>>> af5f42a (fixedalignment)
                 

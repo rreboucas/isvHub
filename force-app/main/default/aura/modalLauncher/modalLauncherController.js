@@ -70,6 +70,7 @@
                             endtime: message.getParam("endtime"),
                             availability: message.getParam("availavility"),
                             licenseid: message.getParam("licenseid"),
+<<<<<<< HEAD
                             isaccount: message.getParam("sourceComponent"),
                             orgtype: message.getParam("orgtype"),
                             maintenancelink: message.getParam("maintenancelink"),
@@ -404,6 +405,10 @@
                             email : message.getParam("email"),
                             emailType : message.getParam("emailType"),
                             attachtoentityid: message.getParam("messageToSend")
+=======
+                            maintenanceid: message.getParam("maintenanceid")
+
+>>>>>>> d3c0005 (adding maintenance lwc changes)
                         },
                            function(content, status) {
                                if (status === "SUCCESS") {
@@ -536,7 +541,7 @@
                             monthFormat: message.getParam("monthFormat"),
                             dayFormat: message.getParam("dayFormat"),
                             weekDayFormat: message.getParam("weekDayFormat"),
-                            starttime: message.getParam("starttime"),
+                            availability: message.getParam("availability"),
                             endtime: message.getParam("endtime")
                         },
                            function(content, status) {

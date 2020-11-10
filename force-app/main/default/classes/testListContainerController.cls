@@ -172,7 +172,7 @@ private class testListContainerController {
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, new WebServiceMockImpl());
         
-        List<statusServerController> lstRecs1 = statusServerController.getEvents('1', 'Upcoming Releases', 'Production', '1');
+        List<statusServerController> lstRecs1 = statusServerController.getEvents('Upcoming Releases', 'Production');
         Test.stopTest();
     }
     

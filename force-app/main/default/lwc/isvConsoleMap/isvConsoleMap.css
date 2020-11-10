@@ -1,7 +1,11 @@
 .parent {
     max-height: 100%;
     overflow: hidden;
+<<<<<<< HEAD
 } 
 li {
     padding-top: 2rem;
 }
+=======
+} 
+>>>>>>> d3c0005 (adding maintenance lwc changes)

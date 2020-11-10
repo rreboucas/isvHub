@@ -11,6 +11,7 @@ import { isNarrow, isBase } from './utils';
 import FORM_FACTOR from '@salesforce/client/formFactor';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { publish, MessageContext } from 'lightning/messageService';
 import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
 import { NavigationMixin } from 'lightning/navigation';
@@ -26,6 +27,10 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     @api date;
 >>>>>>> 33dcdb1 (added)
 =======
+=======
+import { publish, MessageContext } from 'lightning/messageService';
+import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
+>>>>>>> d3c0005 (adding maintenance lwc changes)
 import { NavigationMixin } from 'lightning/navigation';
 
 export default class ItemActionCard extends NavigationMixin(LightningElement) {
@@ -73,6 +78,16 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     @api email;
     @api launchedviamodal;
     @api iscustomersimpacted;
+    
+    @api orgid;
+    @api instancename;
+    @api maintenancename;
+    @api startdt;
+    @api endtime;
+    @api availability;
+    @api licenseids;
+
+    @api maintenanceid;
 
     fullTitle;
     fullCompany;
@@ -122,6 +137,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     computedAcctButtonPadding;
 
     notifymaintenance;
+<<<<<<< HEAD
 =======
 >>>>>>> f88ac2d (added NBA)
 =======
@@ -180,14 +196,28 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     computedBadgePadding;
     computedAcctButtonPadding;
 >>>>>>> 84b8eb1 (added account viewer to map)
+=======
+>>>>>>> d3c0005 (adding maintenance lwc changes)
 
     @track privateVariant = 'base';
+
+    @wire(MessageContext)
+    messageContext;
 
     connectedCallback() {
 <<<<<<< HEAD
 >>>>>>> bc9f56d (test)
 =======
 
+        this.notifymaintenance = false;
+        console.log('ItemActionCard.js licenseids: ' + this.licenseids);
+        if (this.licenseIds)
+        {
+            this.notifymaintenance = true;
+            console.log('ItemActionCard.js notifymaintenance after if: ' + this.notifymaintenance);
+        }
+        this.licenseidsforemail = this.licenseids;
+        console.log('ItemActionCard.js notifymaintenance: ' + this.notifymaintenance);
         this.screenWidth = window.screen.width;
         console.log('ItemActionCard.js - screenWidth: ' + this.screenWidth);
         this.fullTitle = this.title;
@@ -336,6 +366,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             if (this.screenWidth <= 1440){
                 this.computedChildClassName = 'desktopSmall';
 <<<<<<< HEAD
+<<<<<<< HEAD
                 this.computedDateButtonPadding = 'slds-p-top_none'
 =======
             
@@ -343,6 +374,9 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 >>>>>>> af5f42a (fixedalignment)
 =======
 >>>>>>> 84b8eb1 (added account viewer to map)
+=======
+                this.computedDateButtonPadding = 'slds-p-top_none'
+>>>>>>> d3c0005 (adding maintenance lwc changes)
                 this.computedYearFormat = 'numeric';
                 this.computedMonthFormat = 'numeric';
                 this.computedDayFormat = 'numeric';
@@ -481,33 +515,51 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d3c0005 (adding maintenance lwc changes)
     sendNotifyEmailHandler() {
         
         console.log('ItemActionCard.js - sendNotifyEmailHandler ');
         // Send Message to modalLauncher Aura LC to send email to impacted customers
         const message = {
+<<<<<<< HEAD
             messageToSend: this.companyId,
             email: this.email,
             emailType: 'Upcoming Maintenance',
+=======
+            messageToSend: this.licenseid,
+            email: this.email,
+            emailType: 'Production Maintenance',
+>>>>>>> d3c0005 (adding maintenance lwc changes)
             actionType: 'sendEmail',
             starttime: this.startdt,
             endtime: this.endtime,
             availavility: this.availability,
             maintenancename: this.maintenancename,
             orgid: this.orgid,
+<<<<<<< HEAD
             formFactor: this.formfactorName,
             licenseid: this.licenseid,
             orgtype: this.orgtype,
             sourceComponent: this.hasAccount,
+=======
+            sourceComponent: 'badge.js - ' + this.label,
+            formFactor: this.formfactorName,
+            licenseid: this.licenseid,
+>>>>>>> d3c0005 (adding maintenance lwc changes)
             maintenanceid: this.maintenanceid
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
     }
 
+<<<<<<< HEAD
 =======
 >>>>>>> bc9f56d (test)
 =======
 >>>>>>> 01969aa (modalmodifylicense)
+=======
+>>>>>>> d3c0005 (adding maintenance lwc changes)
     set variant(value) {
         if (isNarrow(value) || isBase(value)) {
             this.privateVariant = value;

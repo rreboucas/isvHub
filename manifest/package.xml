@@ -199,6 +199,7 @@
 =======
     
 
+<<<<<<< HEAD
     <types>
 =======
       <types>
@@ -222,6 +223,9 @@
         <members>listContainer</members>
         <name>LightningComponentBundle</name>
     </types>
+=======
+   
+>>>>>>> d3c0005 (adding maintenance lwc changes)
     <types>
         <members>sfLma__License__c</members>
         <name>CustomObject</name>
@@ -230,7 +234,8 @@
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
-     <types>
+     
+    <types>
         <members>maintenanceEvents</members>
         <name>LightningComponentBundle</name>
     </types>
@@ -239,8 +244,7 @@
         <members>statusServerController</members>
         <name>ApexClass</name>
     </types>
-    -->
-     <types>
+    <types>
         <members>modalLauncher</members>
         <name>AuraDefinitionBundle</name>
     </types>  
@@ -253,6 +257,22 @@
         <members>badge</members>
         <name>LightningComponentBundle</name>
     </types>
+    -->
+     <types>
+        <members>isvHubStyles</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    
+    <types>
+        <members>isvConsoleMap</members>
+        <name>LightningComponentBundle</name>
+    </types>
+
+     <types>
+        <members>listContainer</members>
+        <name>LightningComponentBundle</name>
+    </types>
+
     
     
 >>>>>>> 4e992a8 ( adding pagination)

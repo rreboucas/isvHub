@@ -172,9 +172,48 @@
    </lightningMessageFields>
 
    <lightningMessageFields>
+    <fieldName>availavility</fieldName>
+    <description>The availability of an org</description>
+</lightningMessageFields>
+
+   <lightningMessageFields>
        <fieldName>endtime</fieldName>
        <description>The end time of an event</description>
    </lightningMessageFields>
 
+<<<<<<< HEAD
 </LightningMessageChannel>
 >>>>>>> 6aab12d (comit july 2020)
+=======
+   <lightningMessageFields>
+    <fieldName>instancename</fieldName>
+    <description>The instance name</description>
+</lightningMessageFields>
+
+<lightningMessageFields>
+    <fieldName>maintenancename</fieldName>
+    <description>The maintenance name</description>
+</lightningMessageFields>
+
+<lightningMessageFields>
+    <fieldName>orgid</fieldName>
+    <description>The org id</description>
+</lightningMessageFields>
+
+<lightningMessageFields>
+    <fieldName>orgtype</fieldName>
+    <description>The org type</description>
+</lightningMessageFields>
+
+<lightningMessageFields>
+    <fieldName>licenseid</fieldName>
+    <description>The LMA license id</description>
+</lightningMessageFields>
+
+<lightningMessageFields>
+    <fieldName>maintenanceid</fieldName>
+    <description>The maintenance record id</description>
+</lightningMessageFields>
+
+</LightningMessageChannel>
+>>>>>>> d3c0005 (adding maintenance lwc changes)
