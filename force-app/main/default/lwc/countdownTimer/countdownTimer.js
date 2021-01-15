@@ -11,6 +11,7 @@ import getExpirationDate from '@salesforce/apex/CountdownTimerController.getExpi
 export default class CountdownTimer extends LightningElement {
     title = "Org Expiration"
     deadline;
+    deadlineStr;
     timeRemainingAsString;
     
     connectedCallback(){
@@ -42,8 +43,14 @@ export default class CountdownTimer extends LightningElement {
         const minutes = Math.floor( (total/1000/60) % 60 );
         const hours = Math.floor( (total/(1000*60*60)) % 24 );
         const days = Math.floor( total/(1000*60*60*24) );
-      
-        this.timeRemainingAsString = 'Days: ' + days + ' Hours: ' + hours + ' Minutes: ' + minutes + ' Seconds: ' + seconds;
+        
+        
+
+        this.timeRemainingAsString =  days + ' days ' + hours + ' hours ' +  minutes + ' minutes ' + seconds + ' seconds';
+        
+        var deadlineDate = new Date(this.deadline); 
+        this.deadlineStr = deadlineDate.toDateString();
+        
         console.log(this.timeRemainingAsString);
       }
 }
