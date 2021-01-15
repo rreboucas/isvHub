@@ -215,5 +215,14 @@
     <description>The maintenance record id</description>
 </lightningMessageFields>
 
+<<<<<<< HEAD
 </LightningMessageChannel>
 >>>>>>> d3c0005 (adding maintenance lwc changes)
+=======
+<lightningMessageFields>
+    <fieldName>orgtype</fieldName>
+    <description>The org type (Prod, Sandbox, etc)</description>
+</lightningMessageFields>
+
+</LightningMessageChannel>
+>>>>>>> e6a0a85 (added maintenance email capabilities)

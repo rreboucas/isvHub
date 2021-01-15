@@ -71,6 +71,9 @@
                             availability: message.getParam("availavility"),
                             licenseid: message.getParam("licenseid"),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e6a0a85 (added maintenance email capabilities)
                             isaccount: message.getParam("sourceComponent"),
                             orgtype: message.getParam("orgtype"),
                             maintenancelink: message.getParam("maintenancelink"),
@@ -542,6 +545,8 @@
                             dayFormat: message.getParam("dayFormat"),
                             weekDayFormat: message.getParam("weekDayFormat"),
                             availability: message.getParam("availability"),
+                            orgtype: message.getParam("orgtype"),
+                            maintenanceid: message.getParam("maintenanceid"),
                             endtime: message.getParam("endtime")
                         },
                            function(content, status) {

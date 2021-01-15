@@ -26,6 +26,7 @@ public with sharing class emailServerController {
     @AuraEnabled
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static emailServerController sendEmail(String body, String subject, String email, String recordId, String activityType, String licenseId, String maintenanceId, Boolean isAccount) {
 =======
     public static emailServerController sendEmail(String body, String subject, String email, String recordId) {
@@ -33,6 +34,9 @@ public with sharing class emailServerController {
 =======
     public static emailServerController sendEmail(String body, String subject, String email, String recordId, String activityType, String licenseId, String maintenanceId) {
 >>>>>>> d3c0005 (adding maintenance lwc changes)
+=======
+    public static emailServerController sendEmail(String body, String subject, String email, String recordId, String activityType, String licenseId, String maintenanceId, Boolean isAccount) {
+>>>>>>> e6a0a85 (added maintenance email capabilities)
 
         System.debug('######## recordId: ' + recordId);
         emailServerController result = new emailServerController();
@@ -98,15 +102,21 @@ public with sharing class emailServerController {
                 t.Status = 'Closed';
                 t.Priority = 'Normal';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e6a0a85 (added maintenance email capabilities)
                 if (isAccount)
                     t.WhatId = recordId;
                 else {
                     t.WhoId = recordId;
                 }
                 // add who id if it is a lead
+<<<<<<< HEAD
 =======
                 t.WhatId = recordId;
 >>>>>>> af5f42a (fixedalignment)
+=======
+>>>>>>> e6a0a85 (added maintenance email capabilities)
                 t.TaskSubtype = 'Email';
                 t.Description = body;
                 t.ActivityDate = Date.today();
@@ -119,13 +129,18 @@ public with sharing class emailServerController {
 =======
 
                 // Add Tracked Email record:
+<<<<<<< HEAD
                 Tracked_Email__c tr = new Tracked_Email__c();
 >>>>>>> d3c0005 (adding maintenance lwc changes)
+=======
+                /*Tracked_Email__c tr = new Tracked_Email__c();
+>>>>>>> e6a0a85 (added maintenance email capabilities)
                 tr.Activity_Id__c = t.id;
                 tr.Activity_Type__c = activityType;
                 tr.Date_Time_Sent__c = t.CreatedDate;
                 tr.LMA_License__c = licenseId;
                 tr.Maintenance__c = maintenanceId;
+<<<<<<< HEAD
 <<<<<<< HEAD
                 tr.Sent_by_User__c = t.CreatedById; */
 =======
@@ -138,6 +153,9 @@ public with sharing class emailServerController {
 >>>>>>> af5f42a (fixedalignment)
 =======
 >>>>>>> abb0f3a (jan21)
+=======
+                tr.Sent_by_User__c = t.CreatedById; */
+>>>>>>> e6a0a85 (added maintenance email capabilities)
                 
             }
             else

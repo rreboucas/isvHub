@@ -43,6 +43,7 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
     @api instancename;
     @api availability;
 <<<<<<< HEAD
+<<<<<<< HEAD
     @api orgtype;
 
     @api maintenanceid;
@@ -56,6 +57,13 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
 =======
     @api maintenanceid;  
 >>>>>>> d3c0005 (adding maintenance lwc changes)
+=======
+    @api orgtype;
+
+    maintenanceid;
+    
+    maintenancelink;   
+>>>>>>> e6a0a85 (added maintenance email capabilities)
 
     isMobile = false;
     isTablet = false;
@@ -115,10 +123,14 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
             this.computedAvailabilityIcon = 'utility:ban'
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         console.log('EventSummaryCard.js orgtype: ' + this.orgtype);
 =======
 
 >>>>>>> 6aab12d (comit july 2020)
+=======
+        console.log('EventSummaryCard.js orgtype: ' + this.orgtype);
+>>>>>>> e6a0a85 (added maintenance email capabilities)
         console.log('EventSummaryCard.js - id: ' + this.id);
         console.log('EventSummaryCard.js - numimpacted: ' + this.numimpacted);
         console.log('EventSummaryCard.js - impactedlicenseids: ' + this.impactedlicenseids);
@@ -223,9 +235,13 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
     navigateToWebPage(event) {
         event.preventDefault();
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.maintenancelink = this.id.split("-")[0];
 =======
 >>>>>>> 6aab12d (comit july 2020)
+=======
+        this.maintenancelink = this.id.split("-")[0];
+>>>>>>> e6a0a85 (added maintenance email capabilities)
         // Navigate to a URL
         this[NavigationMixin.Navigate]({
             type: 'standard__webPage',
@@ -280,8 +296,13 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
 =======
             availability: this.availability,
             endtime: this.endtime,
+<<<<<<< HEAD
             maintenanceid: this.maintenanceid
 >>>>>>> d3c0005 (adding maintenance lwc changes)
+=======
+            orgtype: this.orgtype,
+            maintenanceid: this.id.split("-")[0]
+>>>>>>> e6a0a85 (added maintenance email capabilities)
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
     }

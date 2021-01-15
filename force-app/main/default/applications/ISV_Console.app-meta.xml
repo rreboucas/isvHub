@@ -21,6 +21,7 @@
     <tabs>standard-Account</tabs>
     <tabs>standard-Lead</tabs>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <tabs>standard-report</tabs>
     <tabs>Todo__c</tabs>
 =======
@@ -30,6 +31,8 @@
 =======
     <tabs>Maintenance__c</tabs>
 >>>>>>> 6a87e3a (maintenances visibility)
+=======
+>>>>>>> e6a0a85 (added maintenance email capabilities)
     <uiType>Lightning</uiType>
     <utilityBar>ISV_Console_UtilityBar</utilityBar>
 </CustomApplication>

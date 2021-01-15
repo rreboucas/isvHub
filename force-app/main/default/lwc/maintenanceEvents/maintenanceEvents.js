@@ -135,6 +135,9 @@ export default class MaintenanceEvents extends LightningElement {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e6a0a85 (added maintenance email capabilities)
       console.log('maintenanceEvents.js orgtype: ' + this.orgtype);
         this.leftIndex = 0;
         this.leftIndexLabel = 1;

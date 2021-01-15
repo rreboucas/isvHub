@@ -88,6 +88,8 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     @api licenseids;
 
     @api maintenanceid;
+    @api maintenancelink;
+    @api orgtype;
 
     fullTitle;
     fullCompany;
@@ -151,6 +153,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 
     connectedCallback() {
         console.log('ItemActionCard.js orgtype: ' + this.orgtype);
+<<<<<<< HEAD
         this.notifymaintenance = false;
         console.log('ItemActionCard.js licenseids: ' + this.licenseids);
         if (this.maintenanceid)
@@ -209,6 +212,8 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
 >>>>>>> bc9f56d (test)
 =======
 
+=======
+>>>>>>> e6a0a85 (added maintenance email capabilities)
         this.notifymaintenance = false;
         console.log('ItemActionCard.js licenseids: ' + this.licenseids);
         if (this.licenseIds)
@@ -524,6 +529,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         // Send Message to modalLauncher Aura LC to send email to impacted customers
         const message = {
 <<<<<<< HEAD
+<<<<<<< HEAD
             messageToSend: this.companyId,
             email: this.email,
             emailType: 'Upcoming Maintenance',
@@ -532,12 +538,18 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             email: this.email,
             emailType: 'Production Maintenance',
 >>>>>>> d3c0005 (adding maintenance lwc changes)
+=======
+            messageToSend: this.companyId,
+            email: this.email,
+            emailType: 'Upcoming Maintenance',
+>>>>>>> e6a0a85 (added maintenance email capabilities)
             actionType: 'sendEmail',
             starttime: this.startdt,
             endtime: this.endtime,
             availavility: this.availability,
             maintenancename: this.maintenancename,
             orgid: this.orgid,
+<<<<<<< HEAD
 <<<<<<< HEAD
             formFactor: this.formfactorName,
             licenseid: this.licenseid,
@@ -548,6 +560,12 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
             formFactor: this.formfactorName,
             licenseid: this.licenseid,
 >>>>>>> d3c0005 (adding maintenance lwc changes)
+=======
+            formFactor: this.formfactorName,
+            licenseid: this.licenseid,
+            orgtype: this.orgtype,
+            sourceComponent: this.hasAccount,
+>>>>>>> e6a0a85 (added maintenance email capabilities)
             maintenanceid: this.maintenanceid
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
