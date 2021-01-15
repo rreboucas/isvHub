@@ -37,6 +37,8 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     @api licenseids;
 
     @api maintenanceid;
+    @api maintenancelink;
+    @api orgtype;
 
     fullTitle;
     fullCompany;
@@ -75,7 +77,7 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
     messageContext;
 
     connectedCallback() {
-
+        console.log('ItemActionCard.js orgtype: ' + this.orgtype);
         this.notifymaintenance = false;
         console.log('ItemActionCard.js licenseids: ' + this.licenseids);
         if (this.licenseIds)
@@ -250,18 +252,19 @@ export default class ItemActionCard extends NavigationMixin(LightningElement) {
         console.log('ItemActionCard.js - sendNotifyEmailHandler ');
         // Send Message to modalLauncher Aura LC to send email to impacted customers
         const message = {
-            messageToSend: this.licenseid,
+            messageToSend: this.companyId,
             email: this.email,
-            emailType: 'Production Maintenance',
+            emailType: 'Upcoming Maintenance',
             actionType: 'sendEmail',
             starttime: this.startdt,
             endtime: this.endtime,
             availavility: this.availability,
             maintenancename: this.maintenancename,
             orgid: this.orgid,
-            sourceComponent: 'badge.js - ' + this.label,
             formFactor: this.formfactorName,
             licenseid: this.licenseid,
+            orgtype: this.orgtype,
+            sourceComponent: this.hasAccount,
             maintenanceid: this.maintenanceid
         };
         publish(this.messageContext, ISVCONSOLEMC, message);

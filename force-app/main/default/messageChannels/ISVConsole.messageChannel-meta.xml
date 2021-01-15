@@ -109,4 +109,9 @@
     <description>The maintenance record id</description>
 </lightningMessageFields>
 
+<lightningMessageFields>
+    <fieldName>orgtype</fieldName>
+    <description>The org type (Prod, Sandbox, etc)</description>
+</lightningMessageFields>
+
 </LightningMessageChannel>

@@ -26,8 +26,11 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
     @api iconName;
     @api instancename;
     @api availability;
+    @api orgtype;
 
-    @api maintenanceid;  
+    maintenanceid;
+    
+    maintenancelink;   
 
     isMobile = false;
     isTablet = false;
@@ -66,7 +69,7 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
             this.availabilityText = 'Unavailable';
             this.computedAvailabilityIcon = 'utility:ban'
         }
-
+        console.log('EventSummaryCard.js orgtype: ' + this.orgtype);
         console.log('EventSummaryCard.js - id: ' + this.id);
         console.log('EventSummaryCard.js - numimpacted: ' + this.numimpacted);
         console.log('EventSummaryCard.js - impactedlicenseids: ' + this.impactedlicenseids);
@@ -162,6 +165,7 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
 
     navigateToWebPage(event) {
         event.preventDefault();
+        this.maintenancelink = this.id.split("-")[0];
         // Navigate to a URL
         this[NavigationMixin.Navigate]({
             type: 'standard__webPage',
@@ -191,7 +195,8 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
             weekDayFormat: this.computedWeekDayFormat,
             availability: this.availability,
             endtime: this.endtime,
-            maintenanceid: this.maintenanceid
+            orgtype: this.orgtype,
+            maintenanceid: this.id.split("-")[0]
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
     }

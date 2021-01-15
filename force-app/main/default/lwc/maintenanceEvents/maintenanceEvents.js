@@ -71,6 +71,7 @@ export default class MaintenanceEvents extends LightningElement {
     messageContext;
 
     connectedCallback() {
+      console.log('maintenanceEvents.js orgtype: ' + this.orgtype);
         this.leftIndex = 0;
         this.leftIndexLabel = 1;
         this.offSet = '1';

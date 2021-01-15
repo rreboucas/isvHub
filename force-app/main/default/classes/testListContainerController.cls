@@ -35,7 +35,7 @@ private class testListContainerController {
     @isTest static void test_emailServerController() {
         Account acct = [SELECT Id FROM Account WHERE Name='TestAcct0' LIMIT 1];
         sfLma__License__c lr = [SELECT Id FROM sfLma__License__c];
-        emailServerController rec = emailServerController.sendEmail('body', 'subject', 'email@email.com', acct.id, 'sendEmail', lr.id, '46522');
+        emailServerController rec = emailServerController.sendEmail('body', 'subject', 'email@email.com', acct.id, 'sendEmail', lr.id, '46522', true);
     }
 
     @isTest static void test_isvConsoleMapController() {

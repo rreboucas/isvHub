@@ -49,10 +49,13 @@ export default class ListContainer extends LightningElement {
     screenWidth;
 
     @api maintenanceid;
+    @api maintenancelink;
+    @api orgtype;
 
     connectedCallback() {
 
       this.screenWidth = window.screen.width;
+      console.log('listContainer.js orgtype: ' + this.orgtype);
       console.log('listContainer.js - screenWidth: ' + this.screenWidth);
       console.log('listContainer.js licenseids: ' + this.licenseids);
       if (!this.licenseIds)

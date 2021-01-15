@@ -15,7 +15,7 @@ public with sharing class emailServerController {
     public String TaskId { get;set; }
     
     @AuraEnabled
-    public static emailServerController sendEmail(String body, String subject, String email, String recordId, String activityType, String licenseId, String maintenanceId) {
+    public static emailServerController sendEmail(String body, String subject, String email, String recordId, String activityType, String licenseId, String maintenanceId, Boolean isAccount) {
 
         System.debug('######## recordId: ' + recordId);
         emailServerController result = new emailServerController();
@@ -80,20 +80,25 @@ public with sharing class emailServerController {
                 t.Subject = subject;
                 t.Status = 'Closed';
                 t.Priority = 'Normal';
-                t.WhatId = recordId;
+                if (isAccount)
+                    t.WhatId = recordId;
+                else {
+                    t.WhoId = recordId;
+                }
+                // add who id if it is a lead
                 t.TaskSubtype = 'Email';
                 t.Description = body;
                 t.ActivityDate = Date.today();
                 insert t;
 
                 // Add Tracked Email record:
-                Tracked_Email__c tr = new Tracked_Email__c();
+                /*Tracked_Email__c tr = new Tracked_Email__c();
                 tr.Activity_Id__c = t.id;
                 tr.Activity_Type__c = activityType;
                 tr.Date_Time_Sent__c = t.CreatedDate;
                 tr.LMA_License__c = licenseId;
                 tr.Maintenance__c = maintenanceId;
-                tr.Sent_by_User__c = t.CreatedById;
+                tr.Sent_by_User__c = t.CreatedById; */
                 
             }
             else
