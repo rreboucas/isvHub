@@ -20,12 +20,16 @@
     <tabs>Analytics</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Lead</tabs>
+<<<<<<< HEAD
     <tabs>standard-report</tabs>
     <tabs>Todo__c</tabs>
 =======
     <tabs>standard-Account</tabs>
     <tabs>standard-Lead</tabs>
 >>>>>>> 00546ad (first commit)
+=======
+    <tabs>Maintenance__c</tabs>
+>>>>>>> 6a87e3a (maintenances visibility)
     <uiType>Lightning</uiType>
     <utilityBar>ISV_Console_UtilityBar</utilityBar>
 </CustomApplication>

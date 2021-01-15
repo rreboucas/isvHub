@@ -49,6 +49,7 @@
         <enabled>true</enabled>
     </classAccesses>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <classAccesses>
         <apexClass>schedFetchMaintenance</apexClass>
         <enabled>true</enabled>
@@ -111,50 +112,87 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+=======
+    <fieldPermissions>
+        <editable>false</editable>
+>>>>>>> 6a87e3a (maintenances visibility)
         <field>Maintenance__c.Availability__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>true</editable>
+=======
+        <editable>false</editable>
+>>>>>>> 6a87e3a (maintenances visibility)
         <field>Maintenance__c.End_Date_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>true</editable>
+=======
+        <editable>false</editable>
+>>>>>>> 6a87e3a (maintenances visibility)
         <field>Maintenance__c.Event_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>true</editable>
+=======
+        <editable>false</editable>
+>>>>>>> 6a87e3a (maintenances visibility)
         <field>Maintenance__c.ImpactedLicenseIds__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>true</editable>
+=======
+        <editable>false</editable>
+>>>>>>> 6a87e3a (maintenances visibility)
         <field>Maintenance__c.Instance_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>true</editable>
+=======
+        <editable>false</editable>
+>>>>>>> 6a87e3a (maintenances visibility)
         <field>Maintenance__c.Is_Pre_Release__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>true</editable>
+=======
+        <editable>false</editable>
+>>>>>>> 6a87e3a (maintenances visibility)
         <field>Maintenance__c.Is_Sandbox__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>true</editable>
+=======
+        <editable>false</editable>
+>>>>>>> 6a87e3a (maintenances visibility)
         <field>Maintenance__c.Number_of_Impacted_Customers__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>true</editable>
+=======
+        <editable>false</editable>
+>>>>>>> 6a87e3a (maintenances visibility)
         <field>Maintenance__c.Start_Date_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>true</editable>
         <field>Maintenance__c.Total_Number_of_Records__c</field>
         <readable>true</readable>
@@ -456,6 +494,12 @@
     </fieldPermissions>
 =======
 >>>>>>> 00546ad (first commit)
+=======
+        <editable>false</editable>
+        <field>Maintenance__c.Total_Number_of_Records__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+>>>>>>> 6a87e3a (maintenances visibility)
     <hasActivationRequired>false</hasActivationRequired>
     <label>ISV Console_Admin</label>
     <license>Salesforce</license>
@@ -465,6 +509,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+<<<<<<< HEAD
         <object>Account</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -592,8 +637,17 @@
     <label>ISV Console_Admin</label>
     <license>Salesforce</license>
 >>>>>>> f88ac2d (added NBA)
+=======
+        <object>Maintenance__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+>>>>>>> 6a87e3a (maintenances visibility)
     <tabSettings>
         <tab>Happening_Now</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Maintenance__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
