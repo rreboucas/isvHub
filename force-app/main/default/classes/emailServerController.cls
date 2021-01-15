@@ -131,10 +131,13 @@ public with sharing class emailServerController {
 =======
 =======
                 tr.Sent_by_User__c = t.CreatedById;
+<<<<<<< HEAD
                 tr.Sent_to_Email__c = 
 >>>>>>> d3c0005 (adding maintenance lwc changes)
                 
 >>>>>>> af5f42a (fixedalignment)
+=======
+>>>>>>> abb0f3a (jan21)
                 
             }
             else
