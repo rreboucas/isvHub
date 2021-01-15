@@ -1,3 +1,4 @@
 {
-    "name": "sfdx-company"
+    "name": "sfdx-company",
+    "devserver": "live-server --browser=Chrome"
     }
