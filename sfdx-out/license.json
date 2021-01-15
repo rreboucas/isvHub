@@ -40,7 +40,7 @@
         {
             "attributes": {
                 "type": "sfLma__License__c",
-                "referenceId": "License__cRef2"
+                "referenceId": "License__cRef3"
             },
             "sfLma__Install_Date__c": "2020-09-16",
             "sfLma__Package_License_ID__c": "05061000000K0UsAAK",
@@ -51,15 +51,15 @@
             "sfLma__Status__c": "Active",
             "sfLma__Subscriber_Org_ID__c": "00D2C0000000ajd",
             "sfLma__Used_Licenses__c": "5.0",
-            "sfLma__Account__c": "@Account__cRef1",
-            "sfLma__Contact__c": "@Contact__cRef1",
+            "sfLma__Account__c": "@Account__cRef2",
+            "sfLma__Contact__c": "@Contact__cRef2",
             "sfLma__Package__c": "@Package__cRef1",
             "sfLma__Package_Version__c": "@PackageVersion__cRef1"
         },
         {
             "attributes": {
                 "type": "sfLma__License__c",
-                "referenceId": "License__cRef2"
+                "referenceId": "License__cRef4"
             },
             "sfLma__Install_Date__c": "2020-09-16",
             "sfLma__Package_License_ID__c": "05061000000K0UsAAK",
@@ -70,8 +70,7 @@
             "sfLma__Status__c": "Active",
             "sfLma__Subscriber_Org_ID__c": "00Dg0000006HeUJ",
             "sfLma__Used_Licenses__c": "5.0",
-            "sfLma__Account__c": "@Account__cRef1",
-            "sfLma__Contact__c": "@Contact__cRef1",
+            "sfLma__Lead__c": "@Lead__cRef2",
             "sfLma__Package__c": "@Package__cRef1",
             "sfLma__Package_Version__c": "@PackageVersion__cRef1"
         }

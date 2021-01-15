@@ -5,9 +5,9 @@
                 "type": "Account",
                 "referenceId": "Account__cRef1"
             },
-            "Name": "ISV Customer 2",
+            "Name": "ISV Customer 4",
             "Type": "Customer",
-            "BillingStreet": "321 S Street",
+            "BillingStreet": "3456 S Street",
             "BillingCountry": "USA",
             "BillingLatitude": "37.774929",
             "BillingLongitude": "-122.419418",
@@ -21,6 +21,28 @@
             "ShippingState": "CA",
             "ShippingPostalCode": "80906",
             "ShippingCity": "San Francisco"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "Account__cRef2"
+            },
+            "Name": "ISV Customer 3",
+            "Type": "Customer",
+            "BillingStreet": "811 S Street",
+            "BillingCountry": "USA",
+            "BillingLatitude": "37.774929",
+            "BillingLongitude": "-122.419418",
+            "BillingState": "NY",
+            "BillingPostalCode": "10001",
+            "BillingCity": "New York",
+            "ShippingStreet": "123 Broadway Street",
+            "ShippingCountry": "USA",
+            "ShippingLatitude": "40.712776",
+            "ShippingLongitude": "-74.005974",
+            "ShippingState": "NY",
+            "ShippingPostalCode": "10001",
+            "ShippingCity": "New York"
         }
     ]
 }
