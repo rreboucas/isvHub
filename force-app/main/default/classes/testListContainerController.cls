@@ -34,7 +34,8 @@ private class testListContainerController {
 
     @isTest static void test_emailServerController() {
         Account acct = [SELECT Id FROM Account WHERE Name='TestAcct0' LIMIT 1];
-        emailServerController rec = emailServerController.sendEmail('body', 'subject', 'email@email.com', acct.id);
+        sfLma__License__c lr = [SELECT Id FROM sfLma__License__c];
+        emailServerController rec = emailServerController.sendEmail('body', 'subject', 'email@email.com', acct.id, 'sendEmail', lr.id, '46522');
     }
 
     @isTest static void test_isvConsoleMapController() {
@@ -54,7 +55,7 @@ private class testListContainerController {
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, new WebServiceMockImpl());
         
-        List<statusServerController> lstRecs1 = statusServerController.getEvents('Upcoming Releases', 'Production');
+        List<Maintenance__c> lstRecs1 = statusServerController.getEvents('Upcoming Releases', 'Production');
         Test.stopTest();
     }
     

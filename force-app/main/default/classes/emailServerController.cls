@@ -94,8 +94,6 @@ public with sharing class emailServerController {
                 tr.LMA_License__c = licenseId;
                 tr.Maintenance__c = maintenanceId;
                 tr.Sent_by_User__c = t.CreatedById;
-                tr.Sent_to_Email__c = 
-                
                 
             }
             else
