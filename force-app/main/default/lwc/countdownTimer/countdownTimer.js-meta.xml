@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <masterLabel>Org Expiration Manager</masterLabel>
 =======
 >>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
+=======
+    <masterLabel>Org Expiration Manager</masterLabel>
+>>>>>>> b024a8c (UI updates and Lightning Flow added)
     <apiVersion>49.0</apiVersion>
     <isExposed>true</isExposed>
     <targets>

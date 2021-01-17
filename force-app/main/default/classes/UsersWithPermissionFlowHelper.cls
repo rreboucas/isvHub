@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> b024a8c (UI updates and Lightning Flow added)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.

@@ -48,7 +48,10 @@
             </value>
         </inputParameters>
     </actionCalls>
+<<<<<<< HEAD
     <apiVersion>49.0</apiVersion>
+=======
+>>>>>>> b024a8c (UI updates and Lightning Flow added)
     <assignments>
         <description>Adds the email of this Sys admin to the list of users to be emailed</description>
         <name>Add_email_to_list</name>
@@ -113,7 +116,10 @@
         <connector>
             <targetReference>Get_System_Administrators</targetReference>
         </connector>
+<<<<<<< HEAD
         <filterLogic>and</filterLogic>
+=======
+>>>>>>> b024a8c (UI updates and Lightning Flow added)
         <filters>
             <field>Name</field>
             <operator>EqualTo</operator>
@@ -135,7 +141,10 @@
         <connector>
             <targetReference>Get_User_Emails</targetReference>
         </connector>
+<<<<<<< HEAD
         <filterLogic>and</filterLogic>
+=======
+>>>>>>> b024a8c (UI updates and Lightning Flow added)
         <filters>
             <field>ProfileId</field>
             <operator>EqualTo</operator>
@@ -155,15 +164,34 @@
         <connector>
             <targetReference>Get_Users_with_Permission</targetReference>
         </connector>
+<<<<<<< HEAD
         <object>isvconsole__Org_Expiry_Notification__e</object>
+=======
+        <object>Org_Expiry_Notification__e</object>
+>>>>>>> b024a8c (UI updates and Lightning Flow added)
         <triggerType>PlatformEvent</triggerType>
     </start>
     <status>Active</status>
     <textTemplates>
         <description>The body of the email to be sent to selected users</description>
         <name>EmailBody</name>
+<<<<<<< HEAD
         <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;Hello,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;This is an automated notification informing you that your Salesforce org with ID {!$Organization.Id} is due to expire on {!$Record.Expiry_Date__c}, at which point, you will be unable to login to the org.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Once you have a signed partnership agreement with Salesforce, raise this case to activate the org and prevent future expiry:&lt;/p&gt;&lt;p&gt;https://partners.salesforce.com/newPartnerCase?subtopic=BenefitsAndTools&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you&apos;ve not yet signed a partnership agreement with Salesforce but would like to pursue this and extend your trial period, then please raise the below case to automatically extend the lifetime of your org. &lt;/p&gt;&lt;p&gt;https://partners.salesforce.com/newPartnerCase?subtopic=TrialExtension&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Once your org has been extended, it&apos;s wise to set this reminder of org expiry again in future using the Org Expiration Manager component within your org.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Kind regards,&lt;/p&gt;&lt;p&gt;The Salesforce Technical Evangelism Team&lt;/p&gt;</text>
+=======
+        <text>Hello,
+This is an automated notification informing you that your Salesforce org with ID {!$Organization.Id} is due to expire on {!$Record.Expiry_Date__c}, at which point, you will be unable to login to the org.
+
+If you&apos;ve already signed a partnership contract with Salesforce, then you can raise a case here [Michael to add link] to activate the org and prevent future expiry.
+
+If you&apos;ve not yet signed a partnership contract with Salesforce but would like to pursue this and extend your trial period, then please raise the below case to automatically extend the lifetime of your org. 
+https://partners.salesforce.com/newPartnerCase?subtopic=TrialExtension
+
+Once your org has been extended, it&apos;s wise to set this reminder of org expiry again in future using the Org Expiration Manager component within your org.
+
+Kind regards,
+The Salesforce Technical Evangelism Team</text>
+>>>>>>> b024a8c (UI updates and Lightning Flow added)
     </textTemplates>
     <variables>
         <description>Holds a permission set name</description>
