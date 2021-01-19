@@ -12,8 +12,10 @@
     <label>ISV Hub</label>
     <navType>Standard</navType>
     <tabs>Happening_Now</tabs>
+    <tabs>Analytics</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Lead</tabs>
+    <tabs>standard-report</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>ISV_Console_UtilityBar</utilityBar>
 </CustomApplication>

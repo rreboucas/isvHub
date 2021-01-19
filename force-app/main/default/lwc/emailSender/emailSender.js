@@ -18,6 +18,7 @@ export default class EmailSender extends LightningElement {
     @api instancename;
     @api maintenancename;
     @api startdt;
+
     @api endtime;
     @api availability;
     @api orgtype;
@@ -40,7 +41,20 @@ export default class EmailSender extends LightningElement {
         'image', 'clean', 'table', 'header', 'color'];
 
     connectedCallback() {
+
         console.log('emailSender.js attachtoentityid - connectedCallback: ' + this.attachtoentityid);
+        const enUSFormatter = new Intl.DateTimeFormat('en-US');
+        const startdatetime = new Date(this.startdt);
+        const startdate = startdatetime.getDate();
+        console.log('emailSender.js connectedCallback - startdatetime: ' + enUSFormatter.format(startdatetime));
+        console.log('emailSender.js connectedCallback - startdatetime.getDate: ' + startdatetime.getDate());
+        console.log('emailSender.js connectedCallback - startdatetime.getTime: ' + startdatetime.getTime());
+
+        const enddatetime = new Date(this.endtime);
+        console.log('emailSender.js connectedCallback - enddatetime: ' + enddatetime);
+        console.log('emailSender.js connectedCallback - enddatetime.getDate: ' + enddatetime.getDate());
+        console.log('emailSender.js connectedCallback - enddatetime.getTime: ' + enddatetime.getTime());
+
         this.showEmailForm = true;
         // Check which Badge icon to use based on Badge's Label
         switch(this.emailType) {
@@ -55,7 +69,7 @@ export default class EmailSender extends LightningElement {
                 this.activityType = 'Expiration';
             break;
             case 'Upcoming Maintenance':
-                this.myVal = 'I am reaching out to let you know that there is an upcoming Platform Maintenance ' + this.maintenancename + ' scheduled for your ' + this.orgtype + ' Salesforce org id ' + this.orgid + ' on and your org is scheduled to be ' + this.availability + ' at this time ' + this.startdt +'.  You can look at more details about this maintenance through the follow link as well: ' + 'https://status.salesforce.com/maintenances/' +  this.maintenanceid + ' . Please let us know if you have any questions.';
+                this.myVal = 'I am reaching out to let you know that there is an upcoming Platform Maintenance ' + this.maintenancename + ' scheduled for your ' + this.orgtype + ' Salesforce org id ' + this.orgid + ' on ' + enUSFormatter.format(startdatetime) + ' and your org is scheduled to be ' + this.availability + ' from ' + startdatetime.toTimeString() + ' to ' + enddatetime.toTimeString() + '.  You can look at more details about this maintenance through the following link as well: ' + 'https://status.salesforce.com/maintenances/' +  this.maintenanceid + ' . Please let us know if you have any questions.';
                 this.defaultSubject = 'Planned ' + this.orgtype + ' Maintenance Alert';
                 this.activityType = 'Maintenance';
             break;
