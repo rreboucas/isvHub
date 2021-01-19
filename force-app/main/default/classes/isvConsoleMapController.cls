@@ -357,6 +357,9 @@ public with sharing class isvConsoleMapController {
                     else if (locObj.Longitude == null)
                         locObj.Longitude = e.sfLma__Account__r.ShippingLongitude;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fc29b17 (added reports and fixed email lwc)
 
                     System.debug('######## e.sfLma__Account__r.Latitude: ' + locObj.Latitude);
                     System.debug('######## e.sfLma__Account__r.Longitude: ' + locObj.Longitude);

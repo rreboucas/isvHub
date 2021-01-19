@@ -32,6 +32,9 @@ export default class EmailSender extends LightningElement {
     @api maintenancename;
     @api startdt;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fc29b17 (added reports and fixed email lwc)
 
     @api endtime;
     @api availability;
@@ -72,6 +75,7 @@ export default class EmailSender extends LightningElement {
 
     connectedCallback() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         console.log('emailSender.js attachtoentityid - connectedCallback: ' + this.attachtoentityid);
         console.log('emailSender.js - connectedCallback - startdt: ' + this.startdt);
@@ -81,6 +85,14 @@ export default class EmailSender extends LightningElement {
         console.log('emailSender.js - connectedCallback - startdatetime: ' + startdatetime);
         const startdate = startdatetime.getDate();
         console.log('emailSender.js connectedCallback - startdate: ' + startdate);
+=======
+
+        console.log('emailSender.js attachtoentityid - connectedCallback: ' + this.attachtoentityid);
+        const enUSFormatter = new Intl.DateTimeFormat('en-US');
+        const startdatetime = new Date(this.startdt);
+        const startdate = startdatetime.getDate();
+        console.log('emailSender.js connectedCallback - startdatetime: ' + enUSFormatter.format(startdatetime));
+>>>>>>> fc29b17 (added reports and fixed email lwc)
         console.log('emailSender.js connectedCallback - startdatetime.getDate: ' + startdatetime.getDate());
         console.log('emailSender.js connectedCallback - startdatetime.getTime: ' + startdatetime.getTime());
 
@@ -89,9 +101,12 @@ export default class EmailSender extends LightningElement {
         console.log('emailSender.js connectedCallback - enddatetime.getDate: ' + enddatetime.getDate());
         console.log('emailSender.js connectedCallback - enddatetime.getTime: ' + enddatetime.getTime());
 
+<<<<<<< HEAD
 =======
         console.log('emailSender.js attachtoentityid - connectedCallback: ' + this.attachtoentityid);
 >>>>>>> af5f42a (fixedalignment)
+=======
+>>>>>>> fc29b17 (added reports and fixed email lwc)
         this.showEmailForm = true;
         // Check which Badge icon to use based on Badge's Label
         switch(this.emailType) {
@@ -124,7 +139,7 @@ export default class EmailSender extends LightningElement {
                 this.activityType = 'Expiration';
             break;
             case 'Upcoming Maintenance':
-                this.myVal = 'I am reaching out to let you know that there is an upcoming Platform Maintenance ' + this.maintenancename + ' scheduled for your ' + this.orgtype + ' Salesforce org id ' + this.orgid + ' on and your org is scheduled to be ' + this.availability + ' at this time ' + this.startdt +'.  You can look at more details about this maintenance through the follow link as well: ' + 'https://status.salesforce.com/maintenances/' +  this.maintenanceid + ' . Please let us know if you have any questions.';
+                this.myVal = 'I am reaching out to let you know that there is an upcoming Platform Maintenance ' + this.maintenancename + ' scheduled for your ' + this.orgtype + ' Salesforce org id ' + this.orgid + ' on ' + enUSFormatter.format(startdatetime) + ' and your org is scheduled to be ' + this.availability + ' from ' + startdatetime.toTimeString() + ' to ' + enddatetime.toTimeString() + '.  You can look at more details about this maintenance through the following link as well: ' + 'https://status.salesforce.com/maintenances/' +  this.maintenanceid + ' . Please let us know if you have any questions.';
                 this.defaultSubject = 'Planned ' + this.orgtype + ' Maintenance Alert';
                 this.activityType = 'Maintenance';
 >>>>>>> d3c0005 (adding maintenance lwc changes)

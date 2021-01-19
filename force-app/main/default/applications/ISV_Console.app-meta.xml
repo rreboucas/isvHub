@@ -17,6 +17,7 @@
     <navType>Standard</navType>
     <tabs>Happening_Now</tabs>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <tabs>Analytics</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Lead</tabs>
@@ -33,6 +34,12 @@
 >>>>>>> 6a87e3a (maintenances visibility)
 =======
 >>>>>>> e6a0a85 (added maintenance email capabilities)
+=======
+    <tabs>Analytics</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Lead</tabs>
+    <tabs>standard-report</tabs>
+>>>>>>> fc29b17 (added reports and fixed email lwc)
     <uiType>Lightning</uiType>
     <utilityBar>ISV_Console_UtilityBar</utilityBar>
 </CustomApplication>
