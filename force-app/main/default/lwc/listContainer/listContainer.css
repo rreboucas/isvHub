@@ -55,12 +55,41 @@ p {
 =======
  @import 'c/isvHubStyles';
  
- /*.parent {
-    height: 30rem;
+.mobile {
+    height: 17rem;
     max-height: 100%;
+<<<<<<< HEAD
     min-height: 30rem;
 } */
 >>>>>>> d3c0005 (adding maintenance lwc changes)
+=======
+    min-height: 17rem;
+    position: relative;
+}
+.desktop {
+    height: 18rem;
+    max-height: 100%;
+    min-height: 18rem;
+    position: relative;
+}
+.desktopSmall {
+    height: 17rem;
+    max-height: 100%;
+    min-height: 17rem;
+    position: relative;
+}
+ .nodata {
+    
+}
+p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+} 
+>>>>>>> c373e22 (fixed styles)
 li {
     padding-top: 0.01rem;
 }

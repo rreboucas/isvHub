@@ -13,10 +13,10 @@
         <expandOthers>true</expandOthers>
         <groupingColumn>sfLma__License__c.sfLma__Instance__c</groupingColumn>
         <location>CHART_BOTTOM</location>
-        <showAxisLabels>false</showAxisLabels>
+        <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
-        <showValues>false</showValues>
+        <showValues>true</showValues>
         <size>Medium</size>
         <summaryAxisRange>Auto</summaryAxisRange>
         <textColor>#000000</textColor>
@@ -30,6 +30,16 @@
     <columns>
         <field>FK_NAME</field>
     </columns>
+    <description>Report that shows which Salesforce Instances (Pods) the ISV customers environments are on.</description>
+    <filter>
+        <criteriaItems>
+            <column>sfLma__License__c.sfLma__Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Trial,Active</value>
+        </criteriaItems>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
@@ -42,7 +52,7 @@
         <value>1</value>
     </params>
     <reportType>CustomEntity$sfLma__License__c@sfLma__License__c.sfLma__Package__c</reportType>
-    <scope>user</scope>
+    <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>

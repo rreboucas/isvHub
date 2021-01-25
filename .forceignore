@@ -10,4 +10,9 @@ package.xml
 
 # LWC Jest
 **/__tests__/**
+<<<<<<< HEAD
 **/profiles/**
+=======
+
+force-app\main\default\profiles\**
+>>>>>>> c373e22 (fixed styles)

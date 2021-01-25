@@ -77,6 +77,7 @@ export default class MaintenanceEvents extends LightningElement {
         if (data) {
             this.eventsdatabackup = data;
 <<<<<<< HEAD
+<<<<<<< HEAD
             console.log('maintenanceEvents.js eventsdatabackup: ' + this.eventsdatabackup);
             this.numrecords = data.length;
          
@@ -87,6 +88,9 @@ export default class MaintenanceEvents extends LightningElement {
               this.rightIndex = 2;
               this.rightIndexLabel = this.rightIndex + 1;
 =======
+=======
+            console.log('maintenanceEvents.js eventsdatabackup: ' + this.eventsdatabackup);
+>>>>>>> c373e22 (fixed styles)
             this.numrecords = data.length;            
             
             if (this.numrecords > this.maxRecords)

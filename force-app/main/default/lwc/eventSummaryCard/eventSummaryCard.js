@@ -60,7 +60,7 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
 =======
     @api orgtype;
 
-    maintenanceid;
+    @api maintenanceid;
     
     maintenancelink;   
 >>>>>>> e6a0a85 (added maintenance email capabilities)

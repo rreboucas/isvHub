@@ -7,8 +7,9 @@
             </template>
             <div class="wrapper">
                 <ul class={ulCssClass}>
-                    <template for:each={eventsData} for:item="event">
+                    <template for:each={eventsdatabackup} for:item="event">
                         <li key={event.eventName}>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -22,6 +23,9 @@
 =======
                             <c-event-summary-card class={computedChildClassName}  title={event.Event_Name__c} id={event.Maintenance_External_Id__c} startdt={event.Start_Date_Time__c} enddt={event.End_Date_Time__c} numimpacted={event.Number_of_Impacted_Customers__c} impactedlicenseids={event.ImpactedLicenseIds__c} starttime={event.Start_Date_Time__c} endtime={event.End_Date_Time__c} instancename={event.Instance_Name__c} availability={event.Availability__c} maintenanceid={event.id} orgtype={orgtype}></c-event-summary-card>
 >>>>>>> e6a0a85 (added maintenance email capabilities)
+=======
+                            <c-event-summary-card class={computedChildClassName}  title={event.isvconsole__Event_Name__c} id={event.isvconsole__Maintenance_External_Id__c} startdt={event.isvconsole__Start_Date_Time__c} enddt={event.isvconsole__End_Date_Time__c} numimpacted={event.isvconsole__Number_of_Impacted_Customers__c} impactedlicenseids={event.isvconsole__ImpactedLicenseIds__c} starttime={event.isvconsole__Start_Date_Time__c} endtime={event.isvconsole__End_Date_Time__c} instancename={event.isvconsole__Instance_Name__c} availability={event.isvconsole__Availability__c} maintenanceid={event.id} orgtype={orgtype}></c-event-summary-card>
+>>>>>>> c373e22 (fixed styles)
                         </li>
                     </template>
                 </ul>
