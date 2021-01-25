@@ -45,10 +45,7 @@
         <name>FlexiPage</name>
     </types>
      
-    <types>
-        <members>maintenanceEvents</members>
-        <name>LightningComponentBundle</name>
-    </types>
+    
   
      <types>
         <members>statusServerController</members>
@@ -59,16 +56,13 @@
         <name>AuraDefinitionBundle</name>
     </types>  
    
-      <types>
-        <members>eventSummaryCard</members>
-        <name>LightningComponentBundle</name>
-    </types>
+    
     <types>
         <members>badge</members>
         <name>LightningComponentBundle</name>
     </types>
-    -->
-     <types>
+
+    <types>
         <members>isvHubStyles</members>
         <name>LightningComponentBundle</name>
     </types>
@@ -78,12 +72,88 @@
         <name>LightningComponentBundle</name>
     </types>
 
-     <types>
-        <members>listContainer</members>
+     
+    <types>
+        <members>*</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>LightningMessageChannel</name>
+    </types>
+
+    <types>
+        <members>*</members>
         <name>LightningComponentBundle</name>
     </types>
 
+    <types>
+        <members>*</members>
+        <name>AuraDefinitionBundle</name>
+    </types>  
+
+    <types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
     
+    
+    <types>
+        <members>*</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ReportType</name>
+    </types>
+
+    <types>
+        <members>ISV_Hub_Reports/Installs_vs_Uninistalls_mUh</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>ISV_Hub_Reports/Which_Instances_are_my_customers_using_G3A</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>ISV_Hub_Reports/Package_Versions_installed_per_Package_AO5</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>ISV_Hub_Reports/Number_of_Installs_per_Package_per_Day_KZq</members>
+        <name>Report</name>
+    </types>
+     <types>
+        <members>ISV_Console_Admin</members>
+        <name>PermissionSet</name>
+    </types>
+        <types>
+        <members>maintenanceEvents</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>eventSummaryCard</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>maintenanceEvents</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    -->
+ 
+      <types>
+        <members>listContainer</members>
+        <name>LightningComponentBundle</name>
+    </types>
+   
     
     <version>48.0</version>
 </Package>

@@ -28,7 +28,7 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
     @api availability;
     @api orgtype;
 
-    maintenanceid;
+    @api maintenanceid;
     
     maintenancelink;   
 

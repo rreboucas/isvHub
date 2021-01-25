@@ -8,50 +8,64 @@
             <axisBinding>y</axisBinding>
             <column>RowCount</column>
         </chartSummaries>
-        <chartType>Donut</chartType>
+        <chartType>LineGrouped</chartType>
         <enableHoverLabels>false</enableHoverLabels>
-        <expandOthers>false</expandOthers>
-        <groupingColumn>sfLma__Package__c.sfLma__R00N30000001JvR7EAK__r$Name</groupingColumn>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>CUST_CREATED_DATE</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
+        <secondaryGroupingColumn>FK_NAME</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
-        <showTotal>true</showTotal>
-        <showValues>true</showValues>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
         <size>Medium</size>
         <summaryAxisRange>Auto</summaryAxisRange>
         <textColor>#000000</textColor>
         <textSize>12</textSize>
-        <title>Installed Versions per Package</title>
+        <title>Package Installations</title>
         <titleColor>#000000</titleColor>
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>sfLma__Package__c.sfLma__R00N30000001JvR7EAK__r.sfLma__R00N30000001JvQxEAK__r$Name</field>
+        <aggregateTypes>Unique</aggregateTypes>
+        <field>CUST_NAME</field>
     </columns>
+    <columns>
+        <field>sfLma__License__c.sfLma__Install_Date__c</field>
+    </columns>
+    <description>Number of customer package installations per managed package per day</description>
+    <filter>
+        <criteriaItems>
+            <column>sfLma__License__c.sfLma__Status__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Trial,Active</value>
+        </criteriaItems>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
-        <dateGranularity>Day</dateGranularity>
-        <field>sfLma__Package__c.sfLma__R00N30000001JvR7EAK__r$Name</field>
+        <field>CUST_CREATED_DATE</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>sfLma__Package__c$Name</field>
+        <field>FK_NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Package Versions installed per Package</name>
+    <name>Number of Installs per Package per Day</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>Package_with_Package_Version_and_Licenses__c</reportType>
-    <scope>user</scope>
+    <reportType>CustomEntity$sfLma__License__c@sfLma__License__c.sfLma__Package__c</reportType>
+    <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
-        <dateColumn>sfLma__Package__c$CreatedDate</dateColumn>
-        <interval>INTERVAL_CURRENT</interval>
+        <dateColumn>sfLma__License__c.sfLma__Expiration__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>

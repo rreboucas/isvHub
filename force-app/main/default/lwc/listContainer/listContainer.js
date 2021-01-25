@@ -47,6 +47,7 @@ export default class ListContainer extends LightningElement {
     computedAvailabilityIcon;
     computedIconSize;
     screenWidth;
+    hasData;
 
     @api maintenanceid;
     @api maintenancelink;
@@ -133,14 +134,23 @@ export default class ListContainer extends LightningElement {
     @wire(getLicenseData, { rowsLimit: '$maxRecords', dataFilter: '$filter', licenseIds: '$licenseIds' })
     wiredLatestInstalls({ error, data }) {
         this.isLoading = true;
-        if (data) {
+       if (data) {
+            this.hasData = true;
             this.latestInstalls = data;
             this.error = undefined;
             this.isLoading = false;
+            console.log('listContainer.js wire adapter filter: ' + this.filter);
+            console.log('listContainer.js wire data length: ' + data.length);
+            if (data.length === 0){
+              console.log('listContainer.js no data entered if ' );
+              this.hasData = false;
+            }
+
         } else if (error) {
             this.error = error;
             this.latestInstalls = undefined;
         }
+
     }
 
     handleOptionClick(event) {

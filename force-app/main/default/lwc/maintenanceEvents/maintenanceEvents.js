@@ -44,6 +44,7 @@ export default class MaintenanceEvents extends LightningElement {
         this.isLoading = true;
         if (data) {
             this.eventsdatabackup = data;
+            console.log('maintenanceEvents.js eventsdatabackup: ' + this.eventsdatabackup);
             this.numrecords = data.length;            
             
             if (this.numrecords > this.maxRecords)
