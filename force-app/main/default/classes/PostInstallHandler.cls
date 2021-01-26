@@ -9,7 +9,7 @@
  * 
  */
 
-public with sharing class PostInstallHandler implements InstallHandler {
+public without sharing class PostInstallHandler implements InstallHandler {
     public static void onInstall(InstallContext context){
         Date expiry = Date.valueOf(CountdownTimerController.getExpirationDate());
         Date today = date.today();

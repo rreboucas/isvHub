@@ -22,6 +22,10 @@ export default class CountdownTimer extends LightningElement {
         setInterval(() => this.getTimeRemaining(), 100);
     }
 
+    get expiresToday(){
+        return this.daysBeforeExpiry < 1;
+    }
+
     /*
         getOrgExpiration
         Retrieves the expiry date of the trial org.
@@ -32,7 +36,6 @@ export default class CountdownTimer extends LightningElement {
         getExpirationDate()
             .then((result) => {
                 this.deadline = result;
-                console.log(this.deadline);
             })
             .catch((error) => {
                 console.log(error);

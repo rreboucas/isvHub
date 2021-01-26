@@ -51,16 +51,21 @@ public with sharing class CountdownTimerController {
     public static string setNotificationDates(List<Date> dates){
         try {
             String jobId = '';
+            //Get all jobs scheduled by ISVHub
             List<CronTrigger> crons = getCronsForOrgExpiry();
+            //Cancel all jobs scheduled by ISVHub
             abortCurrentJobs(crons);
-
             Integer nameSuffix = 1;
-            for(Date d : dates){
-                if(d != null){
-                    System.debug('d');
-                    System.debug(d);
-                    jobId += scheduleNewJob(d, nameSuffix) + ' ';
-                    nameSuffix++;
+            if(dates != null){
+                //Don't schedule the same job on the same day. 
+                if(dates.size() > 1 && dates[0] == dates[1]){
+                    dates[1] = null;
+                }
+                for(Date d : dates){
+                    if(d != null){
+                        jobId += scheduleNewJob(d, nameSuffix) + ' ';
+                        nameSuffix++;
+                    }
                 }
             }
 
@@ -76,7 +81,7 @@ public with sharing class CountdownTimerController {
     }
 
     public static String scheduleNewJob(Date dt, Integer nameSuffix){
-        SendNotificationEmail scheduleEmail = new SendNotificationEmail();
+        PublishExpiryEvent scheduleEmail = new PublishExpiryEvent();
         String cronDate = '0 0 0 ' + dt.day() + ' ' + dt.month() +  ' ? ' + dt.year();
         return System.schedule('ISVHub-OrgExpiryNotification' + nameSuffix, cronDate, scheduleEmail);
     }

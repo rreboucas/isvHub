@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -10,7 +9,7 @@
  * 
  */
 
-public with sharing class SendNotificationEmail implements Schedulable{
+public with sharing class PublishExpiryEvent implements Schedulable{
     public static void execute(SchedulableContext SC) {
         String expiry = Date.valueOf(CountdownTimerController.getExpirationDate()).format();
         eventbus.publish(new Org_Expiry_Notification__e(Expiry_Date__c = expiry));
