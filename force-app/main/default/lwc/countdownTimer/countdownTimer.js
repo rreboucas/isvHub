@@ -42,12 +42,18 @@ export default class CountdownTimer extends LightningElement {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 67638d6 (Org Expiry Notification Functionality)
     get expiresToday(){
         return this.daysBeforeExpiry < 1;
     }
 
+<<<<<<< HEAD
 =======
 >>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
+=======
+>>>>>>> 67638d6 (Org Expiry Notification Functionality)
     /*
         getOrgExpiration
         Retrieves the expiry date of the trial org.
@@ -59,9 +65,12 @@ export default class CountdownTimer extends LightningElement {
             .then((result) => {
                 this.deadline = result;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 console.log(this.deadline);
 >>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
+=======
+>>>>>>> 67638d6 (Org Expiry Notification Functionality)
             })
             .catch((error) => {
                 console.log(error);

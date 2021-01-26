@@ -176,6 +176,7 @@
         <description>The body of the email to be sent to selected users</description>
         <name>EmailBody</name>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;Hello,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;This is an automated notification informing you that your Salesforce org with ID {!$Organization.Id} is due to expire on {!$Record.Expiry_Date__c}, at which point, you will be unable to login to the org.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Once you have a signed partnership agreement with Salesforce, raise this case to activate the org and prevent future expiry:&lt;/p&gt;&lt;p&gt;https://partners.salesforce.com/newPartnerCase?subtopic=BenefitsAndTools&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you&apos;ve not yet signed a partnership agreement with Salesforce but would like to pursue this and extend your trial period, then please raise the below case to automatically extend the lifetime of your org. &lt;/p&gt;&lt;p&gt;https://partners.salesforce.com/newPartnerCase?subtopic=TrialExtension&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Once your org has been extended, it&apos;s wise to set this reminder of org expiry again in future using the Org Expiration Manager component within your org.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Kind regards,&lt;/p&gt;&lt;p&gt;The Salesforce Technical Evangelism Team&lt;/p&gt;</text>
 =======
@@ -192,6 +193,9 @@ Once your org has been extended, it&apos;s wise to set this reminder of org expi
 Kind regards,
 The Salesforce Technical Evangelism Team</text>
 >>>>>>> b024a8c (UI updates and Lightning Flow added)
+=======
+        <text>&lt;p&gt;Hello,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;This is an automated notification informing you that your Salesforce org with ID {!$Organization.Id} is due to expire on {!$Record.Expiry_Date__c}, at which point, you will be unable to login to the org.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Once you have a signed partnership agreement with Salesforce, raise this case to activate the org and prevent future expiry:&lt;/p&gt;&lt;p&gt;https://partners.salesforce.com/newPartnerCase?subtopic=BenefitsAndTools&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you&apos;ve not yet signed a partnership agreement with Salesforce but would like to pursue this and extend your trial period, then please raise the below case to automatically extend the lifetime of your org. &lt;/p&gt;&lt;p&gt;https://partners.salesforce.com/newPartnerCase?subtopic=TrialExtension&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Once your org has been extended, it&apos;s wise to set this reminder of org expiry again in future using the Org Expiration Manager component within your org.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Kind regards,&lt;/p&gt;&lt;p&gt;The Salesforce Technical Evangelism Team&lt;/p&gt;</text>
+>>>>>>> 67638d6 (Org Expiry Notification Functionality)
     </textTemplates>
     <variables>
         <description>Holds a permission set name</description>

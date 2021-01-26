@@ -72,6 +72,7 @@ public with sharing class CountdownTimerController {
         try {
             String jobId = '';
 <<<<<<< HEAD
+<<<<<<< HEAD
             //Get all jobs scheduled by ISVHub
             List<CronTrigger> crons = getCronsForOrgExpiry();
             //Cancel all jobs scheduled by ISVHub
@@ -88,10 +89,14 @@ public with sharing class CountdownTimerController {
                         nameSuffix++;
                     }
 =======
+=======
+            //Get all jobs scheduled by ISVHub
+>>>>>>> 67638d6 (Org Expiry Notification Functionality)
             List<CronTrigger> crons = getCronsForOrgExpiry();
+            //Cancel all jobs scheduled by ISVHub
             abortCurrentJobs(crons);
-
             Integer nameSuffix = 1;
+<<<<<<< HEAD
             for(Date d : dates){
                 if(d != null){
                     System.debug('d');
@@ -99,6 +104,18 @@ public with sharing class CountdownTimerController {
                     jobId += scheduleNewJob(d, nameSuffix) + ' ';
                     nameSuffix++;
 >>>>>>> b024a8c (UI updates and Lightning Flow added)
+=======
+            if(dates != null){
+                //Don't schedule the same job on the same day. 
+                if(dates.size() > 1 && dates[0] == dates[1]){
+                    dates[1] = null;
+                }
+                for(Date d : dates){
+                    if(d != null){
+                        jobId += scheduleNewJob(d, nameSuffix) + ' ';
+                        nameSuffix++;
+                    }
+>>>>>>> 67638d6 (Org Expiry Notification Functionality)
                 }
             }
 
@@ -115,10 +132,14 @@ public with sharing class CountdownTimerController {
 
     public static String scheduleNewJob(Date dt, Integer nameSuffix){
 <<<<<<< HEAD
+<<<<<<< HEAD
         PublishExpiryEvent scheduleEmail = new PublishExpiryEvent();
 =======
         SendNotificationEmail scheduleEmail = new SendNotificationEmail();
 >>>>>>> b024a8c (UI updates and Lightning Flow added)
+=======
+        PublishExpiryEvent scheduleEmail = new PublishExpiryEvent();
+>>>>>>> 67638d6 (Org Expiry Notification Functionality)
         String cronDate = '0 0 0 ' + dt.day() + ' ' + dt.month() +  ' ? ' + dt.year();
         return System.schedule('ISVHub-OrgExpiryNotification' + nameSuffix, cronDate, scheduleEmail);
     }
