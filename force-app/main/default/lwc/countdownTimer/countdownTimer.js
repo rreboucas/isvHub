@@ -13,6 +13,7 @@ export default class CountdownTimer extends LightningElement {
     deadline;
     timeRemainingAsString;
     expanded = false;
+    orgActive = false;
 
     @track daysBeforeExpiry;
     @track buttonLabel = "Configure Expiry Notifications";
@@ -44,17 +45,22 @@ export default class CountdownTimer extends LightningElement {
 
     getTimeRemaining(){
         const total = Date.parse(this.deadline) - Date.parse(new Date());
-        const seconds = Math.floor( (total/1000) % 60 );
-        const minutes = Math.floor( (total/1000/60) % 60 );
-        const hours = Math.floor( (total/(1000*60*60)) % 24 );
-        const days = Math.floor( total/(1000*60*60*24) );     
+        if(total){
+            this.orgActive = false;
+            const seconds = Math.floor( (total/1000) % 60 );
+            const minutes = Math.floor( (total/1000/60) % 60 );
+            const hours = Math.floor( (total/(1000*60*60)) % 24 );
+            const days = Math.floor( total/(1000*60*60*24) );     
 
-        this.timeRemainingAsString =  days + ' days ' + hours + ' hours ' +  minutes + ' minutes ' + seconds + ' seconds';
-        
-        var deadlineDate = new Date(this.deadline); 
-        this.deadline = deadlineDate.toDateString();
-        this.daysBeforeExpiry = days;
-      }
+            this.timeRemainingAsString =  days + ' days ' + hours + ' hours ' +  minutes + ' minutes ' + seconds + ' seconds';
+            
+            var deadlineDate = new Date(this.deadline); 
+            this.deadline = deadlineDate.toDateString();
+            this.daysBeforeExpiry = days;
+        }else{
+            this.orgActive = true;
+        }
+    }
 
       invertExpanded(){
           this.expanded = !this.expanded;
