@@ -26,8 +26,11 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
     @api iconName;
     @api instancename;
     @api availability;
+    @api orgtype;
 
+    @api maintenanceid;
     
+    maintenancelink;   
 
     isMobile = false;
     isTablet = false;
@@ -43,6 +46,8 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
     badgeLabel;
     computedAvailabilityIcon;
     availabilityText;
+    computedPckgButtonPadding;
+    computedAvailabilityPadding;
 
     @track privateVariant = 'base';
 
@@ -51,6 +56,8 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
 
     connectedCallback() {
         this.screenWidth = window.screen.width;
+        this.computedPckgButtonPadding = 'slds-p-left_small';
+        this.computedAvailabilityPadding = 'slds-p-left_xxx-small';
 
         if (this.availability == 'fullyAvailable')
         {
@@ -62,7 +69,7 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
             this.availabilityText = 'Unavailable';
             this.computedAvailabilityIcon = 'utility:ban'
         }
-
+        console.log('EventSummaryCard.js orgtype: ' + this.orgtype);
         console.log('EventSummaryCard.js - id: ' + this.id);
         console.log('EventSummaryCard.js - numimpacted: ' + this.numimpacted);
         console.log('EventSummaryCard.js - impactedlicenseids: ' + this.impactedlicenseids);
@@ -86,7 +93,7 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
             this.computedWeekDayFormat = 'long';
             
             if (this.screenWidth <= 1440){
-                this.computedChildClassName = 'desktopSmall';
+                this.computedChildClassName = 'desktopSmall_events';
                 this.computedYearFormat = 'numeric';
                 this.computedMonthFormat = 'numeric';
                 this.computedDayFormat = 'numeric';
@@ -158,6 +165,7 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
 
     navigateToWebPage(event) {
         event.preventDefault();
+        this.maintenancelink = this.id.split("-")[0];
         // Navigate to a URL
         this[NavigationMixin.Navigate]({
             type: 'standard__webPage',
@@ -172,8 +180,10 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
     seeimpactedcustomersHandler() {
         // Send Message to modalLauncher Aura LC to open modifyLicenseExpiration LWC
         console.log('EventSummaryCard.js - this.impactedlicenseids: ' + this.impactedlicenseids);
+        var licenseIdsArray = this.impactedlicenseids.split(',');
+        console.log('EventSummaryCard.js - licenseIdsArray: ' + licenseIdsArray);
         const message = {
-            messageToSend: this.impactedlicenseids,
+            messageToSend: licenseIdsArray,
             actionType: 'viewImpactedCustomers',
             sourceComponent: 'eventSummaryCard.js - ' + this.label,
             formFactor: this.formfactorName,
@@ -183,8 +193,10 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
             monthFormat: this.computedMonthFormat,
             dayFormat: this.computedDayFormat,
             weekDayFormat: this.computedWeekDayFormat,
-            starttime: this.starttime,
-            endtime: this.endtime
+            availability: this.availability,
+            endtime: this.endtime,
+            orgtype: this.orgtype,
+            maintenanceid: this.id.split("-")[0]
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
     }

@@ -6,8 +6,8 @@
                 "referenceId": "Contact__cRef1"
             },
             "FirstName": "James",
-            "LastName": "Bond",
-            "Email": "j@j.com",
+            "LastName": "Apleseed",
+            "Email": "j@a.com",
             "LeadSource": "Package Installation",
             "MailingCountry": "US",
             "MailingStreet": "10 Main Rd.",
@@ -16,6 +16,23 @@
             "MailingPostalCode": "80906",
             "MailingCity": "San Francisco",
             "AccountId": "@Account__cRef1"
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "referenceId": "Contact__cRef2"
+            },
+            "FirstName": "Jeff",
+            "LastName": "Cloud",
+            "Email": "j@c.com",
+            "LeadSource": "Package Installation",
+            "MailingCountry": "US",
+            "MailingStreet": "10 Main Rd.",
+            "Phone": "(954) 123-4567",
+            "MailingState": "NY",
+            "MailingPostalCode": "10001",
+            "MailingCity": "New York",
+            "AccountId": "@Account__cRef2"
         }
     ]
 }

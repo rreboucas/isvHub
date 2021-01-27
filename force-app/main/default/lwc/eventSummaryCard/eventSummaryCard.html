@@ -17,7 +17,7 @@
                                 <lightning-icon icon-name="utility:salesforce1" size={computedIconSize} alternative-text="PackageIcon" title="PackageIcon" ></lightning-icon> 
                             </lightning-layout-item>
                         </div>
-                        <lightning-layout-item padding="horizontal-small" size="8">
+                        <lightning-layout-item size="8">
                             <div class={computedPckgButtonPadding}>
                                 <a onclick={navigateToWebPage}>{title} - {instancename}</a>   
                             </div>
@@ -36,7 +36,11 @@
                         </div>
                         <lightning-layout-item padding="horizontal-small" size="11">
                             <div class={computedAcctButtonPadding}>
-                                <lightning-formatted-date-time value={startdt} year={computedYearFormat} month={computedMonthFormat} day={computedDayFormat} weekday={computedWeekDayFormat} time-zone="GMT"></lightning-formatted-date-time> - {starttime} - {endtime} - GMT 
+                                <lightning-formatted-date-time value={startdt} year="numeric" month="numeric" day="numeric" hour="2-digit"
+                                        minute="2-digit" hour12="true"></lightning-formatted-date-time>
+                                        <lightning-formatted-text value=" - " ></lightning-formatted-text>  
+                                <lightning-formatted-date-time value={endtime} hour="2-digit" minute="2-digit" time-zone-name="short"
+                                ></lightning-formatted-date-time>
                             </div>
                         </lightning-layout-item>
                     </lightning-layout>
@@ -49,7 +53,7 @@
                             </lightning-layout-item>
                         </div>
                         <lightning-layout-item padding="horizontal-small" size="11">
-                            <div class={computedPckgButtonPadding}>
+                            <div class={computedAvailabilityPadding}>
                                 {availabilityText}
                             </div>
                         </lightning-layout-item>

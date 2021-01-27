@@ -42,15 +42,42 @@ export default class ListContainer extends LightningElement {
     @api weekDayFormat;
     @api starttime;
     @api endtime;
+    @api availability;
+    availabilityText;
+    computedAvailabilityIcon;
+    computedIconSize;
+    screenWidth;
+    hasData;
 
+    @api maintenanceid;
+    @api maintenancelink;
+    @api orgtype;
 
     connectedCallback() {
 
+      this.screenWidth = window.screen.width;
+      console.log('listContainer.js orgtype: ' + this.orgtype);
+      console.log('listContainer.js - screenWidth: ' + this.screenWidth);
+      console.log('listContainer.js licenseids: ' + this.licenseids);
       if (!this.licenseIds)
+      {
         this.licenseIds = '';
+        console.log('listContainer.js licenseids after if: ' + this.licenseids);
+      }
       else
         this.hasSubHeader = true;
-        
+      
+      if (this.availability == 'fullyAvailable')
+      {
+          this.availabilityText = 'Available';
+          this.computedAvailabilityIcon = 'utility:success'
+      }
+      if (this.availability == 'unavailable')
+      {
+          this.availabilityText = 'Unavailable';
+          this.computedAvailabilityIcon = 'utility:ban'
+      }
+      
         // Check which header icon to use based on selected App Builder Title
         switch(this.title) {
             case 'Latest Installs per App':
@@ -78,16 +105,23 @@ export default class ListContainer extends LightningElement {
             this.isDesktop = true;
             this.formfactorName = 'Desktop';
             this.computedChildClassName = 'desktop';
+            this.computedIconSize = 'x-small';
+
+            if (this.screenWidth <= 1440){
+              this.computedChildClassName = 'desktopSmall';
+            }
           break;
         case 'Medium':
             this.isTablet = true;
             this.formfactorName = 'Tablet';
             this.computedChildClassName = 'desktop';
+            this.computedIconSize = 'xx-small';
           break;
         case 'Small':
             this.isMobile = true;
             this.formfactorName = 'Phone';
             this.computedChildClassName = 'mobile';
+            this.computedIconSize = 'xx-small';
         break;
         default:
       }
@@ -100,14 +134,23 @@ export default class ListContainer extends LightningElement {
     @wire(getLicenseData, { rowsLimit: '$maxRecords', dataFilter: '$filter', licenseIds: '$licenseIds' })
     wiredLatestInstalls({ error, data }) {
         this.isLoading = true;
-        if (data) {
+       if (data) {
+            this.hasData = true;
             this.latestInstalls = data;
             this.error = undefined;
             this.isLoading = false;
+            console.log('listContainer.js wire adapter filter: ' + this.filter);
+            console.log('listContainer.js wire data length: ' + data.length);
+            if (data.length === 0){
+              console.log('listContainer.js no data entered if ' );
+              this.hasData = false;
+            }
+
         } else if (error) {
             this.error = error;
             this.latestInstalls = undefined;
         }
+
     }
 
     handleOptionClick(event) {

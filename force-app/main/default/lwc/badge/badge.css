@@ -28,7 +28,6 @@
 }
 a {
     text-decoration: none !important;
-    /*color: rgb(4, 181, 245); */
 }
 :host(.mobile) {
     min-width: 7rem;
@@ -40,6 +39,9 @@ b {
 }*/
 :host(.desktopSmall) {
     min-width: 10rem;
+}
+:host(.desktopSmall_events) {
+    font-size: 10px;
 }
 :host(.desktopLarge) {
     min-width: 11rem;

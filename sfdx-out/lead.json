@@ -5,9 +5,9 @@
                 "type": "Lead",
                 "referenceId": "Lead__cRef1"
             },
-            "FirstName": "Mary",
+            "FirstName": "Austin",
             "LastName": "Appleseed",
-            "Email": "m@m.com",
+            "Email": "a@m.com",
             "Company": "Salesforce",
             "Country": "US",
             "Latitude": "37.774929",
@@ -17,6 +17,24 @@
             "Status": "Open",
             "PostalCode": "80906",
             "City": "San Francisco"
+        },
+        {
+            "attributes": {
+                "type": "Lead",
+                "referenceId": "Lead__cRef2"
+            },
+            "FirstName": "Martin",
+            "LastName": "Appleseed",
+            "Email": "a@c.com",
+            "Company": "Salesforce",
+            "Country": "US",
+            "Latitude": "41.878113",
+            "Longitude": "-87.629799",
+            "Phone": "(954) 123-4567",
+            "State": "IL",
+            "Status": "Open",
+            "PostalCode": "60007",
+            "City": "Chicago"
         }
     ]
 }
