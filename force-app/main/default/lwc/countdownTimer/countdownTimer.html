@@ -6,29 +6,36 @@
  -->
 
 <template>
-    <template if:true={timeRemainingAsString}>
-        <lightning-card title={title} icon-name="utility:clock">
-            <div class="txt">Org Expires on: {deadline}</div>
-            <div class="txt-small">{timeRemainingAsString}</div>
+    <lightning-card title={title} icon-name="utility:clock">
+        <template if:false={orgActive}>
+            <template if:true={timeRemainingAsString}>
+                    <div class="txt">Org Expires on: {deadline}</div>
+                    <div class="txt-small">{timeRemainingAsString}</div>
+    
+                    <template if:true={expanded}>
+                        <template if:false={expiresToday}>
+                            <c-notification-config days-before-expiry={daysBeforeExpiry}></c-notification-config>
+                        </template>
+                    </template>
+                    <template if:true={expiresToday}>
+                        <div class="slds-align_absolute-center slds-p-around_small">
+                            This org is due to expire in less than 1 day. Please use the links below to activate the org or extend the trial.
+                        </div>
+                    </template>
+                    <div class="slds-align_absolute-center slds-m-top_small">
+                        <lightning-button variant="brand" label={buttonLabel} title={buttonLabel} onclick={invertExpanded} ></lightning-button>
+                    </div>
 
-            <template if:true={expanded}>
-                <template if:false={expiresToday}>
-                    <c-notification-config days-before-expiry={daysBeforeExpiry}></c-notification-config>
-                </template>
+                    <div slot="footer">
+                        <p><lightning-formatted-url value="https://partners.salesforce.com/newPartnerCase?subtopic=BenefitsAndTools" label="Once you have a signed partnership agreement with Salesforce, raise this case to activate your org." target="_blank"></lightning-formatted-url></p>
+                        <p class="slds-m-top_xx-small"><lightning-formatted-url value="https://partners.salesforce.com/newPartnerCase?subtopic=TrialExtension" label="Need more time? Use this link to automatically extend your org expiration." target="_blank"></lightning-formatted-url></p>
+                    </div>
             </template>
-            <template if:true={expiresToday}>
-                <div class="slds-align_absolute-center slds-p-around_small">
-                    This org is due to expire in less than 1 day. Please use the links below to activate the org or extend the trial.
-                </div>
-            </template>
-            <div class="slds-align_absolute-center slds-m-top_small">
-                <lightning-button variant="brand" label={buttonLabel} title={buttonLabel} onclick={invertExpanded} ></lightning-button>
+        </template>
+        <template if:true={orgActive}>
+            <div class="slds-m-left_small">
+                This org is already active - No action required.
             </div>
-
-            <div slot="footer">
-                <p><lightning-formatted-url value="https://partners.salesforce.com/newPartnerCase?subtopic=BenefitsAndTools" label="Once you have a signed partnership agreement with Salesforce, raise this case to activate your org." target="_blank"></lightning-formatted-url></p>
-                <p class="slds-m-top_xx-small"><lightning-formatted-url value="https://partners.salesforce.com/newPartnerCase?subtopic=TrialExtension" label="Need more time? Use this link to automatically extend your org expiration." target="_blank"></lightning-formatted-url></p>
-            </div>
-        </lightning-card>
-    </template>
+        </template>
+    </lightning-card>
 </template>
