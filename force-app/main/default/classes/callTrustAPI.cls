@@ -1,4 +1,4 @@
-public with sharing class callTrustAPI {
+public without sharing class callTrustAPI {
     @future(callout=true)
     public static void getMaintenances()
     { 
