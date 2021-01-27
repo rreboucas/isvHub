@@ -176,7 +176,39 @@ private class testListContainerController {
         List<Maintenance__c> lstRecs1 = statusServerController.getEvents('Upcoming Releases', 'Production');
         Test.stopTest();
     }
-    
+
+    @isTest
+    static void testInstallScript() {
+        postInstallClass postinstall = new postInstallClass();
+        Test.testInstall(postinstall, null);
+        Test.testInstall(postinstall, new Version(1,0), true);
+        
+    }
+
+    @isTest
+    static void testmanageData() {
+        Test.startTest();
+        manageData.deleteMaintenanceEvents();
+        Test.stopTest();
+    }
+
+    @isTest
+    static void testCountdownTimerController() {
+        Test.startTest();
+        String expDate = CountdownTimerController.getExpirationDate();
+        Test.stopTest();
+    }
+
+    @isTest static void test_CallTrustAPI() {
+        // Set mock callout class 
+        
+        
+        Test.startTest();
+        Test.setMock(HttpCalloutMock.class, new WebServiceMockImpl());
+        
+        callTrustAPI.getMaintenances();
+        Test.stopTest();
+    }
 
 }
 >>>>>>> 6894227 (custom metadata)

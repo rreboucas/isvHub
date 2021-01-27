@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 global class schedFetchMaintenance implements Schedulable, Database.AllowsCallouts {
 =======
 public with sharing class schedFetchMaintenance implements Schedulable, Database.AllowsCallouts {
 >>>>>>> d3c0005 (adding maintenance lwc changes)
+=======
+public without sharing class schedFetchMaintenance implements Schedulable, Database.AllowsCallouts {
+>>>>>>> a624ccf (changes to post install)
     public void execute(SchedulableContext SC) {
         callTrustAPI.getMaintenances();
      }

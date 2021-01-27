@@ -340,15 +340,58 @@
         <members>maintenanceEvents</members>
         <name>LightningComponentBundle</name>
     </types>
-    -->
- 
-      <types>
+    <types>
         <members>listContainer</members>
         <name>LightningComponentBundle</name>
     </types>
-   
+
+     <types>
+        <members>manageData</members>
+        <name>ApexClass</name>
+    </types>
+
     
+<<<<<<< HEAD
 >>>>>>> c373e22 (fixed styles)
+=======
+
+    
+
+     
+
+    
+
+    <types>
+        <members>postInstallClass</members>
+        <name>ApexClass</name>
+    </types>
+
+    <types>
+        <members>testListContainerController</members>
+        <name>ApexClass</name>
+    </types>
+    -->
+    <types>
+        <members>postInstallClass</members>
+        <name>ApexClass</name>
+    </types>
+   <types>
+        <members>schedDeleteMaintenanceEvents</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>schedFetchMaintenance</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>callTrustAPI</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>TestFactory</members>
+        <name>ApexClass</name>
+    </types>
+>>>>>>> a624ccf (changes to post install)
     <version>48.0</version>
 </Package>
 <!-- Grab Recommendation data and file for packaging -->

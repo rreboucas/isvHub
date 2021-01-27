@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 global class callTrustAPI {
 =======
 public with sharing class callTrustAPI {
 >>>>>>> d3c0005 (adding maintenance lwc changes)
+=======
+public without sharing class callTrustAPI {
+>>>>>>> a624ccf (changes to post install)
     @future(callout=true)
     public static void getMaintenances()
     { 

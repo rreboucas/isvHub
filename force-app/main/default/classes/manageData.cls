@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 global class manageData {
+=======
+public with sharing class manageData {
+>>>>>>> a624ccf (changes to post install)
     @future
     public static void deleteMaintenanceEvents() {
         List<Maintenance__c> lstOfOldEvents = [SELECT Id, Start_Date_Time__c FROM Maintenance__c where Start_Date_Time__c < TODAY WITH SECURITY_ENFORCED];
@@ -10,6 +14,7 @@ global class manageData {
         }
 
     }
+<<<<<<< HEAD
 
     @AuraEnabled(cacheable=true)
     public static List<sfLma__License__c> getLicenceLeadIdsWithoutAddress() {
@@ -27,3 +32,6 @@ global class manageData {
         return lstOfAccts;
     }
 }
+=======
+}
+>>>>>>> a624ccf (changes to post install)

@@ -17,8 +17,12 @@ public without sharing class TestFactory {
 =======
 >>>>>>> a94e476 (first committo labs)
 @isTest
+<<<<<<< HEAD
 public class TestFactory {
 >>>>>>> 6894227 (custom metadata)
+=======
+public without sharing class TestFactory {
+>>>>>>> a624ccf (changes to post install)
     // define default constants that can be accessible to assert against.
 
     public static final String DEFAULT_ACCOUNT_NAME = 'ACME Inc.';
@@ -66,6 +70,9 @@ public class TestFactory {
 
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a624ccf (changes to post install)
 
     public static String getUUID()
 {
@@ -75,8 +82,11 @@ public class TestFactory {
         system.debug(guid);
         return guid;
     }
+<<<<<<< HEAD
 =======
 >>>>>>> 6894227 (custom metadata)
+=======
+>>>>>>> a624ccf (changes to post install)
     
 
     public static Contact createContact(String accountID){
