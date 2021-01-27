@@ -31,6 +31,7 @@ export default class CountdownTimer extends LightningElement {
 >>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
 =======
     expanded = false;
+    orgActive = false;
 
     @track daysBeforeExpiry;
     @track buttonLabel = "Configure Expiry Notifications";
@@ -110,11 +111,14 @@ export default class CountdownTimer extends LightningElement {
 =======
 >>>>>>> b024a8c (UI updates and Lightning Flow added)
         const total = Date.parse(this.deadline) - Date.parse(new Date());
-        const seconds = Math.floor( (total/1000) % 60 );
-        const minutes = Math.floor( (total/1000/60) % 60 );
-        const hours = Math.floor( (total/(1000*60*60)) % 24 );
-        const days = Math.floor( total/(1000*60*60*24) );     
+        if(total){
+            this.orgActive = false;
+            const seconds = Math.floor( (total/1000) % 60 );
+            const minutes = Math.floor( (total/1000/60) % 60 );
+            const hours = Math.floor( (total/(1000*60*60)) % 24 );
+            const days = Math.floor( total/(1000*60*60*24) );     
 
+<<<<<<< HEAD
         this.timeRemainingAsString =  days + ' days ' + hours + ' hours ' +  minutes + ' minutes ' + seconds + ' seconds';
         
         var deadlineDate = new Date(this.deadline); 
@@ -127,6 +131,17 @@ export default class CountdownTimer extends LightningElement {
         this.deadline = deadlineDate.toDateString();
         this.daysBeforeExpiry = days;
       }
+=======
+            this.timeRemainingAsString =  days + ' days ' + hours + ' hours ' +  minutes + ' minutes ' + seconds + ' seconds';
+            
+            var deadlineDate = new Date(this.deadline); 
+            this.deadline = deadlineDate.toDateString();
+            this.daysBeforeExpiry = days;
+        }else{
+            this.orgActive = true;
+        }
+    }
+>>>>>>> 68e5233 (Fixes to Apex test and time when org is active)
 
       invertExpanded(){
           this.expanded = !this.expanded;

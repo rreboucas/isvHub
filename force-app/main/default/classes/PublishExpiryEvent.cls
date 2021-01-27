@@ -12,14 +12,20 @@
 public with sharing class PublishExpiryEvent implements Schedulable{
     public static void execute(SchedulableContext SC) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 68e5233 (Fixes to Apex test and time when org is active)
         String expiryDate = CountdownTimerController.getExpirationDate();
         if(expiryDate != null){
             String expiry = Date.valueOf(expiryDate).format();
             eventbus.publish(new Org_Expiry_Notification__e(Expiry_Date__c = expiry));
         }
+<<<<<<< HEAD
 =======
         String expiry = Date.valueOf(CountdownTimerController.getExpirationDate()).format();
         eventbus.publish(new Org_Expiry_Notification__e(Expiry_Date__c = expiry));
 >>>>>>> 67638d6 (Org Expiry Notification Functionality)
+=======
+>>>>>>> 68e5233 (Fixes to Apex test and time when org is active)
     }
 }
