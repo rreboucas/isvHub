@@ -59,6 +59,9 @@
                             endtime: message.getParam("endtime"),
                             availability: message.getParam("availavility"),
                             licenseid: message.getParam("licenseid"),
+                            isaccount: message.getParam("sourceComponent"),
+                            orgtype: message.getParam("orgtype"),
+                            maintenancelink: message.getParam("maintenancelink"),
                             maintenanceid: message.getParam("maintenanceid")
 
                         },
@@ -194,6 +197,8 @@
                             dayFormat: message.getParam("dayFormat"),
                             weekDayFormat: message.getParam("weekDayFormat"),
                             availability: message.getParam("availability"),
+                            orgtype: message.getParam("orgtype"),
+                            maintenanceid: message.getParam("maintenanceid"),
                             endtime: message.getParam("endtime")
                         },
                            function(content, status) {

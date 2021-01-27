@@ -34,8 +34,8 @@ private class testListContainerController {
 
     @isTest static void test_emailServerController() {
         Account acct = [SELECT Id FROM Account WHERE Name='TestAcct0' LIMIT 1];
-        sfLma__License__c lr = [SELECT Id FROM sfLma__License__c];
-        emailServerController rec = emailServerController.sendEmail('body', 'subject', 'email@email.com', acct.id, 'sendEmail', lr.id, '46522');
+        sfLma__License__c lr = [SELECT Id FROM sfLma__License__c LIMIT 1];
+        emailServerController rec = emailServerController.sendEmail('body', 'subject', 'email@email.com', acct.id, 'sendEmail', lr.id, '46522', true);
     }
 
     @isTest static void test_isvConsoleMapController() {
@@ -58,6 +58,38 @@ private class testListContainerController {
         List<Maintenance__c> lstRecs1 = statusServerController.getEvents('Upcoming Releases', 'Production');
         Test.stopTest();
     }
-    
+
+    @isTest
+    static void testInstallScript() {
+        postInstallClass postinstall = new postInstallClass();
+        Test.testInstall(postinstall, null);
+        Test.testInstall(postinstall, new Version(1,0), true);
+        
+    }
+
+    @isTest
+    static void testmanageData() {
+        Test.startTest();
+        manageData.deleteMaintenanceEvents();
+        Test.stopTest();
+    }
+
+    @isTest
+    static void testCountdownTimerController() {
+        Test.startTest();
+        String expDate = CountdownTimerController.getExpirationDate();
+        Test.stopTest();
+    }
+
+    @isTest static void test_CallTrustAPI() {
+        // Set mock callout class 
+        
+        
+        Test.startTest();
+        Test.setMock(HttpCalloutMock.class, new WebServiceMockImpl());
+        
+        callTrustAPI.getMaintenances();
+        Test.stopTest();
+    }
 
 }

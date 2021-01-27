@@ -44,6 +44,7 @@ export default class MaintenanceEvents extends LightningElement {
         this.isLoading = true;
         if (data) {
             this.eventsdatabackup = data;
+            console.log('maintenanceEvents.js eventsdatabackup: ' + this.eventsdatabackup);
             this.numrecords = data.length;            
             
             if (this.numrecords > this.maxRecords)
@@ -71,6 +72,7 @@ export default class MaintenanceEvents extends LightningElement {
     messageContext;
 
     connectedCallback() {
+      console.log('maintenanceEvents.js orgtype: ' + this.orgtype);
         this.leftIndex = 0;
         this.leftIndexLabel = 1;
         this.offSet = '1';

@@ -201,6 +201,9 @@ public with sharing class isvConsoleMapController {
                         locObj.Longitude = e.sfLma__Account__r.BillingLongitude;
                     else if (locObj.Longitude == null)
                         locObj.Longitude = e.sfLma__Account__r.ShippingLongitude;
+
+                    System.debug('######## e.sfLma__Account__r.Latitude: ' + locObj.Latitude);
+                    System.debug('######## e.sfLma__Account__r.Longitude: ' + locObj.Longitude);
                 }
                 // i.location = locObj;
 
