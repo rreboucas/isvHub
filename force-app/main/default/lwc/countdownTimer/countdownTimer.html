@@ -30,6 +30,7 @@
                         <lightning-button variant="brand" label={buttonLabel} title={buttonLabel} onclick={invertExpanded} ></lightning-button>
                     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
             </template>
         </template>
         <template if:true={orgActive}>
@@ -57,6 +58,8 @@
                         <p><lightning-formatted-url value="https://partners.salesforce.com/newPartnerCase?subtopic=BenefitsAndTools" label="Once you have a signed partnership agreement with Salesforce, raise this case to activate your org." target="_blank"></lightning-formatted-url></p>
                         <p class="slds-m-top_xx-small"><lightning-formatted-url value="https://partners.salesforce.com/newPartnerCase?subtopic=TrialExtension" label="Need more time? Use this link to automatically extend your org expiration." target="_blank"></lightning-formatted-url></p>
                     </div>
+=======
+>>>>>>> 9576306 (Links to cases added at the bottom of the countdown component)
             </template>
         </template>
         <template if:true={orgActive}>
@@ -73,6 +76,13 @@
     </template>
 >>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
 =======
+        </template>
+
+        <template if:false={orgActive}>
+            <div slot="footer">
+                <p><lightning-formatted-url value="https://partners.salesforce.com/newPartnerCase?subtopic=BenefitsAndTools" label="Once you have a signed partnership agreement with Salesforce, raise this case to activate your org." target="_blank"></lightning-formatted-url></p>
+                <p class="slds-m-top_xx-small"><lightning-formatted-url value="https://partners.salesforce.com/newPartnerCase?subtopic=TrialExtension" label="Need more time? Use this link to automatically extend your org expiration." target="_blank"></lightning-formatted-url></p>
+            </div>
         </template>
     </lightning-card>
 >>>>>>> 68e5233 (Fixes to Apex test and time when org is active)
