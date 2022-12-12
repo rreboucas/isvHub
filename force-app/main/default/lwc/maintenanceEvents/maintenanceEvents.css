@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) 2018, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
+ .parent {
+    height: 30rem;
+    max-height: 100%;
+    min-height: 30rem;
+    overflow: hidden;
+} 
+.footerwrapper {
+    text-align: center;
+    
+} 
+.footerdiv {
+    display: inline-block;
+    min-width: 200px;
+    max-width: 200px;
+} 
+.wrapper {
+    height: 400px;
+    max-height: 300px;
+    margin-top: 2rem;
+} 
+ li {
+    padding-top: 0.01rem;
+}

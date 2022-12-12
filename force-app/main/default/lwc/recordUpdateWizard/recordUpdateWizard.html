@@ -1,0 +1,46 @@
+<template>
+    <lightning-card  title="">
+        <template if:true={showUpdateForm}>
+            <lightning-record-edit-form record-id={recordid}
+                                    onsuccess={handleSuccess}
+                                    object-api-name={objectApiName}>
+            <lightning-messages>
+            </lightning-messages>
+            <template if:true={isLead}>
+                <lightning-output-field field-name="Name"></lightning-output-field>
+                <lightning-output-field field-name="Company"></lightning-output-field>
+                <lightning-output-field field-name="Email"></lightning-output-field>
+                <lightning-input-field field-name="Street"></lightning-input-field>
+                <lightning-input-field field-name="City" required></lightning-input-field>
+                <lightning-input-field field-name="State"></lightning-input-field>
+                <lightning-input-field field-name="Country" required></lightning-input-field>
+                <lightning-input-field field-name="PostalCode" required></lightning-input-field>
+            </template>
+            <template if:true={isAccount}>
+                <lightning-output-field field-name="Name"></lightning-output-field>
+                <lightning-input-field field-name="BillingStreet"></lightning-input-field>
+                <lightning-input-field field-name="BillingCity"></lightning-input-field>
+                <lightning-input-field field-name="BillingState"></lightning-input-field>
+                <lightning-input-field field-name="BillingCountry"></lightning-input-field>
+                <lightning-input-field field-name="BillingPostalCode"></lightning-input-field>
+                <lightning-input-field field-name="ShippingStreet"></lightning-input-field>
+                <lightning-input-field field-name="ShippingCity" required></lightning-input-field>
+                <lightning-input-field field-name="ShippingState" ></lightning-input-field>
+                <lightning-input-field field-name="ShippingCountry" required></lightning-input-field>
+                <lightning-input-field field-name="ShippingPostalCode" required></lightning-input-field>
+            </template>
+            <lightning-button
+                class="slds-m-top_small"
+                variant="brand"
+                type="submit"
+                name="update"
+                label="Save - Next">
+            </lightning-button>
+        </lightning-record-edit-form>
+    </template>
+    <template if:true={showCloseScreen}>
+        You have successfully updated <b>{numberOfUpdatedRecords} {objectApiName} records.</b>
+    </template>
+    </lightning-card>
+    
+</template>

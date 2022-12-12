@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+    <isExposed>true</isExposed>
+  <masterLabel>ISV Console - Map</masterLabel>
+  <description>Use this component to display a list of ISV Package installationson a map.</description>
+  <targets>
+      <target>lightning__RecordPage</target>
+      <target>lightning__AppPage</target>
+      <target>lightning__HomePage</target>
+  </targets>
+  <targetConfigs>
+      <targetConfig targets="lightning__AppPage, lightning__HomePage, lightning__RecordPage">
+          <property name="title" label="Map Component Title" type="String" default="Where are my Customers with Active Installs Located"  />
+      </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

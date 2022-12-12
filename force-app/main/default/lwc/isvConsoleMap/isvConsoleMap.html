@@ -1,0 +1,81 @@
+<!--
+  Copyright (c) 2018, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ -->
+
+
+<template>
+    
+        <lightning-card  variant="Narrow"  title={title} icon-name="standard:account">
+            <div class="parent">
+            <lightning-map
+            map-markers={mapMarkers}
+            markers-title={markersTitle}
+            onmarkerselect={handleMarkerSelect}
+            list-view="hidden"
+            selected-marker-value={selectedMarkerValue} >
+            </lightning-map>
+            </div> 
+            <div slot="footer">
+                <div>
+                    <lightning-button variant="base" label="Not seeing all your customers?" title="Not seeing all your customers?" onclick={showSetupInstructions} class="slds-m-left_x-small"></lightning-button>
+                </div>
+                <template if:true={showSetup}>
+                    <ul>
+                        <li>
+                    <lightning-progress-indicator current-step={selectedStep} type="path" variant="base">
+                        <lightning-progress-step label="Enable Data Integration Rules" onstepfocus={selectStep1} value="Step1"></lightning-progress-step>
+                        <lightning-progress-step label="Run Data Match Script" onstepfocus={selectStep2} value="Step2"></lightning-progress-step>
+                        <lightning-progress-step label="Update address on records" onstepfocus={selectStep3} value="Step3"></lightning-progress-step>
+                        <lightning-progress-step label="Refresh this page after some minutes" onstepfocus={selectStep4} value="Step4"></lightning-progress-step>
+                    </lightning-progress-indicator>
+                    </li>
+                        <template if:true={showApexJobButton}> 
+                            <li>
+                                Run the Lead Address Match by e-mail address Script
+                            </li>
+                            <li>
+                                <lightning-button variant="brand" label="Run" title="Run?" onclick={runDataMatchJob} class="slds-m-left_x-small"></lightning-button>
+                            </li>
+                        </template>
+                        <template if:true={showGoToDataQualityRules}> 
+                            <li>
+                                Activate or ask your Admin to activate all <lightning-formatted-url value="https://help.salesforce.com/s/articleView?id=sf.ddc_data_integration_rule_activating.htm&type=5" tooltip="View Steps to activate rules" label="Data Integration Rules" target="_blank" ></lightning-formatted-url>
+                            </li>
+                            <li>
+                                <!--<lightning-button variant="brand" label="Go (click-twice)" title="Go" onclick={navToQualityRules} class="slds-m-left_x-small"></lightning-button> -->
+                            </li>
+                        </template>
+                        <template if:true={showUpdateRecsPrompt}> 
+                            <li>
+                                * Only Lead and Account records associated with <b>Active</b> installations (License records) are displayed.
+                            </li>
+                            <li>
+                                There are<b> {numOfLeads} Leads</b> and <b>{numOfAccts} Accounts</b> without a value for City, Postal Code and Country which are needed for fetching their geolocations.
+                            </li>
+                            <li>
+                                <lightning-button variant="brand" label="Update Lead(s)" title="Update Lead" onclick={navToUpdateLeadRecords} class="slds-m-left_x-small"></lightning-button>
+                                <lightning-button variant="brand" label="Update Account(s)" title="Update Account" onclick={navToUpdateAcctRecords} class="slds-m-left_x-small"></lightning-button>
+                            </li>
+                        </template>
+                        <template if:true={showRefreshLWC}> 
+                            <li>
+                                Refresh this LWC from time to time to see the customer markers show up in the map (it may take some time for the Data Quality Rules to run)
+                            </li>
+                            <li>
+                                <lightning-button variant="brand" label="Refresh" title="Refresh" onclick={refreshLWC} class="slds-m-left_x-small"></lightning-button>
+                            </li>
+                        </template>
+                    
+                </ul>
+                </template>
+                <template if:true={showFooter}>
+                    <c-map-action-card class={computedChildClassName} recordid={selectedMarkerValue}  launchedviamodal={launchedViaModal}></c-map-action-card>
+                </template>
+            </div>
+            
+        </lightning-card>
+    
+</template>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+   <isExposed>true</isExposed>
+  <masterLabel>ISV Hub - Maintenance Events</masterLabel>
+  <description>Use this component to display a list of cards for upcoming platform releases and historical maintenance events.</description>
+  <targets>
+      <target>lightning__RecordPage</target>
+      <target>lightning__AppPage</target>
+      <target>lightning__HomePage</target>
+  </targets>
+  <targetConfigs>
+      <targetConfig targets="lightning__AppPage, lightning__HomePage, lightning__RecordPage">
+          <property name="title" label="Select the Type of Data for users to fetch" type="String" datasource="Upcoming Releases,Past Maintenances" default="Upcoming Releases"  />
+          <property name="orgtype" label="Select the Type of Environment" type="String" datasource="Production,Sandbox,PreRelease" default="Production"  />
+          <property name="maxRecords" label="Chose the maximum number of records to return per page" type="String" default="3"  />
+      </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,72 @@
+<!--
+  Copyright (c) 2018, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ -->
+
+<template>
+    <div class="rowText">
+    <article>
+        <div class="slds-p-top_x-small slds-p-bottom_x-small slds-m-top_xx-small">
+            <ul class="rowText">
+                <li>
+                    <lightning-layout vertical-align="stretch" multiple-rows=true>
+                        <div class="iconsdiv">
+                            <lightning-layout-item size="1">
+                                <lightning-icon icon-name="utility:salesforce1" size={computedIconSize} alternative-text="PackageIcon" title="PackageIcon" ></lightning-icon> 
+                            </lightning-layout-item>
+                        </div>
+                        <lightning-layout-item size="8">
+                            <div class={computedPckgButtonPadding}>
+                                <a onclick={navigateToWebPage}>{title} - {instancename}</a>   
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto, no-grow" size="3">
+                            <c-badge class={computedChildClassName} label={badgeLabel} licenseids={impactedlicenseids} onseeimpactedcustomers={seeimpactedcustomersHandler}></c-badge>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </li>
+                <li>
+                    <lightning-layout vertical-align="stretch" multiple-rows=true>
+                        <div class="iconsdiv">
+                            <lightning-layout-item size="1">
+                                <lightning-icon icon-name="utility:event" size={computedIconSize} alternative-text="CompanyIcon" title="CompanyIcon" ></lightning-icon> 
+                            </lightning-layout-item>
+                        </div>
+                        <lightning-layout-item padding="horizontal-small" size="11">
+                            <div class={computedAcctButtonPadding}>
+                                <lightning-formatted-date-time value={startdt} year="numeric" month="numeric" day="numeric" hour="2-digit"
+                                        minute="2-digit" hour12="true"></lightning-formatted-date-time>
+                                        <lightning-formatted-text value=" - " ></lightning-formatted-text>  
+                                <lightning-formatted-date-time value={endtime} hour="2-digit" minute="2-digit" time-zone-name="short"
+                                ></lightning-formatted-date-time>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </li>
+                <li>
+                    <lightning-layout vertical-align="stretch" multiple-rows=true>
+                        <div class="iconsdiv">
+                            <lightning-layout-item size="1">
+                                <lightning-icon icon-name={computedAvailabilityIcon} size={computedIconSize} alternative-text="AvilabilityIcon" title="AvilabilityIcon" ></lightning-icon> 
+                            </lightning-layout-item>
+                        </div>
+                        <lightning-layout-item padding="horizontal-small" size="11">
+                            <div class={computedAvailabilityPadding}>
+                                Org {availabilityText}
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </li>
+            </ul>
+
+        </div>
+        <template if:true={showFooter}>
+            <div class="slds-card__footer">
+                <slot name="footer"></slot>
+            </div>
+        </template>
+    </article>
+</div>
+</template>

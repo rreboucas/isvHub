@@ -1,0 +1,7 @@
+.parent {
+    max-height: 100%;
+    overflow: hidden;
+} 
+li {
+    padding-top: 2rem;
+}

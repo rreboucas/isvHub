@@ -1,0 +1,35 @@
+<!--
+  Copyright (c) 2018, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ -->
+
+<template >
+
+        <a href="#" onclick={selectHandler}>
+        <lightning-layout vertical-align="start" >
+          <!-- Left Column - Badge Icon - Start-->
+                <div class="badgeicon">
+                        <lightning-layout-item size="2">
+                        <div >
+                                <lightning-icon icon-name={badgeiconname} size="xx-small" alternative-text="BadgeIcon" title="BadgeIcon" alignment-bump="left" ></lightning-icon> 
+                        </div>
+                        </lightning-layout-item>
+                </div>
+        <!-- Left Column - Row Icon - End-->
+
+        <!-- Right Column - Badge Icon - Start-->
+        <div class="badgediv">
+                <lightning-layout-item size="10">  
+                        {label}
+                </lightning-layout-item>
+        </div>
+        <!-- Right Column - Row Icon - End-->
+
+        </lightning-layout> 
+        </a>
+
+
+
+</template>

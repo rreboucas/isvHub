@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="youTubePlayerRecordWrapper">
+    <apiVersion>46.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>YouTube Player Record Wrapper</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default,lightning__RecordPage">
+            <property name="fieldName" type="String" placeholder="Which field has the YouTube video ID?" />
+            <property name="recordId" type="String" placeholder="The current record Id" default="{!recordId}"/>
+            <property name="objectApiName" type="String" placeholder="The current object API name" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

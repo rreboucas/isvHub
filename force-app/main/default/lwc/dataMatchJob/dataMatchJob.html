@@ -1,0 +1,34 @@
+<template>
+    <lightning-card  title="">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+        </template>
+        <template if:true={showAcceptForm}>
+            <p class="slds-p-top_xx-large">
+                <lightning-input type="checkbox" label="I understand that all Lead records in this org that currently don't have Country and State values will be updated with the same Country and State values as other Leads that are matched by e-mail address (eg. Leads that originated from AppExchange Listing visits)" name="leadUpdatecheck" required></lightning-input>
+            </p>
+            <p class="slds-p-top_xx-large">
+                <lightning-input type="checkbox" label="I understand that I should ask my team to backup all Lead records before running this Apex Job if I intend to ever restore Leads to their original Country and State values." name="leadUpdatecheck" required></lightning-input>
+            </p>
+            <p class="slds-p-top_xx-large">
+                <lightning-button-group>
+                    <lightning-button label="Run" onclick={runJob} variant="brand"></lightning-button>
+                    <lightning-button label="Cancel" onclick={cancelJob} variant="destructive"></lightning-button>
+                </lightning-button-group>
+            </p>
+        </template>
+        <template if:true={showResults}>
+            <p class="slds-p-top_xx-large">
+                {jobResults}
+            </p>
+            <p class="slds-p-top_xx-large">
+                You may close this dialog.
+            </p>
+        </template>
+        <template if:true={showClose}>
+            <p class="slds-p-top_xx-large">
+                You may close this dialog.
+            </p>
+        </template>
+    </lightning-card>
+</template>

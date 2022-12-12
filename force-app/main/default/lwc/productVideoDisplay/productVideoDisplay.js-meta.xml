@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="youTubePlayerRecordWrapper">
+    <apiVersion>48.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>B2B Product Video Display</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default,lightning__RecordPage">
+            <property name="recordId" label="Current record Id" type="String" description="The current record Id" default="{!recordId}" required="true"/>
+            <property name="maxNumVideos" label="Maximum to display" type="Integer" description="Maximum number of videos to display (max of 5)" default="2" required="true" min="1" max="5" />
+            <property name="displayType" label="Display Preference" type="String" description="Choose how to display the videos" datasource="Accordian,Tabset" default="Accordian" required="true" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

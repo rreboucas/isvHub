@@ -1,0 +1,51 @@
+<!--
+  Copyright (c) 2018, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ -->
+
+<template>
+    <template if:true={showModifyForm}> 
+        <lightning-record-edit-form record-id={recordid}
+                                    object-api-name="sfLma__License__c"
+                                    onsuccess={handleSuccess}>
+            <lightning-messages>
+            </lightning-messages>
+            <lightning-input-field field-name="sfLma__Expiration__c">
+            </lightning-input-field>
+            <lightning-button
+                class="slds-m-top_small"
+                variant="brand"
+                type="submit"
+                name="update"
+                label="Update">
+            </lightning-button>
+        </lightning-record-edit-form>
+    </template>
+    <template if:true={showResults}>
+        <div>
+            <ul>
+                <li>
+                    <lightning-layout vertical-align="center" horizontal-align="center">
+                        <lightning-layout-item padding="horizontal-small" size="1">
+                            <lightning-icon icon-name="action:approval" size="x-small" alternative-text="EmailIcon" title="EmailIcon" ></lightning-icon> 
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="horizontal-large" size="11">
+                            License Expiration Modified Successfully!
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <lightning-layout vertical-align="center" horizontal-align="center">
+                        <lightning-layout-item padding="horizontal-small" size="12">
+                            
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </li>
+            </ul>
+    </div>  
+    </template>
+</template>

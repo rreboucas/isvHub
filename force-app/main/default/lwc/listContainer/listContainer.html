@@ -1,0 +1,72 @@
+<!--
+  Copyright (c) 2018, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ -->
+
+<template>
+    <div class="parent">
+    <template if:true={hasLMAInstalls}>
+        <lightning-card  variant="Narrow"  title={title} icon-name={headerIconName}>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </template>
+            <template if:true={hasSubHeader}>
+                <div class="slds-p-left_large">
+                    <lightning-layout vertical-align="stretch" multiple-rows=true>
+                        <lightning-layout-item size="6">
+                            <lightning-layout>
+                                    <lightning-layout-item size="1">
+                                        <lightning-icon icon-name="utility:event" size="xx-small" alternative-text="CompanyIcon" title="CompanyIcon" ></lightning-icon> 
+                                    </lightning-layout-item>
+                                <lightning-layout-item size="11">
+                                    <lightning-formatted-date-time value={startdt} year="numeric" month="numeric" day="numeric" hour="2-digit"
+                                            minute="2-digit" hour12="true"></lightning-formatted-date-time>
+                                            <lightning-formatted-text value=" - " ></lightning-formatted-text>  
+                                    <lightning-formatted-date-time value={endtime} hour="2-digit" minute="2-digit" time-zone-name="short"
+                                    ></lightning-formatted-date-time>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                            
+                                    
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <lightning-layout vertical-align="stretch">
+                                    <lightning-layout-item size="1">
+                                        <lightning-icon icon-name={computedAvailabilityIcon} size={computedIconSize} alternative-text="AvilabilityIcon" title="AvilabilityIcon" ></lightning-icon> 
+                                    </lightning-layout-item>
+                                <lightning-layout-item padding="horizontal-small" size="11">
+                                    {availabilityText}
+                                </lightning-layout-item>
+                            </lightning-layout>
+                    </lightning-layout-item>        
+                    </lightning-layout>
+                </div>  
+            </template>
+            <ul class={ulCssClass}>
+                <template if:true={hasData} for:each={latestInstalls} for:item="install">
+                    <li key={install.licenseID}>
+                        <c-item-action-card class={computedChildClassName} packageversionid={install.packageVersion} parenttitle={title} title={install.packageName} installdate={install.installDateTime} expiredate={install.expirationDate} company={install.companyName} licenseid={install.licenseID} onclick={handleOptionClick} leadid={install.leadID} accountid={install.accountID} email={install.email} launchedviamodal={launchedViaModal} iscustomersimpacted={isCustomersImpacted} orgid={install.orgID} maintenancename={title} startdt={startdt} endtime={endtime} availability={availabilityText} licenseids={licenseIds} orgtype={orgtype} maintenanceid={maintenanceid}></c-item-action-card>
+                    </li>
+                </template>
+                <template if:false={hasData}>
+                    <div class={computedChildClassName}>
+                        <p>No {title}</p>
+                    </div>
+                    
+                </template>
+            </ul>
+                <template if:true={showMoreLinkVisible}>
+                    <div slot="footer">
+                            <lightning-button variant="base" label="View More" title="View More" onclick={viewMoreClick} class="slds-m-left_x-small"></lightning-button>
+                    </div>
+                </template>
+        </lightning-card>
+    </template>
+    
+    <template if:false={hasLMAInstalls}>
+        No License Data - Please install and configure LMA first
+    </template>
+</div>
+</template>

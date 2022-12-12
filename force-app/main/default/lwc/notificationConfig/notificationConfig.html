@@ -1,0 +1,32 @@
+<template> 
+    <div class="slds-grid slds-m-around_small slds-align_absolute-center">
+        <p>Select up to 2 dates to be notified of your org expiration date. <br />
+        By default, these are set to 1 day and 7 days before org expiration.
+        <lightning-helptext content="By default, notifications are sent to all System Administrators and ISV Hub Admins in this organisation. 
+                                    Modify this behaviour by adjusting the Org Expiration Notification Lightning Flow in Setup">
+        </lightning-helptext></p>
+    </div>
+
+    
+    <div class="slds-grid slds-grid_vertical slds-p-top_small slds-p-left_small slds-p-right_small slds-size_1-of-1 slds-col slds-align_absolute-center">
+        <template if:true={currentNotifications}>
+            Notifications are currently scheduled for the following dates:
+            <template if:true={currentNotifications} for:each={currentNotifications} for:item="notification">
+                <div key={notification}>{notification}</div>
+            </template>
+        </template>
+        <template if:false={currentNotifications}>
+            You currently have no notifications scheduled to inform you of org expiry. Schedule this below.
+        </template>
+    </div>
+
+    <template if:true={tomorrowDate}>
+        <div class="slds-m-around_small">
+            <lightning-input type="date" name="notification1" label="First Notification Date" min={tomorrowDate} max={expiryDate} onblur={handleSelect}></lightning-input>
+            <lightning-input type="date" name="notification2" label="Second Notification Date" min={tomorrowDate} max={expiryDate} onchange={handleSelect}></lightning-input>
+            <div class="slds-align_absolute-center slds-m-top_small">
+                <lightning-button disabled={dateValidity} variant="brand" label="Save" title="Save" onclick={handleSave} ></lightning-button> 
+            </div>
+        </div>
+    </template>
+</template>

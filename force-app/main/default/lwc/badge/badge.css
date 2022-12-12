@@ -1,0 +1,76 @@
+/*
+ * Copyright (c) 2018, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
+
+
+:host {
+    background-color: #FFFFFF;
+    padding: 0.10rem 0.85rem;
+    font-weight: 400;
+    border-radius: 15rem;    
+    line-height: normal;
+    white-space: nowrap;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: left;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgb(4, 181, 245);
+    /*border: var(--lwc-borderWidthThin,0.5px) solid var(--lwc-colorBorder,rgb(4, 181, 245));*/
+    color: rgb(4, 181, 245);
+    text-align: left;
+}
+a {
+    text-decoration: none !important;
+}
+:host(.mobile) {
+    min-width: 7rem;
+    max-width: 7rem;
+}
+/*:host(.mobile),
+b {
+    padding-left: 0.2rem;
+}*/
+:host(.desktopSmall) {
+    min-width: 10rem;
+}
+:host(.desktopSmall_events) {
+    font-size: 10px;
+}
+:host(.desktopLarge) {
+    min-width: 11rem;
+}
+:host(.viewlicense) {
+    background-color: #f9f0fc;
+}
+:host(.viewaccount) {
+    background-color: #edfcf0;
+} 
+:host(.viewlead) {
+    background-color: #fcf3ed;
+} 
+:host(.createoppty) {
+    background-color: #f5f5e4;
+} 
+:host(.expiration) {
+    background-color: #f7e9e9;
+} 
+:host(.email) {
+    background-color: #f0efed;
+    color: white !important;
+} 
+:host(.notification) {
+    background-color: #fcf7e8;
+}
+.badgediv {
+    min-width: 4rem;
+} 
+.badgeicon {
+    min-width: 1.5rem;
+}

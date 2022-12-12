@@ -1,0 +1,25 @@
+<template>
+
+    <template if:true={isYouTube}>
+
+        <template if:true={youTubeId}>
+            <c-basic-you-tube-player you-tube-id={youTubeId}></c-basic-you-tube-player>
+        </template>
+        <template if:false={youTubeId}>
+            <lightning-card title={label.youTubeNotFoundLabel}></lightning-card>
+        </template>
+
+    </template>
+    
+    <template if:true={isMp4}>
+
+        <template if:true={videoUri}>
+            <c-basic-mp4-player video-uri={videoUri}></c-basic-mp4-player>
+        </template>
+        <template if:false={videoUri}>
+            <lightning-card title={label.mp4NotFoundLabel}></lightning-card>
+        </template>
+
+    </template>
+
+</template>

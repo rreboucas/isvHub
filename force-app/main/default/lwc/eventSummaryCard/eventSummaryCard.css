@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) 2018, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
+
+ li {
+    margin-top: 0.2rem;
+}
+article {
+   padding: 0%;
+   border-radius: var(--lwc-borderRadiusMedium,0.25rem);
+   background-color: #F7F7F7;
+}
+span {
+   padding-top: 0.2rem;
+}
+:host(.mobile) {
+   font-size: 0.6125rem;
+   line-height: 0;
+}
+:host(.desktop) {
+   font-size: 0.8125rem;
+}
+.iconsdiv {
+   max-width: 4rem;
+}

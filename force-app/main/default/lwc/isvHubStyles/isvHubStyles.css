@@ -1,0 +1,12 @@
+.parent {
+    
+    overflow: hidden;
+} 
+.wrapper {
+    height: 400px;
+    max-height: 395px;
+    overflow-y: scroll;
+    margin-top: 0.3rem;
+
+    color:#298ed6;
+}

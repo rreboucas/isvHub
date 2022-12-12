@@ -1,0 +1,73 @@
+<!--
+  Copyright (c) 2018, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ -->
+
+<template>
+    <template if:true={showEmailForm}>
+        <lightning-card  variant="Narrow">
+            <ul>
+                <li>
+                    <lightning-layout vertical-align="start">
+                        <lightning-layout-item padding="horizontal-small" size="12">
+                            <lightning-input class="inputEmail" type="email" label="To:" value={email} ></lightning-input>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </li>
+                <li>
+                    <lightning-layout vertical-align="start">
+                        <lightning-layout-item padding="horizontal-small" size="12">
+                            <lightning-input class="inputSubject" type="text" label="Subject:" value={defaultSubject}></lightning-input>
+                        </lightning-layout-item>
+                    </lightning-layout> 
+                </li>
+                <li>
+                    <lightning-layout vertical-align="start">
+                        <lightning-input-rich-text
+                            value={myVal}
+                            formats={formats}
+                            align="left">
+                        </lightning-input-rich-text>
+                    </lightning-layout>
+                </li>
+            </ul>
+            
+            <p slot="footer">
+                <lightning-layout vertical-align="start" >
+                    <lightning-layout-item padding="horizontal-small" size="12">
+                        <lightning-button-group>
+                            <lightning-button label="Send" variant="brand" onclick={sendEmail}></lightning-button>
+                        </lightning-button-group>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </p>
+        </lightning-card>
+    </template>
+    <template if:true={showResults}>
+        <div>
+            <ul>
+                <li>
+                    <lightning-layout vertical-align="center" horizontal-align="center">
+                        <lightning-layout-item padding="horizontal-small" size="1">
+                            <lightning-icon icon-name="action:approval" size="x-small" alternative-text="EmailIcon" title="EmailIcon" ></lightning-icon> 
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="horizontal-large" size="11">
+                            Email Sent Successfully!
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <lightning-layout vertical-align="center" horizontal-align="center">
+                        <lightning-layout-item padding="horizontal-small" size="12">
+                            
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </li>
+            </ul>
+    </div>  
+    </template>
+</template>

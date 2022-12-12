@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2018, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
+ @import 'c/isvHubStyles';
+ 
+.mobile {
+    height: 17rem;
+    max-height: 100%;
+    min-height: 17rem;
+    position: relative;
+}
+.desktop {
+    height: 18rem;
+    max-height: 100%;
+    min-height: 18rem;
+    position: relative;
+}
+.desktopSmall {
+    height: 17rem;
+    max-height: 100%;
+    min-height: 17rem;
+    position: relative;
+}
+ .nodata {
+    
+}
+p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+} 
+li {
+    padding-top: 0.01rem;
+}
+.iconsdiv {
+    max-width: 4rem;
+    padding-bottom: 1rem;
+ }

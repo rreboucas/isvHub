@@ -1,0 +1,54 @@
+<template>
+
+    <template if:true={hasVideos}>
+        
+        <lightning-accordion active-section-name="main" allow-multiple-sections-open >
+
+            <lightning-accordion-section name="main" label={label.productVideosLabel}>
+
+                <template if:true={useAccordian}>
+
+                    <lightning-accordion class="slds-accordion" allow-multiple-sections-open active-section-name={activeSectionName}>
+
+                        <template for:each={videos} for:item="video" for:index="index">
+                            
+                            <lightning-accordion-section key={video.id} name={video.id} label={video.title}>
+                                <c-product-video-record you-tube-id={video.youTubeVideoId} type={video.type} video-uri={video.videoUri}></c-product-video-record>
+
+                                <p>{video.description}</p>
+
+                            </lightning-accordion-section>
+
+                        </template>
+
+                    </lightning-accordion>
+
+                </template>
+
+                <template if:true={useTabset}>
+
+                    <lightning-tabset>
+
+                        <template for:each={videos} for:item="video" for:index="index">
+
+                            <lightning-tab key={video.id} label={video.title}>
+
+                                <c-product-video-record you-tube-id={video.youTubeVideoId} type={video.type} video-uri={video.videoUri}></c-product-video-record>
+
+                                <p>{video.description}</p>
+
+                            </lightning-tab>
+
+                        </template>
+
+                    </lightning-tabset>
+
+                </template>
+
+            </lightning-accordion-section>
+
+        </lightning-accordion>
+
+    </template>
+
+</template>

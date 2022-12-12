@@ -1,0 +1,14 @@
+<!--
+  Copyright (c) 2018, salesforce.com, inc.
+  All rights reserved.
+  SPDX-License-Identifier: BSD-3-Clause
+  For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ -->
+
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global">
+    <aura:attribute name="actionType" type="String"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <lightning:messageChannel type="isvconsole__ISVConsole__c"
+                onMessage="{!c.handleMessage}" scope="APPLICATION"/>
+</aura:component>

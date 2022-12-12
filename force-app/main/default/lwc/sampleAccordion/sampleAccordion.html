@@ -1,0 +1,15 @@
+<template>
+    
+    <lightning-accordion class="slds-accordion" allow-multiple-sections-open active-section-name="a00B000000CyEbUIAV">
+
+        <template for:each={videos} for:item="video" for:index="index">
+            
+            <lightning-accordion-section key={video.Id} name={video.Id} label={video.Description__c}>
+                <c-product-video-record you-tube-id={video.YouTube_Video_Id__c} type={video.Type__c} video-uri={video.Video_URI__c}></c-product-video-record>
+            </lightning-accordion-section>
+
+        </template>
+
+    </lightning-accordion>
+
+</template>
