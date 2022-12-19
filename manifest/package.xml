@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <!--
     <types>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         <members>Happening_Now</members>
         <name>FlexiPage</name>
     </types>
@@ -29,63 +14,19 @@
     </types>
     <types>
         <members>*</members>
-<<<<<<< HEAD
-=======
-        <members>*</members>
->>>>>>> 01969aa (modalmodifylicense)
-=======
-        <members>badge</members>
->>>>>>> 6894227 (custom metadata)
-=======
-        <members>modifyLicenseExpiration</members>
->>>>>>> a3999be (removed comments from meta xml)
         <name>LightningComponentBundle</name>
     </types>
     <types>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <members>*</members>
         <name>LightningMessageChannel</name>
-=======
-        <members>itemActionCard</members>
-=======
-        <members>*</members>
->>>>>>> f88ac2d (added NBA)
-        <name>LightningComponentBundle</name>
->>>>>>> 33dcdb1 (added)
     </types>
     <types>
         <members>*</members>
         <name>ApexClass</name>
-    </types>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> f88ac2d (added NBA)
-    <types>
-        <members>*</members>
-        <name>LightningComponentBundle</name>
-=======
-        <members>*</members>
-=======
-        <members>listContainer</members>
->>>>>>> af5f42a (fixedalignment)
-        <name>LightningComponentBundle</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>LightningMessageChannel</name>
->>>>>>> 4e20c86 (added formfactor to message)
     </types>
     <types>
         <members>*</members>
         <name>AuraDefinitionBundle</name>
-<<<<<<< HEAD
-=======
-        <members>isvConsoleMapController</members>
-        <name>ApexClass</name>
->>>>>>> 033b27d (added map controller apex)
     </types>
     <types>
         <members>*</members>
@@ -94,305 +35,14 @@
     <types>
         <members>ISV_Console_Admin</members>
         <name>PermissionSet</name>
-=======
-        <members>isvConsoleMap</members>
-        <name>LightningComponentBundle</name>
->>>>>>> 3aa0de7 (fix1)
     </types>
     <types>
         <members>*</members>
         <name>Flow</name>
     </types>
-<<<<<<< HEAD
     <types>
         <members>*</members>
         <name>CustomTab</name>
     </types>
-=======
->>>>>>> 33dcdb1 (added)
-=======
->>>>>>> f88ac2d (added NBA)
-=======
-        <name>AuraDefinitionBundle</name>
-    </types>
->>>>>>> 1e54fcd (added einstein header to aura nba cmp)
-=======
-     <types>
-        <members>*</members>
-        <name>LightningComponentBundle</name>
-=======
-        <members>ISV_Console_Admin</members>
-        <name>PermissionSet</name>
->>>>>>> 00546ad (first commit)
-    </types>
->>>>>>> ed6f09d (added badge)
-=======
-    </types>
->>>>>>> 4e20c86 (added formfactor to message)
-=======
-        <members>listContainer</members>
-=======
-        <members>itemActionCard</members>
->>>>>>> bc9f56d (test)
-        <name>LightningComponentBundle</name>
-    </types>
->>>>>>> c2aec72 (dynamic header icons)
-=======
-        <members>mapActionCard</members>
-=======
-        <members>badge</members>
->>>>>>> a7a817b (fixed styles)
-        <name>LightningComponentBundle</name>
-    </types>
-    <types>
-        <members>isvConsoleMap</members>
-        <name>LightningComponentBundle</name>
-    </types>
->>>>>>> 84b8eb1 (added account viewer to map)
-=======
-        <members>mapActionCard</members>
-        <name>LightningComponentBundle</name>
-    </types>
->>>>>>> f192ce0 (fixed lead vs account on map)
-=======
-        <members>listContainerController</members>
-        <name>ApexClass</name>
-    </types>
-    
-    <types>
-        <members>*</members>
-        <name>AuraDefinitionBundle</name>
-    </types>
-
-    <types>
-        <members>eventSummaryCard</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    <types>
-        <members>badge</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    
-    
-    <types>
-        <members>itemActionCard</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>LightningMessageChannel</name>
-    </types>
-    
-    <types>
-        <members>listContainerController</members>
-        <name>ApexClass</name>
-    </types>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <types>
-        <members>listContainer</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    -->
-<<<<<<< HEAD
->>>>>>> 6aab12d (comit july 2020)
-=======
-    
-
-<<<<<<< HEAD
-    <types>
-=======
-      <types>
->>>>>>> c1e8093 (additional)
-        <members>testListContainerController</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>statusServerController</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>maintenanceEvents</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    -->
-=======
-
->>>>>>> c258fe6 (fix dependencies for team dev)
-    <types>
-        <members>listContainer</members>
-        <name>LightningComponentBundle</name>
-    </types>
-=======
-   
->>>>>>> d3c0005 (adding maintenance lwc changes)
-    <types>
-        <members>sfLma__License__c</members>
-        <name>CustomObject</name>
-    </types>
-    <types>
-        <members>Happening_Now</members>
-        <name>FlexiPage</name>
-    </types>
-     
-    
-  
-     <types>
-        <members>statusServerController</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>modalLauncher</members>
-        <name>AuraDefinitionBundle</name>
-    </types>  
-   
-    
-    <types>
-        <members>badge</members>
-        <name>LightningComponentBundle</name>
-    </types>
-
-    <types>
-        <members>isvHubStyles</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    
-    <types>
-        <members>isvConsoleMap</members>
-        <name>LightningComponentBundle</name>
-    </types>
-
-     
-    <types>
-        <members>*</members>
-        <name>CustomObject</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomApplication</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomTab</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>LightningMessageChannel</name>
-    </types>
-
-    <types>
-        <members>*</members>
-        <name>LightningComponentBundle</name>
-    </types>
-
-    <types>
-        <members>*</members>
-        <name>AuraDefinitionBundle</name>
-    </types>  
-
-    <types>
-        <members>*</members>
-        <name>ApexClass</name>
-    </types>
-    
-    
-<<<<<<< HEAD
->>>>>>> 4e992a8 ( adding pagination)
-=======
-    <types>
-        <members>*</members>
-        <name>FlexiPage</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ReportType</name>
-    </types>
-
-    <types>
-        <members>ISV_Hub_Reports/Installs_vs_Uninistalls_mUh</members>
-        <name>Report</name>
-    </types>
-    <types>
-        <members>ISV_Hub_Reports/Which_Instances_are_my_customers_using_G3A</members>
-        <name>Report</name>
-    </types>
-    <types>
-        <members>ISV_Hub_Reports/Package_Versions_installed_per_Package_AO5</members>
-        <name>Report</name>
-    </types>
-    <types>
-        <members>ISV_Hub_Reports/Number_of_Installs_per_Package_per_Day_KZq</members>
-        <name>Report</name>
-    </types>
-     <types>
-        <members>ISV_Console_Admin</members>
-        <name>PermissionSet</name>
-    </types>
-        <types>
-        <members>maintenanceEvents</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    <types>
-        <members>eventSummaryCard</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    <types>
-        <members>maintenanceEvents</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    <types>
-        <members>listContainer</members>
-        <name>LightningComponentBundle</name>
-    </types>
-
-     <types>
-        <members>manageData</members>
-        <name>ApexClass</name>
-    </types>
-
-    
-<<<<<<< HEAD
->>>>>>> c373e22 (fixed styles)
-=======
-
-    
-
-     
-
-    
-
-    <types>
-        <members>postInstallClass</members>
-        <name>ApexClass</name>
-    </types>
-
-    <types>
-        <members>testListContainerController</members>
-        <name>ApexClass</name>
-    </types>
-    -->
-    <types>
-        <members>postInstallClass</members>
-        <name>ApexClass</name>
-    </types>
-   <types>
-        <members>schedDeleteMaintenanceEvents</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>schedFetchMaintenance</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>callTrustAPI</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>TestFactory</members>
-        <name>ApexClass</name>
-    </types>
->>>>>>> a624ccf (changes to post install)
     <version>48.0</version>
 </Package>
-<!-- Grab Recommendation data and file for packaging -->
-

@@ -68,8 +68,4 @@ public with sharing class CountdownTimerController_Test {
             System.assertEquals(theseCrons.size(), 0);
         Test.stopTest();
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 67638d6 (Org Expiry Notification Functionality)

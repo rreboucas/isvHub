@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 00546ad (first commit)
     <applicationVisibilities>
         <application>ISV_Console</application>
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c373e22 (fixed styles)
         <apexClass>CountdownTimerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -35,15 +26,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>emailServerController</apexClass>
-<<<<<<< HEAD
-=======
-        <apexClass>ISVConsole_Helper</apexClass>
->>>>>>> 00546ad (first commit)
-=======
-        <apexClass>ISVConsoleHelper</apexClass>
->>>>>>> c258fe6 (fix dependencies for team dev)
-=======
->>>>>>> c373e22 (fixed styles)
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -54,11 +36,6 @@
         <apexClass>listContainerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c373e22 (fixed styles)
     <classAccesses>
         <apexClass>schedFetchMaintenance</apexClass>
         <enabled>true</enabled>
@@ -121,123 +98,50 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-<<<<<<< HEAD
-=======
-    <fieldPermissions>
-        <editable>false</editable>
->>>>>>> 6a87e3a (maintenances visibility)
-=======
->>>>>>> c373e22 (fixed styles)
         <field>Maintenance__c.Availability__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <editable>true</editable>
-=======
-        <editable>false</editable>
->>>>>>> 6a87e3a (maintenances visibility)
-=======
-        <editable>true</editable>
->>>>>>> c373e22 (fixed styles)
         <field>Maintenance__c.End_Date_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <editable>true</editable>
-=======
-        <editable>false</editable>
->>>>>>> 6a87e3a (maintenances visibility)
-=======
-        <editable>true</editable>
->>>>>>> c373e22 (fixed styles)
         <field>Maintenance__c.Event_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <editable>true</editable>
-=======
-        <editable>false</editable>
->>>>>>> 6a87e3a (maintenances visibility)
-=======
-        <editable>true</editable>
->>>>>>> c373e22 (fixed styles)
         <field>Maintenance__c.ImpactedLicenseIds__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <editable>true</editable>
-=======
-        <editable>false</editable>
->>>>>>> 6a87e3a (maintenances visibility)
-=======
-        <editable>true</editable>
->>>>>>> c373e22 (fixed styles)
         <field>Maintenance__c.Instance_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <editable>true</editable>
-=======
-        <editable>false</editable>
->>>>>>> 6a87e3a (maintenances visibility)
-=======
-        <editable>true</editable>
->>>>>>> c373e22 (fixed styles)
         <field>Maintenance__c.Is_Pre_Release__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <editable>true</editable>
-=======
-        <editable>false</editable>
->>>>>>> 6a87e3a (maintenances visibility)
-=======
-        <editable>true</editable>
->>>>>>> c373e22 (fixed styles)
         <field>Maintenance__c.Is_Sandbox__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <editable>true</editable>
-=======
-        <editable>false</editable>
->>>>>>> 6a87e3a (maintenances visibility)
-=======
-        <editable>true</editable>
->>>>>>> c373e22 (fixed styles)
         <field>Maintenance__c.Number_of_Impacted_Customers__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <editable>true</editable>
-=======
-        <editable>false</editable>
->>>>>>> 6a87e3a (maintenances visibility)
-=======
-        <editable>true</editable>
->>>>>>> c373e22 (fixed styles)
         <field>Maintenance__c.Start_Date_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <editable>true</editable>
         <field>Maintenance__c.Total_Number_of_Records__c</field>
         <readable>true</readable>
@@ -537,17 +441,6 @@
         <field>sfLma__Package__c.sfLma__Release_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
-=======
->>>>>>> 00546ad (first commit)
-=======
-        <editable>false</editable>
-=======
-        <editable>true</editable>
->>>>>>> c373e22 (fixed styles)
-        <field>Maintenance__c.Total_Number_of_Records__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
->>>>>>> 6a87e3a (maintenances visibility)
     <hasActivationRequired>false</hasActivationRequired>
     <label>ISV Console_Admin</label>
     <license>Salesforce</license>
@@ -557,10 +450,6 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c373e22 (fixed styles)
         <object>Account</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -683,37 +572,10 @@
         <tab>standard-Lead</tab>
         <visibility>Visible</visibility>
     </tabSettings>
-=======
-    <hasActivationRequired>false</hasActivationRequired>
-    <label>ISV Console_Admin</label>
-    <license>Salesforce</license>
->>>>>>> f88ac2d (added NBA)
-=======
-        <object>Maintenance__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
->>>>>>> 6a87e3a (maintenances visibility)
-    <tabSettings>
-        <tab>Happening_Now</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>Maintenance__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>standard-Account</tab>
-        <visibility>Available</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>standard-Lead</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
     <tabSettings>
         <tab>standard-Recommendation</tab>
         <visibility>Visible</visibility>
     </tabSettings>
-<<<<<<< HEAD
     <tabSettings>
         <tab>standard-report</tab>
         <visibility>Visible</visibility>
@@ -726,6 +588,4 @@
         <enabled>true</enabled>
         <name>RunReports</name>
     </userPermissions>
-=======
->>>>>>> f88ac2d (added NBA)
 </PermissionSet>

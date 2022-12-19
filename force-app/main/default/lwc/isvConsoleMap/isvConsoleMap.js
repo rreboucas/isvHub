@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -9,7 +5,6 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-<<<<<<< HEAD
 import { LightningElement, track, api, wire } from 'lwc';
 import getLocationData from '@salesforce/apex/isvConsoleMapController.getLocationData';
 import getOrgURL from '@salesforce/apex/isvConsoleMapController.getOrgURL';
@@ -39,40 +34,10 @@ const ACCT_FIELDS = [
 ];
 
 export default class IsvConsoleMap extends NavigationMixin(LightningElement) {
-=======
-=======
->>>>>>> a94e476 (first committo labs)
-import { LightningElement, track, api, wire } from 'lwc';
-import getLocationData from '@salesforce/apex/isvConsoleMapController.getLocationData';
-import FORM_FACTOR from '@salesforce/client/formFactor';
-import { publish, MessageContext } from 'lightning/messageService';
-import ISVCONSOLEMC from "@salesforce/messageChannel/ISVConsole__c";
-import { getRecord } from 'lightning/uiRecordApi';
-
-const ACCT_FIELDS = [
-    'Account.Name',
-    'Account.BillingLatitude',
-    'Account.BillingLongitude',
-    'Account.BillingStreet',
-    'Account.BillingState',
-    'Account.BillingCity',
-    'Account.BillingCountry',
-    'Account.ShippingLatitude',
-    'Account.ShippingLongitude',
-    'Account.ShippingStreet',
-    'Account.ShippingState',
-    'Account.ShippingCity',
-    'Account.ShippingCountry',
-];
-
-export default class IsvConsoleMap extends LightningElement {
->>>>>>> 033b27d (added map controller apex)
     
     @api title;
     mapMarkers = [];
     error;
-<<<<<<< HEAD
-<<<<<<< HEAD
     numberOfMarkers;
     isMobile = false;
     showFooter = false;
@@ -113,35 +78,12 @@ export default class IsvConsoleMap extends LightningElement {
     
     @wire(MessageContext)
     messageContext;
-=======
-    numberOfMarkers;
-    isMobile = false;
-    showFooter = false;
-    isTablet = false;
-    isDesktop = false;
-    formfactorName;
-    selectedMarkerValue ;
-    
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> ed6f09d (added badge)
-=======
-=======
-
-    
-    
->>>>>>> 4b2234e (added account viewer to map)
-    @wire(MessageContext)
-    messageContext;
->>>>>>> 00546ad (first commit)
     
     connectedCallback() {
         // Check formfactor being used to access this LWC
         switch(FORM_FACTOR) {
             case 'Large':
                 this.isDesktop = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
                 this.formfactorName = 'Desktop';
               break;
             case 'Medium':
@@ -159,84 +101,22 @@ export default class IsvConsoleMap extends LightningElement {
          
     }
 
-=======
-    
->>>>>>> 033b27d (added map controller apex)
-=======
-=======
-                this.formfactorName = 'Desktop';
->>>>>>> 4e20c86 (added formfactor to message)
-              break;
-            case 'Medium':
-                this.isTablet = true;
-                this.formfactorName = 'Tablet';
-              break;
-            case 'Small':
-                this.isMobile = true;
-                this.formfactorName = 'Phone';
-            break;
-            default:
-    
-          }
-    }
-
->>>>>>> ed6f09d (added badge)
     @wire(getLocationData)
     wiredLocations({ error, data }) {
         if (data) {
             this.mapMarkers = data;
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.error = 'No Data found';
             this.numberOfMarkers = data.length;
         }
         else if (error) {
-=======
-            this.error = undefined;
-            this.numberOfMarkers = data.length;
-        } else if (error) {
->>>>>>> 033b27d (added map controller apex)
             this.error = error;
             this.mapMarkers = undefined;
-=======
-            this.error = 'No Data found';
-            this.numberOfMarkers = data.length;
-<<<<<<< HEAD
-        } 
-        else  {
-            this.error = 'No Data returned from Salesforce Org';
-            this.numberOfMarkers = 0;
-            
-            this.mapMarkers = [
-                {
-                    value: 'France1',
-                    location: {
-                        City: "Cap-d'Ail",
-                        Country: 'France',
-                    },
-        
-                    icon: 'custom:custom26',
-                    title: "Cap-d'Ail",
-                },
-            ];
-
-
->>>>>>> 3aa0de7 (fix1)
-=======
-        }
-        else if (error) {
-            this.error = error;
-            this.mapMarkers = undefined;
->>>>>>> 4e20c86 (added formfactor to message)
         }
     }
     
-<<<<<<< HEAD
-<<<<<<< HEAD
     
     @track markersTitle = "My Customers";
 
-<<<<<<< HEAD
     selectStep1() {
         this.selectedStep = 'Step1';
         this.showApexJobButton = false;
@@ -315,13 +195,8 @@ export default class IsvConsoleMap extends LightningElement {
 
     handleMarkerSelect(event) {
         this.selectedMarkerValue = event.detail.selectedMarkerValue;
-<<<<<<< HEAD
-<<<<<<< HEAD
         console.log('isvConsoleMap.js selectedMarkerValue: ' + this.selectedMarkerValue);
         this.showSetup = false;
-=======
-        console.log('isvConsoleMap.js selectedMarkerValue: ' + this.selectedMarkerValue);
->>>>>>> 0def482 (map)
         this.showFooter = true;
     }
 
@@ -331,9 +206,6 @@ export default class IsvConsoleMap extends LightningElement {
             actionType: 'runLeadsMatchJob'
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
-=======
-        this.showFooter = true;
->>>>>>> 4b2234e (added account viewer to map)
     }
 
     badgeSelected(event) {
@@ -371,161 +243,4 @@ export default class IsvConsoleMap extends LightningElement {
     }
 
 
-=======
-    /*
-    mapMarkers = [
-        {
-            value: 'US1',
-            location: {
-                State: "Texas",
-                Country: 'USA',
-            },
-
-            icon: 'custom:custom26',
-            title: "US1",
-        },
-        {
-            value: 'US2',
-            location: {
-                State: 'Florida',
-                Country: 'US',
-            },
-
-            icon: 'custom:custom96',
-            title: 'US2',
-        },
-        {
-            value: 'France3',
-            location: {
-                City: 'Saint-Jean-Cap-Ferrat',
-                Country: 'France',
-            },
-
-            title: 'Saint-Jean-Cap-Ferrat',
-        },
-        {
-            value: 'France4',
-            location: {
-                City: 'Villefranche-sur-Mer',
-                Country: 'France',
-            },
-
-            icon: 'custom:custom92',
-            title: 'Villefranche-sur-Mer',
-        },
-        {
-            value: 'France5',
-            location: {
-                City: 'Antibes',
-                Country: 'France',
-            },
-
-            icon: 'custom:custom61',
-            title: 'Antibes',
-        },
-        {
-            value: 'France6',
-            location: {
-                City: 'Juan-les-Pins',
-                Country: 'France',
-            },
-
-            icon: 'custom:custom74',
-            title: 'Juan-les-Pins',
-        },
-        {
-            value: 'France7',
-            location: {
-                City: 'Cannes',
-                Country: 'France',
-            },
-
-            icon: 'custom:custom3',
-            title: 'Cannes',
-        },
-        {
-            value: 'France8',
-            location: {
-                City: 'Saint-Raphaël',
-                Country: 'France',
-            },
-
-            icon: 'custom:custom54',
-            title: 'Saint-Raphaël',
-        },
-        {
-            value: 'France9',
-            location: {
-                City: 'Fréjus',
-                Country: 'France',
-            },
-
-            icon: 'custom:custom88',
-            title: 'Fréjus',
-        },
-        {
-            value: 'France10',
-            location: {
-                City: 'Sainte-Maxime',
-                Country: 'France',
-            },
-
-            icon: 'custom:custom92',
-            title: 'Sainte-Maxime',
-        },
-    ]; */
-=======
-    
->>>>>>> ed6f09d (added badge)
-    @track markersTitle = "My Customers";
-
-    @track selectedMarkerValue = 'France1';
-=======
->>>>>>> 00546ad (first commit)
-
-    handleMarkerSelect(event) {
-        this.selectedMarkerValue = event.detail.selectedMarkerValue;
-        if (this.isMobile)
-            this.selctedOnMobile = true;
-    }
-<<<<<<< HEAD
->>>>>>> 033b27d (added map controller apex)
-=======
-
-    badgeSelected(event) {
-        console.log('isvConsoleMap.js badgeSelected' + event);
-        const recId = event.detail.recId;
-        const action = event.detail.action;
-
-        switch(action) {
-            case 'nba':
-                {
-                    // Send Message to Modal Launcher Component to Open NBA on a Mobile Modal
-                    const message = {
-                        messageToSend: recId,
-                        actionType: 'displayNba',
-                        sourceComponent: 'ISVConsoleMap',
-                        formFactor: this.formfactorName
-                    };
-                    console.log('isvConsoleMap.js message' + message);
-                    publish(this.messageContext, ISVCONSOLEMC, message);
-                    break;
-                }
-            case 'NavToRecord':
-                //
-              break;
-            case 'ConvertLead':
-                //
-            break;
-            case 'NotifySales':
-                //
-            break;
-            default:
-              // code block
-          }
-
-    }
-
-
->>>>>>> 00546ad (first commit)
 }

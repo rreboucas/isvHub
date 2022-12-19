@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -10,19 +6,8 @@
  */
 
 
-<<<<<<< HEAD
 @isTest
 public without sharing class TestFactory {
-=======
-=======
->>>>>>> a94e476 (first committo labs)
-@isTest
-<<<<<<< HEAD
-public class TestFactory {
->>>>>>> 6894227 (custom metadata)
-=======
-public without sharing class TestFactory {
->>>>>>> a624ccf (changes to post install)
     // define default constants that can be accessible to assert against.
 
     public static final String DEFAULT_ACCOUNT_NAME = 'ACME Inc.';
@@ -69,10 +54,6 @@ public without sharing class TestFactory {
            );
 
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a624ccf (changes to post install)
 
     public static String getUUID()
 {
@@ -82,11 +63,6 @@ public without sharing class TestFactory {
         system.debug(guid);
         return guid;
     }
-<<<<<<< HEAD
-=======
->>>>>>> 6894227 (custom metadata)
-=======
->>>>>>> a624ccf (changes to post install)
     
 
     public static Contact createContact(String accountID){
@@ -166,20 +142,7 @@ public without sharing class TestFactory {
                 sfLma__License_Type__c = 'Editable',
                 sfLma__Org_Type__c = 'Developer Edition',
                 sfLma__Status__c = 'Active',
-<<<<<<< HEAD
-<<<<<<< HEAD
                 sfLma__Subscriber_Org_ID__c = DEFAULT_ORG_ID
-=======
-                sfLma__Subscriber_Org_ID__c = DEFAULT_ORG_ID,
-<<<<<<< HEAD
-                sfLma__Version_Number__c = 'isvconsoletestrunning'
->>>>>>> 6894227 (custom metadata)
-=======
-                isvconsole__isTestRunning__c = true
->>>>>>> 6aab12d (comit july 2020)
-=======
-                sfLma__Subscriber_Org_ID__c = DEFAULT_ORG_ID
->>>>>>> c258fe6 (fix dependencies for team dev)
            );
     }
 
@@ -198,20 +161,7 @@ public without sharing class TestFactory {
                 sfLma__Org_Type__c = 'Developer Edition',
                 sfLma__Status__c = 'Active',
                 sfLma__Subscriber_Org_ID__c = '00DB0000000He80',
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 sfLma__Org_Instance__c = 'CS122'
-=======
-                sfLma__Version_Number__c = 'isvconsoletestrunning'
->>>>>>> 6894227 (custom metadata)
-=======
-                sfLma__Org_Instance__c = 'CS122',
-                isvconsole__isTestRunning__c = true
->>>>>>> 6aab12d (comit july 2020)
-=======
-                sfLma__Org_Instance__c = 'CS122'
->>>>>>> c258fe6 (fix dependencies for team dev)
            );
     }
     

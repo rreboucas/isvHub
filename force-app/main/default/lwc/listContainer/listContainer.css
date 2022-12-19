@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
  @import 'c/isvHubStyles';
  
 .mobile {
@@ -42,72 +35,10 @@ p {
     margin-right: -50%;
     transform: translate(-50%, -50%)
 } 
-=======
-
->>>>>>> a94e476 (first committo labs)
-=======
- .parent {
-    height: 30rem;
-    max-height: 100%;
-    min-height: 30rem;
-} 
->>>>>>> 6aab12d (comit july 2020)
-=======
- @import 'c/isvHubStyles';
- 
-.mobile {
-    height: 17rem;
-    max-height: 100%;
-<<<<<<< HEAD
-    min-height: 30rem;
-} */
->>>>>>> d3c0005 (adding maintenance lwc changes)
-=======
-    min-height: 17rem;
-    position: relative;
-}
-.desktop {
-    height: 18rem;
-    max-height: 100%;
-    min-height: 18rem;
-    position: relative;
-}
-.desktopSmall {
-    height: 17rem;
-    max-height: 100%;
-    min-height: 17rem;
-    position: relative;
-}
- .nodata {
-    
-}
-p {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
-} 
->>>>>>> c373e22 (fixed styles)
 li {
     padding-top: 0.01rem;
 }
 .iconsdiv {
     max-width: 4rem;
     padding-bottom: 1rem;
-<<<<<<< HEAD
  }
-=======
-li {
-<<<<<<< HEAD
-    padding-top: 0.20rem;
-}
->>>>>>> 01969aa (modalmodifylicense)
-=======
-    padding-top: 0.01rem;
-}
->>>>>>> af5f42a (fixedalignment)
-=======
- } 
->>>>>>> d3c0005 (adding maintenance lwc changes)

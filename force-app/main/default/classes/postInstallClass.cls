@@ -2,7 +2,6 @@ global without sharing class postInstallClass implements InstallHandler{
 
     global void onInstall(InstallContext context) {
 
-<<<<<<< HEAD
         // Check if there are any ISV Hub apex jobs already scheduled in the org and abot them if there are:
 
         List<CronTrigger> lstFetchJobs = [SELECT Id FROM CronTrigger where (CronJobDetail.name like 'schedFetchMaintenance%' OR CronJobDetail.name like 'schedDeleteMaintenanceEvents%') AND State = 'Waiting'];
@@ -16,15 +15,12 @@ global without sharing class postInstallClass implements InstallHandler{
 
         // Now schedule new batch jobs:
         
-=======
->>>>>>> a624ccf (changes to post install)
         String hour = String.valueOf(Datetime.now().hour());
         String min = String.valueOf(Datetime.now().minute() + 1); 
         String ss = String.valueOf(Datetime.now().second());
 
         //parse to cron expression
         String nextFireTime = ss + ' ' + min + ' ' + hour + ' * * ?';
-<<<<<<< HEAD
        
         schedFetchMaintenance s = new schedFetchMaintenance(); 
         System.schedule('schedFetchMaintenance Job ' + getUUID() + String.valueOf(Datetime.now()), nextFireTime, s);
@@ -113,16 +109,3 @@ global without sharing class postInstallClass implements InstallHandler{
 
 
 }
-=======
-
-        schedFetchMaintenance s = new schedFetchMaintenance(); 
-        System.schedule('schedFetchMaintenance Job ' + TestFactory.getUUID() + String.valueOf(Datetime.now()), nextFireTime, s);
-
-        schedDeleteMaintenanceEvents sd = new schedDeleteMaintenanceEvents(); 
-        System.schedule('schedDeleteMaintenanceEvents Job ' + TestFactory.getUUID() + String.valueOf(Datetime.now()), nextFireTime, sd);
-
-    }
-
-
-}
->>>>>>> a624ccf (changes to post install)

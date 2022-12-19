@@ -27,8 +27,4 @@ public with sharing class UsersWithPermissionFlowHelper_Test {
         Test.stopTest();
 
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 67638d6 (Org Expiry Notification Functionality)

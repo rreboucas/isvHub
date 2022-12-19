@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -9,8 +5,6 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-<<<<<<< HEAD
-<<<<<<< HEAD
  li {
      margin-top: 0.2rem;
  }
@@ -29,54 +23,9 @@ span {
 :host(.desktop) {
     font-size: 0.8125rem;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 :host(.desktopSmall) {
     font-size: 0.7125rem;
 }
 .iconsdiv {
     max-width: 4rem;
 }
-=======
-=======
-=======
-.iconsdiv {
-    max-width: 4rem;
-}   
->>>>>>> a7a817b (fixed styles)
-=======
-:host(.desktopSmall) {
-    font-size: 0.7125rem;
-}
-.iconsdiv {
-    max-width: 4rem;
-}
-
->>>>>>> d3c0005 (adding maintenance lwc changes)
-
->>>>>>> a94e476 (first committo labs)
-=======
- li {
-     margin-top: 0.2rem;
- }
->>>>>>> 84b8eb1 (added account viewer to map)
-article {
-    padding: 0%;
-    border-radius: var(--lwc-borderRadiusMedium,0.25rem);
-    background-color: #F7F7F7;
-}
-span {
-    padding-top: 0.2rem;
-}
-:host(.mobile) {
-    font-size: 0.6125rem;
-    line-height: 0;
-}
-:host(.desktop) {
-    font-size: 0.8125rem;
-} 
-<<<<<<< HEAD
->>>>>>> bc9f56d (test)
-=======
-
->>>>>>> 84b8eb1 (added account viewer to map)

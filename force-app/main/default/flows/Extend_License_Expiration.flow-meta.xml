@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-<<<<<<< HEAD
     <apiVersion>49.0</apiVersion>
-=======
->>>>>>> f88ac2d (added NBA)
     <interviewLabel>Extend License Expiration {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Extend License Expiration</label>
     <processMetadataValues>
@@ -27,10 +24,7 @@
         <connector>
             <targetReference>Expiration_Date_Updated</targetReference>
         </connector>
-<<<<<<< HEAD
         <filterLogic>and</filterLogic>
-=======
->>>>>>> f88ac2d (added NBA)
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>

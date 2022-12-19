@@ -21,7 +21,6 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
     @api enddt;
     @api starttime;
     @api endtime;
-<<<<<<< HEAD
     @api 
     get numimpacted() {
         return this._numimpacted;
@@ -35,35 +34,15 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
         else
             this.badgeLabel = this._numimpacted + ' Customers';
     }
-=======
-    @api numimpacted;
->>>>>>> 6aab12d (comit july 2020)
     @api impactedlicenseids;
     @api iconName;
     @api instancename;
     @api availability;
-<<<<<<< HEAD
-<<<<<<< HEAD
     @api orgtype;
 
     @api maintenanceid;
     
     maintenancelink;   
-=======
-
-<<<<<<< HEAD
-    
->>>>>>> 6aab12d (comit july 2020)
-=======
-    @api maintenanceid;  
->>>>>>> d3c0005 (adding maintenance lwc changes)
-=======
-    @api orgtype;
-
-    @api maintenanceid;
-    
-    maintenancelink;   
->>>>>>> e6a0a85 (added maintenance email capabilities)
 
     isMobile = false;
     isTablet = false;
@@ -79,23 +58,14 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
     badgeLabel;
     computedAvailabilityIcon;
     availabilityText;
-<<<<<<< HEAD
-<<<<<<< HEAD
     computedPckgButtonPadding;
     computedAvailabilityPadding;
-=======
->>>>>>> 6aab12d (comit july 2020)
-=======
-    computedPckgButtonPadding;
-    computedAvailabilityPadding;
->>>>>>> d3c0005 (adding maintenance lwc changes)
 
     @track privateVariant = 'base';
 
     @wire(MessageContext)
     messageContext;
 
-<<<<<<< HEAD
     renderedCallback() {
         console.log('EventSummaryCard.js renderedCallback: ' );
     }
@@ -104,13 +74,6 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
         this.screenWidth = window.screen.width;
         this.computedPckgButtonPadding = 'slds-p-left_small';
         this.computedAvailabilityPadding = 'slds-p-left_xxx-small';
-<<<<<<< HEAD
-=======
-    connectedCallback() {
-        this.screenWidth = window.screen.width;
->>>>>>> 6aab12d (comit july 2020)
-=======
->>>>>>> d3c0005 (adding maintenance lwc changes)
 
         if (this.availability == 'fullyAvailable')
         {
@@ -122,15 +85,7 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
             this.availabilityText = 'Unavailable';
             this.computedAvailabilityIcon = 'utility:ban'
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
         console.log('EventSummaryCard.js orgtype: ' + this.orgtype);
-=======
-
->>>>>>> 6aab12d (comit july 2020)
-=======
-        console.log('EventSummaryCard.js orgtype: ' + this.orgtype);
->>>>>>> e6a0a85 (added maintenance email capabilities)
         console.log('EventSummaryCard.js - id: ' + this.id);
         console.log('EventSummaryCard.js - numimpacted: ' + this.numimpacted);
         console.log('EventSummaryCard.js - impactedlicenseids: ' + this.impactedlicenseids);
@@ -154,15 +109,7 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
             this.computedWeekDayFormat = 'long';
             
             if (this.screenWidth <= 1440){
-<<<<<<< HEAD
-<<<<<<< HEAD
                 this.computedChildClassName = 'desktopSmall_events';
-=======
-                this.computedChildClassName = 'desktopSmall';
->>>>>>> 6aab12d (comit july 2020)
-=======
-                this.computedChildClassName = 'desktopSmall_events';
->>>>>>> d3c0005 (adding maintenance lwc changes)
                 this.computedYearFormat = 'numeric';
                 this.computedMonthFormat = 'numeric';
                 this.computedDayFormat = 'numeric';
@@ -234,14 +181,7 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
 
     navigateToWebPage(event) {
         event.preventDefault();
-<<<<<<< HEAD
-<<<<<<< HEAD
         this.maintenancelink = this.id.split("-")[0];
-=======
->>>>>>> 6aab12d (comit july 2020)
-=======
-        this.maintenancelink = this.id.split("-")[0];
->>>>>>> e6a0a85 (added maintenance email capabilities)
         // Navigate to a URL
         this[NavigationMixin.Navigate]({
             type: 'standard__webPage',
@@ -255,25 +195,11 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
 
     seeimpactedcustomersHandler() {
         // Send Message to modalLauncher Aura LC to open modifyLicenseExpiration LWC
-<<<<<<< HEAD
-<<<<<<< HEAD
         console.log('EventSummaryCard.js - this.impactedlicenseids: ' + this.impactedlicenseids);
         var licenseIdsArray = this.impactedlicenseids.split(',');
         console.log('EventSummaryCard.js - licenseIdsArray: ' + licenseIdsArray);
-<<<<<<< HEAD
         const message = {
             messageToSend: licenseIdsArray,
-=======
-=======
-        console.log('EventSummaryCard.js - this.impactedlicenseids: ' + this.impactedlicenseids);
->>>>>>> 4e992a8 ( adding pagination)
-        const message = {
-            messageToSend: this.impactedlicenseids,
->>>>>>> 6aab12d (comit july 2020)
-=======
-        const message = {
-            messageToSend: licenseIdsArray,
->>>>>>> d3c0005 (adding maintenance lwc changes)
             actionType: 'viewImpactedCustomers',
             sourceComponent: 'eventSummaryCard.js - ' + this.label,
             formFactor: this.formfactorName,
@@ -283,26 +209,10 @@ export default class EventSummaryCard extends NavigationMixin(LightningElement) 
             monthFormat: this.computedMonthFormat,
             dayFormat: this.computedDayFormat,
             weekDayFormat: this.computedWeekDayFormat,
-<<<<<<< HEAD
-<<<<<<< HEAD
             availability: this.availability,
             endtime: this.endtime,
             orgtype: this.orgtype,
             maintenanceid: this.id.split("-")[0]
-=======
-            starttime: this.starttime,
-            endtime: this.endtime
->>>>>>> 6aab12d (comit july 2020)
-=======
-            availability: this.availability,
-            endtime: this.endtime,
-<<<<<<< HEAD
-            maintenanceid: this.maintenanceid
->>>>>>> d3c0005 (adding maintenance lwc changes)
-=======
-            orgtype: this.orgtype,
-            maintenanceid: this.id.split("-")[0]
->>>>>>> e6a0a85 (added maintenance email capabilities)
         };
         publish(this.messageContext, ISVCONSOLEMC, message);
     }

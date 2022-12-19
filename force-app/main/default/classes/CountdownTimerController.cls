@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -13,7 +9,6 @@
  * 
  */
 
-<<<<<<< HEAD
 global class CountdownTimerController { 
     public static final String JOBS_CANCELLED = 'Scheduled jobs cancelled, you will not receive an org expiry notification';
     public static final String JOBS_SCHEDULED = 'Successfully scheduled! Job Ids: ';
@@ -21,27 +16,11 @@ global class CountdownTimerController {
     {1 => 'Jan', 2 => 'Feb', 3 => 'Mar', 4 => 'Apr', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'Aug', 9 => 'Sep', 10 => 'Oct', 11 => 'Nov', 12 => 'Dec'};
 
 
-=======
-public with sharing class CountdownTimerController { 
-<<<<<<< HEAD
->>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)
-=======
-    public static final String JOBS_CANCELLED = 'Scheduled jobs cancelled, you will not receive an org expiry notification';
-    public static final String JOBS_SCHEDULED = 'Successfully scheduled! Job Ids: ';
-    private static Map<Integer, String> monthNamesByInteger = new Map<Integer, String>
-    {1 => 'Jan', 2 => 'Feb', 3 => 'Mar', 4 => 'Apr', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'Aug', 9 => 'Sep', 10 => 'Oct', 11 => 'Nov', 12 => 'Dec'};
-
-
->>>>>>> b024a8c (UI updates and Lightning Flow added)
     @AuraEnabled
     public Static String getExpirationDate(){
         Organization org = [SELECT TrialExpirationDate FROM Organization];
         return string.valueOf(org.TrialExpirationDate);
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b024a8c (UI updates and Lightning Flow added)
 
     @AuraEnabled
     public static List<String> getScheduledNotifications(){
@@ -71,8 +50,6 @@ public with sharing class CountdownTimerController {
     public static string setNotificationDates(List<Date> dates){
         try {
             String jobId = '';
-<<<<<<< HEAD
-<<<<<<< HEAD
             //Get all jobs scheduled by ISVHub
             List<CronTrigger> crons = getCronsForOrgExpiry();
             //Cancel all jobs scheduled by ISVHub
@@ -88,34 +65,6 @@ public with sharing class CountdownTimerController {
                         jobId += scheduleNewJob(d, nameSuffix) + ' ';
                         nameSuffix++;
                     }
-=======
-=======
-            //Get all jobs scheduled by ISVHub
->>>>>>> 67638d6 (Org Expiry Notification Functionality)
-            List<CronTrigger> crons = getCronsForOrgExpiry();
-            //Cancel all jobs scheduled by ISVHub
-            abortCurrentJobs(crons);
-            Integer nameSuffix = 1;
-<<<<<<< HEAD
-            for(Date d : dates){
-                if(d != null){
-                    System.debug('d');
-                    System.debug(d);
-                    jobId += scheduleNewJob(d, nameSuffix) + ' ';
-                    nameSuffix++;
->>>>>>> b024a8c (UI updates and Lightning Flow added)
-=======
-            if(dates != null){
-                //Don't schedule the same job on the same day. 
-                if(dates.size() > 1 && dates[0] == dates[1]){
-                    dates[1] = null;
-                }
-                for(Date d : dates){
-                    if(d != null){
-                        jobId += scheduleNewJob(d, nameSuffix) + ' ';
-                        nameSuffix++;
-                    }
->>>>>>> 67638d6 (Org Expiry Notification Functionality)
                 }
             }
 
@@ -131,15 +80,7 @@ public with sharing class CountdownTimerController {
     }
 
     public static String scheduleNewJob(Date dt, Integer nameSuffix){
-<<<<<<< HEAD
-<<<<<<< HEAD
         PublishExpiryEvent scheduleEmail = new PublishExpiryEvent();
-=======
-        SendNotificationEmail scheduleEmail = new SendNotificationEmail();
->>>>>>> b024a8c (UI updates and Lightning Flow added)
-=======
-        PublishExpiryEvent scheduleEmail = new PublishExpiryEvent();
->>>>>>> 67638d6 (Org Expiry Notification Functionality)
         String cronDate = '0 0 0 ' + dt.day() + ' ' + dt.month() +  ' ? ' + dt.year();
         return System.schedule('ISVHub-OrgExpiryNotification' + nameSuffix, cronDate, scheduleEmail);
     }
@@ -150,6 +91,3 @@ public with sharing class CountdownTimerController {
         }
     }
 }
-=======
-}
->>>>>>> c4e1348 (Countdown Timer LWC and Apex Class for basic countdown functionality)

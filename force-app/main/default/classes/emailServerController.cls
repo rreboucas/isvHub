@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a94e476 (first committo labs)
 /*
  * Copyright (c) 2018, salesforce.com, inc.
  * All rights reserved.
@@ -9,11 +5,6 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-<<<<<<< HEAD
-=======
->>>>>>> af5f42a (fixedalignment)
-=======
->>>>>>> a94e476 (first committo labs)
 public with sharing class emailServerController {
     
     @AuraEnabled
@@ -24,19 +15,7 @@ public with sharing class emailServerController {
     public String TaskId { get;set; }
     
     @AuraEnabled
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     public static emailServerController sendEmail(String body, String subject, String email, String recordId, String activityType, String licenseId, String maintenanceId, Boolean isAccount) {
-=======
-    public static emailServerController sendEmail(String body, String subject, String email, String recordId) {
->>>>>>> af5f42a (fixedalignment)
-=======
-    public static emailServerController sendEmail(String body, String subject, String email, String recordId, String activityType, String licenseId, String maintenanceId) {
->>>>>>> d3c0005 (adding maintenance lwc changes)
-=======
-    public static emailServerController sendEmail(String body, String subject, String email, String recordId, String activityType, String licenseId, String maintenanceId, Boolean isAccount) {
->>>>>>> e6a0a85 (added maintenance email capabilities)
 
         System.debug('######## recordId: ' + recordId);
         emailServerController result = new emailServerController();
@@ -101,61 +80,25 @@ public with sharing class emailServerController {
                 t.Subject = subject;
                 t.Status = 'Closed';
                 t.Priority = 'Normal';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e6a0a85 (added maintenance email capabilities)
                 if (isAccount)
                     t.WhatId = recordId;
                 else {
                     t.WhoId = recordId;
                 }
                 // add who id if it is a lead
-<<<<<<< HEAD
-=======
-                t.WhatId = recordId;
->>>>>>> af5f42a (fixedalignment)
-=======
->>>>>>> e6a0a85 (added maintenance email capabilities)
                 t.TaskSubtype = 'Email';
                 t.Description = body;
                 t.ActivityDate = Date.today();
                 insert t;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
                 // Add Tracked Email record:
                 /*Tracked_Email__c tr = new Tracked_Email__c();
-=======
-
-                // Add Tracked Email record:
-<<<<<<< HEAD
-                Tracked_Email__c tr = new Tracked_Email__c();
->>>>>>> d3c0005 (adding maintenance lwc changes)
-=======
-                /*Tracked_Email__c tr = new Tracked_Email__c();
->>>>>>> e6a0a85 (added maintenance email capabilities)
                 tr.Activity_Id__c = t.id;
                 tr.Activity_Type__c = activityType;
                 tr.Date_Time_Sent__c = t.CreatedDate;
                 tr.LMA_License__c = licenseId;
                 tr.Maintenance__c = maintenanceId;
-<<<<<<< HEAD
-<<<<<<< HEAD
                 tr.Sent_by_User__c = t.CreatedById; */
-=======
-=======
-                tr.Sent_by_User__c = t.CreatedById;
-<<<<<<< HEAD
-                tr.Sent_to_Email__c = 
->>>>>>> d3c0005 (adding maintenance lwc changes)
-                
->>>>>>> af5f42a (fixedalignment)
-=======
->>>>>>> abb0f3a (jan21)
-=======
-                tr.Sent_by_User__c = t.CreatedById; */
->>>>>>> e6a0a85 (added maintenance email capabilities)
                 
             }
             else
@@ -169,8 +112,4 @@ public with sharing class emailServerController {
         return result;
 
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> af5f42a (fixedalignment)

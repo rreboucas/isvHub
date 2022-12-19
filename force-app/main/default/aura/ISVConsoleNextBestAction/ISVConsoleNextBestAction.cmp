@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a94e476 (first committo labs)
 <!--
   Copyright (c) 2018, salesforce.com, inc.
   All rights reserved.
@@ -9,7 +5,6 @@
   For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  -->
 
-<<<<<<< HEAD
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
     <aura:attribute name="receivedRecordId" type="String" access="global"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
@@ -48,60 +43,5 @@
                 <lightning:messageChannel type="isvconsole__ISVConsole__c"
                 onMessage="{!c.handleChanged}" scope="APPLICATION"/>
     
-=======
-=======
->>>>>>> a94e476 (first committo labs)
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
-    <aura:attribute name="receivedRecordId" type="String" access="global"/>
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    
-    <lightning:card>
-        <aura:set attribute="title">
-            <div class="slds-card__header slds-grid slds-border_bottom slds-einstein-header">
-                <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                    <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
-                        <div class="slds-media__body">
-                            <h2 class="slds-card__header-link slds-truncate titleHeader" title="Next Best Action">
-                            <span class="slds-text-heading_small test-widgetTitle" title="Next Best Action">Next Best Action</span>
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="slds-einstein-header__figure slds-size_1-of-4 slds-medium-size_1-of-3"></div>
-                </header>
-            </div>
-        </aura:set>
-
-
-            
-        <div class="slds-align_absolute-center">
-            <aura:if isTrue="{!not(empty(v.recordId))}">
-                {!v.body}
-                <p><lightning:formattedText value="{!v.recordId}" /></p>
-                <aura:set attribute="else">
-                    <c:promptcarousel /> <br/>
-                </aura:set>
-            </aura:if>
-        </div>
-
-    </lightning:card>
-    
-<<<<<<< HEAD
-			    <!--<lightning:nextBestActions strategyName ="License_Expiring_Soon" showEinstein="true">
-			    </lightning:nextBestActions> -->
-<<<<<<< HEAD
-    
-<<<<<<< HEAD
-    {!v.body}
->>>>>>> f88ac2d (added NBA)
-=======
-=======
-=======
-
->>>>>>> c2aec72 (dynamic header icons)
-                <lightning:messageChannel type="ISVConsole__c"
-                onMessage="{!c.handleChanged}" scope="APPLICATION"/>
->>>>>>> 3ef6593 (Added Msg Channel)
-    
->>>>>>> 1e54fcd (added einstein header to aura nba cmp)
 
 </aura:component>

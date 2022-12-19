@@ -9,37 +9,15 @@
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
-<<<<<<< HEAD
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
-=======
->>>>>>> d3c0005 (adding maintenance lwc changes)
     <label>ISV Hub</label>
     <navType>Standard</navType>
     <tabs>Happening_Now</tabs>
-<<<<<<< HEAD
-<<<<<<< HEAD
     <tabs>Analytics</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Lead</tabs>
-<<<<<<< HEAD
-<<<<<<< HEAD
     <tabs>standard-report</tabs>
     <tabs>Todo__c</tabs>
-=======
-    <tabs>standard-Account</tabs>
-    <tabs>standard-Lead</tabs>
->>>>>>> 00546ad (first commit)
-=======
-    <tabs>Maintenance__c</tabs>
->>>>>>> 6a87e3a (maintenances visibility)
-=======
->>>>>>> e6a0a85 (added maintenance email capabilities)
-=======
-    <tabs>Analytics</tabs>
-    <tabs>standard-Account</tabs>
-    <tabs>standard-Lead</tabs>
-    <tabs>standard-report</tabs>
->>>>>>> fc29b17 (added reports and fixed email lwc)
     <uiType>Lightning</uiType>
     <utilityBar>ISV_Console_UtilityBar</utilityBar>
 </CustomApplication>

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a94e476 (first committo labs)
 <!--
   Copyright (c) 2018, salesforce.com, inc.
   All rights reserved.
@@ -10,7 +6,6 @@
  -->
 
 
-<<<<<<< HEAD
 <template>
     
         <lightning-card  variant="Narrow"  title={title} icon-name="standard:account">
@@ -82,61 +77,5 @@
             </div>
             
         </lightning-card>
-=======
-=======
->>>>>>> a94e476 (first committo labs)
-<template>
-<<<<<<< HEAD
-    <lightning-card  variant="Narrow"  title={title} icon-name="standard:account">
-        
-        <lightning-map
-        map-markers={mapMarkers}
-        markers-title={markersTitle}
-        onmarkerselect={handleMarkerSelect}
-        list-view="hidden"
-        selected-marker-value={selectedMarkerValue} >
-        </lightning-map>
-        <p slot="footer">
-            <template if:true={showFooter}>
-                <c-map-action-card class={computedChildClassName} recordid={selectedMarkerValue}  launchedviamodal={launchedViaModal}></c-map-action-card>
-            <!--    
-                <lightning-card  variant="Narrow"  title={name} icon-name="standard:account">
-                        <div class="slds-m-around_medium">
-                            <p>{street}, {city} {country}</p>
-                        </div>
-                </lightning-card>
-            -->
-            </template>
-        </p>
-        
-    </lightning-card>
->>>>>>> 033b27d (added map controller apex)
-=======
-    
-        <lightning-card  variant="Narrow"  title={title} icon-name="standard:account">
-            <div class="parent">
-            <lightning-map
-            map-markers={mapMarkers}
-            markers-title={markersTitle}
-            onmarkerselect={handleMarkerSelect}
-            list-view="hidden"
-            selected-marker-value={selectedMarkerValue} >
-            </lightning-map>
-            </div> 
-            <p slot="footer">
-                <template if:true={showFooter}>
-                    <c-map-action-card class={computedChildClassName} recordid={selectedMarkerValue}  launchedviamodal={launchedViaModal}></c-map-action-card>
-                <!--    
-                    <lightning-card  variant="Narrow"  title={name} icon-name="standard:account">
-                            <div class="slds-m-around_medium">
-                                <p>{street}, {city} {country}</p>
-                            </div>
-                    </lightning-card>
-                -->
-                </template>
-            </p>
-            
-        </lightning-card>
->>>>>>> d3c0005 (adding maintenance lwc changes)
     
 </template>

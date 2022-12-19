@@ -7,90 +7,10 @@
 
 <template>
     
-<<<<<<< HEAD
-
-    <article class={computedWrapperClassNames}>
-        <header class="slds-card__header slds-grid">
-            <div class="slds-media slds-media_center slds-has-flexi-truncate">
-                <template if:true={hasIcon}>
-                    <div class="slds-media__figure">
-                        <c-icon icon-name={iconName} size="small"></c-icon>
-                    </div>
-                </lightning-layout-item>
-                <!-- Left Column - Row Icon - End-->
-
-                <!-- Right Column - Badge Buttons - Start-->
-                <template if:true={iscustomersimpacted}>
-                <lightning-layout-item padding="horizontal-small" size="11">
-                    <ul class="rowText">
-                        <li>
-                            <lightning-layout vertical-align="stretch" multiple-rows=true>
-                                <div class="iconsdiv">
-                                    <lightning-layout-item size="1">
-                                        <lightning-icon icon-name="utility:company" size={computedIconSize} alternative-text="CompanyIcon" title="CompanyIcon" ></lightning-icon> 
-                                    </lightning-layout-item>
-                                </div>
-                                <lightning-layout-item padding="horizontal-small" size="6">
-                                    <div class={computedAcctButtonPadding}>
-                                        <a onclick={companyHandlelick}>{company}</a> 
-                                    </div>
-                                </lightning-layout-item>
-                                <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                    <c-badge class={computedChildClassName} label={topBadgeLabel} recordid={companyId} email={email}  launchedviamodal={launchedviamodal} onnotifyimpactedcustomers={sendNotifyEmailHandler} maintenanceid={maintenanceid}></c-badge>
-                                </lightning-layout-item>
-                            </lightning-layout>
-                        </li>
-                        <li>
-                            <lightning-layout vertical-align="stretch" multiple-rows=true>
-                                <div class="iconsdiv">
-                                    <lightning-layout-item size="1">
-                                        <lightning-icon icon-name="utility:package" size={computedIconSize} alternative-text="PackageIcon" title="PackageIcon" ></lightning-icon> 
-                                    </lightning-layout-item>
-                                </div>
-                                <lightning-layout-item padding="horizontal-small" size="6">
-                                    <div class={computedPckgButtonPadding}>
-                                        <a onclick={packageHandlelick}>{title}</a>   
-                                    </div>
-                                </lightning-layout-item>
-                                <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                    <c-badge class={computedChildClassName} label={midleBadgeLabel} recordid={companyId} email={email} launchedviamodal={launchedviamodal}></c-badge>
-                                </lightning-layout-item>
-                            </lightning-layout>
-                        </li>
-                    </ul>
-                </lightning-layout-item>
-                </template>
-                <div class="slds-media__body slds-truncate">
-                    <h2>
-                        <span class="slds-text-heading_small">
-                            <template if:true={hasStringTitle}>
-                                {title}
-                            </template>
-                            <template if:false={hasStringTitle}>
-                                <slot name="title"></slot>
-                            </template>
-                        </span>
-                    </h2>
-                </div>
-            </div>
-            <div class="slds-no-flex">
-                <slot name="actions"></slot>
-            </div>
-        </header>
-        <div class="slds-card__body">
-<<<<<<< HEAD
-            <slot></slot>
-=======
-=======
 <div class="rowText">
     <article>
         
-<<<<<<< HEAD
-        <div class="slds-card__body rowText">
->>>>>>> bc9f56d (test)
-=======
         <div class="slds-p-top_x-small slds-p-bottom_x-small slds-m-top_xx-small">
->>>>>>> af5f42a (fixedalignment)
             
             <lightning-layout vertical-align="start" >
                 
@@ -119,7 +39,7 @@
                                     </div>
                                 </lightning-layout-item>
                                 <lightning-layout-item flexibility="auto, no-grow" size="5">
-                                    <c-badge class={computedChildClassName} label={topBadgeLabel} recordid={companyId} email={email}  launchedviamodal={launchedviamodal} onnotifyimpactedcustomers={sendNotifyEmailHandler} licenseids={licenseids}></c-badge>
+                                    <c-badge class={computedChildClassName} label={topBadgeLabel} recordid={companyId} email={email}  launchedviamodal={launchedviamodal} onnotifyimpactedcustomers={sendNotifyEmailHandler} maintenanceid={maintenanceid}></c-badge>
                                 </lightning-layout-item>
                             </lightning-layout>
                         </li>
@@ -204,7 +124,6 @@
                 <!-- Right Column - Badge Buttons - End-->
             </lightning-layout>
 
->>>>>>> f88ac2d (added NBA)
         </div>
         <template if:true={showFooter}>
             <div class="slds-card__footer">

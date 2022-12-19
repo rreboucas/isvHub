@@ -11,11 +11,7 @@
   </targets>
   <targetConfigs>
       <targetConfig targets="lightning__AppPage, lightning__HomePage, lightning__RecordPage">
-<<<<<<< HEAD
           <property name="title" label="Map Component Title" type="String" default="Where are my Customers with Active Installs Located"  />
-=======
-          <property name="title" label="Map Component Title" type="String" default="Where are my Customers Located"  />
->>>>>>> 033b27d (added map controller apex)
       </targetConfig>
   </targetConfigs>
 </LightningComponentBundle>

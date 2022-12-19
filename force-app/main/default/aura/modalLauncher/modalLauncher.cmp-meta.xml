@@ -1,23 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>48.0</apiVersion>
     <description>A Lightning Component Bundle</description>
 </AuraDefinitionBundle>
-=======
-=======
-<!--
-  Copyright (c) 2018, salesforce.com, inc.
-  All rights reserved.
-  SPDX-License-Identifier: BSD-3-Clause
-  For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
- -->
-
->>>>>>> a94e476 (first committo labs)
-<?xml version="1.0" encoding="UTF-8" ?>
-<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>48.0</apiVersion>
-    <description>A Lightning Component Bundle</description>
-</AuraDefinitionBundle>
->>>>>>> 00546ad (first commit)
