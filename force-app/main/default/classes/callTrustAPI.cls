@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 global class callTrustAPI {
 =======
 public with sharing class callTrustAPI {
@@ -7,6 +8,12 @@ public with sharing class callTrustAPI {
 =======
 public without sharing class callTrustAPI {
 >>>>>>> a624ccf (changes to post install)
+=======
+public without sharing class callTrustAPI {
+=======
+global class callTrustAPI {
+>>>>>>> 2d3980b (“”)
+>>>>>>> 0e850fe (“”)
     @future(callout=true)
     public static void getMaintenances()
     { 
