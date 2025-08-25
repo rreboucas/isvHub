@@ -192,6 +192,14 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>callTrustAPIBatch</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Maintenance</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
         <members>TestFactory</members>
         <name>ApexClass</name>
     </types>
